@@ -7,5 +7,5 @@
 ## Usage
 
 ```
-import {} from 'utils'
+import {} from '@mx/utils'
 ```

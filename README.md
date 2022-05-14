@@ -1,5 +1,11 @@
 # repo
 
+## 构建环境
+
+```shell
+sh ./script/install.sh
+```
+
 ## 阅读
 
 [为什么要搞 repo](https://juejin.cn/post/6844904087662624781)
@@ -29,3 +35,7 @@
 - `eslint config`
 
 - `stylelint config`
+
+- `packages` 包完善
+
+- `统一 tsconfig`
