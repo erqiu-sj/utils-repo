@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "test": "vitest",
-    "cz": "cz-customizable"
+    "cz": "cz-customizable",
+    "cr": "sh ./script/create.sh"
   },
   "devDependencies": {
     "commitizen": "^4.2.4",
