@@ -1,0 +1,19 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "test": "vitest",
+    "cz": "cz-customizable"
+  },
+  "devDependencies": {
+    "commitizen": "^4.2.4",
+    "cz-customizable": "^6.3.0",
+    "lerna": "^4.0.0",
+    "vitest": "^0.12.3"
+  },
+  "workspaces": [
+    "packages/*",
+    "project/*",
+    "template/*"
+  ]
+}
