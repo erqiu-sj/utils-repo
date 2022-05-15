@@ -1,4 +1,4 @@
-import { Plugin, UserConfigExport } from 'vite';
+import { UserConfigExport } from 'vite';
 import { PostcssPxToViewport } from '../common/postcssPxToViewport';
 import { ScenarioExpectations, ScenarioExpectationsForVueDefaultOptionTypes } from '../types/scenes';
 import { scenesTypes } from '../types/base';
@@ -14,8 +14,3 @@ export declare class ScenarioExpectationsForVue implements ScenarioExpectations 
     private schedulingDefaultMobileConfiguration;
     getConfig(): UserConfigExport;
 }
-/**
- * @description 返回基本的配置文件
- * @returns
- */
-export declare function getBasePluginsForVue(): Plugin[];

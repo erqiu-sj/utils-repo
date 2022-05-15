@@ -1,0 +1,50 @@
+@mixin appearanceAnmi {
+  // 底座灯光出场动画
+  transition: all 0.3s;
+  opacity: 0;
+  //   width: 0;
+}
+
+.baseWithLuckdraw {
+  position: absolute;
+  width: 100vw;
+  bottom: 538px;
+  .baseContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .base {
+      width: 873px;
+    }
+    .smallLight {
+      position: absolute;
+      bottom: 18vw;
+      width: 88vw;
+      @include appearanceAnmi();
+      z-index: 100;
+    }
+    .bigLight {
+      width: 100vw;
+      bottom: 18vw;
+      position: absolute;
+      @include appearanceAnmi();
+    }
+    .basesLight {
+      @include appearanceAnmi();
+      position: absolute;
+      bottom: 20vw;
+      width: 40vw;
+    }
+    .prizeBox {
+      position: absolute;
+      width: 670px;
+      //   bottom: 343px;
+      bottom: 200px;
+      opacity: 0;
+      transform: scale(0);
+      transition: all 0.3s;
+    }
+  }
+}

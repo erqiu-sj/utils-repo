@@ -15,5 +15,6 @@ declare module 'postcss-px-to-viewport' {
     landscapeUnit: string
     landscapeWidth: string
   }
+
   export default function (options?: Partial<options>): any
 }

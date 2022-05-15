@@ -1,0 +1,78 @@
+@mixin image {
+  object-fit: contain;
+}
+@mixin fadeIn {
+  transform: scale(0);
+  transition: all 0.3s;
+}
+.headerWithLuckDraw {
+  position: absolute;
+  top: 169px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .headerTips {
+    @include image();
+    @include fadeIn();
+  }
+  .init {
+    width: 868px;
+    margin: {
+      top: 36px;
+    }
+  }
+  .get {
+    width: 840px;
+    margin: {
+      top: 86px;
+    }
+  }
+  .startBox {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    .startContainer {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      .start2 {
+        position: absolute;
+        left: 72px;
+        width: 104px;
+        @include image();
+      }
+      .start {
+        @include fadeIn();
+      }
+      .start1 {
+        position: absolute;
+        right: 82px;
+        top: 154px;
+        width: 104px;
+        @include image();
+      }
+      .start1WithStatus1 {
+        right: 48px !important;
+        top: 204px;
+      }
+    }
+  }
+
+  .prizeText {
+    @include fadeIn();
+    font-size: 62px;
+    font-weight: 700;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #fff2c5;
+    background-image: url('../../assets/lotteryPage/linear.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

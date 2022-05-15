@@ -46,10 +46,3 @@ export class ScenarioExpectationsForVue implements ScenarioExpectations {
     return options
   }
 }
-/**
- * @description 返回基本的配置文件
- * @returns
- */
-export function getBasePluginsForVue(): Plugin[] {
-  return [vue()]
-}

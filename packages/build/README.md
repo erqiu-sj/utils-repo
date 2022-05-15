@@ -28,6 +28,14 @@ import { ViteConfiguration } from '@mx/build'
 const config = new ViteConfiguration().setScenes('mobile').setTechnologyStack<'vue', 'mobile'>('vue', { default: false }).getConfig({} /* vite config */)
 ```
 
+## 全局默认配置
+
+- 默认路径别名 `~/`
+
+```typescript
+import {} from '~/assets/
+```
+
 ## `mobile` 下的默认配置
 
 ### `vue` and `react`

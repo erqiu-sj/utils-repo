@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
-import { ViteConfiguration } from 'build'
+import { ViteConfiguration } from '@mx/build'
 
 export default defineConfig({
-  ...new ViteConfiguration().setScenes('mobile').setTechnologyStack('vue', {}).getConfig(),
+  ...new ViteConfiguration().setScenes('mobile').setTechnologyStack('vue', {}).getConfig({}),
 })

@@ -1,0 +1,72 @@
+.home {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  .bkg {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  .homeTips {
+    position: absolute;
+    width: 713px;
+    left: 50%;
+    bottom: 339px;
+    transform: translateX(-50%);
+  }
+  .join {
+    position: absolute;
+    width: 100vw;
+    bottom: 181px;
+
+    .joinBox {
+      position: relative;
+      width: 368px;
+      left: 50%;
+      height: 100%;
+      transform: translateX(-50%);
+      .joinImg {
+        width: 100%;
+      }
+      .arrow {
+        position: absolute;
+        top: 35%;
+        right: 38px;
+        width: 15px;
+        object-fit: contain;
+      }
+    }
+  }
+  .checkme {
+    position: absolute;
+    bottom: 109px;
+    font-size: 30px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    .check {
+      width: 22px;
+      height: 22px;
+      background-color: #ffffff;
+      border-radius: 40%;
+      margin: {
+        right: 13px;
+      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .checked {
+        width: 38px;
+        object-fit: contain;
+      }
+    }
+    .desc {
+      .underline {
+        text-decoration: underline;
+      }
+    }
+  }
+}
