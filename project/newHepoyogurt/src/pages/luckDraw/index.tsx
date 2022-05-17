@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-15 11:00:31
- * @LastEditTime: 2022-05-15 17:06:04
+ * @LastEditTime: 2022-05-17 10:31:37
  * @Description: 
  * @FilePath: /repo/project/newHepoyogurt/src/pages/luckDraw/index.tsx
  */
@@ -12,7 +12,7 @@ import initTips from '~/assets/lotteryPage/100.png'
 import bigLight from '~/assets/lotteryPage/2.png'
 import bases from '~/assets/lotteryPage/3.png'
 import base from '~/assets/lotteryPage/5.png'
-import box from '~/assets/lotteryPage/box.png'
+// import box from '~/assets/lotteryPage/box.png'
 import buy from '~/assets/lotteryPage/buy.png'
 import get from '~/assets/lotteryPage/get.png'
 import open from '~/assets/lotteryPage/k.png'
@@ -21,15 +21,16 @@ import start1 from '~/assets/lotteryPage/start1.png'
 import start2 from '~/assets/lotteryPage/start2.png'
 import tips from '~/assets/lotteryPage/tips.png'
 import { useLottery } from '~/hooks'
+import SprintFrame from '../springFrame/index'
 import './base.scss'
+import Box from './components/box/box'
+import PrizeResults from './components/prizeResults'
+import { useOperationBlindBox } from './components/prizeResults/hooks'
 import './header.scss'
 import './index.scss'
 import './operationAreaWithLuckDraw.scss'
 
-
-
 export interface luckDrawProps { }
-
 
 export interface headerProps { }
 
@@ -41,7 +42,7 @@ const Header: FC<headerProps> = () => {
             fadein({ targets: ".headerTips" })
             fadein({ targets: ".prizeText" })
         }, 100);
-    }, [])
+    }, [curStateWithLottery.lotteryStatus])
 
     // 渐出
     function fadein(ops: animejs.AnimeParams) {
@@ -73,22 +74,25 @@ const Header: FC<headerProps> = () => {
 }
 
 
-export interface operationAreaProps { }
+export interface operationAreaProps {
+    onOpenBlindBox?: () => void
+    onGetPrize?: () => void
+}
 
-const OperationArea: FC<operationAreaProps> = () => {
+const OperationArea: FC<operationAreaProps> = ({ onOpenBlindBox, onGetPrize }) => {
     const { curStateWithLottery } = useLottery()
     return <div className='operationAreaWithLuckDraw'>
         {
             curStateWithLottery.lotteryStatus === 1 ? <div className='status1'>
                 <div className='oper'>
-                    <img src={open} alt="" className='btn' />
+                    <img src={open} alt="" className='btn' onClick={onOpenBlindBox} />
                     <img src={buy} alt="" className='btn' />
                 </div>
                 <img src={tips} alt="" className='tips' />
             </div> : <></>
         }
         {
-            curStateWithLottery.lotteryStatus === 2 ? <img src={get} alt="" className='getPrize' /> : <></>
+            curStateWithLottery.lotteryStatus === 2 ? <img src={get} onClick={onGetPrize} alt="" className='getPrize' /> : <></>
         }
     </div>
 }
@@ -96,29 +100,28 @@ const OperationArea: FC<operationAreaProps> = () => {
 
 export interface baseProps { }
 
-const Base: FC<PropsWithChildren<baseProps>> = ({ children }) => {
-    const [lotteryStatus, setLotteryStatus] = useState(false)
+const Base: FC<PropsWithChildren<baseProps>> = ({ }) => {
+    const { blindBoxClosed, lotteryStatus, openlotteryStatusHandler, closelotteryStatusHandler } = useOperationBlindBox()
     useEffect(() => {
         appearanceAnimation({
             targets: ".basesLight",
             width: '40vw'
         })
+
         appearanceAnimation({
             targets: ".bigLight",
             width: '100vw'
         })
+
         appearanceAnimation({
             targets: ".smallLight",
             width: '88vw',
             complete() {
-                setLotteryStatus(true)
-                setTimeout(() => {
-                    setLotteryStatus(false)
-                }, 1200);
+                openlotteryStatusHandler()
             }
         })
-
     }, [])
+
     function appearanceAnimation(ops: animejs.AnimeParams) {
         animejs({
             ...ops,
@@ -127,56 +130,37 @@ const Base: FC<PropsWithChildren<baseProps>> = ({ children }) => {
             loop: 1
         })
     }
-    return <div className='baseWithLuckdraw '>
-        <div className='baseContainer'>
-            <img src={base} alt="" className='base' />
-            <img src={smallLight} alt="" className='smallLight' />
-            <img src={bigLight} alt="" className='bigLight' />
-            <img src={bases} alt="" className='basesLight' />
-            <Box status={lotteryStatus} />
-        </div>
-    </div>
-}
-
-
-
-export interface boxProps {
-    status: boolean
-}
-
-const Box: FC<boxProps> = ({ status }) => {
-    useEffect(() => {
-        if (status) openBox()
-        else closeBox()
-    }, [status])
-
-    function openBox() {
-        animejs({
-            targets: '.prizeBox',
-            bottom: '33.037vw',
-            scale: 1,
-            opacity: 1
-        })
+    // 开盲盒
+    function openBlindBox() {
+        closelotteryStatusHandler()
+        return
     }
-    function closeBox() {
-        animejs({
-            targets: '.prizeBox',
-            bottom: '15.51852vw',
-            scale: 0,
-            opacity: 0
-        })
-    }
+
     return <>
-        <img src={box} alt="" className='prizeBox' />
+        <div className='baseWithLuckdraw '>
+            <div className='baseContainer'>
+                <img src={base} alt="" className='base' />
+                <img src={smallLight} alt="" className='smallLight' />
+                <img src={bigLight} alt="" className='bigLight' />
+                <img src={bases} alt="" className='basesLight' />
+                <Box status={lotteryStatus} onCloseBoxComplete={blindBoxClosed} />
+                <PrizeResults />
+            </div>
+        </div>
+        <OperationArea onOpenBlindBox={openBlindBox} />
     </>
 }
+
+
+
+
 
 const LuckDraw: FC<luckDrawProps> = () => {
     return <div className='luckDraw'>
         <Header />
         <Base>
         </Base>
-        <OperationArea />
+        {/* <SprintFrame /> */}
     </div>
 }
 

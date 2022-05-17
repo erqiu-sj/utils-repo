@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-15 20:34:54
- * @LastEditTime: 2022-05-15 20:40:00
+ * @LastEditTime: 2022-05-16 09:59:01
  * @Description:
  * @FilePath: /repo/.prettierrc.js
  */

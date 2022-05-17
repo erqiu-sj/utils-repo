@@ -1,0 +1,36 @@
+@mixin ani {
+    position: absolute;
+    transition: all 0.3s;
+}
+
+@mixin bubbleStart {
+    @include ani();
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    left: 50%;
+    bottom: 560px;
+    transform: translateX(-50%);
+    opacity: 0
+}
+
+.prizeBox {
+    @include ani();
+    width: 670px;
+    //   bottom: 343px;
+    bottom: 100px;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s;
+}
+
+.d6 {
+    height: 230px !important;
+    width: 230px !important;
+}
+
+@for $var from 1 to 7 {
+    .displayPrizes#{$var} {
+        @include bubbleStart()
+    }
+}

@@ -5,7 +5,7 @@
     "test": "vitest",
     "cz": "cz-customizable",
     "cr": "sh ./script/create.sh",
-    "line": "eslint --fix --ext .js,.vue,.tsx,.ts src"
+    "lint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix"
   },
   "devDependencies": {
     "commitizen": "^4.2.4",

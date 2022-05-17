@@ -5,35 +5,44 @@
   justify-content: center;
   position: absolute;
   bottom: 0px;
+
   .getPrize {
     width: 478px;
     object-fit: contain;
+
     margin: {
       bottom: 200px;
     }
   }
+
   .status1 {
     display: flex;
     align-items: center;
     flex-direction: column;
+
     margin: {
       bottom: 55px;
     }
+
     .oper {
       display: flex;
+
       margin: {
         bottom: 69px;
       }
+
       .btn {
         width: 368px;
         object-fit: contain;
       }
+
       .btn:nth-of-type(1) {
         margin: {
           right: 85px;
         }
       }
     }
+
     .tips {
       width: 80vw;
       object-fit: contain;
