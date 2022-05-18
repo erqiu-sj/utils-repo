@@ -24,9 +24,15 @@
     "registry": "https://registry.npmmirror.com/"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build:umd": "rollup -c -f umd -d dist.umd",
+    "build:es": "rollup -c -f es -d dist",
+    "build:cjs": "rollup -c -f cjs -d lib",
+    "build": "yarn build:umd & yarn build:es & yarn build:cjs"
   },
   "dependencies": {
-    "rollup": "^2.73.0"
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.2",
+    "rollup": "^2.73.0",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }
