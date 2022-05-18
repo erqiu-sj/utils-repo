@@ -7,6 +7,7 @@ const config = new ViteConfiguration()
     postcssPxToViewport: {
       viewportWidth: 1080,
       viewportHeight: 2330,
+      mediaQuery: true
     },
   })
   .getConfig({})

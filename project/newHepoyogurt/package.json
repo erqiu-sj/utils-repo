@@ -11,13 +11,17 @@
   "dependencies": {
     "@mx/build": "^0.0.1",
     "@types/animejs": "^3.1.4",
+    "@types/lodash.debounce": "^4.0.7",
     "@zealforchange/conciseredux": "^2.0.2",
+    "@zealforchange/proveaxios": "^1.1.7",
     "animejs": "^3.2.1",
+    "lodash.debounce": "^4.0.8",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.3.0",
-    "sass": "^1.51.0"
+    "sass": "^1.51.0",
+    "synchronizationawaiterror": "^0.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
@@ -36,6 +40,13 @@
       "lottery": [
         "setLotteryStatus",
         "setLotteryId"
+      ],
+      "springFrame": [
+        "setBulletFrameSwitchStatus",
+        "setPopStatusBox"
+      ],
+      "common": [
+        "setFillin"
       ]
     }
   }

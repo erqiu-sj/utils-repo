@@ -1,13 +1,19 @@
-import { lottery } from '~/reducer/lottery'
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-15 14:04:12
- * @LastEditTime: 2022-05-15 14:06:43
+ * @LastEditTime: 2022-05-18 16:22:51
  * @Description:
  * @FilePath: /repo/project/newHepoyogurt/src/store/index.ts
  */
-import { combineReducers, createStore } from '@zealforchange/conciseredux'
+import { combineReducers, createStore } from '@zealforchange/conciseredux';
+import { common } from '~/reducer/common';
+import { lottery } from '~/reducer/lottery';
+import { springFrame } from '~/reducer/springFrame';
 
-const store = createStore(combineReducers({ lottery: lottery.finish() }))
+const store = createStore(combineReducers({
+    lottery: lottery.finish(), springFrame: springFrame.finish(),
+    common: common.finish(),
+}))
 
-export { store }
+export { store };
+

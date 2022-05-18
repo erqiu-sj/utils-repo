@@ -1,3 +1,10 @@
+/*
+ * @Author: 邱狮杰
+ * @Date: 2022-05-14 11:36:23
+ * @LastEditTime: 2022-05-17 15:13:26
+ * @Description: 
+ * @FilePath: /repo/packages/build/dts/common/postcssPxToViewport.d.ts
+ */
 import { UserConfigExport } from 'vite'
 import { defaultInjectionPlugins } from '../types'
 export interface postcssPxToViewportOptions {

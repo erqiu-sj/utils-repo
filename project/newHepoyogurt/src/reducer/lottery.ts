@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-15 14:07:02
- * @LastEditTime: 2022-05-17 10:30:15
+ * @LastEditTime: 2022-05-18 16:53:49
  * @Description: 
  * @FilePath: /repo/project/newHepoyogurt/src/reducer/lottery.ts
  */
@@ -89,13 +89,15 @@ export const lottery = new CreateReducer<lotteryStateTypes, lotteryActionPayload
       tips: "Fiture智能健身魔镜"
     }
   ],
-  currentPrizeList: { id: 12, tips: '很遗憾～' },
+  currentPrizeList: { id: 0, tips: '谢谢参与' },
 })
   .addAction('setLotteryStatus', (state, action) => {
     return { ...state, lotteryStatus: action.lotteryStatus || 3 }
   })
   .addAction('setLotteryId', (state, action) => {
-    const curPrize = state.prizeList[action.id as number] || { tips: '很遗憾，下次再来吧～', id: 10000 }
+    const curPrize = state.prizeList.find(id => (action?.id || 0) === id.id) || { id: 0, tips: "谢谢参与" }
+    console.log(curPrize, 'curPrize')
+
     return { ...state, currentPrizeList: curPrize }
   })
   .setReducerKey('lottery')

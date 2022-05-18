@@ -1,19 +1,26 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-15 10:57:03
- * @LastEditTime: 2022-05-16 11:39:38
+ * @LastEditTime: 2022-05-18 17:30:34
  * @Description: 
  * @FilePath: /repo/project/newHepoyogurt/src/App.tsx
  */
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { RouterName } from '~/hooks'
-import { Home, LuckDraw } from '~/pages/'
+import { RouterName, useService } from '~/hooks'
+import { Home, LuckDraw, SpringFrame } from '~/pages/'
 import './index.css'
 
 function App() {
+  const { fillComonData } = useService()
+
+  useEffect(() => {
+    fillComonData()
+  }, [])
+
   return (
     <>
+      <SpringFrame />
       <Routes>
         <Route path={RouterName.index} element={
           <Suspense fallback={<>loading...</>}>

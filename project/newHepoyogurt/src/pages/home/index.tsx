@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-15 11:01:10
- * @LastEditTime: 2022-05-15 13:30:21
+ * @LastEditTime: 2022-05-18 10:01:11
  * @Description: 
  * @FilePath: /repo/project/newHepoyogurt/src/pages/home/index.tsx
  */
@@ -13,7 +13,7 @@ import bkg from '~/assets/bkg.png'
 import check from '~/assets/check.png'
 import homeTips from '~/assets/homeTips.png'
 import join from '~/assets/join.png'
-import { useRouter } from '~/hooks'
+import { usePopup, useRouter } from '~/hooks'
 import './index.scss'
 
 
@@ -57,7 +57,7 @@ export interface checkMeProps {
 }
 
 const CheckMe: FC<checkMeProps> = ({ checked, onCheckedChange }) => {
-
+    const { openRule } = usePopup()
     return <div className='checkme'>
         <div className='check' onClick={() => onCheckedChange?.()}>
             {checked ?
@@ -68,7 +68,7 @@ const CheckMe: FC<checkMeProps> = ({ checked, onCheckedChange }) => {
             <span onClick={() => onCheckedChange?.()}>
                 我已经阅读并同意
             </span>
-            <span className='underline'>
+            <span className='underline' onClick={openRule}>
                 活动须知
             </span>
         </div>

@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-17 10:25:00
- * @LastEditTime: 2022-05-17 10:25:00
+ * @LastEditTime: 2022-05-18 16:58:58
  * @Description: 
  * @FilePath: /repo/project/newHepoyogurt/src/pages/luckDraw/components/prizeResults/hooks/useDisplayPrizes.ts
  */
@@ -26,7 +26,8 @@ export function useDisplayPrizes() {
     const { curStateWithLottery } = useLottery()
 
     const dynamicPrize = useMemo(() => {
-        const curId = curStateWithLottery.prizeList[curStateWithLottery.currentPrizeList.id].id
+        const curId = curStateWithLottery.prizeList.find(item => item.id === curStateWithLottery.currentPrizeList.id)?.id || 0
+        // const curId = curStateWithLottery.prizeList[curStateWithLottery.currentPrizeList.id].id
         const h: {
             [key: string]: {
                 className: string
@@ -86,7 +87,10 @@ export function useDisplayPrizes() {
                 src: fitrue
             }
         }
-        return h[curId.toString()]
+
+        const result = h[curId.toString()] || { className: "kettle", src: '' }
+
+        return result
     }, [curStateWithLottery])
 
     return {

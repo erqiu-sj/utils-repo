@@ -1,0 +1,84 @@
+.userContent {
+    padding: {
+        top: 171px;
+    }
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .submit {
+        width: 368px;
+        object-fit: contain;
+
+        margin: {
+            top: 85px
+        }
+
+    }
+
+    .tipsText {
+        font-size: 22px;
+        letter-spacing: 0px;
+        color: #b1d5bc;
+        white-space: nowrap;
+
+        margin: {
+            top: 85px
+        }
+    }
+
+    .form {
+        width: 92%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex-direction: column;
+
+        .formItem:last-child {
+            margin: unset;
+
+        }
+
+        .formItem {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin: {
+                bottom: 77px
+            }
+
+            .label {
+                display: inline-block;
+                font-size: 54px;
+                font-weight: 800;
+                font-stretch: normal;
+                letter-spacing: 90px;
+                color: #fffefa;
+            }
+
+            .value {
+                width: 496px;
+                height: 106px;
+                background-color: #2c6740;
+                border-radius: 10px;
+                border: solid 1px #4eb270;
+                outline: none;
+
+                padding: {
+                    left: 20px;
+                    right: 20px
+                }
+
+                font-size: 44px;
+
+                color: white;
+            }
+        }
+    }
+}
