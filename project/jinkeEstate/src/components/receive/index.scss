@@ -1,0 +1,136 @@
+.canvas {
+    position: relative;
+    width: 70vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin: {
+        top: 40px
+    }
+
+    .canvasContainer {
+        width: 70vw !important;
+        object-fit: contain;
+
+    }
+
+    .trueName {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+
+    .descx {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        color: white;
+    }
+
+    .avatar {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 13vw;
+        border-radius: 50%;
+    }
+}
+
+.gen {
+    width: 50vw;
+
+    margin: {
+        top: 20px
+    }
+}
+
+.receive {
+    width: 80vw;
+
+
+
+    .receiveContainer {
+        width: 70vw;
+    }
+}
+
+.receiveContainer {
+    color: #f8f9c0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: {
+        left: 40px;
+        right: 40px
+    }
+
+    margin: {
+        top: 20px
+    }
+
+    .prizeLine {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 800;
+
+        margin: {
+            top: 20px
+        }
+    }
+
+    .addr {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        font-size: 27px;
+
+        margin: {
+            top: 20px;
+            bottom: 20px;
+        }
+    }
+
+    .withShare {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .project {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .left {
+            flex: 2;
+
+            .projectDesc {
+                margin: {
+                    top: 20px;
+                    bottom: 20px;
+                }
+
+            }
+        }
+
+        .right {
+            // flex: 1;
+
+            .projectImages {
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}

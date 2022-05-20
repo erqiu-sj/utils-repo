@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-16 17:36:13
- * @LastEditTime: 2022-05-18 17:58:25
+ * @LastEditTime: 2022-05-19 15:12:53
  * @Description: 
  * @FilePath: /repo/project/newHepoyogurt/src/pages/luckDraw/components/prizeResults/index.tsx
  */
@@ -9,16 +9,14 @@
 
 import animejs from 'animejs'
 import { FC, useEffect } from 'react'
-import { useCommon, useLottery, verifyPhone } from '~/hooks'
+import { useLottery, verifyPhone } from '~/hooks'
 import { useDisplayPrizes } from './hooks'
 import './index.scss'
-
 
 export interface PrizeResultsProps { }
 
 const PrizeResults: FC<PrizeResultsProps> = () => {
     const { dynamicPrize } = useDisplayPrizes()
-    const { luckyDraw } = useCommon()
     const { curStateWithLottery } = useLottery()
 
     useEffect(() => {

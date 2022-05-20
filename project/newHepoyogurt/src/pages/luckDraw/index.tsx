@@ -1,12 +1,13 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-15 11:00:31
- * @LastEditTime: 2022-05-18 17:58:38
+ * @LastEditTime: 2022-05-19 16:50:23
  * @Description: 
- * @FilePath: /repo/project/newHepoyogurt/src/pages/luckDraw/index.tsx
+ * @FilePath: /newHepoyogurt/src/pages/luckDraw/index.tsx
  */
 import animejs from 'animejs'
-import { FC, PropsWithChildren, useEffect } from 'react'
+import debounce from 'lodash.debounce'
+import { FC, PropsWithChildren, useCallback, useEffect, useRef } from 'react'
 import smallLight from '~/assets/lotteryPage/1.png'
 import initTips from '~/assets/lotteryPage/100.png'
 import bigLight from '~/assets/lotteryPage/2.png'
@@ -20,7 +21,7 @@ import getTips from '~/assets/lotteryPage/pget.png'
 import start1 from '~/assets/lotteryPage/start1.png'
 import start2 from '~/assets/lotteryPage/start2.png'
 import tips from '~/assets/lotteryPage/tips.png'
-import { useCommon, useLottery, useService, useSpringFrame } from '~/hooks'
+import { useCommon, useLottery, useSpringFrame } from '~/hooks'
 import './base.scss'
 import Box from './components/box/box'
 import PrizeResults from './components/prizeResults'
@@ -77,32 +78,56 @@ const Header: FC<headerProps> = () => {
 export interface operationAreaProps {
     onOpenBlindBox?: () => void
     onGetPrize?: () => void
+    boxStatus?: boolean // 盲盒状态
 }
 
-const OperationArea: FC<operationAreaProps> = ({ onOpenBlindBox, onGetPrize }) => {
+const OperationArea: FC<operationAreaProps> = ({ boxStatus, onOpenBlindBox, onGetPrize }) => {
+
+    // 是否正在抽奖
+    const lottery = useRef(true)
+
     const { curStateWithLottery } = useLottery()
     const { dispatchWithSpringFrame } = useSpringFrame()
-    const { isFillUserInfo, luckyDraw } = useCommon()
+    const { isFillUserInfo } = useCommon()
+
+    useEffect(() => {
+        lottery.current = boxStatus || false
+    }, [boxStatus])
+
+    // useEffect(() => {
+    //     lottery.current = true
+    // }, [curStateWithLottery])
 
     function getPrizeHandler() {
+        if (curStateWithLottery.currentPrizeList.id === 0) {
+            alert('谢谢参与～')
+            return
+        }
         if (!isFillUserInfo) {
             dispatchWithSpringFrame.setBulletFrameSwitchStatus({ open: true })
             dispatchWithSpringFrame.setPopStatusBox({
                 popStatusBox: { id: 1 }
             })
         } else {
-            alert('领取成功')
+            dispatchWithSpringFrame.setBulletFrameSwitchStatus({ open: true })
+            dispatchWithSpringFrame.setPopStatusBox({
+                popStatusBox: { id: 3 }
+            })
         }
-
         onGetPrize?.()
     }
 
-    return <div className='operationAreaWithLuckDraw'>
+    function openBlindBoxHandler() {
+        lottery.current && onOpenBlindBox?.()
+    }
 
+    return <div className='operationAreaWithLuckDraw'>
         {
             curStateWithLottery.lotteryStatus === 1 ? <div className='status1'>
                 <div className='oper'>
-                    <img src={open} alt="" className='btn' onClick={onOpenBlindBox} />
+                    <img src={open} alt="" className='btn' onClick={debounce(() => {
+                        openBlindBoxHandler()
+                    }, 300)} />
                     <img src={buy} alt="" className='btn' />
                 </div>
                 <img src={tips} alt="" className='tips' />
@@ -110,8 +135,9 @@ const OperationArea: FC<operationAreaProps> = ({ onOpenBlindBox, onGetPrize }) =
         }
 
         {
-            curStateWithLottery.lotteryStatus === 2 ? <img src={get} style={luckyDraw ? { filter: 'grayscale(1)' } : {}} onClick={getPrizeHandler} alt="" className='getPrize' /> : <></>
+            curStateWithLottery.lotteryStatus === 2 ? <img src={get} onClick={getPrizeHandler} alt="" className='getPrize' /> : <></>
         }
+
     </div>
 }
 
@@ -153,10 +179,21 @@ const Base: FC<PropsWithChildren<baseProps>> = ({ }) => {
     }
     // 开盲盒
     function openBlindBox() {
+        // console.log(boxInitAnim, 'boxInitAnim');
+        console.log(boxInitAnim, '1');
         if (!boxInitAnim) return
+        console.log(boxInitAnim, '2');
         closelotteryStatusHandler()
         return
     }
+    // const openBlindBox = useCallback(() => {
+    //     console.log(boxInitAnim, '1');
+    //     if (!boxInitAnim) return
+    //     console.log(boxInitAnim, '2');
+    //     closelotteryStatusHandler()
+    // }, [
+    //     boxInitAnim, lotteryStatus
+    // ])
 
     return <>
         <div className='baseWithLuckdraw '>
@@ -169,7 +206,7 @@ const Base: FC<PropsWithChildren<baseProps>> = ({ }) => {
                 <PrizeResults />
             </div>
         </div>
-        <OperationArea onOpenBlindBox={openBlindBox} />
+        <OperationArea boxStatus={lotteryStatus} onOpenBlindBox={openBlindBox} />
     </>
 }
 

@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-18 16:22:45
- * @LastEditTime: 2022-05-18 18:00:27
+ * @LastEditTime: 2022-05-19 15:18:37
  * @Description: 
  * @FilePath: /repo/project/newHepoyogurt/src/hooks/useCommon.ts
  */
@@ -9,9 +9,11 @@ import { bindActionCreators } from '@zealforchange/conciseredux';
 import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { common, commonStateTypes } from '~/reducer/common';
+import { useLottery } from './useLottery';
 
 
 export function useCommon() {
+    const { curStateWithLottery } = useLottery()
 
     const dispatchWithCommon = bindActionCreators(
         common.getCallBackAll(), useDispatch())
@@ -22,19 +24,19 @@ export function useCommon() {
         return state.common
     })
 
-    // TODO: 填完信息后 但为领过奖 但是saveinfo时候会更新用户信息会出现没领过奖但是领奖按钮变灰的情况 
     const luckyDraw = useMemo(() => {
-        if (parseInt(curStateWithCommon?.common?.gametimes || '1') !== 0)
-            return false
-        if (!curStateWithCommon.common?.myawards?.length)
-            return false
+        if (curStateWithCommon.init) return false
+        if (parseInt(curStateWithCommon?.common?.gametimes || '1') !== 0) return false
+        if (!curStateWithCommon.common?.myawards?.length) return false
         return true
     }, [curStateWithCommon])
+
     // 用户信息是否完整 
     const isFillUserInfo = useMemo(() => {
+        const alertUserInfo = [3, 8, 9, 10, 11, 12].includes(curStateWithLottery.currentPrizeList.id)
+        if (alertUserInfo) return true
         return !!curStateWithCommon.common.fans?.phone || !!curStateWithCommon.common.fans?.truename || !!curStateWithCommon.common.fans?.address
-    }, [curStateWithCommon])
-
+    }, [curStateWithCommon, curStateWithLottery])
 
     return { isFillUserInfo, dispatchWithCommon, curStateWithCommon, curStateWithCommonForRedux, luckyDraw }
 

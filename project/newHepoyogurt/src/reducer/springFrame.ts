@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-17 10:35:54
- * @LastEditTime: 2022-05-18 17:37:56
+ * @LastEditTime: 2022-05-19 15:12:25
  * @Description: 
  * @FilePath: /repo/project/newHepoyogurt/src/reducer/springFrame.ts
  */
@@ -31,7 +31,7 @@ export type springFrameActionPayloadTypes = {
 export const springFrame = new CreateReducer<springFrameStateTypes, springFrameActionPayloadTypes, springFrameActionTypes>({
   open: false,
   popStatusBox: {
-    id: 1// 1 用户信息 2 规则 3 二维码
+    id: 3// 1 用户信息 2 规则 3 二维码
   }
 })
   .addAction('setBulletFrameSwitchStatus', (state, action) => {

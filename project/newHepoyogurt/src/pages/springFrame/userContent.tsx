@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-17 10:56:30
- * @LastEditTime: 2022-05-18 17:29:35
+ * @LastEditTime: 2022-05-19 15:21:50
  * @Description: 
  * @FilePath: /repo/project/newHepoyogurt/src/pages/springFrame/userContent.tsx
  */
@@ -9,7 +9,7 @@
 import debounce from 'lodash.debounce'
 import { FC, useEffect, useState } from 'react'
 import submit from '~/assets/submit.png'
-import { useCommon, useService } from '~/hooks'
+import { useCommon, useService, useSpringFrame } from '~/hooks'
 import './userContent.scss'
 
 export interface userContentProps {
@@ -25,6 +25,7 @@ export interface infoTypes {
 const UserContent: FC<userContentProps> = ({ onSubmit }) => {
 
     const { saveUserInfo } = useService()
+    const { dispatchWithSpringFrame } = useSpringFrame()
 
     const { curStateWithCommon } = useCommon()
 
@@ -62,9 +63,12 @@ const UserContent: FC<userContentProps> = ({ onSubmit }) => {
             phone: info.phone,
             truename: info.name
         })
-
         alert('保存成功~')
-
+        dispatchWithSpringFrame.setPopStatusBox({
+            popStatusBox: {
+                id: 3
+            }
+        })
         onSubmit?.(info)
     }
 

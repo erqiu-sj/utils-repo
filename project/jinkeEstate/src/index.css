@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+   font-size: 40px;
+}
+
+.adm-modal-body .adm-modal-content{
+  font-size: 30px;
+}
+.adm-modal-close{
+  transform: scale(1.5);
+}
+.adm-modal-title{
+  font-size: 30px !important;
+}

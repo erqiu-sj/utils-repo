@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-15 13:15:24
- * @LastEditTime: 2022-05-15 13:31:45
+ * @LastEditTime: 2022-05-19 10:27:59
  * @Description:
  * @FilePath: /repo/project/newHepoyogurt/src/hooks/useRouter.ts
  */
@@ -18,7 +18,9 @@ export function useRouter() {
   function go(key: keyof typeof RouterName, state?: object) {
     goHandler(RouterName[key], { state, replace: true })
   }
+
   return {
     go,
   }
+
 }

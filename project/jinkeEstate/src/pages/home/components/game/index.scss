@@ -1,0 +1,135 @@
+.game {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    // z-index: 1000;
+    z-index: 1;
+
+    .gameContainer {
+        height: 100%;
+        width: 100%;
+        position: relative;
+
+        .map {
+            width: 100%;
+            position: absolute;
+            height: 80%;
+
+            .mapa {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+                z-index: 100;
+                transition: all 0.3s;
+            }
+
+        }
+
+        .contentAfterLuckyDraw {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            .desc {
+                font-size: 30px;
+                color: #f1f2b9;
+
+                margin: {
+                    top: 62px;
+                    bottom: 133px;
+                }
+            }
+
+            .addrImg {
+                width: 40vw;
+                object-fit: contain;
+
+                margin: {
+                    top: 220px
+                }
+            }
+
+            .drawNow {
+                width: 402px;
+                object-fit: contain;
+            }
+        }
+
+
+        .like {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 50vw;
+            width: 20vw;
+            opacity: 1;
+            transition: all 0.3s;
+        }
+
+        .descWithgame {
+            position: absolute;
+            width: 100%;
+            bottom: 10vw;
+            color: white;
+            font-size: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 182px;
+            // overflow-y: auto;
+
+            padding: {
+                top: 20px;
+                left: 40px;
+                right: 40px
+            }
+        }
+    }
+}
+
+
+@mixin defaultSmallScreen {
+    .game {
+        .gameContainer {
+
+            .like {
+                bottom: 40vw;
+            }
+
+            .descWithgame {
+                font-size: 34px !important;
+            }
+        }
+    }
+}
+
+// iphone 678 p
+@media (device-width: 414px) and (max-height: 736px) and (-webkit-device-pixel-ratio: 3) {
+    @include defaultSmallScreen();
+}
+
+// iphone 678
+@media (device-width: 375px) and (max-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+    @include defaultSmallScreen();
+}
+
+// iphone 5
+@media (device-width: 320px) and (max-height: 568px) and (-webkit-device-pixel-ratio: 2) {
+    .game {
+        .gameContainer {
+
+            .like {
+                bottom: 40vw;
+            }
+
+            .descWithgame {
+                font-size: 40px !important;
+            }
+        }
+    }
+}

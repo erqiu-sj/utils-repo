@@ -1,10 +1,61 @@
-.qrcode {
+@mixin common {
     width: 100%;
-    height: 100%;
+    height: 100%;   
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.qrcode3 {
+    @include common();
+    padding: {
+        top: 140px;
+    };
+    .get {
+        width: 70%;
+        object-fit: contain;
+    }
+
+    .qrcodeImages {
+        width: 50%;
+        object-fit: contain;
+        margin: {
+            top: 40px;
+        }
+    }
+
+}
+
+//小额红包 
+.qrcode2 {
+    @include common();
+    padding: {
+        top: 70px;
+    };
+    .day {
+        width: 90%;
+        object-fit: contain
+    }
+    .qrcodeImages {
+        width: 38%;
+        object-fit: contain;
+        margin: {
+            top: 40px;
+        }
+    }
+
+    .link {
+        width: 38%;
+        object-fit: contain;
+        margin: {
+            top: 30px;
+        }
+    }
+}
+
+.qrcode {
+    @include common();
 
     padding: {
         top: 214px
@@ -31,7 +82,7 @@
 @mixin defaultSmallScreen {
     .qrcode {
         padding: {
-            top: 84px
+            top: 144px
         }
     }
 }

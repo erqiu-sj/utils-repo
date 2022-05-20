@@ -1,0 +1,66 @@
+    .callbackDisplay {
+        justify-content: center;
+    }
+
+    .prize {
+        min-height: 100vh;
+        width: 100vw;
+        background-image: url('../../assets/bkg.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .callback {
+            margin: {
+                top: 200px;
+            }
+
+            width: 50vw;
+        }
+
+        .prizeItem {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            padding: {
+                top: 117px
+            }
+
+            margin: {
+                bottom: 101px;
+            }
+
+            .congratulations {
+                color: white;
+                font-size: 47px;
+                font-weight: 700;
+                text-align: center;
+            }
+
+
+
+            .prizeImg {
+                margin: {
+                    top: 32px;
+                }
+            }
+        }
+
+        .iceCream {
+            width: 76vw;
+            object-fit: contain;
+            border: 1px solid white;
+        }
+
+        .mike {
+            width: 182px;
+            object-fit: contain;
+
+        }
+    }

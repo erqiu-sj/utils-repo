@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-17 10:26:02
- * @LastEditTime: 2022-05-18 16:51:18
+ * @LastEditTime: 2022-05-19 16:45:21
  * @Description: 
- * @FilePath: /repo/project/newHepoyogurt/src/pages/luckDraw/components/prizeResults/hooks/useOperationBlindBox.ts
+ * @FilePath: /newHepoyogurt/src/pages/luckDraw/components/prizeResults/hooks/useOperationBlindBox.ts
  */
 
 import { useState } from 'react';
@@ -29,6 +29,7 @@ export function useOperationBlindBox() {
     }
 
     function setBoxInitAnimSuccess() {
+        console.log('init');
         setBoxInitAnim(true)
     }
 

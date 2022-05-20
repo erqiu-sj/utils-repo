@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-18 16:15:40
- * @LastEditTime: 2022-05-18 16:30:12
+ * @LastEditTime: 2022-05-19 16:53:19
  * @Description: 
- * @FilePath: /repo/project/newHepoyogurt/src/service/index.ts
+ * @FilePath: /newHepoyogurt/src/service/index.ts
  */
 
 import { customConfiguration, initializationAxios, InitializeContainer, interceptorsResponseSuccess } from '@zealforchange/proveaxios';
@@ -17,8 +17,10 @@ export interface response<T = object> {
 }
 
 @initializationAxios({
-    baseURL: "https://act.yoois.com/zt/qr3/api.php?i=3&logout=1&test=1"
+    // baseURL: "https://act.yoois.com/zt/qr3/api.php?i=3&logout=1&test=1"
+    baseURL: "https://act.yoois.com/zt/qr3/api.php?i=3&logout=1"
 })
+
 class Core {
     @interceptorsResponseSuccess()
     static async response(res: AxiosResponse) {

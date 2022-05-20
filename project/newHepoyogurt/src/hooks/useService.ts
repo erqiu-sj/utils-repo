@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-18 16:23:15
- * @LastEditTime: 2022-05-18 17:57:09
+ * @LastEditTime: 2022-05-19 08:58:46
  * @Description: 
  * @FilePath: /repo/project/newHepoyogurt/src/hooks/useService.ts
  */
@@ -53,7 +53,7 @@ export interface saveUserinfoRequest {
 
 export function useService() {
 
-    const { dispatchWithCommon } = useCommon()
+    const { dispatchWithCommon, curStateWithCommon } = useCommon()
     const { dispatchWithLottery } = useLottery()
     const { go } = useRouter()
 
@@ -62,7 +62,7 @@ export function useService() {
         mergeCheck(err, res, '初始化失败，请联系管理员');
         const data = (res as response<fillResponse>).data
 
-        if (parseInt(data.gametimes) === 0 && data.myawards.length) {
+        if (parseInt(data.gametimes) === 0 && data.myawards.length && !curStateWithCommon.init) {
             // 领取过
             dispatchWithLottery.setLotteryId({ id: parseInt(data.myawards[data.myawards.length - 1].type) })
             dispatchWithLottery.setLotteryStatus({
@@ -70,9 +70,12 @@ export function useService() {
             })
             go('luckDraw')
         }
+
         dispatchWithCommon.setFillin({
             common: data
         })
+
+        dispatchWithCommon.setInit({ init: true })
     }
 
     async function luckDrawHandler(suc?: () => void) {
