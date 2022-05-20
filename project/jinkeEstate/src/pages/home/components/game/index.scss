@@ -36,12 +36,15 @@
             flex-direction: column;
 
             .desc {
-                font-size: 30px;
+                font-size: 40px;
                 color: #f1f2b9;
-
+                text-align: justify;
+                line-height: 150%;
                 margin: {
                     top: 62px;
                     bottom: 133px;
+                    left:4vw;
+                    right:4vw;
                 }
             }
 
@@ -81,6 +84,7 @@
             align-items: center;
             justify-content: center;
             height: 182px;
+            text-align: justify;
             // overflow-y: auto;
 
             padding: {
