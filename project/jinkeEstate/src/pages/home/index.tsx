@@ -29,7 +29,7 @@ const Rule: FC<RuleProps> = () => {
     const [show, setShow] = useState<boolean>(false)
 
     return <>
-        <div className='rule' onClick={() => setShow(true)} >规则</div>
+        <div className='rule' onClick={() => setShow(true)} >活动规则</div>
         <OwnModal visible={show} showCloseButton onClose={() => setShow(false)}>
             children
         </OwnModal>
