@@ -79,11 +79,10 @@
 
     .prizeLine {
         text-align: center;
-        font-size: 36px;
+        font-size: 48px;
         font-weight: 800;
-
         margin: {
-            top: 20px
+            top: 40px
         }
     }
 
@@ -92,7 +91,7 @@
         align-items: center;
         justify-content: space-between;
 
-        font-size: 27px;
+        font-size: 48px;
 
         margin: {
             top: 20px;
@@ -105,7 +104,11 @@
         align-items: center;
         justify-content: center;
     }
-
+    .welcome {
+        text-align: justify;
+        line-height: 150%;
+        text-indent: 20px;
+    }
     .project {
         width: 100%;
         .projectDesc {
