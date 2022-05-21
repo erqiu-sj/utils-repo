@@ -2,6 +2,14 @@
         justify-content: center;
     }
 
+    .callback {
+        margin: {
+            // top: 130px;
+        }
+
+        width: 50vw;
+    }
+
     .prize {
         min-height: 100vh;
         width: 100vw;
@@ -14,13 +22,6 @@
         align-items: center;
         flex-direction: column;
 
-        .callback {
-            margin: {
-                top: 200px;
-            }
-
-            width: 50vw;
-        }
 
         .prizeItem {
             display: flex;

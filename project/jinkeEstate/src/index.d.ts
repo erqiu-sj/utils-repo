@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-20 19:06:01
- * @LastEditTime: 2022-05-20 20:41:14
+ * @LastEditTime: 2022-05-21 00:01:06
  * @Description: 
  * @FilePath: /repo/project/jinkeEstate/src/index.d.ts
  */
@@ -45,6 +45,7 @@ interface Window {
             desc: string
             success?: () => void
         }): Promise<void>
+        ready(cb: () => void): Promise<void>
         onMenuShareTimeline(res: {
             title: string
             link: string

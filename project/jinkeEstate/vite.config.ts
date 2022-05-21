@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-19 09:21:10
- * @LastEditTime: 2022-05-20 20:28:49
+ * @LastEditTime: 2022-05-21 11:25:53
  * @Description: 
  * 
  * @FilePath: /repo/project/jinkeEstate/vite.config.ts
@@ -16,7 +16,8 @@ const config = new ViteConfiguration().setScenes('mobile').setTechnologyStack('r
     mediaQuery: true
   }
 }).getConfig({
-  base: "/zt/jkmap/"
+  base: "/zt/jkmap/",
+  // base: "https://actcdn.yoois.com/zt/jkmap/"
 })
 
 export default defineConfig({

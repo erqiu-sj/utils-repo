@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-20 15:55:01
- * @LastEditTime: 2022-05-20 21:04:55
+ * @LastEditTime: 2022-05-21 11:59:41
  * @Description: 
  * @FilePath: /repo/project/jinkeEstate/src/service/index.ts
  */
@@ -16,10 +16,9 @@ export interface response<T = object> {
 }
 
 @initializationAxios({
-    baseURL: "https://act.yoois.com/zt/jkmap/api.php?i=3&logout=1&test=1"
-    // baseURL: "https://act.yoois.com/zt/jkmap/api.php?i=3&logout=1"
+    // baseURL: "https://act.yoois.com/zt/jkmap/api.php?i=3&logout=1&test=1"
+    baseURL: "https://act.yoois.com/zt/jkmap/api.php?i=3&logout=1"
 })
-
 class Core {
     @interceptorsResponseSuccess()
     static async response(res: AxiosResponse) {

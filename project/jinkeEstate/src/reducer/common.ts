@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-19 17:45:09
- * @LastEditTime: 2022-05-20 20:18:09
+ * @LastEditTime: 2022-05-21 11:27:13
  * @Description: 
  * @FilePath: /repo/project/jinkeEstate/src/reducer/common.ts
  */
@@ -13,6 +13,8 @@ export type commonAction = {
   SETLOTTERYID: 'setLotteryId', // 抽奖ID
   SETFILLIN: 'setFillIn' // 抽奖ID
   SETADDR: 'setCurAddr' // 抽奖ID
+  SETMISSEDwINE: 'setMissedWine', // 抽奖ID
+  SETiCEcREAMmISSED: 'setIceCreamMissed' // 抽奖ID
 }
 
 export type commonActionTypes = getAllValsWithActionCollectionHelper<commonAction>
@@ -20,6 +22,7 @@ export type commonActionTypes = getAllValsWithActionCollectionHelper<commonActio
 export type common = {
   "title": string,
   "desc": string,
+  desc2: string
   "imgUrl": string,
   "link": string,
   "fans": {
@@ -64,7 +67,8 @@ export type commonStateTypes = {
   prizeList: { id: number, tips: string }[]
   commonData: Partial<common>
   addr: Partial<curAddr>
-
+  missedWine: boolean
+  iceCreamMissed: boolean
 }
 
 export type commonActionPayloadTypes = {
@@ -73,12 +77,18 @@ export type commonActionPayloadTypes = {
   setPopulateBasicData?: object
   commonData?: Partial<common>
   addr?: Partial<curAddr>
+  missedWine?: boolean
+  iceCreamMissed?: boolean
 }
 
 export const common = new CreateReducer<commonStateTypes, commonActionPayloadTypes, commonActionTypes>({
   // 0 初始化首页 1 点击马上点亮后  2 点亮完后准备抽奖 3 感谢分享后准备抽奖 5 空状态
   setupProcess: 0,
   lotteryId: 3,
+  // 酒没中 == true
+  missedWine: false,
+  // 没中 = true
+  iceCreamMissed: false,
   populateBasicData: {},
   addr: {},
   prizeList: [
@@ -102,5 +112,9 @@ export const common = new CreateReducer<commonStateTypes, commonActionPayloadTyp
   return { ...state, commonData: action.commonData || {} }
 }).addAction('setCurAddr', (state, action) => {
   return { ...state, addr: action.addr || {} }
+}).addAction('setMissedWine', (state, action) => {
+  return { ...state, missedWine: action.missedWine || false }
+}).addAction('setIceCreamMissed', (state, action) => {
+  return { ...state, iceCreamMissed: action.iceCreamMissed || false }
 })
   .setReducerKey('common')

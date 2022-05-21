@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-20 11:10:39
- * @LastEditTime: 2022-05-20 19:43:35
+ * @LastEditTime: 2022-05-21 00:06:13
  * @Description: 
  * @FilePath: /repo/project/jinkeEstate/src/hooks/useRouter.ts
  */
@@ -19,7 +19,9 @@ export function useRouter() {
     const nav = useNavigate()
 
     function go(key: keyof typeof RouterName) {
-        nav(RouterName[key], {})
+        nav(RouterName[key], {
+            replace: true
+        })
     }
 
     return { go }

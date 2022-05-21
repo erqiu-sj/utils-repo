@@ -1,17 +1,18 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-20 11:09:52
- * @LastEditTime: 2022-05-20 19:50:15
+ * @LastEditTime: 2022-05-21 11:19:17
  * @Description: 
  * @FilePath: /repo/project/jinkeEstate/src/pages/prize/index.tsx
  */
 import { FC, useState } from 'react'
+import { getOriginalNode } from 'typescript'
 import callback from '~/assets/callback.png'
 import DrawNow from '~/assets/drawNow.png'
 import prize from '~/assets/prize.png'
 import Form from '~/components/form'
 import Receive from '~/components/receive'
-import { useCommon, useCommonHelper, useService } from '~/hooks'
+import { useCommon, useCommonHelper, useRouter, useService } from '~/hooks'
 import { usePrize } from './hooks'
 import './index.scss'
 import './share.scss'
@@ -36,11 +37,10 @@ const PrizeItem: FC<PrizeItemProps> = ({ title, prize, prizeImg, imgClazz }) => 
 export interface DisplayPrizeProps { }
 
 const DisplayPrize: FC<DisplayPrizeProps> = () => {
+
     const { saveInfo, init } = useService()
-    const { isSaveed } = useCommonHelper()
-
+    const { isSaveed, replyHomePageStatus, curStateWithCommon } = useCommonHelper()
     const { prize } = usePrize()
-
     const [showDetails, setDetails] = useState(false)
 
     return <>
@@ -61,34 +61,52 @@ const DisplayPrize: FC<DisplayPrizeProps> = () => {
                     }}
                 />
                 {
-                    (isSaveed || showDetails) && <Receive />
+                    (isSaveed || showDetails) && <Receive showGen />
                 }
             </>
         }
 
         {
-            prize.id === 2 &&
-            <Form saveed={showDetails} formList={[{ placeholder: "请填写收件人姓名", name: 'name', value: '' }, { placeholder: '请填写收件人电话', name: 'phone', value: '' }, {
-                placeholder: "请填写收件地址",
-                name: "addr",
-                value: ""
-            }]}
-                onSubmit={async (res) => {
-                    const parmas: { addr: string, name: string, phone: string } = res as any
-                    await saveInfo({
-                        phone: parmas.phone,
-                        truename: parmas.name,
-                        address: parmas.addr
-                    })
-                    await init()
-                    setDetails(true)
-                    alert('保存成功！')
-                }}
-            />
+            prize.id === 2 && <>
+                <Form saveed={showDetails} formList={[{ placeholder: "请填写收件人姓名", name: 'name', value: '' }, { placeholder: '请填写收件人电话', name: 'phone', value: '' }, {
+                    placeholder: "请填写收件地址",
+                    name: "addr",
+                    value: ""
+                }]}
+                    onSubmit={async (res) => {
+                        const parmas: { addr: string, name: string, phone: string } = res as any
+                        await saveInfo({
+                            phone: parmas.phone,
+                            truename: parmas.name,
+                            address: parmas.addr
+                        })
+                        await init()
+                        setDetails(true)
+                        alert('保存成功！')
+                    }}
+                />
+                {
+                    (isSaveed || showDetails) && <img src={callback} alt="" className='callback' onClick={() => {
+                        replyHomePageStatus()
+                    }} />
+                }
+            </>
         }
         {
-            !!!prize.id && <Receive />
+            curStateWithCommon.iceCreamMissed &&
+            <img src={callback} alt="" className='callback' onClick={() => {
+                replyHomePageStatus()
+            }} />
         }
+        {
+            curStateWithCommon.missedWine && <>
+                <img src={callback} alt="" className='callback' onClick={() => {
+                    replyHomePageStatus()
+                }} />
+                <Receive showGen />
+            </>
+        }
+
     </>
 }
 

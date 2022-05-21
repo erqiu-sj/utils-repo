@@ -108,8 +108,8 @@
 
     .project {
         width: 100%;
-        display: flex;
-        flex-direction: column;
+        // display: flex;
+        // flex-direction: column;
 
         .left {
             flex: 2;
@@ -117,6 +117,7 @@
             .projectDesc {
                 text-align: justify;
                 line-height: 150%;
+
                 margin: {
                     top: 20px;
                     bottom: 20px;
@@ -129,7 +130,7 @@
             // flex: 1;
 
             .projectImages {
-                height: 100%;
+                // height: 100%;
                 width: 100%;
                 object-fit: contain;
             }

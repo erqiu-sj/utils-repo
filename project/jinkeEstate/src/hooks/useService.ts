@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-20 15:58:52
- * @LastEditTime: 2022-05-20 23:06:51
+ * @LastEditTime: 2022-05-21 11:59:07
  * @Description: 
  * @FilePath: /repo/project/jinkeEstate/src/hooks/useService.ts
  */
@@ -62,53 +62,59 @@ export function useService() {
         return res
     }
 
-    async function init() {
-
-        window.wx.getLocation({
-            async success({ latitude, longitude }) {
-                const [err, res] = await SynchronizationAwaitError<response<common>, response<common>>(
-                    // @ts-ignore
-                    httpHelper({
-                        params: {
-                            action: 'index',
-                            lat: latitude,
-                            lng: longitude
-                            // lat: 29.35,
-                            // lng: 106.33
-                        }
-                    })
-                )
-
-                mergeCheck(err, res, '初始化失败，请重试')
-                
-                if (res?.data.fans.award1 !== '') {
-                    go('lottery')
-                    if (res?.data.fans.award1 === "3") wineWinning(false)
-                    else wineWinning(true)
+    async function initHandler(x: number, y: number) {
+        const [err, res] = await SynchronizationAwaitError<response<common>, response<common>>(
+            // @ts-ignore
+            httpHelper({
+                params: {
+                    action: 'index',
+                    lat: x,
+                    lng: y
+                    // lat: 29.35,
+                    // lng: 106.33
                 }
+            })
+        )
+        mergeCheck(err, res, '初始化失败，请重试')
 
-                // 初始化不看雪糕
-                // if (res?.data.fans.award2 !== '') {
-                //     if (res?.data.fans.award2 === "3") iceCreamWinner(false)
-                //     else iceCreamWinner(true)
-                // }
+        if (res?.data.fans.award1 !== '') {
+            go('lottery')
+            if (res?.data.fans.award1 === "3") wineWinning(false)
+            else wineWinning(true)
+        }
 
-                dispatchWithCommon.setFillIn({ commonData: res?.data || {} })
-            }
-        })
-        // window.wx.getLocation(async ({ latitude, longitude }) => {
+        dispatchWithCommon.setFillIn({ commonData: res?.data || {} })
+    }
 
-        // })
-
+    async function init() {
+        // initHandler(29.35, 106.33)
+        if (
+            localStorage.getItem('latitude') || localStorage.getItem('longitude')
+        ) {
+            initHandler(parseFloat(localStorage.getItem('latitude') as string), parseFloat(localStorage.getItem('longitude') as string))
+        } else {
+            window.wx.ready(function () {
+                window.wx.getLocation({
+                    async success({ latitude, longitude }) {
+                        localStorage.setItem('latitude', latitude.toString())
+                        localStorage.setItem('longitude', longitude.toString())
+                        initHandler(latitude, longitude)
+                    }
+                })
+            })
+        }
     }
 
     function iceCreamWinner(status: boolean) {
+        dispatchWithCommon.setMissedWine({ missedWine: false })
         if (status) {
             dispatchWithCommon.setupProcess({ setupProcess: 5 })
             dispatchWithCommon.setLotteryId({ setLotteryId: 2 })
+            dispatchWithCommon.setIceCreamMissed({ iceCreamMissed: false })
         } else {
             dispatchWithCommon.setupProcess({ setupProcess: 5 })
             dispatchWithCommon.setLotteryId({ setLotteryId: 0 })
+            dispatchWithCommon.setIceCreamMissed({ iceCreamMissed: true })
         }
     }
 
@@ -122,6 +128,7 @@ export function useService() {
                 }
             })
         )
+
         mergeCheck(err, res, '抽奖失败，请重试')
         if (res?.data && res?.data.id === 3) {
             iceCreamWinner(false)
@@ -133,12 +140,15 @@ export function useService() {
     }
 
     function wineWinning(status: boolean) {
+        dispatchWithCommon.setIceCreamMissed({ iceCreamMissed: false })
         if (status) {
             dispatchWithCommon.setupProcess({ setupProcess: 5 })
             dispatchWithCommon.setLotteryId({ setLotteryId: 1 })
+            dispatchWithCommon.setMissedWine({ missedWine: false })
         } else {
             dispatchWithCommon.setupProcess({ setupProcess: 5 })
             dispatchWithCommon.setLotteryId({ setLotteryId: 0 })
+            dispatchWithCommon.setMissedWine({ missedWine: true })
         }
     }
     async function smokeWine(sucCb?: () => void) {
@@ -163,6 +173,7 @@ export function useService() {
         news,
         saveInfo,
         iceCreamHandler,
-        openSharingPage
+        openSharingPage,
+        wineWinning
     }
 }

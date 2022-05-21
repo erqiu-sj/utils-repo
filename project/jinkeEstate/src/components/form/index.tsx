@@ -1,14 +1,15 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-20 11:16:50
- * @LastEditTime: 2022-05-20 19:25:06
+ * @LastEditTime: 2022-05-21 10:18:42
  * @Description: 
  * @FilePath: /repo/project/jinkeEstate/src/components/form/index.tsx
  */
 import { FC, InputHTMLAttributes, useMemo, useState } from 'react'
+import callback from '~/assets/callback.png'
 import submit from '~/assets/save.png'
 import submitaa from '~/assets/submit.png'
-import { useCommonHelper } from '~/hooks'
+import { useCommon, useCommonHelper, useRouter } from '~/hooks'
 import './index.scss'
 
 type formItem = InputHTMLAttributes<unknown>
@@ -27,7 +28,8 @@ export interface formState {
 
 const Form: FC<FormProps> = ({ saveed, formList, onSubmit }) => {
 
-    const { isSaveed, curStateWithCommon } = useCommonHelper()
+    const { isSaveed, curStateWithCommon, replyHomePageStatus } = useCommonHelper()
+    const { go } = useRouter()
     const submitBtn = useMemo(() => {
         if (curStateWithCommon.lotteryId === 1) return submit
         return submitaa
@@ -55,6 +57,7 @@ const Form: FC<FormProps> = ({ saveed, formList, onSubmit }) => {
     function submitHandler() {
         onSubmit?.(form)
     }
+
     return <div className='form'>
         {(!isSaveed) && formList?.map((i, index) => {
             return <input type="text" {...i} key={index} onChange={e => {
@@ -95,6 +98,11 @@ const Form: FC<FormProps> = ({ saveed, formList, onSubmit }) => {
         {
             !isSaveed && <img src={submitBtn} alt="" className='submit' onClick={submitHandler} />
         }
+        {/* {
+            (isSaveed && curStateWithCommon.lotteryId === 2) && <img src={callback} alt="" className='callback' onClick={() => {
+                replyHomePageStatus()
+            }} />
+        } */}
     </div>
 
 }
