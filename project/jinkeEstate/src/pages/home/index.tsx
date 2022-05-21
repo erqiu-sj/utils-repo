@@ -77,7 +77,7 @@ const Home: FC<homeProps> = () => {
                     }} />
 
                     <OwnModal title='活动规则' visible={show} showCloseButton onClose={() => setShow(false)}>
-                        <div style={{ width: "70vw",text-align: "justify",padding: "3vw" }}>
+                        <div style={{ width: "70vw",textAlign: "justify",padding: "3vw" }}>
                             <b>参与时间：</b>5月21日—5月27日
                             <br />
                             <b>领奖时间：</b>5月28日14:00-15:00
