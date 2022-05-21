@@ -80,7 +80,7 @@ const Home: FC<homeProps> = () => {
                         <div style={{ width: 70vw;text-align: justify;padding: 3vw; }}>
                             <b>参与时间：</b>5月21日—5月27日
                             <br />
-                            <b>领奖时间：</b>5月28日—5月29日
+                            <b>领奖时间：</b>5月28日14:00-15:00
                             <br />
                             <b>快递时间：</b>6月5日前发出快递
                             <br />
