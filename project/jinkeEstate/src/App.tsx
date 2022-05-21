@@ -29,7 +29,7 @@ function App() {
 
   window.wx.onMenuShareAppMessage({
     title: curStateWithCommonForRedux.commonData.title || '金科24年 点亮重庆',
-    link: curStateWithCommonForRedux.commonData.link || 'https://act.yoois.com/zt/jkmap/index.php?i=3&logout=1',
+    link: 'https://act.yoois.com/zt/jkmap/index.php?i=3&logout=1',
     imgUrl: curStateWithCommonForRedux.commonData.imgUrl || 'https://act.yoois.com/zt/jkmap/logo.jpg',
     desc: curStateWithCommonForRedux.commonData.desc || '重庆的美好见证者，快来跟我一起点亮重庆版图',
     success() {
@@ -39,7 +39,7 @@ function App() {
 
   window.wx.onMenuShareTimeline({
     title: curStateWithCommonForRedux.commonData.title || '金科24年 点亮重庆',
-    link: curStateWithCommonForRedux.commonData.link || 'https://act.yoois.com/zt/jkmap/index.php?i=3&logout=1',
+    link: 'https://act.yoois.com/zt/jkmap/index.php?i=3&logout=1',
     imgUrl: curStateWithCommonForRedux.commonData.imgUrl || 'https://act.yoois.com/zt/jkmap/logo.jpg',
     desc: curStateWithCommonForRedux.commonData.desc || '重庆的美好见证者，快来跟我一起点亮重庆版图',
     success() {
