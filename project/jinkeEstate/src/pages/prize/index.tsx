@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-20 11:09:52
- * @LastEditTime: 2022-05-21 11:19:17
+ * @LastEditTime: 2022-05-21 13:08:01
  * @Description: 
- * @FilePath: /repo/project/jinkeEstate/src/pages/prize/index.tsx
+ * @FilePath: /jinkeEstate/src/pages/prize/index.tsx
  */
 import { FC, useState } from 'react'
 import { getOriginalNode } from 'typescript'
