@@ -2,9 +2,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-20 15:58:52
- * @LastEditTime: 2022-05-21 11:59:07
+ * @LastEditTime: 2022-05-21 19:36:09
  * @Description: 
- * @FilePath: /repo/project/jinkeEstate/src/hooks/useService.ts
+ * @FilePath: /jinkeEstate/src/hooks/useService.ts
  */
 import { SynchronizationAwaitError } from 'synchronizationawaiterror';
 import { common, curAddr } from '~/reducer/common';

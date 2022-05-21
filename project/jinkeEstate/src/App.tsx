@@ -1,13 +1,13 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-14 11:41:35
- * @LastEditTime: 2022-05-21 11:58:52
+ * @LastEditTime: 2022-05-21 19:36:02
  * @Description:
- * @FilePath: /repo/project/jinkeEstate/src/App.tsx
+ * @FilePath: /jinkeEstate/src/App.tsx
  */
-
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Audio from '~/components/audio/index';
 import { RouterName, useCommon } from '~/hooks';
 import { useService } from '~/hooks/useService';
 import Canvas from './pages/canvas/index';
@@ -19,7 +19,6 @@ import Prize from './pages/prize/index';
  * @return { Element }
  */
 function App() {
-
   const { curStateWithCommonForRedux } = useCommon()
 
   const { init, news, openSharingPage } = useService()
@@ -29,30 +28,28 @@ function App() {
     news()
   }, [])
 
-  window.wx.ready(function () {
-    window.wx.onMenuShareAppMessage({
-      title: curStateWithCommonForRedux.commonData.title || 'title',
-      link: curStateWithCommonForRedux.commonData.link || 'link',
-      imgUrl: curStateWithCommonForRedux.commonData.imgUrl || 'imgUrl',
-      // desc: ((!!curStateWithCommonForRedux.commonData.fans?.award1 || !!curStateWithCommonForRedux.commonData.fans?.award2) ? curStateWithCommonForRedux.commonData.desc2 : curStateWithCommonForRedux.commonData.desc) || 'desc',
-      desc: curStateWithCommonForRedux.commonData.desc2 || curStateWithCommonForRedux.commonData.desc || 'desc',
-      success() {
-        openSharingPage()
-      }
-    })
+  window.wx.onMenuShareAppMessage({
+    title: curStateWithCommonForRedux.commonData.title || '金科24年 点亮重庆',
+    link: 'https://act.yoois.com/zt/jkmap/index.php?i=3&logout=1',
+    imgUrl: curStateWithCommonForRedux.commonData.imgUrl || 'https://act.yoois.com/zt/jkmap/logo.jpg',
+    desc: curStateWithCommonForRedux.commonData.desc || '重庆的美好见证者，快来跟我一起点亮重庆版图',
+    success() {
+      openSharingPage()
+    }
+  })
 
-    window.wx.onMenuShareTimeline({
-      title: curStateWithCommonForRedux.commonData.title || 'title',
-      link: curStateWithCommonForRedux.commonData.link || 'link',
-      imgUrl: curStateWithCommonForRedux.commonData.imgUrl || 'imgUrl',
-      success() {
-        openSharingPage()
-      }
-    })
+  window.wx.onMenuShareTimeline({
+    title: curStateWithCommonForRedux.commonData.title || '金科24年 点亮重庆',
+    link: 'https://act.yoois.com/zt/jkmap/index.php?i=3&logout=1',
+    imgUrl: curStateWithCommonForRedux.commonData.imgUrl || 'https://act.yoois.com/zt/jkmap/logo.jpg',
+    success() {
+      openSharingPage()
+    }
   })
 
   return (
     <>
+      <Audio />
       <Routes>
         <Route element={<Home />} path={RouterName['/']} />
         <Route element={<Prize />} path={RouterName.lottery} />
@@ -61,6 +58,5 @@ function App() {
     </>
   );
 }
-
 
 export default App;

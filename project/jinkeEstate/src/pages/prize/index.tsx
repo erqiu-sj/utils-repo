@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-20 11:09:52
- * @LastEditTime: 2022-05-21 13:08:01
+ * @LastEditTime: 2022-05-21 19:34:05
  * @Description: 
  * @FilePath: /jinkeEstate/src/pages/prize/index.tsx
  */
@@ -100,9 +100,9 @@ const DisplayPrize: FC<DisplayPrizeProps> = () => {
         }
         {
             curStateWithCommon.missedWine && <>
-                <img src={callback} alt="" className='callback' onClick={() => {
+                {/* <img src={callback} alt="" className='callback' onClick={() => {
                     replyHomePageStatus()
-                }} />
+                }} /> */}
                 <Receive showGen />
             </>
         }

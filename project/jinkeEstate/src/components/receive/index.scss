@@ -79,7 +79,16 @@
 
     .prizeLine {
         text-align: center;
-        font-size: 36px;
+        font-size: 48px;
+        font-weight: 800;
+
+        margin: {
+            top: 40px
+        }
+    }
+
+    .prizeTitle {
+        text-align: center;
         font-weight: 800;
 
         margin: {
@@ -92,7 +101,7 @@
         align-items: center;
         justify-content: space-between;
 
-        font-size: 27px;
+        font-size: 48px;
 
         margin: {
             top: 20px;
@@ -106,34 +115,30 @@
         justify-content: center;
     }
 
+    .welcome {
+        text-align: justify;
+        line-height: 150%;
+        text-indent: 9vw;
+    }
+
     .project {
         width: 100%;
-        // display: flex;
-        // flex-direction: column;
 
-        .left {
-            flex: 2;
+        .projectDesc {
+            text-align: justify;
+            line-height: 150%;
+            text-indent: 9vw;
 
-            .projectDesc {
-                text-align: justify;
-                line-height: 150%;
-
-                margin: {
-                    top: 20px;
-                    bottom: 20px;
-                }
-
+            margin: {
+                top: 20px;
+                bottom: 20px;
             }
+
         }
 
-        .right {
-            // flex: 1;
-
-            .projectImages {
-                // height: 100%;
-                width: 100%;
-                object-fit: contain;
-            }
+        .projectImages {
+            width: 100%;
         }
+
     }
 }

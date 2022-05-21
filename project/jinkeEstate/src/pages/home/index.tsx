@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-19 09:32:21
- * @LastEditTime: 2022-05-21 10:19:31
+ * @LastEditTime: 2022-05-21 18:38:48
  * @Description: 
- * @FilePath: /repo/project/jinkeEstate/src/pages/home/index.tsx
+ * @FilePath: /jinkeEstate/src/pages/home/index.tsx
  */
 
 import { FC, useState } from 'react'
@@ -37,18 +37,21 @@ const Rule: FC<RuleProps> = () => {
 
 }
 
-export interface ShareProps { }
+export interface ShareProps {
+    show?: boolean
+    onClose?: () => void
 
-const Share: FC<ShareProps> = () => {
-    const [showMask, setMask] = useState(false)
+}
+
+export const Share: FC<ShareProps> = ({ show, onClose }) => {
     return <>
-        <OwnMask visible={showMask} onMaskClick={() => setMask(false)}>
+        <OwnMask visible={show} onMaskClick={onClose}>
             <img src={shareImage} alt="" className='shareJpg' />
             <div className='shareText'>分享至朋友圈</div>
         </OwnMask>
-        <img src={share} alt="" className='share' onClick={() => {
+        {/* <img src={share} alt="" className='share' onClick={() => {
             setMask(true)
-        }} />
+        }} /> */}
     </>
 }
 
@@ -76,10 +79,16 @@ const Home: FC<homeProps> = () => {
                         triggerGame()
                     }} />
                     <OwnModal title='活动规则' visible={show} showCloseButton onClose={() => setShow(false)}>
-                        <div style={{ width: '70vw', padding: "2vw" }}>
-                            {/* <br /> */}
-                            <strong>参与时间</strong>
-                            ：5月21日—5月27日
+                        <div style={{ width: "70vw", textAlign: "justify", padding: "3vw" }}>
+                            <b>参与时间：</b>5月21日—5月27日
+                            <br />
+                            <b>领奖时间：</b>5月28日14:00-15:00
+                            <br />
+                            <b>快递时间：</b>6月5日前发出快递
+                            <br />
+                            <b>详细规则：</b>
+                            <br />
+                            1、参与活动需获取您的微信公开信息（头像、微信名、定位等），请允许后方可参与活动。
                             <br />
                             <br />
                             <strong>

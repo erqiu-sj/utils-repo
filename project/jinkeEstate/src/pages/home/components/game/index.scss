@@ -36,7 +36,7 @@
             flex-direction: column;
 
             .desc {
-                font-size: 40px;
+                font-size: 30px;
                 color: #f1f2b9;
                 text-align: justify;
                 line-height: 150%;
@@ -61,6 +61,9 @@
             .drawNow {
                 width: 402px;
                 object-fit: contain;
+                margin: {
+                    top: 100px
+                }
             }
         }
 
@@ -79,8 +82,8 @@
             position: absolute;
             width: 100%;
             bottom: 10vw;
-            color: white;
-            font-size: 40px;
+            color: #f1f2b9;
+            font-size: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -89,7 +92,7 @@
             // overflow-y: auto;
 
             padding: {
-                top: 20px;
+                top: 40px;
                 left: 40px;
                 right: 40px
             }

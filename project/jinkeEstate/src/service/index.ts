@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-20 15:55:01
- * @LastEditTime: 2022-05-21 11:59:41
+ * @LastEditTime: 2022-05-21 19:55:03
  * @Description: 
- * @FilePath: /repo/project/jinkeEstate/src/service/index.ts
+ * @FilePath: /jinkeEstate/src/service/index.ts
  */
 import { customConfiguration, initializationAxios, InitializeContainer, interceptorsResponseSuccess } from '@zealforchange/proveaxios';
 import { AxiosResponse } from 'axios';
@@ -39,7 +39,7 @@ export function mergeCheck(err: unknown, res: any, msg: string) {
     }
     if (res && res?.success !== 1) {
         const alertMsg = msg || res?.msg as string
-        alert(alertMsg)
+        // alert(alertMsg)
         throw new Error(alertMsg)
     }
 }

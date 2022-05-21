@@ -1,27 +1,30 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-20 14:44:13
- * @LastEditTime: 2022-05-21 10:46:21
+ * @LastEditTime: 2022-05-21 19:35:01
  * @Description: 
- * @FilePath: /repo/project/jinkeEstate/src/components/receive/index.tsx
+ * @FilePath: /jinkeEstate/src/components/receive/index.tsx
  */
 import { Modal } from 'antd-mobile'
 import html2canvas from 'html2canvas'
 import { FC, useEffect, useRef, useState } from 'react'
 import canvas from '~/assets/canvas.pic.jpg'
 import gen from '~/assets/gen.png'
-import { useCommon, useCommonHelper, useService } from '~/hooks'
+import grabIceCream from '~/assets/grabIceCream.jpg'
+import { useCommon, useCommonHelper } from '~/hooks'
+import { Share } from '~/pages/home/index'
 import './index.scss'
-
-export interface receiveProps {
+interface receiveProps {
     showGen?: boolean
 }
+
 
 const Receive: FC<receiveProps> = ({ showGen }) => {
     const { curStateWithCommon } = useCommon()
     const ref = useRef<HTMLDivElement | null>(null)
     const [show, setShow] = useState(false)
     const [poster, setPoster] = useState('')
+    const [showShare, setShowShare] = useState(false)
     const { isSaveed } = useCommonHelper()
     useEffect(() => {
         if (show && ref.current && !poster) {
@@ -32,14 +35,19 @@ const Receive: FC<receiveProps> = ({ showGen }) => {
             }, 100);
         }
     }, [show])
+
     return <>
         <div className='receiveContainer'>
             {
-                (isSaveed || showGen) && <img src={gen} alt="" className='gen' onClick={() => {
-                    setShow(true)
-                }} />
+                (isSaveed || showGen) && <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'center' }}>
+                    <img src={grabIceCream} className='gen' style={{ width: '40vw' }} alt="" onClick={() => setShowShare(true)} />
+                    &nbsp;&nbsp;&nbsp;
+                    <img src={gen} alt="" className='gen' style={{ width: '40vw' }} onClick={() => {
+                        setShow(true)
+                    }} />
+                    <Share show={showShare} onClose={() => setShowShare(false)} />
+                </div>
             }
-
             <Modal visible={show} showCloseButton onClose={() => setShow(false)} content={
                 <>
                     <div className='canvas' ref={ref}>
@@ -48,7 +56,7 @@ const Receive: FC<receiveProps> = ({ showGen }) => {
                             <img src={curStateWithCommon.commonData.fans?.avatar} alt="" className='avatar' />
                             <span className='trueName'>{curStateWithCommon.commonData.fans?.truename}</span>
                             <span className='descx' style={{ textAlign: 'center' }}>
-                                我是{curStateWithCommon?.commonData?.fans?.id}位点亮重庆的美好见证者，快来跟我一起点亮重庆版图
+                                我是第{curStateWithCommon?.commonData?.fans?.id}位点亮重庆的美好见证者，快来跟我一起点亮重庆版图
                             </span>
                         </>}
                         {poster && <span>
@@ -58,17 +66,26 @@ const Receive: FC<receiveProps> = ({ showGen }) => {
                 </>
             } />
             <div className='prizeLine'>
-                <h2>
-                    {`> ${curStateWithCommon.addr.title} <`}
-                </h2>
+                <br />
+                <h3>
+                    {`${curStateWithCommon.addr.title}`}
+                </h3>
+            </div>
+            <br />
+            <div className='welcome'>
+                欢迎5月28日14:00-15:00莅临项目现场，参加抽奖活动!
+            </div>
+            <br />
+            <div className='prizeTitle'>
+                {curStateWithCommon.addr.newstitle}
             </div>
             <br />
             <div className=''>
-                <h3 style={{ textAlign: 'center' }}>
+                {/* <h3 style={{ textAlign: 'center' }}>
                     - 活动现场 奖品设置 -
-                </h3>
+                </h3> */}
                 <br />
-                <div style={{ textAlign: 'center' }} dangerouslySetInnerHTML={{ __html: curStateWithCommon.addr.newscontent || '' }}></div>
+                <div style={{ textAlign: 'left' }} dangerouslySetInnerHTML={{ __html: curStateWithCommon.addr.newscontent || '' }}></div>
             </div>
             <br />
             {/* <div className='addr'>
@@ -78,17 +95,10 @@ const Receive: FC<receiveProps> = ({ showGen }) => {
                 <Button size='large'>立即导航</Button>
             </div> */}
             <div className='project'>
-                <div className="left">
-                    <h3 style={{ textAlign: 'center' }}> - 项目介绍 -</h3>
-                    <div className='projectDesc'>
-                        {curStateWithCommon?.addr?.content || ''}
-                        <br />
-                        参与时间：5月21日—5月27日
-                    </div>
+                <div className='projectDesc'>
+                    {curStateWithCommon?.addr?.content || ''}
                 </div>
-                <div className="right">
-                    <img src={curStateWithCommon.addr.thumb} alt="" className='projectImages ' />
-                </div>
+                <img src={curStateWithCommon.addr.thumb} alt="" className='projectImages ' />
             </div>
             <br />
             {/* <div className='withShare'>

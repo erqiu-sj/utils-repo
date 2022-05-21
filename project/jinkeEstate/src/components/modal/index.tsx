@@ -15,7 +15,7 @@ export interface ownModalProps extends ModalProps {
 }
 
 const OwnModal: FC<PropsWithChildren<ownModalProps>> = ({ children, ...props }) => {
-    return <Modal title='规则' {...props} content={children}></Modal>
+    return <Modal title='活动规则' {...props} content={children}></Modal>
 }
 
 export default OwnModal
