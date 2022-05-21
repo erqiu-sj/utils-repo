@@ -39,6 +39,7 @@
                 font-size: 40px;
                 color: #f1f2b9;
                 text-align: justify;
+                text-indent: 9vw;
                 line-height: 150%;
                 margin: {
                     top: 62px;
@@ -60,6 +61,9 @@
             .drawNow {
                 width: 402px;
                 object-fit: contain;
+                margin: {
+                    top: 100px
+                }
             }
         }
 

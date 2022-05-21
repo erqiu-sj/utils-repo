@@ -75,10 +75,10 @@ const Game: FC<gameProps> = () => {
                     drawAfterLike &&
                     <div className='contentAfterLuckyDraw'>
                         <img src={curStateWithCommon.addr.map} alt="" className='addrImg' />
-                        <div className='desc' style={{ textAlign: 'center' }}>
+                        <img onClick={clickDraw} src={drawNow} alt="" className='drawNow' />
+                        <div className='desc'>
                             {curStateWithCommon.addr.content2}
                         </div>
-                        <img onClick={clickDraw} src={drawNow} alt="" className='drawNow' />
                     </div>}
             </OwnMask>
         </div>
