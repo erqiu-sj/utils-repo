@@ -73,8 +73,8 @@ const Form: FC<FormProps> = ({ saveed, formList, onSubmit }) => {
             <span className='item'>
                 领奖时间: 5月28日14:00-15:00
             </span>
-            <span className='item'>
-                领奖地址: {curStateWithCommon.addr.address}
+            <span className='item' style={{ textAlign: "center"}}>
+                {curStateWithCommon.addr.address}
             </span>
         </>
         }
