@@ -58,7 +58,7 @@ const Receive: FC<receiveProps> = () => {
             </div>
             <br />
             <div className='welcome'>
-                欢迎5月28日14:00-15:00莅临项目现场，参加抽奖活动
+                欢迎5月28日14:00-15:00莅临项目现场，参加抽奖活动!
             </div>
             <br />
             <div className=''>
@@ -72,14 +72,10 @@ const Receive: FC<receiveProps> = () => {
                 <Button size='large'>立即导航</Button>
             </div> */}
             <div className='project'>
-                <div className="left">
-                    <div className='projectDesc'>
-                        {curStateWithCommon?.addr?.content || ''}
-                    </div>
+                <div className='projectDesc'>
+                    {curStateWithCommon?.addr?.content || ''}
                 </div>
-                <div className="right">
-                    <img src={curStateWithCommon.addr.thumb} alt="" className='projectImages ' />
-                </div>
+                <img src={curStateWithCommon.addr.thumb} alt="" className='projectImages ' />
             </div>
             <br />
 
