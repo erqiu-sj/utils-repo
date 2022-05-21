@@ -64,6 +64,7 @@ const Receive: FC<receiveProps> = () => {
             <div className='prizeTitle'>
                 {curStateWithCommon.addr.newstitle}
             </div>
+            <br />
             <div className=''>
                 <div dangerouslySetInnerHTML={{ __html: curStateWithCommon.addr.newscontent || '' }}></div>
             </div>
