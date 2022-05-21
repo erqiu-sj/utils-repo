@@ -16,8 +16,8 @@ export interface response<T = object> {
 }
 
 @initializationAxios({
-    baseURL: "https://act.yoois.com/zt/jkmap/api.php?i=3&logout=1&test=1"
-    // baseURL: "https://act.yoois.com/zt/jkmap/api.php?i=3&logout=1"
+    // baseURL: "https://act.yoois.com/zt/jkmap/api.php?i=3&logout=1&test=1"
+    baseURL: "https://act.yoois.com/zt/jkmap/api.php?i=3&logout=1"
 })
 
 class Core {
