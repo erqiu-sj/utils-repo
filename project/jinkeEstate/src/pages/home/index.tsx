@@ -62,7 +62,7 @@ const Home: FC<homeProps> = () => {
         <div className='home'>
             <div className={`logoContainer highIndex ${!(home || gameScreen) && 'hidden'}`}>
                 <img src={logo1} alt="" className='logo1' />
-                <div className='rule' onClick={() => setShow(true)} >规则</div>
+                <div className='rule' onClick={() => setShow(true)} >活动规则</div>
                 {/* <Rule /> */}
             </div>
             <div className={`logo2Container ${!home && 'hidden'} ${home && 'highIndex'}`}>
