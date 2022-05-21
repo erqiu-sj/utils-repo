@@ -57,6 +57,10 @@ const Receive: FC<receiveProps> = () => {
                 {curStateWithCommon.addr.title}
             </div>
             <br />
+            <div className='welcome'>
+                欢迎5月28日14:00-15:00莅临项目现场，参加抽奖活动
+            </div>
+            <br />
             <div className=''>
                 <div dangerouslySetInnerHTML={{ __html: curStateWithCommon.addr.newscontent || '' }}></div>
             </div>
