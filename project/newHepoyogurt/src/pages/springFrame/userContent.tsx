@@ -1,16 +1,15 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-17 10:56:30
- * @LastEditTime: 2022-05-19 15:21:50
+ * @LastEditTime: 2022-05-23 17:31:45
  * @Description: 
  * @FilePath: /repo/project/newHepoyogurt/src/pages/springFrame/userContent.tsx
  */
-
-import debounce from 'lodash.debounce'
-import { FC, useEffect, useState } from 'react'
-import submit from '~/assets/submit.png'
-import { useCommon, useService, useSpringFrame } from '~/hooks'
-import './userContent.scss'
+import { Phone } from '@mx/utils';
+import { FC, useEffect, useState } from 'react';
+import submit from '~/assets/submit.png';
+import { useCommon, useService, useSpringFrame } from '~/hooks';
+import './userContent.scss';
 
 export interface userContentProps {
     onSubmit?: (res: infoTypes) => void
@@ -54,6 +53,12 @@ const UserContent: FC<userContentProps> = ({ onSubmit }) => {
             alert('手机号不能为空~')
             return
         }
+
+        if (!new Phone(info.phone, { errorThrowsImmediately: false }).verifyPhoneNumber()) {
+            alert('请检查手机号～')
+            return
+        }
+
         if (!info.addr.trim()) {
             alert('地址不能为空~')
             return

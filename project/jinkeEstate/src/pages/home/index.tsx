@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-19 09:32:21
- * @LastEditTime: 2022-05-21 18:38:48
+ * @LastEditTime: 2022-05-24 09:44:37
  * @Description: 
- * @FilePath: /jinkeEstate/src/pages/home/index.tsx
+ * @FilePath: /repo/project/jinkeEstate/src/pages/home/index.tsx
  */
 
 import { FC, useState } from 'react'
@@ -84,23 +84,10 @@ const Home: FC<homeProps> = () => {
                             <br />
                             <b>领奖时间：</b>5月28日14:00-15:00
                             <br />
-                            <b>快递时间：</b>6月5日前发出快递
-                            <br />
-                            <b>详细规则：</b>
-                            <br />
-                            1、参与活动需获取您的微信公开信息（头像、微信名、定位等），请允许后方可参与活动。
-                            <br />
-                            <br />
-                            <strong>
-                                领奖时间
-                            </strong>
-                            ：5月28日—5月29日
-                            <br />
-                            <br />
-                            <strong>
-                                快递时间
-                            </strong>
-                            ：6月5日前发出快递
+                            {/* <b>快递时间：</b>6月5日前发出快递 */}
+                            {/* <br /> */}
+                            <b>雪糕领奖时间：</b>
+                            5月28日 金科南山销售中心
                             <br />
                             <br />
                             <strong>

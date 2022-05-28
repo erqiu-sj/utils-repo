@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-18 16:15:40
- * @LastEditTime: 2022-05-19 16:53:19
+ * @LastEditTime: 2022-05-23 17:10:44
  * @Description: 
- * @FilePath: /newHepoyogurt/src/service/index.ts
+ * @FilePath: /repo/project/newHepoyogurt/src/service/index.ts
  */
 
 import { customConfiguration, initializationAxios, InitializeContainer, interceptorsResponseSuccess } from '@zealforchange/proveaxios';
@@ -45,4 +45,3 @@ export function mergeCheck(err: unknown, res: any, msg: string) {
         throw new Error(alertMsg)
     }
 }
-

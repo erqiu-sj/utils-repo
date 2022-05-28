@@ -50,5 +50,30 @@
 }
 
 .fitrue {
-    width: 369px;
+    width: 299px;
+}
+
+@mixin defaultSmallScreen {
+    .mike {
+        width: 149px;
+    }
+
+    .fitrue {
+        width: 299px;
+    }
+}
+
+// iphone 678 p
+@media (device-width: 414px) and (max-height: 736px) and (-webkit-device-pixel-ratio: 3) {
+    @include defaultSmallScreen();
+}
+
+// iphone 678
+@media (device-width: 375px) and (max-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+    @include defaultSmallScreen();
+}
+
+// iphone 5
+@media (device-width: 320px) and (max-height: 568px) and (-webkit-device-pixel-ratio: 2) {
+    @include defaultSmallScreen();
 }

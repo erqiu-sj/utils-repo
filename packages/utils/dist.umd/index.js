@@ -1,1 +1,29 @@
-!function(e,o){"object"==typeof exports&&"undefined"!=typeof module?o(exports):"function"==typeof define&&define.amd?define(["exports"],o):o((e="undefined"!=typeof globalThis?globalThis:e||self).mxUtils={})}(this,(function(e){"use strict";e.Phone=class{getPhone(){}},Object.defineProperty(e,"__esModule",{value:!0})}));
+/*! *****************************************************************************
+Copyright (c) maixun Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+!function(i,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof define&&define.amd?define(["exports"],t):t((i="undefined"!=typeof globalThis?globalThis:i||self).mxUtils={})}(this,(function(i){"use strict";
+/*! *****************************************************************************
+    Copyright (c) Microsoft Corporation.
+
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
+    ***************************************************************************** */function t(i,t,o,n){return new(o||(o=Promise))((function(e,s){function r(i){try{h(n.next(i))}catch(i){s(i)}}function l(i){try{h(n.throw(i))}catch(i){s(i)}}function h(i){var t;i.done?e(i.value):(t=i.value,t instanceof o?t:new o((function(i){i(t)}))).then(r,l)}h((n=n.apply(i,t||[])).next())}))}i.Phone=class{constructor(i,t){this.strictVerification=/^(?:(?:\+|00)86)?1(?:(?:3[\d])|(?:4[5-79])|(?:5[0-35-9])|(?:6[5-7])|(?:7[0-8])|(?:8[\d])|(?:9[189]))\d{8}$/,this.laxValidation=/^(?:(?:\+|00)86)?1[3-9]\d{9}$/,this.leastValidation=/^(?:(?:\+|00)86)?1\d{10}$/,this.verify=this.laxValidation,this.phone="",this.options=null,this.phone=i,this.options=t,this.filterVerificationMethod(),this.errorThrowing()}filterVerificationMethod(){var i,t;if(null===(i=this.options)||void 0===i?void 0:i.customRules)return void(this.verify=this.options.customRules);(null===(t=this.options)||void 0===t?void 0:t.stringency)&&(this.verify={loose:this.laxValidation,loosest:this.leastValidation,rigorous:this.strictVerification}[this.options.stringency])}errorThrowing(){var i,o,n,e;return t(this,void 0,void 0,(function*(){if(!1!==(null===(i=this.options)||void 0===i?void 0:i.errorThrowsImmediately)&&!this.verify.test(this.phone))throw null===(n=null===(o=this.options)||void 0===o?void 0:o.throwHandling)||void 0===n||n.call(o),Error((null===(e=this.options)||void 0===e?void 0:e.throwMsg)||"手机号验证失败")}))}verifyPhoneNumber(){var i,t;const o=this.verify.test(this.phone);return!o&&(null===(t=null===(i=this.options)||void 0===i?void 0:i.verificationFailed)||void 0===t||t.call(i)),o}getPhone(){return this.phone}},Object.defineProperty(i,"__esModule",{value:!0})}));

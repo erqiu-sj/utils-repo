@@ -1,10 +1,11 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-11 22:37:08
- * @LastEditTime: 2022-05-18 23:00:04
+ * @LastEditTime: 2022-05-28 21:14:39
  * @Description: 
  * @FilePath: /repo/README.md
 -->
+
 # repo
 
 ## 构建环境
@@ -35,11 +36,14 @@ sh ./script/install.sh
 
 [设计一个包应该考虚什么？](/docs/buildPackage.md)
 
+
 ## packages
 
 [@mx/build](/packages/build/README.md)
 
 [@mx/utils](/packages/utils/README.md)
+
+[@mx/service](/packages/service/README.md)
 
 ## TODO
 
@@ -52,3 +56,8 @@ sh ./script/install.sh
 - `packages` 包完善
 
 - `统一 tsconfig`
+
+- `h5`
+  - 预加载
+  - `loading`
+  - 开发部署阶段的页面提示

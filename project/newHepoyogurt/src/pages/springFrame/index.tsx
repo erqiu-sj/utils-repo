@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-16 22:47:13
- * @LastEditTime: 2022-05-18 09:54:40
+ * @LastEditTime: 2022-05-25 12:55:01
  * @Description: 弹框
  * @FilePath: /repo/project/newHepoyogurt/src/pages/springFrame/index.tsx
  */
@@ -41,7 +41,7 @@ export const SpringFrame: FC<SpringFrameProps> = () => {
     const { curStateWithSpringFrame } = useSpringFrame()
 
     const diyClass = useMemo(() => {
-        if ([1, 3].includes(curStateWithSpringFrame.popStatusBox.id)) { return 'userContentLayout' }
+        if ([1, 3, 4].includes(curStateWithSpringFrame.popStatusBox.id)) { return 'userContentLayout' }
         return ''
     }, [curStateWithSpringFrame])
 
@@ -63,7 +63,7 @@ export const SpringFrame: FC<SpringFrameProps> = () => {
                             <UserContent /> : <></>
                     }
                     {
-                        curStateWithSpringFrame.popStatusBox.id === 3 ?
+                        curStateWithSpringFrame.popStatusBox.id === 3 || curStateWithSpringFrame.popStatusBox.id === 4 ?
                             <Qrcode /> : <></>
                     }
                 </div>

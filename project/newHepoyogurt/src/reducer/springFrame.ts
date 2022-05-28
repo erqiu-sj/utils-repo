@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-17 10:35:54
- * @LastEditTime: 2022-05-19 15:12:25
+ * @LastEditTime: 2022-05-25 12:55:26
  * @Description: 
  * @FilePath: /repo/project/newHepoyogurt/src/reducer/springFrame.ts
  */
@@ -18,7 +18,7 @@ export type springFrameActionTypes = getAllValsWithActionCollectionHelper<spring
 export type springFrameStateTypes = {
   open: boolean,
   popStatusBox: {
-    id: number // 1 规则  2 用户信息 3 二维码
+    id: number // 1 规则  2 用户信息 3 二维码 4
   }
 }
 export type springFrameActionPayloadTypes = {
@@ -31,12 +31,13 @@ export type springFrameActionPayloadTypes = {
 export const springFrame = new CreateReducer<springFrameStateTypes, springFrameActionPayloadTypes, springFrameActionTypes>({
   open: false,
   popStatusBox: {
-    id: 3// 1 用户信息 2 规则 3 二维码
+    id: 1// 1 用户信息 2 规则 3 二维码 4 领取成功(小红包) 更多福利跳转到二维码后二维码页面内部判断
   }
 })
   .addAction('setBulletFrameSwitchStatus', (state, action) => {
     return { ...state, open: action?.open || false }
-  }).addAction('setPopStatusBox', (state, action) => {
+  })
+  .addAction('setPopStatusBox', (state, action) => {
     return {
       ...state, popStatusBox: {
         id: action.popStatusBox?.id || 2

@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-18 16:22:45
- * @LastEditTime: 2022-05-19 08:57:07
+ * @LastEditTime: 2022-05-23 11:31:33
  * @Description:
- * @FilePath: /repo/project/newHepoyogurt/src/reducer/common.ts
+ * @FilePath: /newHepoyogurt/src/reducer/common.ts
  */
 import { CreateReducer, getAllValsWithActionCollectionHelper } from '@zealforchange/conciseredux'
 import { fillResponse } from '~/hooks/useService'

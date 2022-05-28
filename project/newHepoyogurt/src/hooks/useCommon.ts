@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-18 16:22:45
- * @LastEditTime: 2022-05-19 15:18:37
+ * @LastEditTime: 2022-05-23 14:35:00
  * @Description: 
- * @FilePath: /repo/project/newHepoyogurt/src/hooks/useCommon.ts
+ * @FilePath: /newHepoyogurt/src/hooks/useCommon.ts
  */
 import { bindActionCreators } from '@zealforchange/conciseredux';
 import { useMemo } from 'react';
@@ -33,7 +33,7 @@ export function useCommon() {
 
     // 用户信息是否完整 
     const isFillUserInfo = useMemo(() => {
-        const alertUserInfo = [3, 8, 9, 10, 11, 12].includes(curStateWithLottery.currentPrizeList.id)
+        const alertUserInfo = [3, 8, 9, 10].includes(curStateWithLottery.currentPrizeList.id)
         if (alertUserInfo) return true
         return !!curStateWithCommon.common.fans?.phone || !!curStateWithCommon.common.fans?.truename || !!curStateWithCommon.common.fans?.address
     }, [curStateWithCommon, curStateWithLottery])

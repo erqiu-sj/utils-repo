@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-17 15:56:58
- * @LastEditTime: 2022-05-18 11:05:36
+ * @LastEditTime: 2022-05-23 13:52:21
  * @Description: 
- * @FilePath: /repo/project/newHepoyogurt/src/hooks/usePhone.ts
+ * @FilePath: /newHepoyogurt/src/hooks/usePhone.ts
  */
 type verifyPhoneTypes = 'iphone1213/Pro/max' | 'iphone1213/Pro' | 'iphone5' | 'iphone678' | 'iphone678p' | 'iphonex' | 'iphonexr'
 

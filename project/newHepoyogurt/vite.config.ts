@@ -20,7 +20,6 @@ const config = new ViteConfiguration()
   .getConfig({
     base: "/zt/qr3/"
   })
-
 export default defineConfig({
   ...config,
 })

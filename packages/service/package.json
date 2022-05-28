@@ -1,0 +1,26 @@
+{
+  "name": "@mx/service",
+  "version": "0.0.1",
+  "description": "service",
+  "keywords": [
+    "http",
+    "axios",
+    "service"
+  ],
+  "author": "hooks_28 <1r56955415918@qq.com>",
+  "homepage": "",
+  "license": "MIT",
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dts/index.d.ts",
+  "files": [
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmmirror.com/"
+  },
+  "repository": {},
+  "scripts": {},
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}

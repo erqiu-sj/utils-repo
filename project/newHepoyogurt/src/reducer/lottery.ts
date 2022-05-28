@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-15 14:07:02
- * @LastEditTime: 2022-05-18 16:53:49
+ * @LastEditTime: 2022-05-25 12:50:01
  * @Description: 
  * @FilePath: /repo/project/newHepoyogurt/src/reducer/lottery.ts
  */
@@ -46,7 +46,7 @@ export const lottery = new CreateReducer<lotteryStateTypes, lotteryActionPayload
     },
     {
       id: 3,
-      tips: "150元微商城优惠卷包"
+      tips: "150元微商城优惠券包"
     },
     {
       id: 4,
@@ -96,8 +96,6 @@ export const lottery = new CreateReducer<lotteryStateTypes, lotteryActionPayload
   })
   .addAction('setLotteryId', (state, action) => {
     const curPrize = state.prizeList.find(id => (action?.id || 0) === id.id) || { id: 0, tips: "谢谢参与" }
-    console.log(curPrize, 'curPrize')
-
     return { ...state, currentPrizeList: curPrize }
   })
   .setReducerKey('lottery')

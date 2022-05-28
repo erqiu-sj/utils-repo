@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-15 11:00:31
- * @LastEditTime: 2022-05-19 16:50:23
+ * @LastEditTime: 2022-05-24 14:41:54
  * @Description: 
  * @FilePath: /newHepoyogurt/src/pages/luckDraw/index.tsx
  */
@@ -79,9 +79,10 @@ export interface operationAreaProps {
     onOpenBlindBox?: () => void
     onGetPrize?: () => void
     boxStatus?: boolean // 盲盒状态
+    boxInitAnim?: boolean
 }
 
-const OperationArea: FC<operationAreaProps> = ({ boxStatus, onOpenBlindBox, onGetPrize }) => {
+const OperationArea: FC<operationAreaProps> = ({ boxInitAnim, boxStatus, onOpenBlindBox, onGetPrize }) => {
 
     // 是否正在抽奖
     const lottery = useRef(true)
@@ -103,12 +104,24 @@ const OperationArea: FC<operationAreaProps> = ({ boxStatus, onOpenBlindBox, onGe
             alert('谢谢参与～')
             return
         }
+
         if (!isFillUserInfo) {
             dispatchWithSpringFrame.setBulletFrameSwitchStatus({ open: true })
             dispatchWithSpringFrame.setPopStatusBox({
                 popStatusBox: { id: 1 }
             })
         } else {
+            // if (curStateWithLottery.currentPrizeList.id === 3) {
+            //     // 优惠卷直接跳小程序
+            //     return
+            // }
+            if ([8, 9, 10].includes(curStateWithLottery.currentPrizeList.id)) {
+                dispatchWithSpringFrame.setBulletFrameSwitchStatus({ open: true })
+                dispatchWithSpringFrame.setPopStatusBox({
+                    popStatusBox: { id: 4 }
+                })
+                return
+            }
             dispatchWithSpringFrame.setBulletFrameSwitchStatus({ open: true })
             dispatchWithSpringFrame.setPopStatusBox({
                 popStatusBox: { id: 3 }
@@ -125,17 +138,38 @@ const OperationArea: FC<operationAreaProps> = ({ boxStatus, onOpenBlindBox, onGe
         {
             curStateWithLottery.lotteryStatus === 1 ? <div className='status1'>
                 <div className='oper'>
-                    <img src={open} alt="" className='btn' onClick={debounce(() => {
-                        openBlindBoxHandler()
-                    }, 300)} />
-                    <img src={buy} alt="" className='btn' />
+                    {boxInitAnim &&
+                        <>
+                            <div className='btn' style={{ margin: 0 }}>
+                                <img src={open} alt="" className='btn' onClick={debounce(() => {
+                                    openBlindBoxHandler()
+                                }, 300)} style={{ margin: 0 }} />
+                            </div>
+                        </>
+                    }
                 </div>
                 <img src={tips} alt="" className='tips' />
             </div> : <></>
         }
-
         {
-            curStateWithLottery.lotteryStatus === 2 ? <img src={get} onClick={getPrizeHandler} alt="" className='getPrize' /> : <></>
+            curStateWithLottery.lotteryStatus === 2 ? <>
+                <img src={get} onClick={getPrizeHandler} alt="" className='getPrize' />
+                &nbsp;
+                &nbsp;
+                {/* @ts-ignore */}
+                <wx-open-launch-weapp
+                    class='getPrizeWithPage'
+                    username="gh_49fc4df96ddf"
+                    path="pages/common/blank-page/index?scene=596177233"
+                >
+                    <script type="text/wxtag-template">
+                        <img src={buy} alt="" style={{ height: '100%', width: '100%', objectFit: 'contain' }} />
+                    </script>
+                    {/* <template>
+                                </template> */}
+                    {/* @ts-ignore */}
+                </wx-open-launch-weapp>
+            </> : <></>
         }
 
     </div>
@@ -180,9 +214,7 @@ const Base: FC<PropsWithChildren<baseProps>> = ({ }) => {
     // 开盲盒
     function openBlindBox() {
         // console.log(boxInitAnim, 'boxInitAnim');
-        console.log(boxInitAnim, '1');
         if (!boxInitAnim) return
-        console.log(boxInitAnim, '2');
         closelotteryStatusHandler()
         return
     }
@@ -206,7 +238,7 @@ const Base: FC<PropsWithChildren<baseProps>> = ({ }) => {
                 <PrizeResults />
             </div>
         </div>
-        <OperationArea boxStatus={lotteryStatus} onOpenBlindBox={openBlindBox} />
+        <OperationArea boxInitAnim={boxInitAnim} boxStatus={lotteryStatus} onOpenBlindBox={openBlindBox} />
     </>
 }
 

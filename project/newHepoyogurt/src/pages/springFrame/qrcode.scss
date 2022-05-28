@@ -1,6 +1,6 @@
 @mixin common {
     width: 100%;
-    height: 100%;   
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,9 +9,11 @@
 
 .qrcode3 {
     @include common();
-    padding: {
-        top: 140px;
-    };
+
+    // padding: {
+    //     top: 10px;
+    // }
+
     .get {
         width: 70%;
         object-fit: contain;
@@ -20,45 +22,74 @@
     .qrcodeImages {
         width: 50%;
         object-fit: contain;
+
         margin: {
             top: 40px;
         }
     }
-
 }
+
+.qrcode4 {
+    @include common();
+
+    padding: {
+        // top: 90px;
+    }
+
+    .day {
+        width: 70%;
+        object-fit: contain
+    }
+
+    .qrcodeImages {
+        width: 38%;
+        object-fit: contain;
+
+        margin: {
+            top: 40px;
+        }
+    }
+}
+
 
 //小额红包 
 .qrcode2 {
     @include common();
+
     padding: {
-        top: 70px;
-    };
+        top: 20px;
+    }
+
     .day {
         width: 90%;
         object-fit: contain
     }
+
     .qrcodeImages {
         width: 38%;
         object-fit: contain;
+
         margin: {
             top: 40px;
         }
     }
 
     .link {
-        width: 38%;
+        width: 65%;
         object-fit: contain;
+
         margin: {
             top: 30px;
         }
     }
 }
 
+
 .qrcode {
     @include common();
 
     padding: {
-        top: 214px
+        top: -44px
     }
 
     h2 {
@@ -75,16 +106,25 @@
             top: 75px
         }
     }
+
+    .nowGet {
+        width: 328px;
+        object-fit: contain;
+
+        margin: {
+            top: 50px;
+        }
+    }
 }
 
 @mixin defaultBigScreen {}
 
 @mixin defaultSmallScreen {
-    .qrcode {
-        padding: {
-            top: 144px
-        }
-    }
+    // .qrcode {
+    //     padding: {
+    //         top: -24px
+    //     }
+    // }
 }
 
 // iphone xs max

@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-18 16:23:15
- * @LastEditTime: 2022-05-19 08:58:46
+ * @LastEditTime: 2022-05-23 15:00:01
  * @Description: 
- * @FilePath: /repo/project/newHepoyogurt/src/hooks/useService.ts
+ * @FilePath: /newHepoyogurt/src/hooks/useService.ts
  */
 
 
@@ -86,8 +86,8 @@ export function useService() {
         }))
         mergeCheck(err, res, '抽奖失败，请重试');
         const data = (res as response<luckdrawResponse>).data
-        dispatchWithLottery.setLotteryId({ id: parseInt(data.id) })
         suc?.()
+        dispatchWithLottery.setLotteryId({ id: parseInt(data.id) })
     }
 
     // https://act.yoois.com/zt/qr3/api.php?i=3&logout=1&test=1&action=saveinfo&truename=a&phone=133&address=myadd

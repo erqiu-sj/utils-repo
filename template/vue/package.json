@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mx/build": "^0.0.1",
+    "@mx/service": "^0.0.1",
     "utils": "^0.0.1",
     "vue": "^3.2.25"
   },

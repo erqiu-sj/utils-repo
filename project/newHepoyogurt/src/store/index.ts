@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-15 14:04:12
- * @LastEditTime: 2022-05-18 16:22:51
+ * @LastEditTime: 2022-05-24 14:08:09
  * @Description:
  * @FilePath: /repo/project/newHepoyogurt/src/store/index.ts
  */
@@ -16,4 +16,3 @@ const store = createStore(combineReducers({
 }))
 
 export { store };
-
