@@ -1,19 +1,24 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 10:55:32
- * @LastEditTime: 2022-05-28 20:36:32
+ * @LastEditTime: 2022-05-29 20:41:44
  * @Description: 
  * @FilePath: /repo/packages/service/src/index.ts
  */
 
-import { Axios } from './core/create'
+import { Service } from './core/create'
+import type { interceptor } from './core/injectInterceptor'
+import { Cache } from './plugins/cache/cache'
+import { CacheConfig } from './plugins/cache/config'
+import { ExpirationTime } from './plugins/cache/utils'
 import { Cancel } from './plugins/cancel/cancel'
 import { cancelHeader, cancelRequestConfiguration } from './plugins/cancel/config'
-import type { interceptor } from './core/injectInterceptor'
 import { requestCancellationHepler } from './utils/cancel'
 
-export { Axios, requestCancellationHepler, cancelHeader, cancelRequestConfiguration, Cancel }
+export { Service, requestCancellationHepler, cancelHeader, cancelRequestConfiguration, Cancel, ExpirationTime, Cache }
+export type { interceptor, CacheConfig }
 
-export type { interceptor }
+
+
 
 

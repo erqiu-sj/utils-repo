@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-28 10:52:32
- * @LastEditTime: 2022-05-28 21:52:00
+ * @LastEditTime: 2022-05-29 20:41:52
  * @Description: 
  * @FilePath: /repo/packages/service/README.md
 -->
@@ -13,7 +13,7 @@
 ## Usage
 
 ```ts
-import { Axios , cancelHeader , Cancel } from '@mx/service'
+import { Service , cancelHeader , Cancel } from '@mx/service'
 
 //  implements interceptor 后再 class 内 输入 re 函数包括类型会自动补全
 class defaultInterceptor implements interceptor {
@@ -36,7 +36,7 @@ class defaultInterceptor implements interceptor {
 }
 
 
-const http = new Axios({
+const http = new Service({
     baseURL: "http://localhost",
     headers:{
         cancelHeader
@@ -51,7 +51,7 @@ http()({ url: "" })
 
 ## notes
 
-### Axios
+### Service
 
 - `defaultInterceptor method`  安装默认拦截器,拦截器类型为`class implements interceptor` 。会在每个插件拦截器最后执行
 
@@ -77,9 +77,9 @@ http()({ url: "" })
 -  `cancellationRules` 定义取消请求规则, 默认规则  `${config.url||config.baseURL} & ${config.method}`
 
 ```ts
-import { Axios , cancelHeader , Cancel } from '@mx/service'
+import { Service , cancelHeader , Cancel } from '@mx/service'
 
-const http = new Axios({
+const http = new Service({
     baseURL: "http://localhost",
     headers:{
         cancelHeader
@@ -93,19 +93,50 @@ const http = new Axios({
     .getAxios()
 ```
 
+### Cache
 
+#### config
+
+- `useCache` 声明当前函数是否需要调用缓存, 缓存存在时，不会走`axios`的请求初始化流程,而是将上一次相同请求的 `response.data` 直接返回
+
+
+- `cacheExpirationTime` 缓存时间戳 ,从当前时间向后延迟的毫秒数,是一个基于当前浏览器时间的时间戳
+
+- `cacheRules` 缓存规则，同`Cancel`插件的`cancellationRules`, 默认值 `${config.url || config.baseURL}`
+
+```ts
+import { Service, ExpirationTime , Cache , CacheConfig} from '@mx/service'
+const http = new Service({
+    baseURL: "http://localhost",
+})
+    .injectionInterceptorPlugin([new Cache()])
+    // 向请求参数添加更多的类型声明
+    .getAxios<Partial<CacheConfig>>()
+
+   await http({
+    url: '/weaknet/hello', 
+    cacheExpirationTime: new ExpirationTime('min', 1).generateExpirationTime()
+  })
+   // 该请求不会被发出
+   await http({
+    url: '/weaknet/hello',
+    useCache: true
+  })
+```
 
 
 ## TODO
 
-- 缓存请求
+- ~~缓存请求~~
 
 - ~~取消重复请求~~
 
-- 概念映射
+- ~~概念映射~~
 
 - 请求兜底
 
 - 多版本共存
 
 - 防腐层设计
+
+- 时序控制器

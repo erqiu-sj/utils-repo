@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 20:55:11
- * @LastEditTime: 2022-05-28 21:02:54
+ * @LastEditTime: 2022-05-29 20:11:44
  * @Description: 
  * @FilePath: /repo/packages/service/src/utils/decorator.ts
  */
@@ -13,7 +13,7 @@ export function allowExecution<T = unknown>(cb?: (parmater: T) => boolean) {
         desc.value = function () {
             const params = Array.from(arguments)
             // @ts-ignore
-            cb?.(...params) && fn(...params)
+            return cb?.(...params) && fn(...params)
         }
         return desc
     }

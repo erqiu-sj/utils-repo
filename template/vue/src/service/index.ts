@@ -1,14 +1,14 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 20:22:34
- * @LastEditTime: 2022-05-28 21:45:34
+ * @LastEditTime: 2022-05-29 20:40:43
  * @Description: 
  * @FilePath: /repo/template/vue/src/service/index.ts
  */
 
-import { Axios, Cancel, cancelHeader, interceptor } from '@mx/service';
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { Cache, CacheConfig, cancelRequestConfiguration, interceptor, Service } from '@mx/service';
 
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 class defaultInterceptor implements interceptor {
 
@@ -24,17 +24,14 @@ class defaultInterceptor implements interceptor {
     }
 
     responseSuccessInterceptor(response: AxiosResponse<any, any>): void | AxiosResponse<any, any> | Promise<AxiosResponse<any, any>> | Promise<void> {
+        return response.data
     }
 }
 
-const http = new Axios({
-    baseURL: "http://localhost:3002", headers: {
-        cancelHeader
-    },
-})
+const http = new Service({})
+    .injectionInterceptorPlugin([new Cache()])
     .defaultInterceptor(new defaultInterceptor())
-    .injectionInterceptorPlugin([new Cancel()])
-    .getAxios()
+    .getAxios<Partial<cancelRequestConfiguration & CacheConfig>>()
 
 export {
     http

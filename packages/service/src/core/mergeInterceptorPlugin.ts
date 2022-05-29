@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 12:10:05
- * @LastEditTime: 2022-05-28 20:39:26
+ * @LastEditTime: 2022-05-29 20:28:35
  * @Description: 
  * @FilePath: /repo/packages/service/src/core/mergeInterceptorPlugin.ts
  */
@@ -19,6 +19,7 @@ export class MergeInterceptorPlugin {
             const err = this.schedulingPluginCallbacks(parsePlugin?.requestFailInterceptorList, error)
             return defaultInterceptor?.requestFailInterceptor?.(err) || err
         })
+
         axios.interceptors.response.use(async (response) => {
             const res = await this.schedulingPluginCallbacks(parsePlugin.responseSuccessInterceptor, response) || response
             return defaultInterceptor?.responseSuccessInterceptor?.(res) || res
