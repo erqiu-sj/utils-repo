@@ -1,6 +1,17 @@
+/*
+ * @Author: 邱狮杰
+ * @Date: 2022-05-31 21:20:13
+ * @LastEditTime: 2022-05-31 21:44:44
+ * @Description: 
+ * @FilePath: /repo/template/taro-vue/config/index.js
+ */
+import path from 'path'
+
+console.log(path.resolve(__dirname, "..", "src", 'service/index'), 'path.resolve(__dirname, "..", "src")')
+
 const config = {
-  projectName: 'myApp',
-  date: '2022-5-27',
+  projectName: 'taro-vue',
+  date: '2022-5-31',
   designWidth: 750,
   deviceRatio: {
     640: 2.34 / 2,
@@ -9,7 +20,7 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: [],
+  plugins: ['taro-plugin-pinia'],
   defineConstants: {
   },
   copy: {
@@ -18,8 +29,25 @@ const config = {
     options: {
     }
   },
-  framework: 'react',
+  framework: 'vue3',
   mini: {
+    webpackChain(chain) {
+      chain.merge({
+        module: {
+          rule: {
+            mjsScript: {
+              test: /\.mjs$/,
+              include: [/pinia/],
+              use: {
+                babelLoader: {
+                  loader: require.resolve('babel-loader')
+                }
+              }
+            }
+          }
+        }
+      })
+    },
     postcss: {
       pxtransform: {
         enable: true,
@@ -42,9 +70,6 @@ const config = {
       }
     }
   },
-  alias: {
-    '~/': path.resolve(__dirname, '..', 'src/'),
-  },
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
@@ -62,7 +87,11 @@ const config = {
         }
       }
     }
-  }
+  },
+  alias: {
+    '~/': path.resolve(__dirname, "..", "src/"),
+  },
+
 }
 
 module.exports = function (merge) {
