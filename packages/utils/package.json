@@ -22,7 +22,7 @@
     "dts"
   ],
   "publishConfig": {
-    "registry": "https://localhost:4873"
+    "registry": "http://localhost:4873/"
   },
   "scripts": {
     "build:umd": "rollup -c -f umd -d dist.umd",

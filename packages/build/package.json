@@ -21,7 +21,7 @@
     "dts"
   ],
   "publishConfig": {
-    "registry": "https://localhost:4873"
+    "registry": "http://localhost:4873/"
   },
   "scripts": {
     "build:es": "tsc --module ESNext --outDir ./dist --moduleResolution node",

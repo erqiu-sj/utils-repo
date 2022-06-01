@@ -19,7 +19,7 @@
     "dts"
   ],
   "publishConfig": {
-    "registry": "https://localhost:4873"
+    "registry": "http://localhost:4873/"
   },
   "repository": {},
   "scripts": {},
