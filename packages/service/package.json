@@ -1,6 +1,7 @@
 {
   "name": "@mx/service",
   "version": "0.0.1",
+  "private": false,
   "description": "service",
   "keywords": [
     "http",
@@ -14,9 +15,11 @@
   "main": "./dist/index.js",
   "types": "./dts/index.d.ts",
   "files": [
+    "dist",
+    "dts"
   ],
   "publishConfig": {
-    "registry": "https://registry.npmmirror.com/"
+    "registry": "https://localhost:4873"
   },
   "repository": {},
   "scripts": {},

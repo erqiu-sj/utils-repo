@@ -1,0 +1,34 @@
+{
+  "name": "taro",
+  "private": true,
+  "version": "0.0.1",
+  "description": "taro utils",
+  "keywords": [
+    "taro",
+    "vue",
+    "react",
+    "hooks",
+    "components"
+  ],
+  "author": "hooks_28 <1r56955415918@qq.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/taro.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmmirror.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/cq_maixun_network/repo.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}
