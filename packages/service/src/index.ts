@@ -1,8 +1,8 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 10:55:32
- * @LastEditTime: 2022-05-31 21:58:29
- * @Description: 
+ * @LastEditTime: 2022-06-02 17:42:05
+ * @Description: cretea
  * @FilePath: /repo/packages/service/src/index.ts
  */
 
@@ -16,8 +16,8 @@ import { cancelHeader, cancelRequestConfiguration } from './plugins/cancel/confi
 import { requestCancellationHepler } from './utils/cancel'
 
 export { Service, requestCancellationHepler, cancelHeader, cancelRequestConfiguration, Cancel, ExpirationTime, Cache }
-
 export type { interceptor, CacheConfig }
+
 
 
 

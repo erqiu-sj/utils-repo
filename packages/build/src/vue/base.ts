@@ -1,4 +1,4 @@
-import { Plugin, UserConfigExport } from 'vite'
+import { UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { PostcssPxToViewport } from '../common/postcssPxToViewport'
 import { ScenarioExpectations, ScenarioExpectationsForVueDefaultOptionTypes } from '../types/scenes'
