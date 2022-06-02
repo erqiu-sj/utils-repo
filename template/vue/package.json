@@ -1,7 +1,7 @@
 {
   "name": "base_vue",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mx/build": "^0.2.0",
-    "@mx/service": "^0.2.0",
+    "@mx/build": "^0.2.1",
+    "@mx/service": "^0.2.1",
     "utils": "^0.0.1",
     "vue": "^3.2.25"
   },

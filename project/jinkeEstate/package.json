@@ -1,7 +1,7 @@
 {
   "name": "jinkeestate",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -9,7 +9,7 @@
     "gen": "../../node_modules/@zealforchange/conciseredux/dist/main -h"
   },
   "dependencies": {
-    "@mx/build": "^0.2.0",
+    "@mx/build": "^0.2.1",
     "@zealforchange/conciseredux": "^2.0.2",
     "@zealforchange/proveaxios": "^1.1.7",
     "antd-mobile": "^5.12.4",
