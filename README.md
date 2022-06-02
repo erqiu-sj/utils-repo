@@ -1,12 +1,17 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-11 22:37:08
- * @LastEditTime: 2022-05-28 21:14:39
+ * @LastEditTime: 2022-06-02 17:30:54
  * @Description: 
  * @FilePath: /repo/README.md
 -->
 
 # repo
+
+
+## npm私服地址 
+
+[npm私服地址](http://onemorething.today:4873/)
 
 ## 构建环境
 

@@ -9,7 +9,7 @@
   ],
   "command": {
     "publish": {
-      "registry": "http://localhost:4873"
+      "registry": "http://onemorething.today:4873/"
     },
     "version": {
       "conventionalCommits": true,
@@ -18,3 +18,4 @@
   },
   "useWorkspaces": true
 }
+

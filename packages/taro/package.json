@@ -22,7 +22,7 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "https://registry.npmmirror.com/"
+    "registry": "http://onemorething.today:4873/"
   },
   "repository": {
     "type": "git",
