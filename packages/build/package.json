@@ -1,6 +1,6 @@
 {
   "name": "@mx/build",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "build vue,react app",
   "private": false,
   "keywords": [
