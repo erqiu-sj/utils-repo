@@ -1,7 +1,7 @@
 {
   "name": "newhepo",
   "private": true,
-  "version": "0.2.1",
+  "version": "0.2.2",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@mx/build": "^0.2.1",
-    "@mx/utils": "^0.2.1",
+    "@mx/utils": "^0.2.2",
     "@types/animejs": "^3.1.4",
     "@types/lodash.debounce": "^4.0.7",
     "@zealforchange/conciseredux": "^2.0.2",
