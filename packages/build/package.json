@@ -1,5 +1,5 @@
 {
-  "name": "@mx/build",
+  "name": "@mxnet/build",
   "version": "0.2.2",
   "description": "build vue,react app",
   "private": false,
