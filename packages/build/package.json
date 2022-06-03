@@ -21,7 +21,8 @@
     "dts"
   ],
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "scripts": {
     "build:es": "tsc --module ESNext --outDir ./dist --moduleResolution node",
@@ -38,5 +39,6 @@
     "vite": "^2.9.9",
     "vue": "^3.2.25",
     "vue-tsc": "^0.34.7"
-  }
+  },
+  "gitHead": "aa12c84841c6b0422321074cf1a73724649cf19c"
 }
