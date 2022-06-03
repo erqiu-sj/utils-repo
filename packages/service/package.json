@@ -26,6 +26,5 @@
   "scripts": {},
   "dependencies": {
     "axios": "^0.27.2"
-  },
-  "gitHead": "aa12c84841c6b0422321074cf1a73724649cf19c"
+  }
 }
