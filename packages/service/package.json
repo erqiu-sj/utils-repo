@@ -19,7 +19,7 @@
     "dts"
   ],
   "publishConfig": {
-    "registry": "http://onemorething.today:4873/"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {},
   "scripts": {},

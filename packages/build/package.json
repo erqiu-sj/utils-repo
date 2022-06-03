@@ -21,7 +21,7 @@
     "dts"
   ],
   "publishConfig": {
-    "registry": "http://onemorething.today:4873/"
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "build:es": "tsc --module ESNext --outDir ./dist --moduleResolution node",

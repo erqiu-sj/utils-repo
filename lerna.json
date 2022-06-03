@@ -1,5 +1,7 @@
 {
-  "packages": ["packages/*", "project/*", "template/*"],
+  "packages": [
+    "packages/*"
+  ],
   "version": "independent",
   "npmClient": "yarn",
   "ignoreChanges": [
@@ -9,7 +11,7 @@
   ],
   "command": {
     "publish": {
-      "registry": "http://onemorething.today:4873/"
+      "registry": "https://registry.npmjs.org/"
     },
     "version": {
       "conventionalCommits": true,
