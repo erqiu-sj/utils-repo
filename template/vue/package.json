@@ -1,6 +1,6 @@
 {
   "name": "base_vue",
-  "private": true,
+  "private": false,
   "version": "0.1.2",
   "type": "module",
   "scripts": {
@@ -11,8 +11,10 @@
   "dependencies": {
     "@mx/build": "^0.2.2",
     "@mx/service": "^0.2.2",
+    "pinia": "^2.0.14",
     "utils": "^0.0.1",
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.1",

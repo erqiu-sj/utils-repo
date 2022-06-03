@@ -1,14 +1,14 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 20:22:34
- * @LastEditTime: 2022-05-29 20:40:43
+ * @LastEditTime: 2022-06-03 20:44:18
  * @Description: 
  * @FilePath: /repo/template/vue/src/service/index.ts
  */
 
 import { Cache, CacheConfig, cancelRequestConfiguration, interceptor, Service } from '@mx/service';
-
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
+
 
 class defaultInterceptor implements interceptor {
 

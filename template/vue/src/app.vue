@@ -5,10 +5,11 @@
  * @Description: 
  * @FilePath: /repo/template/vue/src/app.vue
 -->
+
 <script lang="ts" setup>
 </script>
 <template>
-  <button>cancel</button>
+  <button>hello</button>
 </template>
 <style lang="scss" scoped>
 </style>
