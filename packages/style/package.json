@@ -2,6 +2,7 @@
   "name": "@mxnet/style",
   "version": "0.0.2",
   "description": "common style",
+  "private": false,
   "keywords": [
     "h5",
     "css",
@@ -20,5 +21,6 @@
   ],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
-  }
+  },
+  "gitHead": "d6fb0b05e84934456fb116973867e5a7d6f18c74"
 }

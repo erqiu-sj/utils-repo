@@ -37,5 +37,5 @@
     "rollup": "^2.73.0",
     "rollup-plugin-terser": "^7.0.2"
   },
-  "gitHead": "07bc3eb3e7d8e1727e6796d5cbe6078abf891641"
+  "gitHead": "d6fb0b05e84934456fb116973867e5a7d6f18c74"
 }

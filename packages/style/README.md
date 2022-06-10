@@ -25,7 +25,7 @@ import '@mxnet/style'
 预览效果见`/__tests__/shutter.html`
 
 ```ts
-import "@mxnet/style/shutter.css"
+import "@mxnet/style/src/shutter.css"
 ```
 
 ```html
