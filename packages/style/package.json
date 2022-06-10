@@ -1,0 +1,24 @@
+{
+  "name": "@mxnet/style",
+  "version": "0.0.1",
+  "description": "common style",
+  "keywords": [
+    "h5",
+    "css",
+    "style",
+    "js",
+    "vue",
+    "react"
+  ],
+  "author": "hooks_28 <1r56955415918@qq.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "./src/main.css",
+  "module": "./src/main.css",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}

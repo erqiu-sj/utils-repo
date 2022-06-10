@@ -1,17 +1,12 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-11 22:37:08
- * @LastEditTime: 2022-06-02 17:30:54
+ * @LastEditTime: 2022-06-10 22:56:56
  * @Description: 
  * @FilePath: /repo/README.md
 -->
 
 # repo
-
-
-## npm私服地址 
-
-[npm私服地址](http://onemorething.today:4873/)
 
 ## 构建环境
 
@@ -44,11 +39,13 @@ sh ./script/install.sh
 
 ## packages
 
-[@mx/build](/packages/build/README.md)
+[@mxnet/build](/packages/build/README.md) 适用 `frame(react,vue)`
 
-[@mx/utils](/packages/utils/README.md)
+[@mxnet/utils](/packages/utils/README.md) 适用 `frame(react,vue),browser`
 
-[@mx/service](/packages/service/README.md)
+[@mxnet/service](/packages/service/README.md) 适用 `frame(react,vue),browser`
+
+[@mxnet/style](/packages/style/README.md) 适用 `frame(react,vue),browser`
 
 ## TODO
 
@@ -66,3 +63,4 @@ sh ./script/install.sh
   - 预加载
   - `loading`
   - 开发部署阶段的页面提示
+  - ~~`快门css`~~

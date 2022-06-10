@@ -1,4 +1,11 @@
-# `@mx/build`
+<!--
+ * @Author: 邱狮杰
+ * @Date: 2022-05-10 23:05:45
+ * @LastEditTime: 2022-06-03 22:44:27
+ * @Description: 
+ * @FilePath: /repo/packages/build/README.md
+-->
+# `@mxnet/build`
 
 > description
 
@@ -7,7 +14,7 @@
 ## Usage
 
 ```typescript
-import { ViteConfiguration } from '@mx/build'
+import { ViteConfiguration } from '@mxnet/build'
 // ViteConfiguration 是一切配置的开始
 
 // 我们应该考虑清楚我们的 project run 在哪个场景？ mobile ? pc ?
@@ -24,7 +31,7 @@ config.getConfig()
 
 ```typescript
 // 构建一个 基础的 mobile vue vite config
-import { ViteConfiguration } from '@mx/build'
+import { ViteConfiguration } from '@mxnet/build'
 const config = new ViteConfiguration().setScenes('mobile').setTechnologyStack<'vue', 'mobile'>('vue', { default: false }).getConfig({} /* vite config */)
 ```
 

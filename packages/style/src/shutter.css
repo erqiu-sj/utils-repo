@@ -1,0 +1,40 @@
+/* 
+   快门
+ */
+ .shutter_flap {
+    width: 150vmax;
+    height: 150vmax;
+    position: fixed;
+    bottom: 50%;
+    right: 50%;
+    z-index: 1000;
+    pointer-events: none;
+    will-change: transform;
+    background: hsl(calc(1turn * var(--p)), 80%, 80%);
+    background: linear-gradient(35deg, #555, black);
+    border: solid 4px #999;
+    --p: calc(var(--i) / var(--flaps));
+
+    transform-origin: bottom right;
+    transform: rotate(-0.5turn) rotate(calc(1turn * var(--p))) skewX(30deg) translateX(-100%) translateY(90%);
+  }
+
+  .shutter_flap__start {
+    -webkit-animation: click 0.9s cubic-bezier(0.5, 0, 0.5, 1) 0.1s;
+    animation: click 0.9s cubic-bezier(0.5, 0, 0.5, 1) 0.1s;
+  }
+  
+  @-webkit-keyframes click {
+    48%,
+    52% {
+      transform: rotate(-0.25turn) rotate(calc(1turn * var(--p))) skewX(30deg) translateX(0%) translateY(0%);
+    }
+  }
+  
+  @keyframes click {
+    48%,
+    52% {
+      transform: rotate(-0.25turn) rotate(calc(1turn * var(--p))) skewX(30deg) translateX(0%) translateY(0%);
+    }
+  }
+  

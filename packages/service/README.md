@@ -1,11 +1,11 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-28 10:52:32
- * @LastEditTime: 2022-05-29 20:41:52
+ * @LastEditTime: 2022-06-03 22:43:52
  * @Description: 
  * @FilePath: /repo/packages/service/README.md
 -->
-# `service`
+# `@mxnet/service`
 
 >  请求最佳实践
 
@@ -13,7 +13,7 @@
 ## Usage
 
 ```ts
-import { Service , cancelHeader , Cancel } from '@mx/service'
+import { Service , cancelHeader , Cancel } from '@mxnet/service'
 
 //  implements interceptor 后再 class 内 输入 re 函数包括类型会自动补全
 class defaultInterceptor implements interceptor {
@@ -77,7 +77,7 @@ http()({ url: "" })
 -  `cancellationRules` 定义取消请求规则, 默认规则  `${config.url||config.baseURL} & ${config.method}`
 
 ```ts
-import { Service , cancelHeader , Cancel } from '@mx/service'
+import { Service , cancelHeader , Cancel } from '@mxnet/service'
 
 const http = new Service({
     baseURL: "http://localhost",
@@ -105,7 +105,7 @@ const http = new Service({
 - `cacheRules` 缓存规则，同`Cancel`插件的`cancellationRules`, 默认值 `${config.url || config.baseURL}`
 
 ```ts
-import { Service, ExpirationTime , Cache , CacheConfig} from '@mx/service'
+import { Service, ExpirationTime , Cache , CacheConfig} from '@mxnet/service'
 const http = new Service({
     baseURL: "http://localhost",
 })
