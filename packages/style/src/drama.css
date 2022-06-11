@@ -2,6 +2,39 @@
      居中
  */
 
-.color{
-    color: red;
+/* flex-cr 绝对居中更适用于父元素只包裹一个元素的情况下 */
+.flex_cr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* flex_Ycr 元素换行Y轴居中 */
+.flex_Ycr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* pos-cr 基于父元素绝对居中 */
+.pos-cr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* pos-Xcr 基于父元素水平居中  */
+.pos-Xcr {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* pos-Ycr 基于父元素垂直居中  */
+.pos-Ycr {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }

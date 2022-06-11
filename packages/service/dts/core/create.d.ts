@@ -1,12 +1,20 @@
 import { AxiosPromise, AxiosRequestConfig } from 'axios';
 import { interceptor } from './injectInterceptor';
+import { handlingUnexpectedResultsCaller } from "./unexpectedResults";
+export interface ServiceRequestConfig extends AxiosRequestConfig {
+    returnOnPromiseError?: unknown;
+    preventUnexpectedTriggers?: boolean;
+}
 export declare class Service {
     private axios?;
     private interceptorPluginList;
     private mergeInterceptorPlugin;
     private defaultInterceptorParameter;
-    constructor(request?: AxiosRequestConfig);
+    private unexpectedResultsHandler?;
+    constructor(request?: ServiceRequestConfig);
+    collectUnexpectedResultsHandler(fn: handlingUnexpectedResultsCaller): this;
     injectionInterceptorPlugin(interceptorList: interceptor | interceptor[]): this;
     defaultInterceptor(interceptor?: interceptor): this;
-    getAxios<T = unknown>(): (config?: (AxiosRequestConfig<any> & T) | undefined) => AxiosPromise;
+    private requestTrigger;
+    getAxios<T = unknown>(): (config?: (ServiceRequestConfig & T) | undefined) => Promise<AxiosPromise>;
 }

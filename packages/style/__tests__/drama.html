@@ -1,0 +1,37 @@
+<!--
+ * @Author: 邱狮杰
+ * @Date: 2022-06-11 12:34:15
+ * @LastEditTime: 2022-06-11 12:56:47
+ * @Description: 
+ * @FilePath: /repo/packages/style/__tests__/drama.html
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/drama.css" />
+    <link rel="stylesheet" href="../src/base.css" />
+    <link rel="stylesheet" href="../src/overflowOmitted.css" />
+    <title>居中</title>
+  </head>
+  <body>
+    <div style="height: 100vh; width: 100vw">
+      <div class="flex-cr" style="height: 100px; width: 100px; background-color: red">flex_cr</div>
+      <br />
+      <div class="pos-cr" style="height: 100px; width: 100px; background-color: red">pos-cr</div>
+      <br />
+      <div class="pos-Xcr" style="height: 100px; width: 100px; background-color: red">pos-Xcr</div>
+      <br />
+      <div class="pos-Ycr" style="height: 100px; width: 100px; background-color: red">pos-Ycr</div>
+      <br />
+      <div class="flex_Ycr" style="height: 100px; width: 100px; background-color: red">
+        <span class="lineOverflows" style="display: inline-block; width: 100px">flex_Ycrflex_Ycrflex_Ycrflex_Ycr</span>
+        <span>flex_Ycr</span>
+        <span>flex_Ycr</span>
+      </div>
+      <br />
+    </div>
+  </body>
+</html>

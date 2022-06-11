@@ -1,13 +1,13 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 20:22:34
- * @LastEditTime: 2022-06-03 20:44:18
+ * @LastEditTime: 2022-06-11 15:25:24
  * @Description: 
- * @FilePath: /repo/template/vue/src/service/index.ts
+ * @FilePath: /vue/src/service/index.ts
  */
 
-import { Cache, CacheConfig, cancelRequestConfiguration, interceptor, Service } from '@mx/service';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { Cache, CacheConfig, cancelRequestConfiguration, interceptor, Service } from '../../../../packages/service/src/index';
 
 
 class defaultInterceptor implements interceptor {
@@ -16,7 +16,6 @@ class defaultInterceptor implements interceptor {
 
     }
     responseFailInterceptor(err: unknown): void {
-
     }
 
     requestSuccessInterceptor(config: AxiosRequestConfig<any>): void | AxiosRequestConfig<any> | Promise<AxiosRequestConfig<any>> | Promise<void> {
@@ -28,9 +27,14 @@ class defaultInterceptor implements interceptor {
     }
 }
 
-const http = new Service({})
+const http = new Service({
+    baseURL: "http://localhost:3002/weaknet",
+})
     .injectionInterceptorPlugin([new Cache()])
     .defaultInterceptor(new defaultInterceptor())
+    .collectUnexpectedResultsHandler((response) => {
+        console.log(response);
+    })
     .getAxios<Partial<cancelRequestConfiguration & CacheConfig>>()
 
 export {

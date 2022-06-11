@@ -11,6 +11,44 @@
 import '@mxnet/style'
 ```
 
+## 文本溢出
+
+
+```ts
+import '@mxnet/style/src/overflowOmitted.css'
+```
+
+预览效果见`/__tests__/overflowOmitted.html`
+
+- `lineOver` 当行省略,行内元素无效，无`width`属性无效 
+
+- `moreLineOver_${line}` 多行省略,行内元素无效，无`width`属性无效 
+
+```html
+<!-- 溢出省略两行 -->
+<div class='moreLineOver_2' style='width: 50vw'></div>
+<!-- 溢出省略三行 -->
+<div class='moreLineOver_3' style='width: 50vw'></div>
+```
+
+## 居中
+
+```ts
+import '@mxnet/style/src/drama.css'
+```
+
+预览效果见`/__tests__/drama.html`
+
+- `flex-cr` 绝对居中更适用于父元素只包裹一个元素的情况下
+
+- `flex_Ycr` 子元素Y轴居中
+
+- `pos-cr` 基于父元素绝对居中
+
+- `pos-Xcr` 基于父元素水平居中
+
+- `pos-Ycr` 基于父元素垂直居中
+
 ## 快照
 
 

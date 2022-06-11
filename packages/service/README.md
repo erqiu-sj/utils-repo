@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-28 10:52:32
- * @LastEditTime: 2022-06-03 22:43:52
+ * @LastEditTime: 2022-06-11 15:23:22
  * @Description: 
  * @FilePath: /repo/packages/service/README.md
 -->
@@ -66,6 +66,30 @@ http()({ url: "" })
 
 我们约定编写插件拦截器时不应该修改`axios`内部传入的参数,这可能导致后续插件出现意想不到的错误,当遵循约定后，这类情况会极其少见
 
+### 错误兜底
+
+- 在请求参数中新增了 `returnOnPromiseError` 字段,当 `http` 请求报错时,你的`promise`请求不会返回一个空,会返回事先定义好的`returnOnPromiseError`字段的值
+
+### 友好的错误提示
+
+```ts
+const http = new Service({
+    baseURL: "http://localhost",
+})
+    // 不符合预期函数
+    // 会在所有的响应成功后触发
+    .collectUnexpectedResultsHandler((response) => {
+        if(response.code !== 200) {
+            alert(response.msg)
+        }
+    })
+    .getAxios()
+
+http({
+    // 阻止不符合预期函数触发
+    preventUnexpectedTriggers: true
+})
+```
 ## plugin
 
 ### Cancel
@@ -133,7 +157,9 @@ const http = new Service({
 
 - ~~概念映射~~
 
-- 请求兜底
+- ~~请求兜底~~
+
+- ~~友好的错误提示~~
 
 - 多版本共存
 
