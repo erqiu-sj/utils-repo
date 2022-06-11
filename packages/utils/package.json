@@ -11,7 +11,7 @@
   ],
   "author": "hooks_28 <1r56955415918@qq.com>",
   "homepage": "",
-  "types": "./dts/src",
+  "types": "./dts/index.d.ts",
   "license": "MIT",
   "main": "./lib/index.js",
   "module": "./dist/index.js",
@@ -26,6 +26,7 @@
     "access": "public"
   },
   "scripts": {
+    "build:ts": "tsc",
     "build:umd": "rollup -c -f umd -d dist.umd",
     "build:es": "rollup -c -f es -d dist",
     "build:cjs": "rollup -c -f cjs -d lib",
