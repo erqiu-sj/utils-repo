@@ -1,3 +1,10 @@
+<!--
+ * @Author: 邱狮杰
+ * @Date: 2022-06-10 21:51:06
+ * @LastEditTime: 2022-06-12 11:49:27
+ * @Description: 
+ * @FilePath: /repo/packages/style/README.md
+-->
 # `style`
 
 > 常用效果
@@ -10,6 +17,18 @@
 // 通过 * 匹配符影响全局的样式(小程序不支持*匹配符,会导致报错)
 import '@mxnet/style'
 ```
+##  测试开发
+
+```ts
+import '@mxnet/style/src/test.css'
+```
+
+预览效果见`/__tests__/test.html`
+
+```html
+    <div class="test_Notification">开发中...</div>
+```
+
 
 ## 文本溢出
 

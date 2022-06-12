@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-11 22:37:08
- * @LastEditTime: 2022-06-10 22:56:56
+ * @LastEditTime: 2022-06-12 11:44:33
  * @Description: 
  * @FilePath: /repo/README.md
 -->
@@ -62,5 +62,5 @@ sh ./script/install.sh
 - `h5`
   - 预加载
   - `loading`
-  - 开发部署阶段的页面提示
+  - ~~开发部署阶段的页面提示~~
   - ~~`快门css`~~

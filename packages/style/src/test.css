@@ -1,0 +1,16 @@
+/* 
+   开发阶段的页面提示
+   适用于抽奖(防止在开发阶段的截图用于线上兑换),或其他
+ */
+.test_Notification {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 40px;
+  background-color: red;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
