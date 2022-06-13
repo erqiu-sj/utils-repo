@@ -1,11 +1,11 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-15 10:57:03
- * @LastEditTime: 2022-05-19 09:48:47
+ * @LastEditTime: 2022-06-13 10:57:22
  * @Description: 
- * @FilePath: /repo/project/newHepoyogurt/vite.config.ts
+ * @FilePath: /newHepoyogurt/vite.config.ts
  */
-import { ViteConfiguration } from '@mx/build'
+import { ViteConfiguration } from '@mxnet/build'
 import { defineConfig } from 'vite'
 
 const config = new ViteConfiguration()

@@ -1,6 +1,17 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Alias = void 0;
+/*
+ * @Author: 邱狮杰
+ * @Date: 2022-05-14 21:56:23
+ * @LastEditTime: 2022-06-12 20:37:07
+ * @Description:
+ * @FilePath: /repo/packages/build/src/common/alias.ts
+ */
+const lodash_defaultsdeep_1 = __importDefault(require("lodash.defaultsdeep"));
 const path_1 = require("path");
 class Alias {
     constructor() {
@@ -22,8 +33,9 @@ class Alias {
         this.config = config;
         return this;
     }
-    getConfig() {
-        return this.config;
+    getConfig(userConfig) {
+        const result = (0, lodash_defaultsdeep_1.default)(userConfig, this.config);
+        return result;
     }
 }
 exports.Alias = Alias;

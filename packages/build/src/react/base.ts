@@ -1,7 +1,7 @@
 import { UserConfigExport } from 'vite'
 import { ScenarioExpectations, scenesTypes, ScenarioExpectationsForReactDefaultOptionTypes } from '../types'
 import defaultsdeep from 'lodash.defaultsdeep'
-import { PostcssPxToViewport } from '../common/postcssPxToViewport'
+import { PostcssPxToViewport } from '../plugin/postcssPxToViewport'
 import react from '@vitejs/plugin-react'
 
 export class ScenarioExpectationsForReact implements ScenarioExpectations {

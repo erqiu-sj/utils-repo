@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ScenarioExpectationsForReact = void 0;
 const lodash_defaultsdeep_1 = __importDefault(require("lodash.defaultsdeep"));
-const postcssPxToViewport_1 = require("../common/postcssPxToViewport");
+const postcssPxToViewport_1 = require("../plugin/postcssPxToViewport");
 const plugin_react_1 = __importDefault(require("@vitejs/plugin-react"));
 class ScenarioExpectationsForReact {
     constructor(defaultOptions) {

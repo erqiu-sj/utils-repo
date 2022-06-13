@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ScenarioExpectationsForVue = void 0;
 const plugin_vue_1 = __importDefault(require("@vitejs/plugin-vue"));
-const postcssPxToViewport_1 = require("../common/postcssPxToViewport");
+const postcssPxToViewport_1 = require("../plugin/postcssPxToViewport");
 const lodash_defaultsdeep_1 = __importDefault(require("lodash.defaultsdeep"));
 class ScenarioExpectationsForVue {
     constructor(defaultOptions) {

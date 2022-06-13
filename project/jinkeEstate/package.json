@@ -9,7 +9,7 @@
     "gen": "../../node_modules/@zealforchange/conciseredux/dist/main -h"
   },
   "dependencies": {
-    "@mx/build": "^0.2.2",
+    "@mxnet/build": "^0.2.2",
     "@zealforchange/conciseredux": "^2.0.2",
     "@zealforchange/proveaxios": "^1.1.7",
     "antd-mobile": "^5.12.4",

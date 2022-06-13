@@ -1,6 +1,6 @@
 import { UserConfigExport } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { PostcssPxToViewport } from '../common/postcssPxToViewport'
+import { PostcssPxToViewport } from '../plugin/postcssPxToViewport'
 import { ScenarioExpectations, ScenarioExpectationsForVueDefaultOptionTypes } from '../types/scenes'
 import { scenesTypes } from '../types/base'
 import defaultsDeep from 'lodash.defaultsdeep'

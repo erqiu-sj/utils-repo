@@ -1,7 +1,7 @@
 import { UserConfigExport } from 'vite'
 import { scenesTypes, technologyStackTypes } from './base'
 import { options } from 'postcss-px-to-viewport'
-import { injectionConfigurationWithPostcssPxToViewport } from '../common/postcssPxToViewport'
+import { injectionConfigurationWithPostcssPxToViewport } from '../plugin/postcssPxToViewport'
 
 /**
  * @description 场景预期

@@ -9,8 +9,8 @@
     "gen": "../../node_modules/@zealforchange/conciseredux/dist/main -h"
   },
   "dependencies": {
-    "@mx/build": "^0.2.2",
-    "@mx/utils": "^0.2.3",
+    "@mxnet/build": "^0.2.2",
+    "@mxnet/utils": "^0.2.3",
     "@types/animejs": "^3.1.4",
     "@types/lodash.debounce": "^4.0.7",
     "@zealforchange/conciseredux": "^2.0.2",

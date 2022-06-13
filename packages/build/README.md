@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-10 23:05:45
- * @LastEditTime: 2022-06-03 22:44:27
+ * @LastEditTime: 2022-06-12 21:11:49
  * @Description: 
  * @FilePath: /repo/packages/build/README.md
 -->
@@ -54,4 +54,40 @@ import {} from '~/assets/
 const config = new ViteConfiguration().setScenes('mobile').setTechnologyStack<'vue', 'mobile'>('vue', { postcssPxToViewport: false })
 // 配置 postcss-px-to-viewport
 const config = new ViteConfiguration().setScenes('mobile').setTechnologyStack<'vue', 'mobile'>('vue', { postcssPxToViewport: {} })
+```
+
+## more
+
+### vconsole
+
+- tips: 默认不开启`vconsole`, 你也可以通过配置修改。[更多配置见](https://github.com/vadxq/vite-plugin-vconsole#options)
+
+```ts
+    const viteConfig = new ViteConfiguration().setScenes('mobile').setTechnologyStack('vue').addVConsole().getConfig({
+    }) 
+```
+
+```ts
+export default ({ command, mode }: ConfigEnv): UserConfigExport => {
+    return new ViteConfiguration().setScenes('mobile').setTechnologyStack('vue').addVConsole({
+        entry: [path.resolve('src/main.ts')], 
+        localEnabled: command === 'serve', 
+        enabled: command !== 'serve' || mode === 'test', 
+        config: { // vconsole options
+          maxLogNumber: 1000，
+          theme: 'light'
+        }
+    }).getConfig({
+    })
+};
+```
+
+## Plugin
+
+### TODO 
+
+- [自动导入 Vite、Webpack、Rollup 和 esbuild 的 API。支持 TypeScript。](https://github.com/antfu/unplugin-auto-import)
+
+```shell
+yarn add unplugin-auto-import
 ```

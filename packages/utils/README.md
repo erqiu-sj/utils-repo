@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-10 22:47:31
- * @LastEditTime: 2022-06-11 22:56:51
+ * @LastEditTime: 2022-06-13 22:31:18
  * @Description: 
  * @FilePath: /repo/packages/utils/README.md
 -->
@@ -35,9 +35,16 @@ import {} from '@mxnet/utils'
 const { Phone } = require('@mxnet/utils')
 ```
 
+## 常用工具
+
+### `html2canvas`
+
+在 `html2canvas(1.4.1)` 中兼容了 `img object-fit` 属性, 打印时不能将图片放入`div`当作 `background-image` 使用， 这样只会更模糊
+
+
 ## 验证类型 
 
-### Phone
+### `Phone`
 
 ```ts
 import { Phone } from  "@mxnet/utils"
@@ -51,7 +58,7 @@ n.getPhone()
 </script>
 ```
 
-#### options
+#### `options`
 
 - 验证程度:`默认宽松`,存在`最宽松(loose)`,`宽松(loosest)`,`严谨(rigorous)`，三种验证模式
 
@@ -83,7 +90,7 @@ phone.getPhone()
 
 ## 基本类型 
 
-### RandomNumberInterval(取随机数区间)
+### `RandomNumberInterval`(取随机数区间)
 
 ```ts
 import { RandomNumberInterval } from '@mxnet/utils'

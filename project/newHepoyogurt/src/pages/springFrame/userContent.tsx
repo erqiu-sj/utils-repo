@@ -1,11 +1,11 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-17 10:56:30
- * @LastEditTime: 2022-05-23 17:31:45
+ * @LastEditTime: 2022-06-13 10:57:32
  * @Description: 
- * @FilePath: /repo/project/newHepoyogurt/src/pages/springFrame/userContent.tsx
+ * @FilePath: /newHepoyogurt/src/pages/springFrame/userContent.tsx
  */
-import { Phone } from '@mx/utils';
+import { Phone } from '@mxnet/utils';
 import { FC, useEffect, useState } from 'react';
 import submit from '~/assets/submit.png';
 import { useCommon, useService, useSpringFrame } from '~/hooks';

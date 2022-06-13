@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-11 22:37:08
- * @LastEditTime: 2022-06-12 11:44:33
+ * @LastEditTime: 2022-06-12 11:54:41
  * @Description: 
  * @FilePath: /repo/README.md
 -->
@@ -34,7 +34,7 @@ sh ./script/install.sh
 
 [如何设计一个 api](https://juejin.cn/post/6958414391339401247)
 
-[设计一个包应该考虚什么？](/docs/buildPackage.md)
+[设计一个包应该考虑什么？](/docs/buildPackage.md)
 
 
 ## packages
