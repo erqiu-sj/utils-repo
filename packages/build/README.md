@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-10 23:05:45
- * @LastEditTime: 2022-06-12 21:11:49
+ * @LastEditTime: 2022-06-16 17:29:03
  * @Description: 
  * @FilePath: /repo/packages/build/README.md
 -->
@@ -81,13 +81,21 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
     })
 };
 ```
+### auto import api
+
+- [选项参考](https://github.com/antfu/unplugin-auto-import)
+
+-  `addAutoImport(options?) api` 会根据技术栈 `setTechnologyStack api` 自动生成对应的`.d.ts`文件
+
+- 技术栈 `vue` 会默认生成 `vue pinia vue-router .d.ts`文件
+
+- 技术栈 `react` 会默认生成 `react .d.ts`文件
+
+```ts
+    const config = new ViteConfiguration().setScenes('mobile').setTechnologyStack('vue').addAutoImport().getConfig() as UserConfig
+```
+
 
 ## Plugin
 
 ### TODO 
-
-- [自动导入 Vite、Webpack、Rollup 和 esbuild 的 API。支持 TypeScript。](https://github.com/antfu/unplugin-auto-import)
-
-```shell
-yarn add unplugin-auto-import
-```

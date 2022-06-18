@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 11:37:24
- * @LastEditTime: 2022-06-11 15:27:33
+ * @LastEditTime: 2022-06-18 11:53:05
  * @Description:
  * @FilePath: /repo/packages/service/src/core/create.ts
  */
@@ -24,15 +24,23 @@ const axios_1 = __importDefault(require("axios"));
 const cache_1 = require("../plugins/cache/cache");
 const error_1 = require("../utils/error");
 const mergeInterceptorPlugin_1 = require("./mergeInterceptorPlugin");
+const multiVersionSwitching_1 = require("./multiVersionSwitching");
 class Service {
     constructor(request) {
+        var _a;
         // 拦截器插件列表
         this.interceptorPluginList = [];
         // 合并插件
         this.mergeInterceptorPlugin = new mergeInterceptorPlugin_1.MergeInterceptorPlugin();
         // 默认拦截器
         this.defaultInterceptorParameter = null;
+        // 多版本切换
+        this.multiVersionSwitching = new multiVersionSwitching_1.MultiVersionSwitching();
+        if (request === null || request === void 0 ? void 0 : request.baseURL)
+            (_a = this.multiVersionSwitching) === null || _a === void 0 ? void 0 : _a.setBaseURL(request.baseURL);
+        // @ts-ignore
         this.axios = axios_1.default.create(request);
+        // this.axios.switchVersion = 
     }
     collectUnexpectedResultsHandler(fn) {
         this.unexpectedResultsHandler = fn;
@@ -53,19 +61,32 @@ class Service {
         return this;
     }
     requestTrigger(config) {
-        var _a, _b;
+        var _a, _b, _c, _d;
         return __awaiter(this, void 0, void 0, function* () {
-            const [_, res] = yield (0, error_1.SynchronizationAwaitError)(this.axios(config || {}));
+            const baseURL = (config === null || config === void 0 ? void 0 : config.version) ? (_a = this.multiVersionSwitching) === null || _a === void 0 ? void 0 : _a.replaceVersionPlaceholder(this.multiVersionSwitching.getOriginalBaseURL(), config === null || config === void 0 ? void 0 : config.version) : (_b = this.axios) === null || _b === void 0 ? void 0 : _b.defaults.baseURL;
+            const [_, res] = yield (0, error_1.SynchronizationAwaitError)(this.axios(Object.assign({ baseURL: baseURL }, config) || {}));
             const isAxiosError = res && typeof res === 'object' && Reflect.get(res, 'name') === 'AxiosError';
             if (isAxiosError) {
                 // 当请求参数错误 ,比如请求一个404 地址时候
                 // 判断是否存在兜底参数，不存在则原路返回
-                !!!(config === null || config === void 0 ? void 0 : config.preventUnexpectedTriggers) && ((_a = this === null || this === void 0 ? void 0 : this.unexpectedResultsHandler) === null || _a === void 0 ? void 0 : _a.call(this, res));
+                !!!(config === null || config === void 0 ? void 0 : config.preventUnexpectedTriggers) && ((_c = this === null || this === void 0 ? void 0 : this.unexpectedResultsHandler) === null || _c === void 0 ? void 0 : _c.call(this, res));
                 return ((config === null || config === void 0 ? void 0 : config.returnOnPromiseError) || res);
             }
-            !!!(config === null || config === void 0 ? void 0 : config.preventUnexpectedTriggers) && ((_b = this === null || this === void 0 ? void 0 : this.unexpectedResultsHandler) === null || _b === void 0 ? void 0 : _b.call(this, res));
+            !!!(config === null || config === void 0 ? void 0 : config.preventUnexpectedTriggers) && ((_d = this === null || this === void 0 ? void 0 : this.unexpectedResultsHandler) === null || _d === void 0 ? void 0 : _d.call(this, res));
             return (res || (config === null || config === void 0 ? void 0 : config.returnOnPromiseError));
         });
+    }
+    // 修改版本号占位符
+    setVersionPlaceholder(pl) {
+        var _a;
+        (_a = this.multiVersionSwitching) === null || _a === void 0 ? void 0 : _a.setVersionPlaceholder(pl);
+        return this;
+    }
+    // 切换版本号
+    switchVersion(item) {
+        var _a;
+        this.axios.defaults.baseURL = (_a = this.multiVersionSwitching) === null || _a === void 0 ? void 0 : _a.switchVersion(item);
+        return this;
     }
     getAxios() {
         return (config) => __awaiter(this, void 0, void 0, function* () {

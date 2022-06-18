@@ -7,14 +7,15 @@ exports.ViteConfiguration = void 0;
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-12 17:58:13
- * @LastEditTime: 2022-06-12 20:52:12
+ * @LastEditTime: 2022-06-16 16:50:42
  * @Description:
  * @FilePath: /repo/packages/build/src/common/configuration.ts
  */
 const lodash_defaultsdeep_1 = __importDefault(require("lodash.defaultsdeep"));
 const alias_1 = require("../plugin/alias");
-const scenes_1 = require("./scenes");
+const autoImport_1 = require("../plugin/autoImport");
 const vconsole_1 = require("../plugin/vconsole");
+const scenes_1 = require("./scenes");
 class ViteConfiguration {
     constructor(config) {
         this.config = {};
@@ -44,6 +45,11 @@ class ViteConfiguration {
     addVConsole(config) {
         const vconsole = new vconsole_1.Vconsole();
         this.config = vconsole.changeSetting(config).getConfig(this.config);
+        return this;
+    }
+    // 新增自动生成api接口
+    addAutoImport(conf) {
+        this.config = new autoImport_1.AutoImportApi().configurePresets(this.scenes.getTechnologyStackTypes()).instancePlugin(conf).getConfig(this.config);
         return this;
     }
     // 返回配置

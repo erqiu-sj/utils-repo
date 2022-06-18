@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-28 10:52:32
- * @LastEditTime: 2022-06-11 15:23:22
+ * @LastEditTime: 2022-06-18 12:01:52
  * @Description: 
  * @FilePath: /repo/packages/service/README.md
 -->
@@ -90,6 +90,38 @@ http({
     preventUnexpectedTriggers: true
 })
 ```
+
+### 多版本共存
+
+> 切换版本号通过定义在`baseURL`上的占位符来正则替换实现的
+
+- `setVersionPlaceholder api` 定义占位符
+
+- `switchVersion api` 修改版本号
+
+```ts
+const http = new Service<['v1', 'v2', 'v3']>({
+    baseURL: "https://localhost:3002/baseVersion"
+})
+    .setVersionPlaceholder('baseVersion')
+    .switchVersion('v1')
+    // 默认请求地址 https://localhost:3002/v1
+    .getAxios()
+
+
+// 请求地址 https://localhost:3002/v2
+http({
+    // version 字段内容根据 Service 泛型内容提供
+    version: "v2"
+})
+
+// 请求地址 https://localhost:3002/v1
+http({
+})
+
+```
+
+
 ## plugin
 
 ### Cancel
@@ -161,7 +193,7 @@ const http = new Service({
 
 - ~~友好的错误提示~~
 
-- 多版本共存
+- ~~多版本共存~~
 
 - 防腐层设计
 

@@ -1,8 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Scenes = void 0;
-const base_1 = require("../vue/base");
-const base_2 = require("../react/base");
+/*
+ * @Author: 邱狮杰
+ * @Date: 2022-05-12 21:51:08
+ * @LastEditTime: 2022-06-16 16:46:29
+ * @Description:
+ * @FilePath: /repo/packages/build/src/common/scenes.ts
+ */
+const base_1 = require("../react/base");
+const base_2 = require("../vue/base");
 class Scenes {
     setScenes(type) {
         this.scenes = type;
@@ -10,10 +17,11 @@ class Scenes {
     }
     // 设置技术栈
     setTechnologyStack(type, ops) {
+        this.technologyStackTypes = type;
         if (type === 'react')
-            this.defaultScene = new base_2.ScenarioExpectationsForReact(ops);
+            this.defaultScene = new base_1.ScenarioExpectationsForReact(ops);
         if (type === 'vue')
-            this.defaultScene = new base_1.ScenarioExpectationsForVue(ops);
+            this.defaultScene = new base_2.ScenarioExpectationsForVue(ops);
         return this;
     }
     verifyScenesThrow() {
@@ -21,6 +29,9 @@ class Scenes {
             throw new Error('not set scenes');
         if (!this.defaultScene)
             throw new Error('not set technology stack');
+    }
+    getTechnologyStackTypes() {
+        return this.technologyStackTypes;
     }
     // 默认值
     combine() {

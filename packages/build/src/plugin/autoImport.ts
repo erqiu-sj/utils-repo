@@ -1,13 +1,18 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-12 21:13:02
- * @LastEditTime: 2022-06-12 21:33:18
+ * @LastEditTime: 2022-06-16 17:16:30
  * @Description:  自动导入api
  * @FilePath: /repo/packages/build/src/plugin/autoImport.ts
  */
 
-import autoImport from 'unplugin-auto-import/index';
-import { UserConfigExport } from 'vite';
+import defaultsDeep from 'lodash.defaultsdeep';
+// @ts-ignore
+import autoImport from 'unplugin-auto-import';
+import { Plugin, UserConfig, UserConfigExport } from 'vite';
+import { MergeConfiguration, technologyStackTypes } from '../types';
+
+export type autoImportOptions = Parameters<typeof autoImport.vite>[0]
 
 const include = [
     /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
@@ -15,12 +20,20 @@ const include = [
     /\.md$/, // .md
 ]
 
-export class AutoImportApi {
+export class AutoImportApi extends MergeConfiguration {
+
+    private userConfig?: Plugin
+
+    private defaultImports: string[] = []
+
     // 根据技术栈配置预设
-    configurePresets() { }
+    configurePresets(technologyStackTypes?: technologyStackTypes) {
+        this.defaultImports = technologyStackTypes === 'react' ? this.reactImports() : this.vueImports()
+        return this
+    }
 
     private vueImports() {
-        return ['vue']
+        return ['vue', 'vue-router', 'pinia']
     }
 
     private reactImports() {
@@ -28,22 +41,28 @@ export class AutoImportApi {
     }
 
     // 实例插件
-    instancePlugin() {
-        const userConfig: UserConfigExport = {
-            plugins: [
-                autoImport.vite({
-                    include,
-                    dts: true,
-                    // vue模版自动导入
-                    vueTemplate: false,
-                    imports: [
-                    ]
-                })
-            ]
-        }
+    instancePlugin(conf?: autoImportOptions) {
+        const newLocal: autoImportOptions = conf || {};
+        const userConfig: Plugin = autoImport.vite({
+            include,
+            dts: true,
+            // vue模版自动导入
+            vueTemplate: false,
+            // @ts-ignore
+            imports: [
+                ...this.defaultImports,
+            ],
+            ...newLocal as object
+        })
 
-        return userConfig
+        this.userConfig = userConfig
+        return this
+    }
 
+    getConfig(userConfig: UserConfigExport): UserConfigExport {
+        const c = userConfig as UserConfig
+        c.plugins = [...(c.plugins || []), this.userConfig]
+        return c
     }
 }
 

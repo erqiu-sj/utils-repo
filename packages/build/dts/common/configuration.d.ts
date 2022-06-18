@@ -1,5 +1,6 @@
 import { UserConfigExport } from 'vite';
 import { viteVConsoleOptions } from 'vite-plugin-vconsole';
+import { autoImportOptions } from '../plugin/autoImport';
 import { determineConfigurationAccordingTechnologyStack, scenesTypes, technologyStackTypes } from '../types';
 export declare class ViteConfiguration {
     protected config: UserConfigExport;
@@ -12,5 +13,6 @@ export declare class ViteConfiguration {
         [key: string]: string;
     }): this;
     addVConsole(config?: Partial<viteVConsoleOptions>): this;
+    addAutoImport(conf?: autoImportOptions): this;
     getConfig(config?: UserConfigExport): UserConfigExport;
 }
