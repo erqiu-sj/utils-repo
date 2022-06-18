@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/build@0.3.5...@mxnet/build@0.4.0) (2022-06-18)
+
+
+### Features
+
+* **@mxnet/utils:** 新增兼容了img object-fit 的html2canvas ([893ed0f](https://gitee.com/cq_maixun_network/repo/commits/893ed0f77fcfa6fb6fb4839fbeab62023d10c2b9))
+* **service:** 多版本共存 ([f5a35ba](https://gitee.com/cq_maixun_network/repo/commits/f5a35ba1996b629e678d5ca72de82ecde0ff9184))
+
+
+
+
+
 ## [0.3.5](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/build@0.3.4...@mxnet/build@0.3.5) (2022-06-11)
 
 **Note:** Version bump only for package @mxnet/build
