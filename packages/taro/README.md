@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-06-22 16:14:04
- * @LastEditTime: 2022-06-25 10:01:46
+ * @LastEditTime: 2022-06-25 11:09:42
  * @Description:
  * @FilePath: /repo/packages/taro/README.md
 -->
@@ -112,3 +112,11 @@ useEffect(() => {
   container.goHome.trigger();
 }, []);
 ```
+
+### `getAppId`
+
+> 获取小程序 `appid`
+
+### `getWxLoginCode`
+
+> 同步获取 `wxlogin.code`
