@@ -1,8 +1,8 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-11 22:37:08
- * @LastEditTime: 2022-06-12 11:54:41
- * @Description: 
+ * @LastEditTime: 2022-06-25 10:07:36
+ * @Description:
  * @FilePath: /repo/README.md
 -->
 
@@ -36,7 +36,6 @@ sh ./script/install.sh
 
 [设计一个包应该考虑什么？](/docs/buildPackage.md)
 
-
 ## packages
 
 [@mxnet/build](/packages/build/README.md) 适用 `frame(react,vue)`
@@ -46,6 +45,8 @@ sh ./script/install.sh
 [@mxnet/service](/packages/service/README.md) 适用 `frame(react,vue),browser`
 
 [@mxnet/style](/packages/style/README.md) 适用 `frame(react,vue),browser`
+
+[@mxnet/taro](/packages/taro/README.md) 适用 `frame(react,vue) with taro`
 
 ## TODO
 
