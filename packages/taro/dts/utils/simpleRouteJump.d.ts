@@ -31,7 +31,7 @@ export declare class SimpleRouteJump<T extends jumpMethodName = 'navigateTo'> ex
     constructor(url: string);
     setMethod<M extends jumpMethodName = 'navigateTo'>(method?: M): SimpleRouteJump<M>;
     setPreJumpJnterceptor(fn?: simpleRouteJumpConfig['preJumpJnterceptor']): this;
-    trigger(options?: Partial<triggerOptions> & NonNullable<Parameters<getJumpParametersAccordingToJumpMethod<T>>[0]>): Promise<TaroGeneral.CallbackResult>;
+    trigger(options?: Partial<triggerOptions> & Omit<NonNullable<Parameters<getJumpParametersAccordingToJumpMethod<T>>[0]>, 'url'>): Promise<TaroGeneral.CallbackResult>;
     static parseParameters: typeof parseParameters;
 }
 declare function parseParameters(mete: object): string;
