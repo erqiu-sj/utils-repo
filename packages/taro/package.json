@@ -1,0 +1,28 @@
+{
+  "name": "@mxnet/taro",
+  "version": "0.0.1",
+  "description": "taro utils",
+  "keywords": [
+    "taro",
+    "react",
+    "utils"
+  ],
+  "scripts": {
+    "build:es": "tsc --module ESNext --outDir ./dist --moduleResolution node",
+    "build:cj": "tsc --module CommonJS --outDir ./lib",
+    "build": "yarn run build:es & yarn run  build:cj"
+  },
+  "author": "hooks_28 <1r56955415918@qq.com>",
+  "homepage": "",
+  "license": "MIT",
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dts/index.d.ts",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "dependencies": {
+    "@tarojs/taro": "^3.4.12"
+  }
+}

@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-15 14:07:02
- * @LastEditTime: 2022-05-25 12:50:01
+ * @LastEditTime: 2022-06-21 10:13:30
  * @Description: 
- * @FilePath: /repo/project/newHepoyogurt/src/reducer/lottery.ts
+ * @FilePath: /newHepoyogurt/src/reducer/lottery.ts
  */
 import { CreateReducer, getAllValsWithActionCollectionHelper } from '@zealforchange/conciseredux'
 
