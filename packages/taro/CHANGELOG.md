@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.2.0...@mxnet/taro@0.3.0) (2022-06-27)
+
+
+### Features
+
+* **@mxnet/taro:** simpleRouteJump新增setUrl方法 ([1e3f102](https://gitee.com/cq_maixun_network/repo/commits/1e3f102467aea5672421b6d3903bbe1af155314a))
+
+
+
+
+
 # [0.2.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.1.0...@mxnet/taro@0.2.0) (2022-06-27)
 
 
