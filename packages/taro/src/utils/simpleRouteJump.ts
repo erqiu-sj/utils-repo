@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-22 17:13:37
- * @LastEditTime: 2022-06-27 14:31:22
+ * @LastEditTime: 2022-06-27 14:38:12
  * @Description: 简单的路由跳转
  * @FilePath: /repo/packages/taro/src/utils/simpleRouteJump.ts
  */
@@ -73,8 +73,12 @@ export class SimpleRouteJump<T extends jumpMethodName = 'navigateTo'> extends De
 
     private simpleRouteJumpConfig: simpleRouteJumpConfig = { method: 'navigateTo' }
 
-    constructor(url: string) {
+    constructor(url?: string) {
         super()
+        this.setUrl(url)
+    }
+
+    setUrl(url?: string) {
         this.simpleRouteJumpConfig = { ...this.simpleRouteJumpConfig, url }
     }
 

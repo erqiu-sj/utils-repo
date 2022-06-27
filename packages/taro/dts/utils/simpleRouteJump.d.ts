@@ -28,8 +28,9 @@ export interface triggerOptions {
  */
 export declare class SimpleRouteJump<T extends jumpMethodName = 'navigateTo'> extends DefineJumpCallback {
     private simpleRouteJumpConfig;
-    constructor(url: string);
-    setMethod<M extends jumpMethodName = 'navigateTo'>(method?: M): SimpleRouteJump<M>;
+    constructor(url?: string);
+    setUrl(url?: string): void;
+    setMethod<M extends jumpMethodName>(method?: M): SimpleRouteJump<M>;
     setPreJumpJnterceptor(fn?: simpleRouteJumpConfig['preJumpJnterceptor']): this;
     trigger(options?: Partial<triggerOptions> & Omit<NonNullable<Parameters<getJumpParametersAccordingToJumpMethod<T>>[0]>, 'url'>): Promise<TaroGeneral.CallbackResult> | undefined;
     static parseParameters: typeof parseParameters;
