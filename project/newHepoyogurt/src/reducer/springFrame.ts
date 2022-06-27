@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-17 10:35:54
- * @LastEditTime: 2022-05-25 12:55:26
+ * @LastEditTime: 2022-06-26 16:24:49
  * @Description: 
- * @FilePath: /repo/project/newHepoyogurt/src/reducer/springFrame.ts
+ * @FilePath: /newHepoyogurt/src/reducer/springFrame.ts
  */
 
 import { CreateReducer, getAllValsWithActionCollectionHelper } from '@zealforchange/conciseredux'

@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-15 14:07:02
- * @LastEditTime: 2022-06-21 10:13:30
+ * @LastEditTime: 2022-06-26 16:29:51
  * @Description: 
  * @FilePath: /newHepoyogurt/src/reducer/lottery.ts
  */

@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-22 17:13:37
- * @LastEditTime: 2022-06-25 10:26:59
+ * @LastEditTime: 2022-06-27 14:31:22
  * @Description: 简单的路由跳转
  * @FilePath: /repo/packages/taro/src/utils/simpleRouteJump.ts
  */
@@ -78,7 +78,7 @@ export class SimpleRouteJump<T extends jumpMethodName = 'navigateTo'> extends De
         this.simpleRouteJumpConfig = { ...this.simpleRouteJumpConfig, url }
     }
 
-    setMethod<M extends jumpMethodName = 'navigateTo'>(method?: M): SimpleRouteJump<M> {
+    setMethod<M extends jumpMethodName>(method?: M): SimpleRouteJump<M> {
         this.simpleRouteJumpConfig = { ...this.simpleRouteJumpConfig, method: method || 'navigateTo' }
         // @ts-ignore
         return this
@@ -91,11 +91,18 @@ export class SimpleRouteJump<T extends jumpMethodName = 'navigateTo'> extends De
     }
 
     trigger(options?: Partial<triggerOptions> & Omit<NonNullable<Parameters<getJumpParametersAccordingToJumpMethod<T>>[0]>, 'url'>) {
-        if (this.simpleRouteJumpConfig.preJumpJnterceptor && this.simpleRouteJumpConfig.preJumpJnterceptor()) {
-            // @ts-ignore
-            return jumpMethodContainer[this.simpleRouteJumpConfig.method]({ ...this.callbackCollection, ...options, url: `${this.simpleRouteJumpConfig.url}${parseParameters(options?.mete)}` })
+        if (this.simpleRouteJumpConfig.preJumpJnterceptor) {
+            if (this.simpleRouteJumpConfig.preJumpJnterceptor()) {
+                // @ts-ignore
+                return jumpMethodContainer[this.simpleRouteJumpConfig.method]({ ...this.callbackCollection, ...options, url: `${this.simpleRouteJumpConfig.url}${parseParameters(options?.mete || {})}` })
+            } else {
+                throw new Error(`预跳转验证未通过 ${this.simpleRouteJumpConfig.url}`)
+            }
         }
-        throw new Error(`预跳转验证未通过 ${this.simpleRouteJumpConfig.url}`)
+        if (!this.simpleRouteJumpConfig.preJumpJnterceptor) {
+            // @ts-ignore
+            return jumpMethodContainer[this.simpleRouteJumpConfig.method]({ ...this.callbackCollection, ...options, url: `${this.simpleRouteJumpConfig.url}${parseParameters(options?.mete || {})}` })
+        }
     }
 
     static parseParameters = parseParameters

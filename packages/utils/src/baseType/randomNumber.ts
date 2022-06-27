@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-11 21:45:47
- * @LastEditTime: 2022-06-11 22:04:10
+ * @LastEditTime: 2022-06-25 11:30:50
  * @Description: 随机数
  * @FilePath: /repo/packages/utils/src/baseType/randomNumber.ts
  */
@@ -20,7 +20,9 @@ export class RandomNumberInterval {
         const result = Math.random() * (maxNum - minNum + 1) + minNum
         this.n = ops?.isInteger ? Math.floor(result) : result
     }
+
     getNumber(): number {
         return this.n
     }
+
 }
