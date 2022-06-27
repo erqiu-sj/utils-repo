@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/utils@0.4.0...@mxnet/utils@0.4.1) (2022-06-27)
+
+
+### Bug Fixes
+
+* **@mxnet/taro:** 修改SimpleRouteJump的类型声明 ([7f99491](https://gitee.com/cq_maixun_network/repo/commits/7f99491933a6d032b4cdb8bc46b3b187677cca33))
+
+
+
+
+
 # [0.4.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/utils@0.3.6...@mxnet/utils@0.4.0) (2022-06-18)
 
 
