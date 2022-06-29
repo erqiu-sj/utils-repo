@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.4.0...@mxnet/taro@0.4.1) (2022-06-29)
+
+
+### Bug Fixes
+
+* **@mxnet/taro:** 修复mete参数转换问题 ([a972dac](https://gitee.com/cq_maixun_network/repo/commits/a972dac96ebd50f6cd521747891ee2e7b585973e))
+
+
+
+
+
 # [0.4.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.2.0...@mxnet/taro@0.4.0) (2022-06-27)
 
 
