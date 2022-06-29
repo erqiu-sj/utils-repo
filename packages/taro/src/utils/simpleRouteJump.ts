@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-22 17:13:37
- * @LastEditTime: 2022-06-27 14:38:12
+ * @LastEditTime: 2022-06-29 17:03:48
  * @Description: 简单的路由跳转
  * @FilePath: /repo/packages/taro/src/utils/simpleRouteJump.ts
  */
@@ -119,7 +119,7 @@ function parseParameters(mete: object) {
     for (const key in mete) {
         if (h.length === 1) {
             // @ts-ignore
-            h += `${key} = ${mete[key]}`
+            h += `${key}=${mete[key]}`
             // @ts-ignore
         } else h += `&${key}=${mete[key]}`
     }
