@@ -1,7 +1,7 @@
 import { UserConfigExport } from 'vite';
 import { PostcssPxToViewport } from '../plugin/postcssPxToViewport';
-import { ScenarioExpectations, ScenarioExpectationsForVueDefaultOptionTypes } from '../types/scenes';
 import { scenesTypes } from '../types/base';
+import { ScenarioExpectations, ScenarioExpectationsForVueDefaultOptionTypes } from '../types/scenes';
 export declare class ScenarioExpectationsForVue implements ScenarioExpectations {
     scenes: scenesTypes;
     postcssPxToViewport: PostcssPxToViewport;

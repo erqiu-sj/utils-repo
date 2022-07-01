@@ -1,8 +1,15 @@
-import { UserConfigExport } from 'vite'
-import { ScenarioExpectations, scenesTypes, ScenarioExpectationsForReactDefaultOptionTypes } from '../types'
-import defaultsdeep from 'lodash.defaultsdeep'
-import { PostcssPxToViewport } from '../plugin/postcssPxToViewport'
+/*
+ * @Author: 邱狮杰
+ * @Date: 2022-05-12 21:58:41
+ * @LastEditTime: 2022-07-01 11:27:23
+ * @Description: 
+ * @FilePath: /repo/packages/build/src/react/base.ts
+ */
 import react from '@vitejs/plugin-react'
+import defaultsdeep from 'lodash.defaultsdeep'
+import { UserConfigExport } from 'vite'
+import { PostcssPxToViewport } from '../plugin/postcssPxToViewport'
+import { ScenarioExpectations, ScenarioExpectationsForReactDefaultOptionTypes, scenesTypes } from '../types'
 
 export class ScenarioExpectationsForReact implements ScenarioExpectations {
   scenes: scenesTypes = 'pc'
@@ -20,7 +27,9 @@ export class ScenarioExpectationsForReact implements ScenarioExpectations {
     }
   }
   private getPcConfig(): UserConfigExport {
-    return {}
+    return {
+      plugins: [react()],
+    }
   }
 
   private getMobileConfig(): UserConfigExport {

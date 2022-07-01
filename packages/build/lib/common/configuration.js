@@ -7,7 +7,7 @@ exports.ViteConfiguration = void 0;
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-12 17:58:13
- * @LastEditTime: 2022-06-16 16:50:42
+ * @LastEditTime: 2022-06-17 10:07:48
  * @Description:
  * @FilePath: /repo/packages/build/src/common/configuration.ts
  */

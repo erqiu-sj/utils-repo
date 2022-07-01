@@ -1,9 +1,16 @@
-import { UserConfigExport } from 'vite'
+/*
+ * @Author: 邱狮杰
+ * @Date: 2022-05-10 23:13:23
+ * @LastEditTime: 2022-07-01 11:26:47
+ * @Description: 
+ * @FilePath: /repo/packages/build/src/vue/base.ts
+ */
 import vue from '@vitejs/plugin-vue'
-import { PostcssPxToViewport } from '../plugin/postcssPxToViewport'
-import { ScenarioExpectations, ScenarioExpectationsForVueDefaultOptionTypes } from '../types/scenes'
-import { scenesTypes } from '../types/base'
 import defaultsDeep from 'lodash.defaultsdeep'
+import { UserConfigExport } from 'vite'
+import { PostcssPxToViewport } from '../plugin/postcssPxToViewport'
+import { scenesTypes } from '../types/base'
+import { ScenarioExpectations, ScenarioExpectationsForVueDefaultOptionTypes } from '../types/scenes'
 
 export class ScenarioExpectationsForVue implements ScenarioExpectations {
   scenes: scenesTypes = 'pc'
@@ -25,7 +32,9 @@ export class ScenarioExpectationsForVue implements ScenarioExpectations {
   }
 
   private getPcConfig(): UserConfigExport {
-    return {}
+    const config: UserConfigExport = {}
+    defaultsDeep(config, this.defaultNotConfigurable())
+    return config
   }
 
   private getMobileConfig(): UserConfigExport {
