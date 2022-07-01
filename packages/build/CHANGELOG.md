@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/build@0.4.1...@mxnet/build@0.4.2) (2022-07-01)
+
+
+### Bug Fixes
+
+* **@mxnet/build:** update autoImport types ([afde47a](https://gitee.com/cq_maixun_network/repo/commits/afde47ab4aacb9164ddcefed2d587e43b5544903))
+
+
+
+
+
 ## [0.4.1](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/build@0.4.0...@mxnet/build@0.4.1) (2022-07-01)
 
 
