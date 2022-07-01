@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.3](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/build@0.4.2...@mxnet/build@0.4.3) (2022-07-01)
+
+
+### Bug Fixes
+
+* **@mxnet/build:** fix unimport not found path ([afa08e6](https://gitee.com/cq_maixun_network/repo/commits/afa08e695835142c67dfed479d139378283a6d08))
+
+
+
+
+
 ## [0.4.2](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/build@0.4.1...@mxnet/build@0.4.2) (2022-07-01)
 
 
