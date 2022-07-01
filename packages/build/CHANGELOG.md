@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/build@0.4.0...@mxnet/build@0.4.1) (2022-07-01)
+
+
+### Bug Fixes
+
+* **@mxnet/build:** 修复pc初始化配置 ([b61109c](https://gitee.com/cq_maixun_network/repo/commits/b61109c3a5f47ce306d9d110a9b62a87f3d70329))
+
+
+
+
+
 # [0.4.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/build@0.3.5...@mxnet/build@0.4.0) (2022-06-18)
 
 
