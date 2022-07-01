@@ -1,3 +1,10 @@
+/*
+ * @Author: 邱狮杰
+ * @Date: 2022-06-16 17:07:17
+ * @LastEditTime: 2022-07-01 12:15:44
+ * @Description: 
+ * @FilePath: /repo/packages/build/dts/plugin/autoImport.d.ts
+ */
 import autoImport from 'unplugin-auto-import/index';
 import { UserConfigExport } from 'vite';
 import { MergeConfiguration, technologyStackTypes } from '../types';

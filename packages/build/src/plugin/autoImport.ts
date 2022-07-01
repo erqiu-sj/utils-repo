@@ -1,13 +1,14 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-12 21:13:02
- * @LastEditTime: 2022-07-01 12:07:32
+ * @LastEditTime: 2022-07-01 12:14:52
  * @Description:  自动导入api
  * @FilePath: /repo/packages/build/src/plugin/autoImport.ts
  */
 
 import defaultsDeep from 'lodash.defaultsdeep';
-import autoImport from 'unplugin-auto-import/index';
+// @ts-ignore
+import autoImport from 'unplugin-auto-import';
 import { Plugin, UserConfig, UserConfigExport } from 'vite';
 import { MergeConfiguration, technologyStackTypes } from '../types';
 
