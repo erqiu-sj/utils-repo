@@ -1,7 +1,7 @@
-import autoImport from 'unplugin-auto-import';
+import autoImport from 'unplugin-auto-import/index';
 import { UserConfigExport } from 'vite';
 import { MergeConfiguration, technologyStackTypes } from '../types';
-export declare type autoImportOptions = Parameters<typeof autoImport.vite>[0];
+export declare type autoImportOptions = NonNullable<Parameters<typeof autoImport.vite>[0]>;
 export declare class AutoImportApi extends MergeConfiguration {
     private userConfig?;
     private defaultImports;

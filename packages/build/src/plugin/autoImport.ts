@@ -1,18 +1,17 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-12 21:13:02
- * @LastEditTime: 2022-06-16 17:16:30
+ * @LastEditTime: 2022-07-01 12:07:32
  * @Description:  自动导入api
  * @FilePath: /repo/packages/build/src/plugin/autoImport.ts
  */
 
 import defaultsDeep from 'lodash.defaultsdeep';
-// @ts-ignore
-import autoImport from 'unplugin-auto-import';
+import autoImport from 'unplugin-auto-import/index';
 import { Plugin, UserConfig, UserConfigExport } from 'vite';
 import { MergeConfiguration, technologyStackTypes } from '../types';
 
-export type autoImportOptions = Parameters<typeof autoImport.vite>[0]
+export type autoImportOptions = NonNullable<Parameters<typeof autoImport.vite>[0]>
 
 const include = [
     /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
