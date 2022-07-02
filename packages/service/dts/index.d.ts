@@ -8,5 +8,6 @@ import type { cancelRequestConfiguration } from './plugins/cancel/config';
 import { cancelHeader } from './plugins/cancel/config';
 import { requestCancellationHepler } from './utils/cancel';
 import { SynchronizationAwaitError } from "./utils/error";
-export { Service, requestCancellationHepler, cancelHeader, Cancel, ExpirationTime, Cache, SynchronizationAwaitError };
+import { TerminationResult } from "./utils/terminationResult";
+export { Service, requestCancellationHepler, cancelHeader, Cancel, ExpirationTime, Cache, SynchronizationAwaitError, TerminationResult };
 export type { interceptor, CacheConfig, cancelRequestConfiguration };

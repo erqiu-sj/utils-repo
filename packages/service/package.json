@@ -29,7 +29,8 @@
     "build": "yarn run build:es & yarn run  build:cj"
   },
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "axios-miniprogram-adapter": "^0.3.2"
   },
   "gitHead": "d6fb0b05e84934456fb116973867e5a7d6f18c74"
 }

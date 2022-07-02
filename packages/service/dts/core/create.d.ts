@@ -1,4 +1,4 @@
-import { AxiosPromise, AxiosRequestConfig } from 'axios';
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { interceptor } from './injectInterceptor';
 import { handlingUnexpectedResultsCaller } from "./unexpectedResults";
 /**
@@ -9,6 +9,7 @@ export interface ServiceRequestConfig<V extends string[] = string[]> extends Axi
     preventUnexpectedTriggers?: boolean;
     version?: V[number];
 }
+declare type requestResultType<R> = R extends object ? R : Promise<AxiosResponse<any, any>>;
 export declare class Service<V extends string[] = string[]> {
     private axios?;
     private interceptorPluginList;
@@ -23,5 +24,11 @@ export declare class Service<V extends string[] = string[]> {
     private requestTrigger;
     setVersionPlaceholder(pl: string): this;
     switchVersion(item: V[number]): this;
-    getAxios<T = unknown>(): (config?: (ServiceRequestConfig<V> & T) | undefined) => Promise<AxiosPromise>;
+    /**
+     * @description 添加小程序(微信，支付宝，钉钉，百度)适配器
+     * @returns { this }
+     */
+    addAppletAdapter(): this;
+    getAxios<T = unknown>(): <R>(config?: (ServiceRequestConfig<V> & T) | undefined) => Promise<Awaited<requestResultType<R>>>;
 }
+export {};

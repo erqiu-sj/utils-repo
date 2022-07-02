@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 11:37:24
- * @LastEditTime: 2022-06-18 11:53:05
+ * @LastEditTime: 2022-07-02 22:03:43
  * @Description:
  * @FilePath: /repo/packages/service/src/core/create.ts
  */
@@ -21,6 +21,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Service = void 0;
 const axios_1 = __importDefault(require("axios"));
+const axios_miniprogram_adapter_1 = __importDefault(require("axios-miniprogram-adapter"));
 const cache_1 = require("../plugins/cache/cache");
 const error_1 = require("../utils/error");
 const mergeInterceptorPlugin_1 = require("./mergeInterceptorPlugin");
@@ -88,6 +89,16 @@ class Service {
         this.axios.defaults.baseURL = (_a = this.multiVersionSwitching) === null || _a === void 0 ? void 0 : _a.switchVersion(item);
         return this;
     }
+    /**
+     * @description 添加小程序(微信，支付宝，钉钉，百度)适配器
+     * @returns { this }
+     */
+    addAppletAdapter() {
+        var _a, _b;
+        if (this.axios) // @ts-ignore
+            (_b = (_a = this.axios) === null || _a === void 0 ? void 0 : _a.defaults) === null || _b === void 0 ? void 0 : _b.adapter = axios_miniprogram_adapter_1.default;
+        return this;
+    }
     getAxios() {
         return (config) => __awaiter(this, void 0, void 0, function* () {
             // 缓存先决条件判断
@@ -96,11 +107,7 @@ class Service {
                 // 满足缓存先决条件
                 // 尝试使用缓存
                 const [cacheExists, cache] = cachePrerequisiteJudgment.useCache();
-                if (cacheExists) {
-                    // 存在可用缓存
-                    return cache;
-                }
-                return yield this.requestTrigger(config);
+                return cacheExists ? cache : yield this.requestTrigger(config);
             }
             return yield this.requestTrigger(config);
         });

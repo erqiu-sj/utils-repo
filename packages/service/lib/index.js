@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SynchronizationAwaitError = exports.Cache = exports.ExpirationTime = exports.Cancel = exports.cancelHeader = exports.requestCancellationHepler = exports.Service = void 0;
+exports.TerminationResult = exports.SynchronizationAwaitError = exports.Cache = exports.ExpirationTime = exports.Cancel = exports.cancelHeader = exports.requestCancellationHepler = exports.Service = void 0;
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 10:55:32
- * @LastEditTime: 2022-06-11 15:19:41
+ * @LastEditTime: 2022-07-02 21:31:02
  * @Description:
  * @FilePath: /repo/packages/service/src/index.ts
  */
@@ -22,3 +22,5 @@ const cancel_2 = require("./utils/cancel");
 Object.defineProperty(exports, "requestCancellationHepler", { enumerable: true, get: function () { return cancel_2.requestCancellationHepler; } });
 const error_1 = require("./utils/error");
 Object.defineProperty(exports, "SynchronizationAwaitError", { enumerable: true, get: function () { return error_1.SynchronizationAwaitError; } });
+const terminationResult_1 = require("./utils/terminationResult");
+Object.defineProperty(exports, "TerminationResult", { enumerable: true, get: function () { return terminationResult_1.TerminationResult; } });
