@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/service@0.4.1...@mxnet/service@0.5.0) (2022-07-02)
+
+
+### Features
+
+* **@mxnet/service:** 新增请求取消句柄,请求响应类型泛型 ([499587e](https://gitee.com/cq_maixun_network/repo/commits/499587e15872e0fd3abe4b4c1fe185dc265c57f4))
+
+
+
+
+
 ## [0.4.1](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/service@0.4.0...@mxnet/service@0.4.1) (2022-06-25)
 
 **Note:** Version bump only for package @mxnet/service
