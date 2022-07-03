@@ -1,0 +1,41 @@
+<!--
+ * @Author: 邱狮杰
+ * @Date: 2022-07-03 12:55:39
+ * @LastEditTime: 2022-07-03 13:02:05
+ * @Description: 
+ * @FilePath: /repo/packages/utils/__tests__/html2canvas.html
+-->
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../src/common/html2canvas/index.js"></script>
+    <style>
+      .turntableBack {
+        height: 100px;
+        width: 200px;
+        /* object-fit: contain; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="h">
+      <h1>as</h1>
+      <img src="./turntableBack.png" alt="" class="turntableBack" />
+    </div>
+
+    <h2>result:</h2>
+
+    <img src="" class="resultImage" alt="" />
+
+    <script>
+      html2canvas(document.querySelector('.h')).then(canvas => {
+        document.querySelector('.resultImage').src = canvas.toDataURL()
+      })
+    </script>
+  </body>
+</html>

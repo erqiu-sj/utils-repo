@@ -1,0 +1,71 @@
+<!--
+ * @Author: 邱狮杰
+ * @Date: 2022-07-03 11:45:52
+ * @LastEditTime: 2022-07-03 12:53:54
+ * @Description: 
+ * @FilePath: /repo/packages/utils/__tests__/BigTurntable.html
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../dist.umd/index.js"></script>
+    <style>
+      .turntable {
+        height: 300px;
+        width: 300px;
+        transition: all 3s;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="./turntableBack.png" alt="" class="turntable" />
+    <script>
+      const rotateColl = {
+        1: 0, //  藏碳餐饮优惠卷
+        2: 35, // 佳得乐清爽一箱
+        3: 106, //  瑜伽垫
+        4: 178, // 佳得乐背包
+        5: 217, // 佳得乐运动毛巾
+        6: 254, // 佳得乐水壶
+        7: 287, //  奇迹健身走体验卡
+        8: 323, //蜀大侠餐饮优惠卷
+        9: 70, // 谢谢惠顾
+        10: 142, // 谢谢惠顾
+      }
+
+      const instance = new mxUtils.BigTurntable().setPrizeIndexAndAngle(rotateColl).setPrizeIdWhenNotWinning([9, 10]).setRandomAngleWhenLotteryisNotDrawn([70, 142]).setTurntableCycle({ time: 3000 })
+
+      setTimeout(() => {
+        instance.startTheCarousel(document.querySelector('.turntable'), {
+          winningId: 2,
+          onDone() {
+            console.log('done2', instance)
+            instance.startTheCarousel(document.querySelector('.turntable'), {
+              winningId: 6,
+              onDone() {
+                console.log('doen6', instance)
+                instance.startTheCarousel(document.querySelector('.turntable'), {
+                  winningId: 8,
+                  onDone() {
+                    console.log('doen8', instance)
+                    instance.startTheCarousel(document.querySelector('.turntable'), {
+                      winningId: 11,
+                      onDone() {
+                        console.log('doen11', instance)
+                      },
+                    })
+                  },
+                })
+              },
+            })
+          },
+        })
+      }, 1000)
+    </script>
+  </body>
+</html>
