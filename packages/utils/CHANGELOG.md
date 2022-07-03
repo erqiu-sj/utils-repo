@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/utils@0.4.1...@mxnet/utils@0.5.0) (2022-07-03)
+
+
+### Features
+
+* **@mxnet/utils:** 新增BigTruntable（大转盘） ([0feb9f8](https://gitee.com/cq_maixun_network/repo/commits/0feb9f8a434f86a5776c31a6dc7a9963b47cfd1c))
+
+
+
+
+
 ## [0.4.1](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/utils@0.4.0...@mxnet/utils@0.4.1) (2022-06-27)
 
 
