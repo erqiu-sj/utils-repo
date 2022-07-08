@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-22 17:13:37
- * @LastEditTime: 2022-06-29 17:03:48
+ * @LastEditTime: 2022-07-08 14:41:52
  * @Description: 简单的路由跳转
  * @FilePath: /repo/packages/taro/src/utils/simpleRouteJump.ts
  */
@@ -46,6 +46,7 @@ class SimpleRouteJump extends DefineJumpCallback {
     }
     setUrl(url) {
         this.simpleRouteJumpConfig = Object.assign(Object.assign({}, this.simpleRouteJumpConfig), { url });
+        return this;
     }
     setMethod(method) {
         this.simpleRouteJumpConfig = Object.assign(Object.assign({}, this.simpleRouteJumpConfig), { method: method || 'navigateTo' });
@@ -60,7 +61,7 @@ class SimpleRouteJump extends DefineJumpCallback {
     }
     trigger(options) {
         if (this.simpleRouteJumpConfig.preJumpJnterceptor) {
-            if (this.simpleRouteJumpConfig.preJumpJnterceptor()) {
+            if (this.simpleRouteJumpConfig.preJumpJnterceptor(options === null || options === void 0 ? void 0 : options.mete)) {
                 // @ts-ignore
                 return jumpMethodContainer[this.simpleRouteJumpConfig.method](Object.assign(Object.assign(Object.assign({}, this.callbackCollection), options), { url: `${this.simpleRouteJumpConfig.url}${parseParameters((options === null || options === void 0 ? void 0 : options.mete) || {})}` }));
             }

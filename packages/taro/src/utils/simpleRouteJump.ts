@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-22 17:13:37
- * @LastEditTime: 2022-06-29 17:03:48
+ * @LastEditTime: 2022-07-08 14:41:52
  * @Description: 简单的路由跳转
  * @FilePath: /repo/packages/taro/src/utils/simpleRouteJump.ts
  */
@@ -50,18 +50,18 @@ const jumpMethodContainer: { [key in jumpMethodName]: jumpMethod } = {
     'redirectTo': redirectTo
 }
 
-export type simpleRouteJumpConfig = {
+export type simpleRouteJumpConfig<T = unknown> = {
     method: jumpMethodName,
     url?: string
     // 预跳转回调
     // 返回值是falsy则拒绝跳转, 反之
-    preJumpJnterceptor?: () => boolean
+    preJumpJnterceptor?: (params: T) => boolean
 }
 
 
-export interface triggerOptions {
+export interface triggerOptions<T extends object> {
     // 附加在跳转时的url上
-    mete: object
+    mete: T
 }
 
 /**
@@ -69,7 +69,7 @@ export interface triggerOptions {
  * @example  
      new SimpleRouteJump().setMethod('navigateBack').setPreJumpJnterceptor().trigger({})
  */
-export class SimpleRouteJump<T extends jumpMethodName = 'navigateTo'> extends DefineJumpCallback {
+export class SimpleRouteJump<Mete extends object, T extends jumpMethodName = 'navigateTo'> extends DefineJumpCallback {
 
     private simpleRouteJumpConfig: simpleRouteJumpConfig = { method: 'navigateTo' }
 
@@ -78,11 +78,12 @@ export class SimpleRouteJump<T extends jumpMethodName = 'navigateTo'> extends De
         this.setUrl(url)
     }
 
-    setUrl(url?: string) {
+    setUrl(url?: string): this {
         this.simpleRouteJumpConfig = { ...this.simpleRouteJumpConfig, url }
+        return this
     }
 
-    setMethod<M extends jumpMethodName>(method?: M): SimpleRouteJump<M> {
+    setMethod<M extends jumpMethodName>(method?: M): SimpleRouteJump<Mete, M> {
         this.simpleRouteJumpConfig = { ...this.simpleRouteJumpConfig, method: method || 'navigateTo' }
         // @ts-ignore
         return this
@@ -94,9 +95,9 @@ export class SimpleRouteJump<T extends jumpMethodName = 'navigateTo'> extends De
         return this
     }
 
-    trigger(options?: Partial<triggerOptions> & Omit<NonNullable<Parameters<getJumpParametersAccordingToJumpMethod<T>>[0]>, 'url'>) {
+    trigger(options?: Partial<triggerOptions<Mete>> & Omit<NonNullable<Parameters<getJumpParametersAccordingToJumpMethod<T>>[0]>, 'url'>) {
         if (this.simpleRouteJumpConfig.preJumpJnterceptor) {
-            if (this.simpleRouteJumpConfig.preJumpJnterceptor()) {
+            if (this.simpleRouteJumpConfig.preJumpJnterceptor(options?.mete)) {
                 // @ts-ignore
                 return jumpMethodContainer[this.simpleRouteJumpConfig.method]({ ...this.callbackCollection, ...options, url: `${this.simpleRouteJumpConfig.url}${parseParameters(options?.mete || {})}` })
             } else {

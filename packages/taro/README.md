@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-06-22 16:14:04
- * @LastEditTime: 2022-06-25 11:09:42
+ * @LastEditTime: 2022-07-08 14:41:10
  * @Description:
  * @FilePath: /repo/packages/taro/README.md
 -->
@@ -69,7 +69,7 @@ new Storeage<typeof key | "age">().set("age", "age").get("age");
 
 - 良好的预设
 
-- 避免拼接 `url query`
+- 避免拼接 `url query` , 且 `url query` 可预设类型
 
 - 自动处理 `url` 前缀
 
@@ -80,13 +80,19 @@ import { SimpleRouteJump } from "@mxnet/taro";
 
 SimpleRouteJump.parseParameters({ name: "age", age: "12" }); // => ?name=age&age=12
 
-new SimpleRouteJump("url")
+// url query
+interface parameter {
+  name: string;
+  age: string;
+}
+
+new SimpleRouteJump<parameter>("url")
   // 定义跳转方法,良好的类型提示
   // 默认 navigateTo 跳转
   .setMethod("navigateBack")
   // 预跳转回调
   // 在跳转前背调用，根据返回值是否为fasly决定是否发起一次跳转
-  .setPreJumpJnterceptor(() => false)
+  .setPreJumpJnterceptor((params: parameter) => false)
   .success(() => {})
   .complete(() => {})
   .fail(() => {})
