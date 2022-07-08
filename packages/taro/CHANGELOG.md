@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.4.1...@mxnet/taro@0.5.0) (2022-07-08)
+
+
+### Features
+
+* **@mxnet/taro:** simpleRouteJump 函数新增跳转参数泛型，验证跳转函数新增跳转参数 ([2e62bd5](https://gitee.com/cq_maixun_network/repo/commits/2e62bd5cd050d643f76aa01321c5e52d60566d2d))
+
+
+
+
+
 ## [0.4.1](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.4.0...@mxnet/taro@0.4.1) (2022-06-29)
 
 
