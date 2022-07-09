@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.5.0...@mxnet/taro@0.5.1) (2022-07-09)
+
+
+### Bug Fixes
+
+* **@mxnet/utils:** 修复了html2canvas 在webpack中无法给对象分配export属性问题 ([010dc96](https://gitee.com/cq_maixun_network/repo/commits/010dc96b1bb640d8876714db6ee807b69ace687a))
+
+
+
+
+
 # [0.5.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.4.1...@mxnet/taro@0.5.0) (2022-07-08)
 
 
