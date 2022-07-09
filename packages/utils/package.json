@@ -13,13 +13,15 @@
   "homepage": "",
   "types": "./dts/index.d.ts",
   "license": "MIT",
-  "main": "./lib/index.js",
+  "main": "./dist/index.js",
   "module": "./dist/index.js",
   "files": [
     "lib",
     "dist",
     "dist.umd",
-    "dts"
+    "dts",
+    "html2canvas",
+    "/src/common/html2canvas/"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
@@ -30,7 +32,8 @@
     "build:umd": "rollup -c -f umd -d dist.umd",
     "build:es": "rollup -c -f es -d dist",
     "build:cjs": "rollup -c -f cjs -d lib",
-    "build": "yarn build:umd & yarn build:es & yarn build:cjs"
+    "build:canvas": "rollup -c -i src/common/html2canvas/index.js -f umd -d html2canvas",
+    "build": "yarn build:umd & yarn build:es & yarn build:cjs & yarn build:canvas"
   },
   "dependencies": {
     "@rollup/plugin-node-resolve": "^13.3.0",

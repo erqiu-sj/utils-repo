@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-18 22:06:22
- * @LastEditTime: 2022-06-11 22:12:15
+ * @LastEditTime: 2022-07-09 11:58:56
  * @Description: 
  * @FilePath: /repo/packages/utils/rollup.config.ts
  */
@@ -30,6 +30,6 @@ export default defineConfig({
                 drop_debugger: true
             }
         })
-    ]
+    ],
 })
 

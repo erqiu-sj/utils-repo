@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-22 17:13:37
- * @LastEditTime: 2022-07-08 14:41:52
+ * @LastEditTime: 2022-07-08 14:49:41
  * @Description: 简单的路由跳转
  * @FilePath: /repo/packages/taro/src/utils/simpleRouteJump.ts
  */
@@ -71,7 +71,7 @@ export interface triggerOptions<T extends object> {
  */
 export class SimpleRouteJump<Mete extends object, T extends jumpMethodName = 'navigateTo'> extends DefineJumpCallback {
 
-    private simpleRouteJumpConfig: simpleRouteJumpConfig = { method: 'navigateTo' }
+    private simpleRouteJumpConfig: simpleRouteJumpConfig<Mete> = { method: 'navigateTo' }
 
     constructor(url?: string) {
         super()
@@ -89,7 +89,7 @@ export class SimpleRouteJump<Mete extends object, T extends jumpMethodName = 'na
         return this
     }
 
-    setPreJumpJnterceptor(fn?: simpleRouteJumpConfig['preJumpJnterceptor']) {
+    setPreJumpJnterceptor(fn?: simpleRouteJumpConfig<Mete>['preJumpJnterceptor']) {
         if (!fn) return this
         this.simpleRouteJumpConfig = { ...this.simpleRouteJumpConfig, preJumpJnterceptor: fn }
         return this
@@ -97,7 +97,7 @@ export class SimpleRouteJump<Mete extends object, T extends jumpMethodName = 'na
 
     trigger(options?: Partial<triggerOptions<Mete>> & Omit<NonNullable<Parameters<getJumpParametersAccordingToJumpMethod<T>>[0]>, 'url'>) {
         if (this.simpleRouteJumpConfig.preJumpJnterceptor) {
-            if (this.simpleRouteJumpConfig.preJumpJnterceptor(options?.mete)) {
+            if (this.simpleRouteJumpConfig.preJumpJnterceptor(options?.mete as Mete)) {
                 // @ts-ignore
                 return jumpMethodContainer[this.simpleRouteJumpConfig.method]({ ...this.callbackCollection, ...options, url: `${this.simpleRouteJumpConfig.url}${parseParameters(options?.mete || {})}` })
             } else {
@@ -126,3 +126,4 @@ function parseParameters(mete: object) {
     }
     return h
 }
+

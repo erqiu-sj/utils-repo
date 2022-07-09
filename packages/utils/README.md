@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-10 22:47:31
- * @LastEditTime: 2022-07-03 12:54:45
+ * @LastEditTime: 2022-07-09 12:10:06
  * @Description:
  * @FilePath: /repo/packages/utils/README.md
 -->
@@ -41,8 +41,12 @@ const { Phone } = require("@mxnet/utils");
 
 在 `html2canvas(1.4.1)` 中兼容了 `img object-fit` 属性, 打印时不能将图片放入`div`当作 `background-image` 使用， 这样只会更模糊
 
+```ts
+import html2canvas from "@mxnet/utils/html2canvas";
+```
+
 ```html
-<script src="./dist.umd/index.js"></script>
+<script src="./html2canvas/index.js"></script>
 <script>
   window.html2canvas(dom, options);
 </script>
