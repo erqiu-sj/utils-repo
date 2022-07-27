@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/service@0.5.0...@mxnet/service@0.5.1) (2022-07-27)
+
+
+### Performance Improvements
+
+* **@mxnet/build:** update vite version ([cb3551d](https://gitee.com/cq_maixun_network/repo/commits/cb3551d5eda04a10d78cf60ee71ebe7dcc563c1f))
+
+
+
+
+
 # [0.5.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/service@0.4.1...@mxnet/service@0.5.0) (2022-07-02)
 
 
