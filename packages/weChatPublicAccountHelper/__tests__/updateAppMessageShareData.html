@@ -1,0 +1,28 @@
+<!--
+ * @Author: 邱狮杰
+ * @Date: 2022-07-23 10:48:27
+ * @LastEditTime: 2022-07-23 11:24:43
+ * @Description: updateAppMessageShareData
+ * @FilePath: /repo/packages/weChatPublicAccountHelper/__tests__/updateAppMessageShareData.html
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>updateAppMessageShareData</title>
+    <script src="../dist.umd/index.js"></script>
+  </head>
+  <body>
+    <h1></h1>
+    <script>
+      new weChatPublicAccountHelper.UpdateAppMessageShareData()
+        .success(() => {
+          alert('分享成功')
+        })
+        .done()
+    </script>
+  </body>
+</html>

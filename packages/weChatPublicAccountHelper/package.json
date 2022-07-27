@@ -1,0 +1,44 @@
+{
+  "name": "@mxnet/wechatpublicaccounthelper",
+  "version": "0.0.1",
+  "description": "weChat public account helper,实现公众号在本地开发的polyfill",
+  "keywords": [
+    "wechat",
+    "polyfill",
+    "dev",
+    "react",
+    "vue",
+    "html",
+    "javascript"
+  ],
+  "author": "hooks_28 <1r56955415918@qq.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/weChatPublicAccountHelper.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmmirror.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/cq_maixun_network/repo.git"
+  },
+  "scripts": {
+    "build:ts": "tsc",
+    "build:umd": "rollup -c -f umd -d dist.umd",
+    "build:cjs": "rollup -c -f cjs -d lib",
+    "build": "yarn build:umd & yarn build:cjs"
+  },
+  "dependencies": {
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.2",
+    "rollup": "^2.73.0",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}

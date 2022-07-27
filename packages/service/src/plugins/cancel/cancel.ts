@@ -1,44 +1,39 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 17:56:58
- * @LastEditTime: 2022-05-28 21:12:15
- * @Description: 
+ * @LastEditTime: 2022-07-11 10:15:52
+ * @Description:
  * @FilePath: /repo/packages/service/src/plugins/cancel/cancel.ts
  */
 
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { interceptor } from '../../core/injectInterceptor';
-import { requestCancellationHepler } from '../../utils/cancel';
-import { allowExecution } from '../../utils/decorator';
-import { cancelHeader, cancelRequestConfiguration, defaultRules, requestContainer } from './config';
+import { AxiosRequestConfig, AxiosResponse } from 'axios'
+import { interceptor } from '../../core/injectInterceptor'
+import { requestCancellationHepler } from '../../utils/cancel'
+import { allowExecution } from '../../utils/decorator'
+import { cancelHeader, cancelRequestConfiguration, defaultRules, requestContainer } from './config'
 
 type requestConfig = AxiosRequestConfig & cancelRequestConfiguration
 
 type responseConfig = AxiosResponse<any, requestConfig>
 
 export class Cancel implements interceptor {
+  requestFailInterceptor(err: unknown): void {}
 
-    requestFailInterceptor(err: unknown): void {
+  responseFailInterceptor(err: unknown): void {}
 
-    }
+  @allowExecution<requestConfig>(config => Reflect.get(config.headers || {}, 'cancelHeader') === cancelHeader)
+  requestSuccessInterceptor(config: requestConfig): void | AxiosRequestConfig<any> | Promise<AxiosRequestConfig<any>> | Promise<void> {
+    const rule = config.cancellationRules?.(config) || defaultRules(config)
+    if (rule && requestContainer.has(rule)) requestCancellationHepler(config)
+    else if (rule) requestContainer.set(rule, true)
+  }
 
-    responseFailInterceptor(err: unknown): void {
-
-    }
-
-    @allowExecution<requestConfig>((config) => Reflect.get(config.headers || {}, 'cancelHeader') === cancelHeader)
-    requestSuccessInterceptor(config: requestConfig): void | AxiosRequestConfig<any> | Promise<AxiosRequestConfig<any>> | Promise<void> {
-        const rule = config.cancellationRules?.(config) || defaultRules(config)
-        if (rule && requestContainer.has(rule)) requestCancellationHepler(config)
-        else if (rule) requestContainer.set(rule, true)
-    }
-
-    @allowExecution<responseConfig>((config) => {
-        return Reflect.get(config?.config?.headers || {}, 'cancelHeader') === cancelHeader
-    })
-    responseSuccessInterceptor(response: responseConfig): void | AxiosResponse<any, any> | Promise<AxiosResponse<any, any>> | Promise<void> {
-        // @ts-ignore
-        const rule = response.config?.['cancellationRules']?.(response.config) || defaultRules(response.config)
-        if (rule && requestContainer.has(rule)) requestContainer.delete(rule)
-    }
+  @allowExecution<responseConfig>(config => {
+    return Reflect.get(config?.config?.headers || {}, 'cancelHeader') === cancelHeader
+  })
+  responseSuccessInterceptor(response: responseConfig): void | AxiosResponse<any, any> | Promise<AxiosResponse<any, any>> | Promise<void> {
+    // @ts-ignore
+    const rule = response.config?.['cancellationRules']?.(response.config) || defaultRules(response.config)
+    if (rule && requestContainer.has(rule)) requestContainer.delete(rule)
+  }
 }
