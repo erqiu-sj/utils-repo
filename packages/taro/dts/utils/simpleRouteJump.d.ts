@@ -1,4 +1,4 @@
-import { navigateBack, navigateTo, redirectTo, reLaunch } from "@tarojs/taro";
+import { navigateBack, navigateTo, redirectTo, reLaunch } from '@tarojs/taro';
 export interface callbackCollectionTypes {
     complete?: (res: TaroGeneral.CallbackResult) => void;
     fail?: (res: TaroGeneral.CallbackResult) => void;
@@ -6,9 +6,9 @@ export interface callbackCollectionTypes {
 }
 export declare class DefineJumpCallback {
     protected callbackCollection: Partial<callbackCollectionTypes>;
-    success(cb?: ((res: TaroGeneral.CallbackResult) => void)): this;
-    fail(cb?: ((res: TaroGeneral.CallbackResult) => void)): this;
-    complete(cb?: ((res: TaroGeneral.CallbackResult) => void)): this;
+    success(cb?: (res: TaroGeneral.CallbackResult) => void): this;
+    fail(cb?: (res: TaroGeneral.CallbackResult) => void): this;
+    complete(cb?: (res: TaroGeneral.CallbackResult) => void): this;
 }
 export declare type jumpMethod = typeof navigateBack | typeof navigateTo | typeof reLaunch | typeof redirectTo;
 export declare type jumpMethodName = 'navigateBack' | 'navigateTo' | 'reLaunch' | 'redirectTo';
@@ -31,7 +31,7 @@ export declare class SimpleRouteJump<Mete extends object, T extends jumpMethodNa
     constructor(url?: string);
     setUrl(url?: string): this;
     setMethod<M extends jumpMethodName>(method?: M): SimpleRouteJump<Mete, M>;
-    setPreJumpJnterceptor(fn?: simpleRouteJumpConfig['preJumpJnterceptor']): this;
+    setPreJumpJnterceptor(fn?: simpleRouteJumpConfig<Mete>['preJumpJnterceptor']): this;
     trigger(options?: Partial<triggerOptions<Mete>> & Omit<NonNullable<Parameters<getJumpParametersAccordingToJumpMethod<T>>[0]>, 'url'>): Promise<TaroGeneral.CallbackResult> | undefined;
     static parseParameters: typeof parseParameters;
 }

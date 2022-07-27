@@ -4,4 +4,5 @@
  */
 export declare function getCurRouter<P = object>(): {
     getParameter: () => P;
+    getCurRoute: () => import("@tarojs/taro").RouterInfo<Partial<Record<string, string>>> | null;
 };

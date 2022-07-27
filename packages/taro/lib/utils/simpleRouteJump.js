@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-22 17:13:37
- * @LastEditTime: 2022-07-08 14:41:52
+ * @LastEditTime: 2022-07-17 22:22:25
  * @Description: 简单的路由跳转
  * @FilePath: /repo/packages/taro/src/utils/simpleRouteJump.ts
  */
@@ -28,10 +28,10 @@ class DefineJumpCallback {
 }
 exports.DefineJumpCallback = DefineJumpCallback;
 const jumpMethodContainer = {
-    'navigateBack': taro_1.navigateBack,
-    'navigateTo': taro_1.navigateTo,
-    'reLaunch': taro_1.reLaunch,
-    'redirectTo': taro_1.redirectTo
+    navigateBack: taro_1.navigateBack,
+    navigateTo: taro_1.navigateTo,
+    reLaunch: taro_1.reLaunch,
+    redirectTo: taro_1.redirectTo,
 };
 /**
  * @description 简单的路由跳转

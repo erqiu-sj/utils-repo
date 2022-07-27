@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-22 16:29:45
- * @LastEditTime: 2022-06-22 17:13:01
+ * @LastEditTime: 2022-07-27 15:22:36
  * @Description:
  * @FilePath: /repo/packages/taro/src/utils/getCurRouter.ts
  */
@@ -22,8 +22,11 @@ function getCurRouter() {
     function getParameter() {
         return curPage === null || curPage === void 0 ? void 0 : curPage.params;
     }
+    function getCurRoute() {
+        return curPage;
+    }
     return {
-        getParameter
+        getParameter, getCurRoute
     };
 }
 exports.getCurRouter = getCurRouter;
