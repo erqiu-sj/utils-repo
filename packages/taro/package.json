@@ -28,7 +28,7 @@
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "dependencies": {
+  "devDependencies": {
     "@rollup/plugin-commonjs": "^22.0.1",
     "@tarojs/taro": "^3.4.12",
     "@types/react": "^18.0.15",
