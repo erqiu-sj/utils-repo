@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.6.2...@mxnet/taro@0.6.3) (2022-08-01)
+
+
+### Bug Fixes
+
+* **@mxnet/taro:** update @mxnet/taro ([7a7a442](https://gitee.com/cq_maixun_network/repo/commits/7a7a442420f4dd8acf9f06be4c0a7937a8f71955))
+
+
+
+
+
 ## [0.6.2](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.6.1...@mxnet/taro@0.6.2) (2022-08-01)
 
 
