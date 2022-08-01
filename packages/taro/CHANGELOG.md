@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.7.0...@mxnet/taro@0.7.1) (2022-08-01)
+
+
+### Bug Fixes
+
+* **@mxnet/taro:** depan deps => devDepan deps ([ac1bb1d](https://gitee.com/cq_maixun_network/repo/commits/ac1bb1d7344c22d7e7032322fccdfa4c3a262059))
+
+
+
+
+
 # [0.7.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.6.3...@mxnet/taro@0.7.0) (2022-08-01)
 
 
