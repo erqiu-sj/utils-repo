@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.6.0...@mxnet/taro@0.6.1) (2022-08-01)
+
+**Note:** Version bump only for package @mxnet/taro
+
+
+
+
+
 # [0.6.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.5.1...@mxnet/taro@0.6.0) (2022-07-27)
 
 
