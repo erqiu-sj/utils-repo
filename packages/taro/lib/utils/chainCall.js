@@ -16,7 +16,7 @@ exports.ChainCall = void 0;
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-01 10:02:32
- * @LastEditTime: 2022-08-01 14:32:50
+ * @LastEditTime: 2022-08-01 15:00:16
  * @Description: 只需要将小程序所有api传入，则会自动读取小程序参数作为该链式调用的参数声明，链式小程序api的所有回调
  * @FilePath: /repo/packages/taro/src/utils/chainCall.ts
  */
