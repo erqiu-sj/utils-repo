@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.6.3...@mxnet/taro@0.7.0) (2022-08-01)
+
+
+### Features
+
+* **@mxnet/taro:** use rollup compression packages ([567e32e](https://gitee.com/cq_maixun_network/repo/commits/567e32e14246eab464f3f6e54ea50e6968dcee33))
+
+
+
+
+
 ## [0.6.3](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.6.2...@mxnet/taro@0.6.3) (2022-08-01)
 
 
