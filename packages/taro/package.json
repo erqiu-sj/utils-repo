@@ -10,6 +10,7 @@
   "scripts": {
     "build:es": "tsc --module ESNext --outDir ./dist --moduleResolution node",
     "build:cj": "tsc --module CommonJS --outDir ./lib",
+    "build:rollup": "rollup --config ./rollup.config.ts",
     "build": "yarn run build:es & yarn run build:cj"
   },
   "files": [
@@ -28,8 +29,10 @@
     "access": "public"
   },
   "dependencies": {
+    "@rollup/plugin-commonjs": "^22.0.1",
     "@tarojs/taro": "^3.4.12",
     "@types/react": "^18.0.15",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "rollup-plugin-typescript2": "^0.32.1"
   }
 }

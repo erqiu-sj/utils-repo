@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es6",
+    "downlevelIteration": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "types": ["node"],
+    "declarationDir": "./dts"
+  },
+  "include": ["src/**/*"]
+}
