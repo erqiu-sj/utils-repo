@@ -8,10 +8,7 @@
     "utils"
   ],
   "scripts": {
-    "build:es": "tsc --module ESNext --outDir ./dist --moduleResolution node",
-    "build:cj": "tsc --module CommonJS --outDir ./lib",
-    "build:rollup": "rollup --config ./rollup.config.ts",
-    "build": "yarn run build:es & yarn run build:cj"
+    "build": "sh ./build.sh"
   },
   "files": [
     "lib",

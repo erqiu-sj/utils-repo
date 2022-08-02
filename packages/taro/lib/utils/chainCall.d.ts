@@ -37,7 +37,7 @@ export declare class ChainCall<P extends object = object, N extends allTaroApi =
      * @param parameterType
      * @returns
      */
-    injectionParameters(parameterType: P): Promise<this>;
+    injectionParameters(parameterType: P): this;
     /**
      * @description 调用
      * @returns

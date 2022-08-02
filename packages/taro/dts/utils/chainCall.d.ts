@@ -1,4 +1,4 @@
-import taro from "@tarojs/taro";
+import * as taro from "@tarojs/taro";
 declare type getAllParameterTypesOfFunction<T extends allTaroApi> = (typeof taro)[T] extends (...args: any) => any ? NonNullable<Parameters<(typeof taro)[T]>[0]> : never;
 export declare type allTaroApi = keyof typeof taro;
 export interface CallbackOptions {
@@ -37,7 +37,7 @@ export declare class ChainCall<P extends object = object, N extends allTaroApi =
      * @param parameterType
      * @returns
      */
-    injectionParameters(parameterType: P): Promise<this>;
+    injectionParameters(parameterType: P): this;
     /**
      * @description 调用
      * @returns

@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-01 10:02:32
- * @LastEditTime: 2022-08-01 16:48:15
+ * @LastEditTime: 2022-08-01 18:31:32
  * @Description: 只需要将小程序所有api传入，则会自动读取小程序参数作为该链式调用的参数声明，链式小程序api的所有回调
  * @FilePath: /repo/packages/taro/src/utils/chainCall.ts
  */
@@ -9,7 +9,7 @@ import * as taro from "@tarojs/taro"
 
 // 获取函数所有参数类型
 // 如果传入的不是一个函数则返回never
-type getAllParameterTypesOfFunction<T extends allTaroApi> = (typeof taro)[T] extends (...args: any) => any ? NonNullable<Parameters<(typeof taro)[T]>[0]> : never
+export type getAllParameterTypesOfFunction<T extends allTaroApi> = (typeof taro)[T] extends (...args: any) => any ? NonNullable<Parameters<(typeof taro)[T]>[0]> : never
 
 
 
@@ -23,7 +23,7 @@ export interface CallbackOptions {
 }
 
 
-class Callback<P extends CallbackOptions> {
+export class Callback<P extends CallbackOptions> {
     private callbackCollector: {
         [key in keyof CallbackOptions]: keyof CallbackOptions[key]
     } = {}
@@ -81,7 +81,7 @@ export class ChainCall<P extends object = object, N extends allTaroApi = allTaro
      * @returns 
      */
 
-    async injectionParameters(parameterType: P) {
+    injectionParameters(parameterType: P) {
         this.parameter = parameterType
         return this
     }
