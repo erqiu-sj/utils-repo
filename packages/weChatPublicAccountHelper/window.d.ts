@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-07-17 22:02:27
- * @LastEditTime: 2022-07-23 13:48:39
+ * @LastEditTime: 2022-08-03 17:29:45
  * @Description:
  * @FilePath: /repo/packages/weChatPublicAccountHelper/window.d.ts
  */
@@ -78,6 +78,18 @@ namespace downloadImage {
 
 }
 
+// 获取本地图片接口
+namespace getLocalImgData {
+  declare interface getLocalImgDataConfig {
+    localId: string
+  }
+  declare interface success {
+    // localData是图片的base64数据，可以用 img 标签显示
+    localData: string
+  }
+
+
+}
 interface Window {
   wx?: {
     updateAppMessageShareData(conf: config<updateAppMessageShareDataConfig>): noResultsAllowAsynchrony
@@ -86,6 +98,7 @@ interface Window {
     previewImage(conf: config<previewImageConfig>): noResultsAllowAsynchrony
     // 备注：上传图片有效期3天，可用微信多媒体接口下载图片到自己的服务器，此处获得的 serverId 即 media_id。
     uploadImage(conf: config<uploadImage.uploadImageConfig, uploadImage.success>): noResultsAllowAsynchrony
-    downloadImage(conf: config): noResultsAllowAsynchrony
+    downloadImage(conf: config<downloadImage.downloadImageConfig, downloadImage.success>): noResultsAllowAsynchrony
+    getLocalImgData(conf: config<getLocalImgData.getLocalImgDataConfig, getLocalImgData.success>): noResultsAllowAsynchrony
   }
 }

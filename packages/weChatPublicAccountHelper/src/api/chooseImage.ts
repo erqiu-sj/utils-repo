@@ -13,5 +13,4 @@ export class ChooseImage extends ApiImplementation<chooseImage.chooseImageConfig
         super()
         this.callName('chooseImage')
     }
-
 }
