@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-28 10:52:32
- * @LastEditTime: 2022-07-02 22:54:20
+ * @LastEditTime: 2022-08-03 22:50:17
  * @Description:
  * @FilePath: /repo/packages/service/README.md
 -->
@@ -9,6 +9,24 @@
 # `@mxnet/service`
 
 > 请求最佳实践
+
+## precautions
+
+```ts
+// 2022.8.3
+// 如果你以前喜欢这样发起请求, 请忘掉他
+// 这种写法(SynchronizationAwaitError)通常是为了 catch 同步的 promise 错误 而诞生, 但目前看来如果将它暴露给开发者调用不是一个明智的选择
+
+// err 不属于业务错误的范畴 它属于service code 500,4xx 等 或者 axios内部报错时(当你需要格式化你获取到的返回值时某个属性为空)
+
+// 我们不应该在这里处理非业务的错误这样会显得冗余
+const [err, response] = await SynchronizationAwaitError(http({ url: "" }));
+// 难道你想在每次请求后面都跟一个处理非业务的catchErrorHandler吗？
+// 但如果不处理 err ， response 将会存在于 非预期 和 预期 响应的两种状态,我们需要进行更多的判断 才能得知response是否是我们想要的
+catchErrorHandler(err);
+// 在编写业务前要处理这么多繁琐的事情实在是太糟糕了
+// 通常解决上面的问题只需要 错误拦截器 和 错误兜底(下方有最佳实践)即可
+```
 
 ## Usage
 

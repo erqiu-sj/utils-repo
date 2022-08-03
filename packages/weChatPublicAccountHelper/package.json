@@ -34,7 +34,7 @@
     "build:ts": "tsc",
     "build:umd": "rollup -c -f umd -d dist.umd",
     "build:cjs": "rollup -c -f cjs -d lib",
-    "build": "yarn build:umd & yarn build:cjs"
+    "build": "sh ./build.sh"
   },
   "dependencies": {
     "@rollup/plugin-node-resolve": "^13.3.0",

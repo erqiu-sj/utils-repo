@@ -22,19 +22,16 @@ export declare type CallbackCollectorMapper<s = unknown, f = unknown, c = unknow
  */
 export declare class CallbackCollector {
     private callbackMapper;
-    collector<T extends keyof CallbackCollectorMapper>(key: T, val?: CallbackCollectorMapper[T]): this;
-    getCallbacks<T extends keyof CallbackCollectorMapper>(key: T): CallbackCollectorMapper[T];
-    getAllCallbacks(): Partial<CallbackCollectorMapper>;
+    protected collector<T extends keyof CallbackCollectorMapper>(key: T, val?: CallbackCollectorMapper[T]): this;
+    protected getCallbacks<T extends keyof CallbackCollectorMapper>(key: T): CallbackCollectorMapper[T];
+    protected getAllCallbacks(): Partial<CallbackCollectorMapper>;
 }
 export declare type wechatSDKAPI = keyof NonNullable<typeof window.wx>;
 /**
  * @description 处理配置
  */
 export declare abstract class ProcessingConfiguration<T = unknown> {
-    abstract configure?: T;
-    abstract call: string;
     abstract readConfiguration(conf: T): this;
     abstract getConfiguration(): T | undefined;
-    abstract callName(name: wechatSDKAPI): void;
 }
 export {};

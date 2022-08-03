@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-07-23 13:35:59
- * @LastEditTime: 2022-07-23 13:38:04
+ * @LastEditTime: 2022-08-03 22:09:52
  * @Description: 
  * @FilePath: /repo/packages/weChatPublicAccountHelper/src/api/chooseImage.ts
  */
@@ -14,3 +14,4 @@ export class ChooseImage extends ApiImplementation<chooseImage.chooseImageConfig
         this.callName('chooseImage')
     }
 }
+new ChooseImage().readConfiguration
