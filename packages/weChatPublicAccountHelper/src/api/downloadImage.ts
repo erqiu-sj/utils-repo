@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-03 17:22:42
- * @LastEditTime: 2022-08-03 17:49:22
+ * @LastEditTime: 2022-08-04 12:53:53
  * @Description: 
  * @FilePath: /repo/packages/weChatPublicAccountHelper/src/api/downloadImage.ts
  */
@@ -13,6 +13,7 @@ export class DownloadImage extends ApiImplementation<downloadImage.downloadImage
         super()
         this.callName('downloadImage')
     }
+
     override async weChatDdkDoesNotInjectTriggerBehavior(): Promise<downloadImage.success> {
         return { localId: 1 }
     }
