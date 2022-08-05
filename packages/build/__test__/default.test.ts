@@ -41,5 +41,3 @@ describe('react default config', () => {
     })
   })
 })
-
-// describe('default', () => {})

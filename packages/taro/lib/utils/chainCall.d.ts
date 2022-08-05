@@ -1,16 +1,17 @@
 import * as taro from "@tarojs/taro";
-declare type getAllParameterTypesOfFunction<T extends allTaroApi> = (typeof taro)[T] extends (...args: any) => any ? NonNullable<Parameters<(typeof taro)[T]>[0]> : never;
+export declare type getAllParameterTypesOfFunction<T extends allTaroApi> = (typeof taro)[T] extends (...args: any) => any ? NonNullable<Parameters<(typeof taro)[T]>[0]> : never;
 export declare type allTaroApi = keyof typeof taro;
 export interface CallbackOptions {
     success?: ((...args: unknown[]) => unknown);
     fail?: ((...args: unknown[]) => unknown);
     complete?: ((...args: unknown[]) => unknown);
 }
-declare class Callback<P extends CallbackOptions> {
+export declare class Callback<P extends CallbackOptions> {
     private callbackCollector;
     success(res?: P['success']): this;
     complete(res?: P['complete']): this;
     fail(res?: P['fail']): this;
+    setCallback<T extends keyof CallbackOptions>(key: T, cb: CallbackOptions[T]): this;
     protected getCallback(key: keyof CallbackOptions): never;
     protected getCallbackAll(): {
         success?: never;
@@ -44,4 +45,3 @@ export declare class ChainCall<P extends object = object, N extends allTaroApi =
      */
     done(): Promise<any>;
 }
-export {};

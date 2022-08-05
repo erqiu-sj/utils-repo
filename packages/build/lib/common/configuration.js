@@ -1,19 +1,20 @@
 "use strict";
+/*
+ * @Author: 邱狮杰
+ * @Date: 2022-05-12 17:58:13
+ * @LastEditTime: 2022-08-04 21:39:36
+ * @Description:
+ * @FilePath: /repo/packages/build/src/common/configuration.ts
+ */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ViteConfiguration = void 0;
-/*
- * @Author: 邱狮杰
- * @Date: 2022-05-12 17:58:13
- * @LastEditTime: 2022-06-17 10:07:48
- * @Description:
- * @FilePath: /repo/packages/build/src/common/configuration.ts
- */
 const lodash_defaultsdeep_1 = __importDefault(require("lodash.defaultsdeep"));
 const alias_1 = require("../plugin/alias");
 const autoImport_1 = require("../plugin/autoImport");
+const pwa_1 = require("../plugin/pwa");
 const vconsole_1 = require("../plugin/vconsole");
 const scenes_1 = require("./scenes");
 class ViteConfiguration {
@@ -50,6 +51,12 @@ class ViteConfiguration {
     // 新增自动生成api接口
     addAutoImport(conf) {
         this.config = new autoImport_1.AutoImportApi().configurePresets(this.scenes.getTechnologyStackTypes()).instancePlugin(conf).getConfig(this.config);
+        return this;
+    }
+    // setPwa
+    addPwaConfigure(conf) {
+        const p = new pwa_1.Pwa();
+        this.config = p.createBasicConfiguration(conf).getConfig(this.config);
         return this;
     }
     // 返回配置

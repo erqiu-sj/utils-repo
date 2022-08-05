@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-12 17:58:13
- * @LastEditTime: 2022-08-04 15:29:02
+ * @LastEditTime: 2022-08-04 21:39:36
  * @Description: 
  * @FilePath: /repo/packages/build/src/common/configuration.ts
  */
@@ -61,7 +61,7 @@ export class ViteConfiguration {
   }
 
   // setPwa
-  addPwaConfigure(conf: Partial<VitePWAOptions>) {
+  addPwaConfigure(conf?: Partial<VitePWAOptions>) {
     const p = new Pwa()
     this.config = p.createBasicConfiguration(conf).getConfig(this.config)
     return this

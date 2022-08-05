@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-04 15:18:03
- * @LastEditTime: 2022-08-04 15:26:14
+ * @LastEditTime: 2022-08-04 21:39:41
  * @Description: 
  * @FilePath: /repo/packages/build/src/plugin/pwa.ts
  */
@@ -21,7 +21,7 @@ export class Pwa implements MergeConfiguration {
 
     private plugin: Plugin[] | null = null
 
-    createBasicConfiguration(conf: Partial<VitePWAOptions>) {
+    createBasicConfiguration(conf?: Partial<VitePWAOptions>) {
         this.plugin = VitePWA(Object.assign({}, conf, this.defaultConfigure))
         return this
     }
