@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-01 18:30:24
- * @LastEditTime: 2022-08-05 12:18:18
+ * @LastEditTime: 2022-08-05 21:58:27
  * @Description: 
  * @FilePath: /repo/packages/taro/src/utils/download.ts
  */
@@ -124,6 +124,7 @@ class CacheFile extends Callback<SaveFileOptionCallback> {
 interface downloadFileCallback extends Pick<getAllParameterTypesOfFunction<'downloadFile'>, 'success' | 'fail' | 'complete'> { }
 
 type downloadFileOptionsTypes = Parameters<typeof downloadFile>[0]
+
 type writeFileOptionType = Pick<WriteFileOption, 'data' | 'encoding' | 'filePath'>
 
 type withDownloadLocationTypeCallBack<T extends downloadFileOptions['downloadLocation'] = undefined> = T extends undefined | null ? downloadFileCallback : T extends 'cache' ? SaveFileOptionCallback : WriteFileCallback
@@ -149,9 +150,15 @@ export class DownloadFile<C = downloadFileCallback, K extends downloadFileOption
         c.setCallback('complete', this.getCallback('complete'))
         c.setCallback('success', this.getCallback('success'))
         c.setCallback('fail', this.getCallback('fail'))
+
         new ChainCall().injectApi('downloadFile').success((res) => {
             c.done(res)
-        }).injectionParameters(params).done()
+        }).fail((res) => {
+            c.callTrigger('fail', res)
+        }).complete((res) => {
+            c.callTrigger('complete', res)
+        })
+            .injectionParameters(params).done()
     }
 
     private writeFile(ops: writeFileOptionType) {
@@ -163,6 +170,10 @@ export class DownloadFile<C = downloadFileCallback, K extends downloadFileOption
     }
 
     down(params: getCallParameters<K>) {
+        if (!this.ops?.downloadLocation) {
+            new ChainCall().injectApi('downloadFile').success(this.getCallback('success')).fail(this.getCallback('fail')).complete(this.getCallback('complete')).injectionParameters(params as downloadFileOptionsTypes).done()
+            return
+        }
         this.ops?.downloadLocation === 'cache' ? this.cacheDownload(params as downloadFileOptionsTypes) : this.writeFile(params as writeFileOptionType)
     }
 }

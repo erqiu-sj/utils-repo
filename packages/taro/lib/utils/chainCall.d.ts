@@ -11,6 +11,7 @@ export declare class Callback<P extends CallbackOptions> {
     success(res?: P['success']): this;
     complete(res?: P['complete']): this;
     fail(res?: P['fail']): this;
+    callTrigger<T extends keyof CallbackOptions>(key: T, args?: unknown): this;
     setCallback<T extends keyof CallbackOptions>(key: T, cb: CallbackOptions[T]): this;
     protected getCallback(key: keyof CallbackOptions): never;
     protected getCallbackAll(): {

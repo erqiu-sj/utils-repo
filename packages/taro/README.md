@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-06-22 16:14:04
- * @LastEditTime: 2022-07-08 14:41:10
+ * @LastEditTime: 2022-08-05 22:04:16
  * @Description:
  * @FilePath: /repo/packages/taro/README.md
 -->
@@ -126,3 +126,84 @@ useEffect(() => {
 ### `getWxLoginCode`
 
 > 同步获取 `wxlogin.code`
+
+### `DownloadFile`
+
+- 下载临时文件，缓存文件，用户文件 的集合类
+
+- 微信文件系统参考 https://developers.weixin.qq.com/miniprogram/dev/framework/ability/file-system.html
+
+- 灵活的类型声明
+
+```ts
+import { DownloadFile } from "@mxnet/taro";
+// 下载临时文件
+new DownloadFile()
+  .success((res) => {
+    console.log(res);
+  })
+  .fail(() => {})
+  .down({
+    url: "",
+  });
+
+// 下载临时文件后缓存到本地 成为缓存文件
+new DownloadFile()
+  .setDownloadLocation("cache")
+  .success(() => {})
+  .fail(() => {})
+  .down({
+    url: "",
+  });
+
+// 下载并储存到指定路径成为用户文件
+new DownloadFile()
+  .setDownloadLocation("userFile")
+  .success(() => {})
+  .fail(() => {})
+  .down({
+    data: "hahah",
+    encoding: "utf-8",
+    filePath:
+      "/Users/devops/Desktop/maixun/taro-react-template/assets/hello.txt",
+  });
+```
+
+### `ChainCall`
+
+- 链式调用
+
+- 灵活的类型声明
+
+```ts
+import { ChainCall } from "@mxnet/taro";
+
+new ChainCall()
+  // 选择需要调用的api
+  .injectApi("downloadFile")
+  // success 回调参数会根据 injectApi 声明自动匹配参数类型, 以下回调同理
+  .success(() => {})
+  .fail(() => {})
+  .complete(() => {})
+  // 注入参数
+  .injectionParameters({ url: "" })
+  // 调用
+  .done();
+```
+
+### `useAudio`
+
+- 解决一个页面中 `createInnerAudioContext` 实例不一致问题
+- tips: 不要尝试用 `setState` 和 `useRef` 取创建一个 `createInnerAudioContext` 实例 ，会变得不幸
+
+```ts
+const { audioInstanceToUpdate, audioInstanceRef } = useAudio();
+
+// 更新 实例选项
+audioInstanceToUpdate({
+  src: "",
+});
+
+// 调用实例api
+audioInstanceRef.play();
+```

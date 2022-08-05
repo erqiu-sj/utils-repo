@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-11 22:37:08
- * @LastEditTime: 2022-06-25 11:36:10
+ * @LastEditTime: 2022-08-05 22:18:27
  * @Description:
  * @FilePath: /repo/README.md
 -->
@@ -38,15 +38,17 @@ sh ./script/install.sh
 
 ## packages
 
-[@mxnet/build](/packages/build/README.md) 适用 `frame(react,vue)`
+[@mxnet/build](/packages/build/README.md) 适用 `frame(react,vue)`, 基于 `vite` 对 `场景` 和 `技术栈` 的再封装
 
-[@mxnet/utils](/packages/utils/README.md) 适用 `frame(react,vue),browser`
+[@mxnet/utils](/packages/utils/README.md) 适用 `frame(react,vue),browser` , 一些工具函数
 
-[@mxnet/service](/packages/service/README.md) 适用 `frame(react,vue),browser`
+[@mxnet/service](/packages/service/README.md) 适用 `frame(react,vue),browser`, 基于 `axios`, 实现拦截器热插拔, 灵活配置(缓存请求,取消重复请求,请求错误兜底,多版本共存,灵活的请求取消句柄 等等)
 
-[@mxnet/style](/packages/style/README.md) 适用 `frame(react,vue),browser`
+[@mxnet/style](/packages/style/README.md) 适用 `frame(react,vue),browser`, 基础样式
 
-[@mxnet/taro](/packages/taro/README.md) 适用 `frame(react,vue) with taro`
+[@mxnet/taro](/packages/taro/README.md) 适用 `frame(react,vue) with taro` , 封装了一些常用且难用的 `wechat api`
+
+[@mxnet/wechatpublicaccounthelper](/packages/weChatPublicAccountHelper/README.md) 适用 `frame(react,vue)` , 无 `wechat sdk` 时 模拟 `wechat sdk` 行为进行本地调试
 
 ## TODO
 
@@ -61,7 +63,11 @@ sh ./script/install.sh
 - `统一 tsconfig`
 
 - `h5`
+
   - 预加载
   - `loading`
   - ~~开发部署阶段的页面提示~~
   - ~~`快门css`~~
+
+- `wechat`
+  - 根据 `pages` 自动生成页面和路由

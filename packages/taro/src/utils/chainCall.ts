@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-01 10:02:32
- * @LastEditTime: 2022-08-05 11:30:38
+ * @LastEditTime: 2022-08-05 21:38:24
  * @Description: 只需要将小程序所有api传入，则会自动读取小程序参数作为该链式调用的参数声明，链式小程序api的所有回调
  * @FilePath: /repo/packages/taro/src/utils/chainCall.ts
  */
@@ -40,6 +40,12 @@ export class Callback<P extends CallbackOptions> {
 
     fail(res?: P['fail']) {
         Reflect.set(this.callbackCollector, 'fail', res)
+        return this
+    }
+
+
+    callTrigger<T extends keyof CallbackOptions>(key: T, args?: unknown): this {
+        Reflect.get(this.callbackCollector, key)?.(args)
         return this
     }
 
