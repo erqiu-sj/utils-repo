@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/build@0.4.4...@mxnet/build@0.5.0) (2022-08-05)
+
+
+### Features
+
+* **@mxnet/build:** add pwa default config ([303d9a4](https://gitee.com/cq_maixun_network/repo/commits/303d9a443adbe73f4b9c574c88a276767515b3d1))
+* **@mxnet/taro:** add downloadFile ([a8c3668](https://gitee.com/cq_maixun_network/repo/commits/a8c3668be92347e6d633a84812fab8fdb034175a))
+
+
+
+
+
 ## [0.4.4](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/build@0.4.3...@mxnet/build@0.4.4) (2022-07-27)
 
 

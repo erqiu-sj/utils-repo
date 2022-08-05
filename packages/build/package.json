@@ -1,6 +1,6 @@
 {
   "name": "@mxnet/build",
-  "version": "0.4.4",
+  "version": "0.5.0",
   "description": "build vue,react app",
   "private": false,
   "keywords": [

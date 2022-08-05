@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.7.1...@mxnet/taro@0.8.0) (2022-08-05)
+
+
+### Bug Fixes
+
+* **@mxnet/taro:** update deps ([384dbe3](https://gitee.com/cq_maixun_network/repo/commits/384dbe36d54bebf1664afb0a875dfb2318663d61))
+
+
+### Features
+
+* **@mxnet/taro:** add downloadFile ([a8c3668](https://gitee.com/cq_maixun_network/repo/commits/a8c3668be92347e6d633a84812fab8fdb034175a))
+
+
+### Reverts
+
+* **@mxnet/taro @mxnet/build:** ready publish build(pwa plugin) and taro(downloadFile) ([f34bd41](https://gitee.com/cq_maixun_network/repo/commits/f34bd41e22435f7320d5cf7a25ba04e07b46dd62))
+
+
+
+
+
 ## [0.7.1](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.7.0...@mxnet/taro@0.7.1) (2022-08-01)
 
 
