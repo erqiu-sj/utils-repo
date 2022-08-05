@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-01 17:15:33
- * @LastEditTime: 2022-08-01 18:19:58
+ * @LastEditTime: 2022-08-05 21:17:30
  * @Description: 
  * @FilePath: /repo/packages/taro/src/hooks/useAudio.ts
  */
@@ -10,7 +10,6 @@ import { createInnerAudioContext, InnerAudioContext } from "@tarojs/taro";
 import { useRef } from 'react';
 
 export function useAudio() {
-
     // 每次更新保存 audio 实例
     const audioInstanceRef = useRef<InnerAudioContext>()
 
