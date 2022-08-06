@@ -1,0 +1,11 @@
+import { FC } from 'react'
+
+export interface ${s1}Props {}
+
+const ${s1}: FC<${s1}Props> = () => {
+
+return <></>
+
+} 
+
+export default ${s1}

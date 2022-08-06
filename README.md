@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-11 22:37:08
- * @LastEditTime: 2022-08-05 22:18:27
+ * @LastEditTime: 2022-08-06 16:01:22
  * @Description:
  * @FilePath: /repo/README.md
 -->
@@ -50,6 +50,8 @@ sh ./script/install.sh
 
 [@mxnet/wechatpublicaccounthelper](/packages/weChatPublicAccountHelper/README.md) 适用 `frame(react,vue)` , 无 `wechat sdk` 时 模拟 `wechat sdk` 行为进行本地调试
 
+[@mxnet/generatewechatpage](/script/generateWeChatPage/README.md) 适用 `node` , 自动生成页面 `components` `hooks` `路由`, 且同步 `app.config.ts`中`pages` 数组
+
 ## TODO
 
 - 完善文档
@@ -70,4 +72,4 @@ sh ./script/install.sh
   - ~~`快门css`~~
 
 - `wechat`
-  - 根据 `pages` 自动生成页面和路由
+  - ~~根据 `pages` 自动生成页面和路由~~

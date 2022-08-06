@@ -1,14 +1,8 @@
 {
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*", "script/*"],
   "version": "independent",
   "npmClient": "yarn",
-  "ignoreChanges": [
-    "ignored-file",
-    "**/__tests__/**",
-    "**/*.md"
-  ],
+  "ignoreChanges": ["ignored-file", "**/__tests__/**", "**/*.md"],
   "command": {
     "publish": {
       "registry": "https://registry.npmjs.org/"

@@ -15,7 +15,8 @@
     "vitest": "^0.12.3"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "script/*"
   ],
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.23.0",

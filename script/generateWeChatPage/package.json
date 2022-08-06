@@ -1,0 +1,33 @@
+{
+  "name": "@mxnet/generatewechatpage",
+  "version": "0.0.1",
+  "description": "生成微信小程序页面",
+  "keywords": [
+    "wechat",
+    "javascript",
+    "typescript",
+    "node"
+  ],
+  "author": "hooks_28 <1r56955415918@qq.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/generateWeChatPage.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/cq_maixun_network/repo.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "fs-extra": "^10.1.0"
+  }
+}
