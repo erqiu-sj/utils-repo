@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-05 22:44:11
- * @LastEditTime: 2022-08-06 14:36:17
+ * @LastEditTime: 2022-08-13 16:32:10
  * @Description: 
  * @FilePath: /repo/script/generateWeChatPage/src/core/generate.ts
  */
@@ -9,7 +9,6 @@ import { readFile } from 'fs';
 import { ensureDir, ensureFileSync, pathExistsSync, writeFile } from 'fs-extra';
 import { generateWeChatPageReadOptions } from '../types/options';
 import { ResolvePath, resolvePathMapTypes, resolvePathOptions } from './resolvePath';
-
 
 export interface commonFolderDataTypes {
     components: string
@@ -42,6 +41,7 @@ class CommonFolder extends ResolvePath {
 export class Generate extends CommonFolder {
 
     private userConfig: generateWeChatPageReadOptions = {
+        defineGenerateWeChatPagePath: '',
         pages: [],
         rootDir: "",
         pagesConfigPath: ""
@@ -55,7 +55,21 @@ export class Generate extends CommonFolder {
     readFile(cb: (content: string) => void) {
         readFile(ResolvePath.getPwd(this.userConfig.templateFilePath || 'index.txt'), { encoding: "utf-8" }, (err, data) => {
             if (err) {
-                throw new Error(err.message)
+                const text = `
+import { FC } from 'react'
+
+export interface $\{s1}Props {}
+
+const $\{s1}: FC<$\{s1}Props> = () => {
+
+return <></>
+
+} 
+
+export default $\{s1}
+                `
+                cb(this.userConfig.replaceHandler?.(text) || text.replace(/\$\{s1\}/g, this.getPathMap().dirName))
+                return
             }
             const content = this.userConfig.replaceHandler?.(data) || data.replace(/\$\{s1\}/g, this.getPathMap().dirName)
             cb(content)
@@ -66,7 +80,6 @@ export class Generate extends CommonFolder {
     createIndex() {
         const path = `${this.getPathMap().absolutePath}.tsx`
         const hasFile = pathExistsSync(path)
-
         // 是否存在目录，不存在则创建
         if (!hasFile) {
             ensureFileSync(path)

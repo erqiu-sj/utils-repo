@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-08-05 22:24:30
- * @LastEditTime: 2022-08-06 16:00:05
+ * @LastEditTime: 2022-08-13 16:36:20
  * @Description:
  * @FilePath: /repo/script/generateWeChatPage/README.md
 -->
@@ -27,10 +27,14 @@ export interface pagesConfig {
 
 // 生成文件的基本配置
 export interface generateWeChatPageReadOptions {
+  // 定义 generateWeChat 函数文件的位置  用于获取绝对路径 后续方便获取 rootDir, pagesConfigPath,routerFilePath,routeVariableName 的绝对路径
+  defineGenerateWeChatPagePath: string;
   pages: string[] | pagesConfig[];
   rootDir: string;
   // 路由文件地址
   routerFilePath?: string;
+  // 路由变量名
+  routeVariableName?: string;
   // pages 配置文件路径
   pagesConfigPath: string;
   // 模版文件路径
@@ -50,7 +54,10 @@ const { generateWeChatPage } = require("@mxnet/generateWeChatPage");
 
 ```ts
 import { generateWeChatPage } from "@mxnet/generateWeChatPage";
+import { resolve } from "path";
+
 generateWeChatPage({
+  defineGenerateWeChatPagePath: resolve(__dirname),
   pages: [
     {
       path: "/index/index/index",

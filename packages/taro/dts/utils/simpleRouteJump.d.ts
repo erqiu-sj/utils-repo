@@ -1,3 +1,10 @@
+/*
+ * @Author: 邱狮杰
+ * @Date: 2022-08-05 21:16:18
+ * @LastEditTime: 2022-08-07 12:23:22
+ * @Description: 
+ * @FilePath: /repo/packages/taro/dts/utils/simpleRouteJump.d.ts
+ */
 import { navigateBack, navigateTo, redirectTo, reLaunch } from '@tarojs/taro';
 export interface callbackCollectionTypes {
     complete?: (res: TaroGeneral.CallbackResult) => void;
@@ -36,4 +43,4 @@ export declare class SimpleRouteJump<Mete extends object, T extends jumpMethodNa
     static parseParameters: typeof parseParameters;
 }
 declare function parseParameters(mete: object): string;
-export {};
+export { };

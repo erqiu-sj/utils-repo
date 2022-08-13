@@ -1,15 +1,14 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-05 22:27:45
- * @LastEditTime: 2022-08-06 15:59:45
+ * @LastEditTime: 2022-08-13 16:35:10
  * @Description: 生成 pages
  * @FilePath: /repo/script/generateWeChatPage/src/index.ts
  */
 import { commonFolderDataTypes, GeneratePage } from './core/generate';
-import { ResolvePath, resolvePathOptions } from './core/resolvePath';
+import { ResolvePath, resolvePathMapTypes, resolvePathOptions } from './core/resolvePath';
 import { SetAppletConfigurationPages } from './core/setConfig';
 import { generateWeChatPageReadOptions } from './types/options';
-
 
 export function generateWeChatPage(ops: generateWeChatPageReadOptions) {
     console.log(
@@ -28,38 +27,28 @@ export function generateWeChatPage(ops: generateWeChatPageReadOptions) {
              \$$$$$$                                                                   \$$$$$$                                                                                                                                     \$$                  \$$$$$$           
         `
     );
-
-    const pathCollection: (resolvePathOptions & commonFolderDataTypes)[] = []
+    const pathCollection: (resolvePathMapTypes & commonFolderDataTypes)[] = []
     ops.pages.forEach(i => {
+        const path = typeof i === 'string' ? `${ops.rootDir}${i}` : `${ops.rootDir}${i.path}`
+        const map = new GeneratePage({
+            path: path,
+            ...ops
+        })
+        map.createIndex()
         if (typeof i === 'string') {
-            const map = new GeneratePage({
-                path: `${ops.rootDir}${i}`,
-                ...ops
-            })
-            map.createIndex()
             map.createHooks()
             map.createComponents()
-            map.getPathMap()
-            pathCollection.push(map.getPathMap())
+        } else {
+            i?.generateComponents !== false && map.createComponents()
+            i?.generateHooks !== false && map.createHooks()
         }
-        else {
-            const map = new GeneratePage(
-                {
-                    path: `${ops.rootDir}${i.path}`,
-                    ...ops
-                }
-            )
-            map.createIndex()
-            i.generateComponents !== false && map.createComponents()
-            i.generateHooks !== false && map.createHooks()
-            pathCollection.push(map.getPathMap())
-        }
+        pathCollection.push(map.getPathMap())
     })
     new SetAppletConfigurationPages({
         replaceArray: pathCollection.map(n => {
             return n.path
         }),
-        path: ResolvePath.getPwd(ops.pagesConfigPath)
+        path: ResolvePath.getPwd(ops.defineGenerateWeChatPagePath + ops.pagesConfigPath)
     }).check()
 }
 
@@ -78,6 +67,9 @@ export function generateWeChatPage(ops: generateWeChatPageReadOptions) {
 //             generateRoute: false
 //         },
 //     ],
-//     rootDir: "pages",
-//     pagesConfigPath: "pages/config.ts"
+//     rootDir: "/pages",
+//     pagesConfigPath: "/pages/config.ts",
+//     defineGenerateWeChatPagePath: resolve(__dirname),
+//     routerFilePath: "pages/router.ts",
+//     routeVariableName: "router"
 // })
