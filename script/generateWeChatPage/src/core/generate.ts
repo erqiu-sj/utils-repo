@@ -1,10 +1,11 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-05 22:44:11
- * @LastEditTime: 2022-08-13 16:32:10
+ * @LastEditTime: 2022-08-13 16:57:09
  * @Description: 
  * @FilePath: /repo/script/generateWeChatPage/src/core/generate.ts
  */
+import { green } from 'colors';
 import { readFile } from 'fs';
 import { ensureDir, ensureFileSync, pathExistsSync, writeFile } from 'fs-extra';
 import { generateWeChatPageReadOptions } from '../types/options';
@@ -85,16 +86,33 @@ export default $\{s1}
             ensureFileSync(path)
             this.readFile((content) => {
                 writeFile(path, content)
+                console.log(green(`created! index => ${path}.`))
             })
         }
+
     }
 }
 
 export class GeneratePage extends Generate {
     createHooks() {
-        ensureDir(this.getPathMap().hooks)
+        if (
+            !pathExistsSync(this.getPathMap().hooks)
+        ) {
+            ensureDir(this.getPathMap().hooks, (e) => {
+                if (!e) {
+                    console.log(green(`created! hooks => ${this.getPathMap().hooks}.`))
+                }
+            })
+        }
     }
     createComponents() {
-        ensureDir(this.getPathMap().components)
+        if (!pathExistsSync(this.getPathMap().components)) {
+            ensureDir(this.getPathMap().components, (e) => {
+                if (!e) {
+                    console.log(green(`created! components => ${this.getPathMap().components}.`))
+                }
+            })
+        }
+
     }
 }

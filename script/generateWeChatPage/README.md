@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-08-05 22:24:30
- * @LastEditTime: 2022-08-13 16:36:20
+ * @LastEditTime: 2022-08-13 17:02:20
  * @Description:
  * @FilePath: /repo/script/generateWeChatPage/README.md
 -->
@@ -75,3 +75,5 @@ generateWeChatPage({
   routerFilePath: "hooks/router.ts",
 });
 ```
+
+![result](/script/generateWeChatPage/result.png)

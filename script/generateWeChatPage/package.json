@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@types/fs-extra": "^9.0.13",
+    "colors": "^1.4.0",
     "fs-extra": "^10.1.0"
   }
 }
