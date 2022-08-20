@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-12 17:58:13
- * @LastEditTime: 2022-08-04 21:39:36
+ * @LastEditTime: 2022-08-20 21:46:02
  * @Description:
  * @FilePath: /repo/packages/build/src/common/configuration.ts
  */
@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ViteConfiguration = void 0;
 const lodash_defaultsdeep_1 = __importDefault(require("lodash.defaultsdeep"));
+const routeazyLoading_1 = require("../plugin//routeazyLoading");
 const alias_1 = require("../plugin/alias");
 const autoImport_1 = require("../plugin/autoImport");
 const pwa_1 = require("../plugin/pwa");
@@ -57,6 +58,13 @@ class ViteConfiguration {
     addPwaConfigure(conf) {
         const p = new pwa_1.Pwa();
         this.config = p.createBasicConfiguration(conf).getConfig(this.config);
+        return this;
+    }
+    //
+    addRouteLazyLoading(obj) {
+        const r = new routeazyLoading_1.RouteLazyLoading();
+        r.addRouterConfig(obj);
+        this.config = r.getConfig(this.config);
         return this;
     }
     // 返回配置

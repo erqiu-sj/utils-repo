@@ -10,3 +10,4 @@ export declare type technologyStackTypes = 'vue' | 'react';
 export interface defaultInjectionPlugins {
     injectionConfiguration<T>(viteConfig: UserConfigExport, config?: T): UserConfigExport;
 }
+export declare type eliminatePropertiesBasedTechnologyStack<T extends technologyStackTypes, curType extends object> = T extends 'vue' ? Omit<curType, ''> : Omit<curType, 'addRouteLazyLoading'>;

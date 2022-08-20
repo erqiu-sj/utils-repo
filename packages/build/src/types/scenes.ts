@@ -1,6 +1,5 @@
 import { UserConfigExport } from 'vite'
 import { scenesTypes, technologyStackTypes } from './base'
-import { options } from 'postcss-px-to-viewport'
 import { injectionConfigurationWithPostcssPxToViewport } from '../plugin/postcssPxToViewport'
 
 /**

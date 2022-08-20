@@ -1,8 +1,8 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-12 17:58:13
- * @LastEditTime: 2022-08-04 21:39:36
- * @Description: 
+ * @LastEditTime: 2022-08-20 21:46:02
+ * @Description:
  * @FilePath: /repo/packages/build/src/common/configuration.ts
  */
 
@@ -10,17 +10,19 @@ import defaultsdeep from 'lodash.defaultsdeep'
 import { UserConfigExport } from 'vite'
 import { VitePWAOptions } from 'vite-plugin-pwa'
 import { viteVConsoleOptions } from 'vite-plugin-vconsole'
+import { RouteLazyLoading } from '../plugin//routeazyLoading'
 import { Alias } from '../plugin/alias'
 import { AutoImportApi, autoImportOptions } from '../plugin/autoImport'
 import { Pwa } from '../plugin/pwa'
 import { Vconsole } from '../plugin/vconsole'
-import { determineConfigurationAccordingTechnologyStack, scenesTypes, technologyStackTypes } from '../types'
+import { determineConfigurationAccordingTechnologyStack, eliminatePropertiesBasedTechnologyStack, scenesTypes, technologyStackTypes } from '../types'
 import { Scenes } from './scenes'
 
-
-export class ViteConfiguration {
+export class ViteConfiguration<T extends technologyStackTypes> {
   protected config: UserConfigExport = {}
+
   private scenes = new Scenes()
+
   private alias = new Alias()
 
   constructor(config?: UserConfigExport) {
@@ -35,7 +37,7 @@ export class ViteConfiguration {
     return this
   }
   // 设置技术栈
-  setTechnologyStack<T extends technologyStackTypes, S extends scenesTypes>(type: T, ops?: determineConfigurationAccordingTechnologyStack<T, S>) {
+  setTechnologyStack<Ty extends technologyStackTypes, S extends scenesTypes>(type: Ty, ops?: determineConfigurationAccordingTechnologyStack<Ty, S>): eliminatePropertiesBasedTechnologyStack<Ty, this> {
     this.scenes.setTechnologyStack(type, ops)
     defaultsdeep(this.config, this.scenes.combine().getConfig())
     return this
@@ -64,6 +66,14 @@ export class ViteConfiguration {
   addPwaConfigure(conf?: Partial<VitePWAOptions>) {
     const p = new Pwa()
     this.config = p.createBasicConfiguration(conf).getConfig(this.config)
+    return this
+  }
+
+  //
+  addRouteLazyLoading(obj: object): this {
+    const r = new RouteLazyLoading()
+    r.addRouterConfig(obj)
+    this.config = r.getConfig(this.config)
     return this
   }
 
