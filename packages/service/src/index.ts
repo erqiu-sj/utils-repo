@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 10:55:32
- * @LastEditTime: 2022-08-20 21:50:23
+ * @LastEditTime: 2022-08-20 21:52:57
  * @Description:
  * @FilePath: /repo/packages/service/src/index.ts
  */
@@ -18,4 +18,5 @@ import { SynchronizationAwaitError } from './utils/error'
 import { TerminationResult } from './utils/terminationResult'
 
 export { Service, requestCancellationHepler, cancelHeader, Cancel, ExpirationTime, Cache, SynchronizationAwaitError, TerminationResult }
+
 export type { interceptor, CacheConfig, cancelRequestConfiguration }

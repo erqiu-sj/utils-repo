@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-10 23:05:45
- * @LastEditTime: 2022-08-20 21:48:48
+ * @LastEditTime: 2022-08-20 22:05:16
  * @Description:
  * @FilePath: /repo/packages/build/README.md
 -->
@@ -124,5 +124,3 @@ new ViteConfiguration().setTechnologyStack("vue").addRouteLazyLoading({});
 ```
 
 ## Plugin
-
-### TODO

@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-28 10:52:32
- * @LastEditTime: 2022-08-03 22:50:17
+ * @LastEditTime: 2022-08-20 22:05:39
  * @Description:
  * @FilePath: /repo/packages/service/README.md
 -->
@@ -256,7 +256,7 @@ await http({
 });
 ```
 
-## TODO
+## TASK
 
 - ~~缓存请求~~
 
@@ -276,4 +276,4 @@ await http({
 
 - 防腐层设计
 
-- 时序控制器
+- 时序控制器(进行时)
