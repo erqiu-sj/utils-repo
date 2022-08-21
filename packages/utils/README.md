@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-10 22:47:31
- * @LastEditTime: 2022-07-09 12:10:06
+ * @LastEditTime: 2022-08-21 13:17:03
  * @Description:
  * @FilePath: /repo/packages/utils/README.md
 -->
@@ -36,6 +36,47 @@ const { Phone } = require("@mxnet/utils");
 ```
 
 ## 常用工具
+
+### 时序控制器(`ControlTiming`)
+
+```ts
+/**
+ * 创建一个时序控制器
+ * const httpList = new ControlTiming()
+ * 添加一个时序项名(name), 添加请求函数
+ * httpList.addTimingItems(name,httpTask)
+ * httpList.addTimingItems(name,httpTask)
+ *
+ *
+ * 触发器
+ * 触发的时序标识,以及触发的参数
+ * httpList.trigger('name',{})
+ *
+ * 监听器
+ * 返回响应时触发回调
+ * httpList.monitor('name',()=>{})
+ *
+ */
+const c = new ControlTiming()
+  .addTimingItems("name", async (name?: string) => {
+    return 1;
+  })
+  .addTimingItems("two", async () => {
+    return await new Promise((res) => {
+      res(12);
+    });
+  });
+
+c.monitor("name", (res) => {
+  expect(res).toStrictEqual(1);
+});
+
+c.monitor("two", async (res) => {
+  expect(res).toStrictEqual(12);
+});
+
+c.trigger("name");
+```
 
 ### `html2canvas`
 
