@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 11:37:24
- * @LastEditTime: 2022-07-02 22:03:43
+ * @LastEditTime: 2022-08-20 21:54:50
  * @Description:
  * @FilePath: /repo/packages/service/src/core/create.ts
  */
@@ -41,7 +41,7 @@ class Service {
             (_a = this.multiVersionSwitching) === null || _a === void 0 ? void 0 : _a.setBaseURL(request.baseURL);
         // @ts-ignore
         this.axios = axios_1.default.create(request);
-        // this.axios.switchVersion = 
+        // this.axios.switchVersion =
     }
     collectUnexpectedResultsHandler(fn) {
         this.unexpectedResultsHandler = fn;
@@ -95,7 +95,8 @@ class Service {
      */
     addAppletAdapter() {
         var _a, _b;
-        if (this.axios) // @ts-ignore
+        if (this.axios)
+            // @ts-ignore
             (_b = (_a = this.axios) === null || _a === void 0 ? void 0 : _a.defaults) === null || _b === void 0 ? void 0 : _b.adapter = axios_miniprogram_adapter_1.default;
         return this;
     }
@@ -107,9 +108,9 @@ class Service {
                 // 满足缓存先决条件
                 // 尝试使用缓存
                 const [cacheExists, cache] = cachePrerequisiteJudgment.useCache();
-                return cacheExists ? cache : yield this.requestTrigger(config);
+                return cacheExists ? cache : (yield this.requestTrigger(config));
             }
-            return yield this.requestTrigger(config);
+            return (yield this.requestTrigger(config));
         });
     }
 }

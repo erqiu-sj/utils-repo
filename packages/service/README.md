@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-28 10:52:32
- * @LastEditTime: 2022-08-20 22:05:39
+ * @LastEditTime: 2022-08-21 15:53:30
  * @Description:
  * @FilePath: /repo/packages/service/README.md
 -->
@@ -238,12 +238,12 @@ const http = new Service({
 
 ```ts
 import { Service, ExpirationTime, Cache, CacheConfig } from "@mxnet/service";
-const http = new Service({
+const http = new Service<[], <Partial<CacheConfig>>>({
   baseURL: "http://localhost",
 })
   .injectionInterceptorPlugin([new Cache()])
   // 向请求参数添加更多的类型声明
-  .getAxios<Partial<CacheConfig>>();
+  .getAxios();
 
 await http({
   url: "/weaknet/hello",
@@ -253,6 +253,35 @@ await http({
 await http({
   url: "/weaknet/hello",
   useCache: true,
+});
+```
+
+### Desc
+
+- `reqDescOption` 请求 `log` 在 `console.log(content,...options)` 后追加的参数
+
+- `resDescOption` 响应 `log` 在 `console.log(content,...options)` 后追加的参数
+
+- `reqDesc` 请求 `log`
+
+- `resDesc` 响应 `log`
+
+```ts
+import { Service, Desc, descConfig } from "@mxnet/service";
+
+const http = new Service<[], descConfig>({
+  baseURL: "http://localhost",
+})
+  .injectionInterceptorPlugin([new Desc()])
+  // 向请求参数添加更多的类型声明
+  .getAxios();
+
+http({
+  resDescOption: [],
+  reqDesc: "",
+  resDesc: (response) => {
+    return "";
+  },
 });
 ```
 
@@ -276,4 +305,4 @@ await http({
 
 - 防腐层设计
 
-- 时序控制器(进行时)
+- ~~时序控制器(@mxnet/utils)~~

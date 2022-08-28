@@ -1,11 +1,12 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-18 22:50:03
- * @LastEditTime: 2022-05-21 23:03:33
+ * @LastEditTime: 2022-08-28 13:11:30
  * @Description: 
  * @FilePath: /repo/packages/utils/src/verification/phone.ts
  */
 
+import { mergeFnWithPromiseFn } from "@mxnet/types/dts"
 
 export interface phoneOptions {
     // 严格程度 默认宽松 最宽松|宽松|严谨
@@ -15,9 +16,9 @@ export interface phoneOptions {
     // 错误立即抛出 默认开启
     errorThrowsImmediately: boolean
     // 抛出时的处理函数
-    throwHandling: () => void | Promise<void>
+    throwHandling: mergeFnWithPromiseFn<void>
     // 验证错误时回调
-    verificationFailed: () => void | Promise<void>
+    verificationFailed: mergeFnWithPromiseFn<void>
     // 抛错信息
     throwMsg: string
 }

@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 11:37:24
- * @LastEditTime: 2022-08-20 21:54:50
+ * @LastEditTime: 2022-08-21 15:52:46
  * @Description:
  * @FilePath: /repo/packages/service/src/core/create.ts
  */
@@ -28,7 +28,7 @@ export interface ServiceRequestConfig<V extends string[] = string[]> extends Axi
 // 请求结果类型
 type requestResultType<R> = Promise<R>
 
-export class Service<V extends string[] = string[]> {
+export class Service<V extends string[] = string[], T extends unknown = unknown> {
   private axios?: AxiosInstance
   // 拦截器插件列表
   private interceptorPluginList: interceptor[] = []
@@ -41,7 +41,7 @@ export class Service<V extends string[] = string[]> {
   // 多版本切换
   private multiVersionSwitching?: MultiVersionSwitching = new MultiVersionSwitching()
 
-  constructor(request?: ServiceRequestConfig<V>) {
+  constructor(request?: ServiceRequestConfig<V> & T) {
     if (request?.baseURL) this.multiVersionSwitching?.setBaseURL(request.baseURL)
     // @ts-ignore
     this.axios = axios.create(request)
@@ -106,7 +106,7 @@ export class Service<V extends string[] = string[]> {
     return this
   }
 
-  getAxios<T = unknown>() {
+  getAxios() {
     return async <R>(config?: ServiceRequestConfig<V> & T): Promise<Awaited<requestResultType<R>>> => {
       // 缓存先决条件判断
       const cachePrerequisiteJudgment = new CachePrerequisites(config || {})

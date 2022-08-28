@@ -1,0 +1,31 @@
+{
+  "name": "@mxnet/types",
+  "version": "0.0.1",
+  "description": "types",
+  "private": false,
+  "types": "./src/index.d.ts",
+  "keywords": [
+    "type",
+    "typescript",
+    "javascript",
+    "utils"
+  ],
+  "author": "hooks_28 <1r56955415918@qq.com>",
+  "homepage": "",
+  "license": "MIT",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dts"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmmirror.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/cq_maixun_network/repo.git"
+  },
+  "scripts": {}
+}

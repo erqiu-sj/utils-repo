@@ -1,9 +1,10 @@
+import { mergeFnWithPromiseFn } from "@mxnet/types/dts";
 export interface phoneOptions {
     stringency: 'loosest' | 'loose' | 'rigorous';
     customRules: RegExp;
     errorThrowsImmediately: boolean;
-    throwHandling: () => void | Promise<void>;
-    verificationFailed: () => void | Promise<void>;
+    throwHandling: mergeFnWithPromiseFn<void>;
+    verificationFailed: mergeFnWithPromiseFn<void>;
     throwMsg: string;
 }
 export declare class Phone {

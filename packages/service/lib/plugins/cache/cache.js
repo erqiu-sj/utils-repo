@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 22:07:09
- * @LastEditTime: 2022-05-29 20:27:06
+ * @LastEditTime: 2022-07-27 15:20:40
  * @Description:
  * @FilePath: /repo/packages/service/src/plugins/cache/cache.ts
  */
@@ -38,10 +38,8 @@ class CachePrerequisites {
 }
 exports.CachePrerequisites = CachePrerequisites;
 class Cache {
-    requestFailInterceptor(err) {
-    }
-    responseFailInterceptor(err) {
-    }
+    requestFailInterceptor(err) { }
+    responseFailInterceptor(err) { }
     requestSuccessInterceptor(config) {
         var _a;
         const rule = ((_a = config.cacheRules) === null || _a === void 0 ? void 0 : _a.call(config, config)) || (0, config_1.defaultCacheRule)(config);
@@ -63,7 +61,7 @@ __decorate([
     (0, decorator_1.allowExecution)(config => (0, config_1.hasCacheConfig)(config))
 ], Cache.prototype, "requestSuccessInterceptor", null);
 __decorate([
-    (0, decorator_1.allowExecution)((resConfig) => {
+    (0, decorator_1.allowExecution)(resConfig => {
         return (0, config_1.hasCacheConfig)(resConfig.config);
     })
 ], Cache.prototype, "responseSuccessInterceptor", null);

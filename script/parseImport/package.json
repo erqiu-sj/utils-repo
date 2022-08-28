@@ -26,6 +26,11 @@
     "url": "https://gitee.com/cq_maixun_network/repo.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "d": "tsc && node ./lib/index.js"
+  },
+  "dependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.244",
+    "@swc/helpers": "^0.4.11"
   }
 }

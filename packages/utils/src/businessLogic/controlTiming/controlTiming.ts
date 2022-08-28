@@ -1,12 +1,12 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-20 21:55:44
- * @LastEditTime: 2022-08-21 13:06:07
+ * @LastEditTime: 2022-08-28 13:16:17
  * @Description: 时序控制器
  * @FilePath: /repo/packages/utils/src/businessLogic/controlTiming/controlTiming.ts
  */
 
-import { controlTimingTask } from '../../types/controlTiming'
+import { mergeFnWithPromiseFn } from "@mxnet/types/dts"
 
 /**
  * 创建一个时序控制器
@@ -27,11 +27,11 @@ import { controlTimingTask } from '../../types/controlTiming'
  */
 
 export class ControlTiming<T extends object> {
-  private collector = new Map<string | number | symbol, controlTimingTask>()
+  private collector = new Map<string | number | symbol, mergeFnWithPromiseFn<any, any>>()
 
-  private cbCollector = new Map<string | number | symbol, ReturnType<controlTimingTask>>()
+  private cbCollector = new Map<string | number | symbol, ReturnType<mergeFnWithPromiseFn<any, any>>>()
 
-  addTimingItems<N extends string, F extends controlTimingTask>(name: N, fn: F): ControlTiming<T & Record<N, F>> {
+  addTimingItems<N extends string, F extends mergeFnWithPromiseFn<any, any>>(name: N, fn: F): ControlTiming<T & Record<N, F>> {
     this.collector.set(name, fn)
     return this
   }

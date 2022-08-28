@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 17:56:58
- * @LastEditTime: 2022-05-28 21:12:15
+ * @LastEditTime: 2022-08-21 13:31:58
  * @Description:
  * @FilePath: /repo/packages/service/src/plugins/cancel/cancel.ts
  */
@@ -18,10 +18,8 @@ const cancel_1 = require("../../utils/cancel");
 const decorator_1 = require("../../utils/decorator");
 const config_1 = require("./config");
 class Cancel {
-    requestFailInterceptor(err) {
-    }
-    responseFailInterceptor(err) {
-    }
+    requestFailInterceptor(err) { }
+    responseFailInterceptor(err) { }
     requestSuccessInterceptor(config) {
         var _a;
         const rule = ((_a = config.cancellationRules) === null || _a === void 0 ? void 0 : _a.call(config, config)) || (0, config_1.defaultRules)(config);
@@ -39,10 +37,10 @@ class Cancel {
     }
 }
 __decorate([
-    (0, decorator_1.allowExecution)((config) => Reflect.get(config.headers || {}, 'cancelHeader') === config_1.cancelHeader)
+    (0, decorator_1.allowExecution)(config => Reflect.get(config.headers || {}, 'cancelHeader') === config_1.cancelHeader)
 ], Cancel.prototype, "requestSuccessInterceptor", null);
 __decorate([
-    (0, decorator_1.allowExecution)((config) => {
+    (0, decorator_1.allowExecution)(config => {
         var _a;
         return Reflect.get(((_a = config === null || config === void 0 ? void 0 : config.config) === null || _a === void 0 ? void 0 : _a.headers) || {}, 'cancelHeader') === config_1.cancelHeader;
     })

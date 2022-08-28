@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-05 22:27:45
- * @LastEditTime: 2022-08-13 16:59:07
+ * @LastEditTime: 2022-08-26 20:35:22
  * @Description: 生成 pages
  * @FilePath: /repo/script/generateWeChatPage/src/index.ts
  */
@@ -10,7 +10,6 @@ import { commonFolderDataTypes, GeneratePage } from './core/generate';
 import { ResolvePath, resolvePathMapTypes } from './core/resolvePath';
 import { SetAppletConfigurationPages } from './core/setConfig';
 import { generateWeChatPageReadOptions } from './types/options';
-
 export function generateWeChatPage(ops: generateWeChatPageReadOptions) {
     console.log(
         gray(

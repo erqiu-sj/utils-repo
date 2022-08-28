@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-10 22:47:31
- * @LastEditTime: 2022-08-21 13:17:03
+ * @LastEditTime: 2022-08-28 15:28:05
  * @Description:
  * @FilePath: /repo/packages/utils/README.md
 -->
@@ -37,7 +37,57 @@ const { Phone } = require("@mxnet/utils");
 
 ## 常用工具
 
-### 时序控制器(`ControlTiming`)
+### 单例模式 `(singletonPattern)`
+
+- 需要一个函数返回值作为每次运行的返回值, 传入的函数只运行一次
+
+```ts
+import { singletonPattern, TypeInvalidValidation } from "@mxnet/utils";
+const n = singletonPattern(() => new TypeInvalidValidation());
+n() === n(); // true
+```
+
+### 类型判断策略着模式
+
+> 需要注意 `typeInvalidValidation` 和 `TypeInvalidValidation` 是不同的策略者 , `typeInvalidValidation` 通过单例模式只实例化了一次 `TypeInvalidValidation`, 而 `TypeInvalidValidation` 为策略着 `class` 每次都会被实例化
+
+- `builtInTypeStrategy` 用单例实例化了 `TypeInvalidValidation` , 并添加了一些常用的类型判断策略 ,且每个常用策略着都可以在 `@mxnet/utils` 找到他的导出
+
+- `typeInvalidValidation` 用单例实例化了`TypeInvalidValidation`
+
+- `TypeInvalidValidation` 类型验证策略者类
+
+  - `addTypePolicy` 新增策略
+
+  ```ts
+  // (策略名,策略函数)
+  typeInvalidValidation.addTypePolicy("isEmptyObject", () => 1);
+  ```
+
+  - `deletePolicy` 删除策略
+
+  ```ts
+  // (策略名);
+  typeInvalidValidation.deletePolicy("isEmptyObject");
+  ```
+
+  - `callTypeStrategy` 调用策略
+
+  ```ts
+  // (策略名, 策略参数)
+  typeInvalidValidation.callTypeStrategy("isEmptyObject", 1);
+  ```
+
+```ts
+import {
+  typeInvalidValidation,
+  TypeInvalidValidation,
+  builtInTypeStrategy,
+  isEmptyObject,
+} from "@mxnet/utils";
+```
+
+### 时序控制器 `(ControlTiming)`
 
 ```ts
 /**

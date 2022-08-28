@@ -1,15 +1,15 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-18 22:06:22
- * @LastEditTime: 2022-08-21 13:13:14
+ * @LastEditTime: 2022-08-28 14:55:33
  * @Description:
  * @FilePath: /repo/packages/utils/rollup.config.ts
  */
 
 import resolve from '@rollup/plugin-node-resolve'
-import typescript from '@rollup/plugin-typescript'
 import { defineConfig } from 'rollup'
 import terser from 'rollup-plugin-terser'
+import typescript from 'rollup-plugin-typescript2'
 
 export default defineConfig({
   input: './src/index.ts',
@@ -30,7 +30,7 @@ export default defineConfig({
   ],
   plugins: [
     resolve(),
-    typescript({ tsconfig: './tsconfig.json', module: 'es2015' }),
+    typescript({ tsconfig: './tsconfig.json', }),
     terser.terser({
       compress: {
         pure_getters: true,
