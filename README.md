@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-11 22:37:08
- * @LastEditTime: 2022-08-28 15:31:25
+ * @LastEditTime: 2022-08-28 15:34:18
  * @Description:
  * @FilePath: /repo/README.md
 -->
@@ -50,7 +50,7 @@ sh ./script/install.sh
 
 [@mxnet/wechatpublicaccounthelper](/packages/weChatPublicAccountHelper/README.md) 适用 `frame(react,vue)` , 无 `wechat sdk` 时 模拟 `wechat sdk` 行为进行本地调试
 
-[@mxnet/types](/packages/weChatPublicAccountHelper/README.md) 适用 `frame(react,vue)` , 常用类型，类型测试
+[@mxnet/types](/packages/types/README.md) 适用 `frame(react,vue)` , 常用类型，类型测试
 
 [@mxnet/generatewechatpage](/script/generateWeChatPage/README.md) 适用 `node` , 自动生成页面 `components` `hooks` `路由`, 且同步 `app.config.ts`中`pages` 数组
 
