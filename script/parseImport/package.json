@@ -1,7 +1,7 @@
 {
   "name": "@mxnet/parseimport",
-  "version": "0.1.1",
-  "private":true,
+  "version": "0.1.2",
+  "private": true,
   "description": "parse improt",
   "keywords": [
     "node",
