@@ -32,5 +32,5 @@
     "react": "^18.2.0",
     "rollup-plugin-typescript2": "^0.32.1"
   },
-  "gitHead": "57f44019a411faec8cc2877be81d8a7b9b6b3b81"
+  "gitHead": "4d3ad88496cb369bf45e26973cc7c29c36a0ee24"
 }

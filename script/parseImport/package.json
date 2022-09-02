@@ -1,6 +1,7 @@
 {
   "name": "@mxnet/parseimport",
   "version": "0.1.1",
+  "private":true,
   "description": "parse improt",
   "keywords": [
     "node",
@@ -33,5 +34,5 @@
     "@swc/core": "^1.2.244",
     "@swc/helpers": "^0.4.11"
   },
-  "gitHead": "57f44019a411faec8cc2877be81d8a7b9b6b3b81"
+  "gitHead": "4d3ad88496cb369bf45e26973cc7c29c36a0ee24"
 }
