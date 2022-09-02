@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/utils@0.5.2...@mxnet/utils@0.6.0) (2022-09-02)
+
+
+### Features
+
+* **@mxnet/types,@mxnet/utils:** add @mxnet/types pckages and add singletonPattern, typeInvalidValidation function(@mxnet/utils) ([eaab4fc](https://gitee.com/cq_maixun_network/repo/commits/eaab4fc56de06d8195b4349d3da7b5e35bb3157d))
+* **@mxnet/utils:** 新增时序控制器 ([aa59439](https://gitee.com/cq_maixun_network/repo/commits/aa594395c54a9e3ba3cebbebed54a30b6077acfb))
+
+
+
+
+
 ## [0.5.2](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/utils@0.5.1...@mxnet/utils@0.5.2) (2022-07-27)
 
 **Note:** Version bump only for package @mxnet/utils

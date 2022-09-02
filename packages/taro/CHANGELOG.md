@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.8.0...@mxnet/taro@0.8.1) (2022-09-02)
+
+
+### Performance Improvements
+
+* **@mxnet/generateWeChatPage:** generateWeChatPage 已经可用，暂未实现生成路由功能，准备添加更多的终端提示 ([1032644](https://gitee.com/cq_maixun_network/repo/commits/1032644027b9c8e4f154a02df40ebfd360dca663))
+
+
+
+
+
 # [0.8.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/taro@0.7.1...@mxnet/taro@0.8.0) (2022-08-05)
 
 

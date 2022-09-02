@@ -1,6 +1,6 @@
 {
   "name": "@mxnet/generatewechatpage",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "commonjs",
   "description": "生成微信小程序页面",
   "keywords": [
