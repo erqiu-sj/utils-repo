@@ -32,5 +32,6 @@
     "@swc/cli": "^0.1.57",
     "@swc/core": "^1.2.244",
     "@swc/helpers": "^0.4.11"
-  }
+  },
+  "gitHead": "57f44019a411faec8cc2877be81d8a7b9b6b3b81"
 }

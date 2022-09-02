@@ -30,5 +30,6 @@
     "@types/fs-extra": "^9.0.13",
     "colors": "^1.4.0",
     "fs-extra": "^10.1.0"
-  }
+  },
+  "gitHead": "57f44019a411faec8cc2877be81d8a7b9b6b3b81"
 }

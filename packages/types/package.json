@@ -27,5 +27,6 @@
     "type": "git",
     "url": "https://gitee.com/cq_maixun_network/repo.git"
   },
-  "scripts": {}
+  "scripts": {},
+  "gitHead": "57f44019a411faec8cc2877be81d8a7b9b6b3b81"
 }
