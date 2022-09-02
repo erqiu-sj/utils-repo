@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/utils@0.6.0...@mxnet/utils@0.6.1) (2022-09-02)
+
+**Note:** Version bump only for package @mxnet/utils
+
+
+
+
+
 # [0.6.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/utils@0.5.2...@mxnet/utils@0.6.0) (2022-09-02)
 
 
