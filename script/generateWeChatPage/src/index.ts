@@ -1,10 +1,11 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-05 22:27:45
- * @LastEditTime: 2022-08-26 20:35:22
+ * @LastEditTime: 2022-09-02 22:52:48
  * @Description: 生成 pages
  * @FilePath: /repo/script/generateWeChatPage/src/index.ts
  */
+
 import { gray } from 'colors';
 import { commonFolderDataTypes, GeneratePage } from './core/generate';
 import { ResolvePath, resolvePathMapTypes } from './core/resolvePath';

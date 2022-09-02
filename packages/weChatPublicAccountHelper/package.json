@@ -1,7 +1,7 @@
 {
   "name": "@mxnet/wechatpublicaccounthelper",
   "version": "0.2.0",
-  "private": true,
+  "private": false,
   "description": "weChat public account helper,实现公众号在本地开发的polyfill",
   "keywords": [
     "wechat",
@@ -21,7 +21,10 @@
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "lib",
+    "dts",
+    "dist.umd",
+    "dist"
   ],
   "publishConfig": {
     "registry": "https://registry.npmmirror.com/"

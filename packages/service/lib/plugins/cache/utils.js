@@ -1,13 +1,13 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CacheData = exports.ExpirationTime = void 0;
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 22:09:37
- * @LastEditTime: 2022-05-29 19:43:14
+ * @LastEditTime: 2022-08-21 16:31:22
  * @Description:
  * @FilePath: /repo/packages/service/src/plugins/cache/utils.ts
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.CacheData = exports.ExpirationTime = void 0;
 const config_1 = require("./config");
 /**
  * @description 过期时间

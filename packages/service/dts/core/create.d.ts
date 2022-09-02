@@ -10,14 +10,14 @@ export interface ServiceRequestConfig<V extends string[] = string[]> extends Axi
     version?: V[number];
 }
 declare type requestResultType<R> = Promise<R>;
-export declare class Service<V extends string[] = string[]> {
+export declare class Service<V extends string[] = string[], T extends unknown = unknown> {
     private axios?;
     private interceptorPluginList;
     private mergeInterceptorPlugin;
     private defaultInterceptorParameter;
     private unexpectedResultsHandler?;
     private multiVersionSwitching?;
-    constructor(request?: ServiceRequestConfig<V>);
+    constructor(request?: ServiceRequestConfig<V> & T);
     collectUnexpectedResultsHandler(fn: handlingUnexpectedResultsCaller): this;
     injectionInterceptorPlugin(interceptorList: interceptor | interceptor[]): this;
     defaultInterceptor(interceptor?: interceptor): this;
@@ -29,6 +29,6 @@ export declare class Service<V extends string[] = string[]> {
      * @returns { this }
      */
     addAppletAdapter(): this;
-    getAxios<T = unknown>(): <R>(config?: (ServiceRequestConfig<V> & T) | undefined) => Promise<Awaited<R>>;
+    getAxios(): <R>(config?: (ServiceRequestConfig<V> & T) | undefined) => Promise<Awaited<R>>;
 }
 export {};

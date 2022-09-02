@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-28 14:40:36
- * @LastEditTime: 2022-08-28 14:48:35
+ * @LastEditTime: 2022-09-02 22:19:35
  * @Description: 
- * @FilePath: /repo/packages/utils/src/verification/typeValidation.ts
+ * @FilePath: /taro-react-template/Users/devops/Desktop/maixun/repo/packages/utils/src/verification/typeValidation.ts
  */
 
 export function isEmptyObject(o: object): boolean {
@@ -19,5 +19,6 @@ export function isEmptyArray(o: unknown[]): boolean {
 }
 
 export function isFalseValue(i: unknown) {
+    if (i === false) return true
     return (i ?? true) === true
 }

@@ -22,4 +22,8 @@ export declare class ControlTiming<T extends object> {
     addTimingItems<N extends string, F extends mergeFnWithPromiseFn<any, any>>(name: N, fn: F): ControlTiming<T & Record<N, F>>;
     trigger<K extends keyof T>(k: K, ...params: Parameters<T[K]>): void;
     monitor<K extends keyof T, R extends ReturnType<T[K]>>(k: K, cb?: (res: Awaited<R>) => void): void;
+    /**
+     * @description delete instance
+     */
+    deleteInstance(): void;
 }
