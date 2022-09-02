@@ -1,6 +1,6 @@
 {
   "name": "@mxnet/wechatpublicaccounthelper",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "private": false,
   "description": "weChat public account helper,实现公众号在本地开发的polyfill",
   "keywords": [
