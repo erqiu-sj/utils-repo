@@ -1,7 +1,7 @@
-import { UserConfigExport } from 'vite';
+import { PluginOption } from 'vite';
 import { MergeConfiguration } from '../types';
 export declare class RouteLazyLoading extends MergeConfiguration {
-    private c;
-    addRouterConfig(obj: object): void;
-    getConfig(userConfig: UserConfigExport): UserConfigExport;
+    private plugins;
+    addRouterConfig(obj: object): this;
+    getPlugin(): PluginOption;
 }

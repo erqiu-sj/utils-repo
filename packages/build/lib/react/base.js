@@ -7,12 +7,13 @@ exports.ScenarioExpectationsForReact = void 0;
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-12 21:58:41
- * @LastEditTime: 2022-07-01 11:27:23
+ * @LastEditTime: 2022-09-04 16:12:45
  * @Description:
  * @FilePath: /repo/packages/build/src/react/base.ts
  */
 const plugin_react_1 = __importDefault(require("@vitejs/plugin-react"));
 const lodash_defaultsdeep_1 = __importDefault(require("lodash.defaultsdeep"));
+const genConfig_1 = require("../common/genConfig");
 const postcssPxToViewport_1 = require("../plugin/postcssPxToViewport");
 class ScenarioExpectationsForReact {
     constructor(defaultOptions) {
@@ -45,7 +46,14 @@ class ScenarioExpectationsForReact {
         return this;
     }
     getConfig() {
-        return this.scenes === 'mobile' ? this.getMobileConfig() : this.getPcConfig();
+        const result = this.scenes === 'mobile' ? this.getMobileConfig() : this.getPcConfig();
+        return (0, genConfig_1.getGenPluginConfig)({
+            name: 'scenesReact',
+            enforce: 'pre',
+            config: () => {
+                return result;
+            },
+        });
     }
 }
 exports.ScenarioExpectationsForReact = ScenarioExpectationsForReact;

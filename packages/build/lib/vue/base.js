@@ -7,7 +7,7 @@ exports.ScenarioExpectationsForVue = void 0;
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-10 23:13:23
- * @LastEditTime: 2022-07-01 11:26:47
+ * @LastEditTime: 2022-09-04 16:17:50
  * @Description:
  * @FilePath: /repo/packages/build/src/vue/base.ts
  */
@@ -48,7 +48,7 @@ class ScenarioExpectationsForVue {
     }
     getConfig() {
         const options = this.scenes === 'mobile' ? this.getMobileConfig() : this.getPcConfig();
-        return options;
+        return options.plugins;
     }
 }
 exports.ScenarioExpectationsForVue = ScenarioExpectationsForVue;

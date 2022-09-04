@@ -1,13 +1,14 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-10 23:13:23
- * @LastEditTime: 2022-07-01 11:26:47
- * @Description: 
+ * @LastEditTime: 2022-09-04 16:17:50
+ * @Description:
  * @FilePath: /repo/packages/build/src/vue/base.ts
  */
 import vue from '@vitejs/plugin-vue'
 import defaultsDeep from 'lodash.defaultsdeep'
-import { UserConfigExport } from 'vite'
+import { PluginOption, UserConfig, UserConfigExport } from 'vite'
+import { getGenPluginConfig } from '../common/genConfig'
 import { PostcssPxToViewport } from '../plugin/postcssPxToViewport'
 import { scenesTypes } from '../types/base'
 import { ScenarioExpectations, ScenarioExpectationsForVueDefaultOptionTypes } from '../types/scenes'
@@ -31,13 +32,13 @@ export class ScenarioExpectationsForVue implements ScenarioExpectations {
     return this
   }
 
-  private getPcConfig(): UserConfigExport {
+  private getPcConfig(): UserConfig {
     const config: UserConfigExport = {}
     defaultsDeep(config, this.defaultNotConfigurable())
     return config
   }
 
-  private getMobileConfig(): UserConfigExport {
+  private getMobileConfig(): UserConfig {
     const config: UserConfigExport = {}
     defaultsDeep(config, this.schedulingDefaultMobileConfiguration(), this.defaultNotConfigurable())
     return config
@@ -50,8 +51,8 @@ export class ScenarioExpectationsForVue implements ScenarioExpectations {
     return config
   }
 
-  getConfig(): UserConfigExport {
+  getConfig(): PluginOption {
     const options = this.scenes === 'mobile' ? this.getMobileConfig() : this.getPcConfig()
-    return options
+    return options.plugins
   }
 }

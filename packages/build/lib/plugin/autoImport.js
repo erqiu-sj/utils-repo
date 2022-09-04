@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-12 21:13:02
- * @LastEditTime: 2022-07-01 12:14:52
+ * @LastEditTime: 2022-09-04 16:18:33
  * @Description:  自动导入api
  * @FilePath: /repo/packages/build/src/plugin/autoImport.ts
  */
@@ -16,7 +16,8 @@ const unplugin_auto_import_1 = __importDefault(require("unplugin-auto-import"));
 const types_1 = require("../types");
 const include = [
     /\.[tj]sx?$/,
-    /\.vue$/, /\.vue\?vue/,
+    /\.vue$/,
+    /\.vue\?vue/,
     /\.md$/, // .md
 ];
 class AutoImportApi extends types_1.MergeConfiguration {
@@ -42,16 +43,12 @@ class AutoImportApi extends types_1.MergeConfiguration {
             // vue模版自动导入
             vueTemplate: false, 
             // @ts-ignore
-            imports: [
-                ...this.defaultImports,
-            ] }, newLocal));
+            imports: [...this.defaultImports] }, newLocal));
         this.userConfig = userConfig;
         return this;
     }
-    getConfig(userConfig) {
-        const c = userConfig;
-        c.plugins = [...(c.plugins || []), this.userConfig];
-        return c;
+    getPlugin() {
+        return this.userConfig;
     }
 }
 exports.AutoImportApi = AutoImportApi;

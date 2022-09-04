@@ -1,4 +1,4 @@
-import { UserConfigExport } from 'vite';
+import { UserConfig, UserConfigExport } from 'vite';
 import { VitePWAOptions } from 'vite-plugin-pwa';
 import { viteVConsoleOptions } from 'vite-plugin-vconsole';
 import { autoImportOptions } from '../plugin/autoImport';
@@ -7,6 +7,7 @@ export declare class ViteConfiguration<T extends technologyStackTypes> {
     protected config: UserConfigExport;
     private scenes;
     private alias;
+    private plugins;
     constructor(config?: UserConfigExport);
     setScenes(type: scenesTypes): this;
     setTechnologyStack<Ty extends technologyStackTypes, S extends scenesTypes>(type: Ty, ops?: determineConfigurationAccordingTechnologyStack<Ty, S>): eliminatePropertiesBasedTechnologyStack<Ty, this>;
@@ -17,5 +18,5 @@ export declare class ViteConfiguration<T extends technologyStackTypes> {
     addAutoImport(conf?: autoImportOptions): this;
     addPwaConfigure(conf?: Partial<VitePWAOptions>): this;
     addRouteLazyLoading(obj: object): this;
-    getConfig(config?: UserConfigExport): UserConfigExport;
+    getConfig(config?: UserConfig): UserConfigExport;
 }

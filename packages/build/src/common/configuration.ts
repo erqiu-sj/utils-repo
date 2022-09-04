@@ -1,13 +1,13 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-12 17:58:13
- * @LastEditTime: 2022-08-20 21:46:02
+ * @LastEditTime: 2022-09-04 16:18:16
  * @Description:
  * @FilePath: /repo/packages/build/src/common/configuration.ts
  */
 
 import defaultsdeep from 'lodash.defaultsdeep'
-import { UserConfigExport } from 'vite'
+import { PluginOption, UserConfig, UserConfigExport } from 'vite'
 import { VitePWAOptions } from 'vite-plugin-pwa'
 import { viteVConsoleOptions } from 'vite-plugin-vconsole'
 import { RouteLazyLoading } from '../plugin//routeazyLoading'
@@ -25,10 +25,12 @@ export class ViteConfiguration<T extends technologyStackTypes> {
 
   private alias = new Alias()
 
+  private plugins: PluginOption[] = []
+
   constructor(config?: UserConfigExport) {
     this.config = config || {}
     // 默认添加路径别名
-    this.config = this.alias.analysis().getConfig(this.config)
+    this.plugins.push(this.alias.analysis().plugin)
   }
 
   // 设置场景
@@ -39,47 +41,50 @@ export class ViteConfiguration<T extends technologyStackTypes> {
   // 设置技术栈
   setTechnologyStack<Ty extends technologyStackTypes, S extends scenesTypes>(type: Ty, ops?: determineConfigurationAccordingTechnologyStack<Ty, S>): eliminatePropertiesBasedTechnologyStack<Ty, this> {
     this.scenes.setTechnologyStack(type, ops)
-    defaultsdeep(this.config, this.scenes.combine().getConfig())
+    this.plugins.push(this.scenes.combine().getConfig())
     return this
   }
 
   // 设置别名
   setAlias(aliasConfig?: { [key: string]: string }): this {
-    this.config = this.alias.analysis(aliasConfig).getConfig(this.config)
+    this.plugins.push(this.alias.analysis(aliasConfig).plugin)
     return this
   }
 
   // 新增vconsole配置
   addVConsole(config?: Partial<viteVConsoleOptions>): this {
     const vconsole = new Vconsole()
-    this.config = vconsole.changeSetting(config).getConfig(this.config)
+    this.plugins.push(vconsole.changeSetting(config).getPlugin())
     return this
   }
 
   // 新增自动生成api接口
   addAutoImport(conf?: autoImportOptions): this {
-    this.config = new AutoImportApi().configurePresets(this.scenes.getTechnologyStackTypes()).instancePlugin(conf).getConfig(this.config)
+    this.plugins.push(new AutoImportApi().configurePresets(this.scenes.getTechnologyStackTypes()).instancePlugin(conf).getPlugin())
     return this
   }
 
   // setPwa
   addPwaConfigure(conf?: Partial<VitePWAOptions>) {
     const p = new Pwa()
-    this.config = p.createBasicConfiguration(conf).getConfig(this.config)
+    this.plugins.push(p.createBasicConfiguration(conf).getPlugin())
     return this
   }
 
   //
   addRouteLazyLoading(obj: object): this {
     const r = new RouteLazyLoading()
-    r.addRouterConfig(obj)
-    this.config = r.getConfig(this.config)
+    this.plugins.push(r.addRouterConfig(obj).getPlugin())
     return this
   }
 
   // 返回配置
-  getConfig(config?: UserConfigExport): UserConfigExport {
-    defaultsdeep(this.config, config)
+  getConfig(config?: UserConfig): UserConfigExport {
+    const p = [...this.plugins, ...(config?.plugins || [])]
+    this.config = {
+      ...config,
+      plugins: p,
+    }
     return this.config
   }
 }

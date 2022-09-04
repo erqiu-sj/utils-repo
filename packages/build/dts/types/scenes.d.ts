@@ -1,6 +1,6 @@
-import { UserConfigExport } from 'vite';
-import { scenesTypes, technologyStackTypes } from './base';
+import { PluginOption, UserConfigExport } from 'vite';
 import { injectionConfigurationWithPostcssPxToViewport } from '../plugin/postcssPxToViewport';
+import { scenesTypes, technologyStackTypes } from './base';
 /**
  * @description 场景预期
  * 场景和技术栈默认配置都必须符合该场景预期
@@ -9,7 +9,7 @@ export interface ScenarioExpectations {
     scenes: scenesTypes;
     defaultNotConfigurable(): UserConfigExport;
     setScene(type: scenesTypes): this;
-    getConfig(): UserConfigExport;
+    getConfig(): PluginOption;
 }
 export interface ScenarioExpectationsDefaultOptionsTypes {
     default: boolean;

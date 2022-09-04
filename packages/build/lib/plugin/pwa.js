@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-04 15:18:03
- * @LastEditTime: 2022-08-04 21:39:41
+ * @LastEditTime: 2022-09-04 16:18:50
  * @Description:
  * @FilePath: /repo/packages/build/src/plugin/pwa.ts
  */
@@ -15,8 +15,8 @@ class Pwa {
             injectRegister: 'auto',
             registerType: 'autoUpdate',
             workbox: {
-                globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,ttf}']
-            }
+                globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,ttf}'],
+            },
         };
         this.plugin = null;
     }
@@ -24,10 +24,8 @@ class Pwa {
         this.plugin = (0, vite_plugin_pwa_1.VitePWA)(Object.assign({}, conf, this.defaultConfigure));
         return this;
     }
-    getConfig(userConfig) {
-        const c = userConfig;
-        c.plugins = [...(c.plugins || []), this.plugin];
-        return userConfig;
+    getPlugin() {
+        return this.plugin;
     }
 }
 exports.Pwa = Pwa;

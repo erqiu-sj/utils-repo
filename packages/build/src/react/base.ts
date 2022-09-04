@@ -1,13 +1,14 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-12 21:58:41
- * @LastEditTime: 2022-07-01 11:27:23
- * @Description: 
+ * @LastEditTime: 2022-09-04 16:12:45
+ * @Description:
  * @FilePath: /repo/packages/build/src/react/base.ts
  */
 import react from '@vitejs/plugin-react'
 import defaultsdeep from 'lodash.defaultsdeep'
-import { UserConfigExport } from 'vite'
+import { PluginOption, UserConfig, UserConfigExport } from 'vite'
+import { getGenPluginConfig } from '../common/genConfig'
 import { PostcssPxToViewport } from '../plugin/postcssPxToViewport'
 import { ScenarioExpectations, ScenarioExpectationsForReactDefaultOptionTypes, scenesTypes } from '../types'
 
@@ -21,22 +22,22 @@ export class ScenarioExpectationsForReact implements ScenarioExpectations {
     this.defaultConfig = defaultOptions
   }
 
-  defaultNotConfigurable(): UserConfigExport {
+  defaultNotConfigurable(): UserConfig {
     return {
       plugins: [react()],
     }
   }
-  private getPcConfig(): UserConfigExport {
+  private getPcConfig(): UserConfig {
     return {
       plugins: [react()],
     }
   }
 
-  private getMobileConfig(): UserConfigExport {
+  private getMobileConfig(): UserConfig {
     return this.schedulingDefaultMobileConfiguration()
   }
 
-  private schedulingDefaultMobileConfiguration(): UserConfigExport {
+  private schedulingDefaultMobileConfiguration(): UserConfig {
     let config: UserConfigExport = {}
     const mobileConfig = this.defaultConfig as ScenarioExpectationsForReactDefaultOptionTypes<'mobile'>
     this.postcssPxToViewport.injectionConfiguration(config, mobileConfig?.postcssPxToViewport ?? mobileConfig?.default)
@@ -48,7 +49,14 @@ export class ScenarioExpectationsForReact implements ScenarioExpectations {
     return this
   }
 
-  getConfig(): UserConfigExport {
-    return this.scenes === 'mobile' ? this.getMobileConfig() : this.getPcConfig()
+  getConfig(): PluginOption {
+    const result = this.scenes === 'mobile' ? this.getMobileConfig() : this.getPcConfig()
+    return getGenPluginConfig({
+      name: 'scenesReact',
+      enforce: 'pre',
+      config: () => {
+        return result
+      },
+    })
   }
 }

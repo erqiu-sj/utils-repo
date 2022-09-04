@@ -2,16 +2,12 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-12 17:58:13
- * @LastEditTime: 2022-08-20 21:46:02
+ * @LastEditTime: 2022-09-04 16:18:16
  * @Description:
  * @FilePath: /repo/packages/build/src/common/configuration.ts
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ViteConfiguration = void 0;
-const lodash_defaultsdeep_1 = __importDefault(require("lodash.defaultsdeep"));
 const routeazyLoading_1 = require("../plugin//routeazyLoading");
 const alias_1 = require("../plugin/alias");
 const autoImport_1 = require("../plugin/autoImport");
@@ -23,9 +19,10 @@ class ViteConfiguration {
         this.config = {};
         this.scenes = new scenes_1.Scenes();
         this.alias = new alias_1.Alias();
+        this.plugins = [];
         this.config = config || {};
         // 默认添加路径别名
-        this.config = this.alias.analysis().getConfig(this.config);
+        this.plugins.push(this.alias.analysis().plugin);
     }
     // 设置场景
     setScenes(type) {
@@ -35,41 +32,41 @@ class ViteConfiguration {
     // 设置技术栈
     setTechnologyStack(type, ops) {
         this.scenes.setTechnologyStack(type, ops);
-        (0, lodash_defaultsdeep_1.default)(this.config, this.scenes.combine().getConfig());
+        this.plugins.push(this.scenes.combine().getConfig());
         return this;
     }
     // 设置别名
     setAlias(aliasConfig) {
-        this.config = this.alias.analysis(aliasConfig).getConfig(this.config);
+        this.plugins.push(this.alias.analysis(aliasConfig).plugin);
         return this;
     }
     // 新增vconsole配置
     addVConsole(config) {
         const vconsole = new vconsole_1.Vconsole();
-        this.config = vconsole.changeSetting(config).getConfig(this.config);
+        this.plugins.push(vconsole.changeSetting(config).getPlugin());
         return this;
     }
     // 新增自动生成api接口
     addAutoImport(conf) {
-        this.config = new autoImport_1.AutoImportApi().configurePresets(this.scenes.getTechnologyStackTypes()).instancePlugin(conf).getConfig(this.config);
+        this.plugins.push(new autoImport_1.AutoImportApi().configurePresets(this.scenes.getTechnologyStackTypes()).instancePlugin(conf).getPlugin());
         return this;
     }
     // setPwa
     addPwaConfigure(conf) {
         const p = new pwa_1.Pwa();
-        this.config = p.createBasicConfiguration(conf).getConfig(this.config);
+        this.plugins.push(p.createBasicConfiguration(conf).getPlugin());
         return this;
     }
     //
     addRouteLazyLoading(obj) {
         const r = new routeazyLoading_1.RouteLazyLoading();
-        r.addRouterConfig(obj);
-        this.config = r.getConfig(this.config);
+        this.plugins.push(r.addRouterConfig(obj).getPlugin());
         return this;
     }
     // 返回配置
     getConfig(config) {
-        (0, lodash_defaultsdeep_1.default)(this.config, config);
+        const p = [...this.plugins, ...((config === null || config === void 0 ? void 0 : config.plugins) || [])];
+        this.config = Object.assign(Object.assign({}, config), { plugins: p });
         return this.config;
     }
 }

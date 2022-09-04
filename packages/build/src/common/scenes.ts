@@ -1,8 +1,8 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-12 21:51:08
- * @LastEditTime: 2022-06-16 16:46:29
- * @Description: 
+ * @LastEditTime: 2022-09-04 16:00:42
+ * @Description:
  * @FilePath: /repo/packages/build/src/common/scenes.ts
  */
 import { ScenarioExpectationsForReact } from '../react/base'

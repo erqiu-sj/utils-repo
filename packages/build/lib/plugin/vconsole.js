@@ -2,9 +2,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-12 19:33:50
- * @LastEditTime: 2022-06-12 21:02:10
+ * @LastEditTime: 2022-09-04 15:36:59
  * @Description:
- * @FilePath: /repo/packages/build/src/common/vconsole.ts
+ * @FilePath: /repo/packages/build/src/plugin/vconsole.ts
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Vconsole = void 0;
@@ -16,24 +16,21 @@ class Vconsole {
     }
     defaultConfig() {
         return {
-            entry: (0, path_1.resolve)("src/main.ts"),
+            entry: (0, path_1.resolve)('src/main.ts'),
             localEnabled: false,
             enabled: false,
             config: {
                 maxLogNumber: 1000,
-                theme: 'light'
-            }
+                theme: 'light',
+            },
         };
     }
     changeSetting(conf) {
         this.config = (0, vite_plugin_vconsole_1.viteVConsole)(Object.assign(Object.assign({}, (conf || {})), this.defaultConfig()));
         return this;
     }
-    getConfig(config) {
-        const c = config;
-        c.plugins = [...(c.plugins || []), this.config];
-        // lodash.defaultsDeep  在此处无法达到预期效果
-        return c;
+    getPlugin() {
+        return this.config;
     }
 }
 exports.Vconsole = Vconsole;

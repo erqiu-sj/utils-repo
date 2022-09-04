@@ -1,6 +1,13 @@
-import { UserConfigExport } from 'vite'
-import { scenesTypes, technologyStackTypes } from './base'
+/*
+ * @Author: 邱狮杰
+ * @Date: 2022-08-20 21:51:41
+ * @LastEditTime: 2022-09-04 15:44:49
+ * @Description:
+ * @FilePath: /repo/packages/build/src/types/scenes.ts
+ */
+import { PluginOption, UserConfigExport } from 'vite'
 import { injectionConfigurationWithPostcssPxToViewport } from '../plugin/postcssPxToViewport'
+import { scenesTypes, technologyStackTypes } from './base'
 
 /**
  * @description 场景预期
@@ -10,7 +17,7 @@ export interface ScenarioExpectations {
   scenes: scenesTypes
   defaultNotConfigurable(): UserConfigExport // 默认不可配置
   setScene(type: scenesTypes): this
-  getConfig(): UserConfigExport
+  getConfig(): PluginOption
 }
 export interface ScenarioExpectationsDefaultOptionsTypes {
   default: boolean
