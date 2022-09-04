@@ -28,8 +28,10 @@
     "build:cj": "tsc --module CommonJS --outDir ./lib",
     "build": "yarn run build:es & yarn run  build:cj"
   },
+  "devDependencies": {
+    "axios": "^0.27.2"
+  },
   "dependencies": {
-    "axios": "^0.27.2",
     "axios-miniprogram-adapter": "^0.3.2"
   },
   "gitHead": "fb2e27f15ac5c912126a86d9267716a52cfb6075"

@@ -32,7 +32,7 @@
     "build:canvas": "rollup -c -i src/common/html2canvas/index.js -f umd -d html2canvas",
     "build": "rollup -c & yarn build:canvas"
   },
-  "dependencies": {
+  "devDependencies": {
     "@mxnet/types": "^0.1.3",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.2",
@@ -40,5 +40,6 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.33.0"
   },
+  "dependencies": {},
   "gitHead": "fb2e27f15ac5c912126a86d9267716a52cfb6075"
 }
