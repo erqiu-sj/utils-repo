@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.5](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/build@0.6.4...@mxnet/build@0.6.5) (2022-09-04)
+
+
+### Bug Fixes
+
+* **@mxnet/build:** 将所有配置改为 vite plugins 组合 ([6867699](https://gitee.com/cq_maixun_network/repo/commits/6867699dc911ce267e0c906c30cacf74cc1935f5))
+
+
+
+
+
 ## [0.6.4](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/build@0.6.3...@mxnet/build@0.6.4) (2022-09-04)
 
 **Note:** Version bump only for package @mxnet/build
