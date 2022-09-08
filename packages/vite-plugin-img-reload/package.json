@@ -1,0 +1,40 @@
+{
+  "name": "vite-plugin-img-reload",
+  "version": "0.0.1",
+  "description": "graphic transition effect",
+  "keywords": [
+    "vite-plugin",
+    "img",
+    "effect",
+    "js",
+    "vue"
+  ],
+  "author": "hooks_28 <1r56955415918@qq.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "files": [
+    "dist",
+    "dts",
+    "src"
+  ],
+  "types": "./dts/plugin.d.ts",
+  "publishConfig": {
+    "registry": "https://registry.npmmirror.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/cq_maixun_network/repo.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "devDependencies": {
+    "vite": "^3.1.0"
+  },
+  "dependencies": {
+    "fs-extra": "^10.1.0",
+    "lqip": "^2.1.0"
+  }
+}
