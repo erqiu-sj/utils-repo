@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-28 10:36:27
- * @LastEditTime: 2022-09-02 22:32:33
+ * @LastEditTime: 2022-09-10 10:24:22
  * @Description: 
  * @FilePath: /repo/packages/utils/src/verification/typeInvalidValidation.ts
  */
@@ -60,8 +60,6 @@ export class TypeInvalidValidation<R extends { [k in number]: mergeFnWithPromise
 export const typeInvalidValidation = singletonPattern(() => new TypeInvalidValidation())()
 
 export function builtInTypeStrategy() {
+    console.log(typeInvalidValidation, 'typeInvalidValidation')
     return typeInvalidValidation.addTypePolicy('isEmptyObject', isEmptyObject).addTypePolicy('isEmptyArray', isEmptyArray).addTypePolicy('isFalseValue', isFalseValue)
 }
-
-const s = new TypeInvalidValidation<{ add: (args: number) => number }>()
-s.callTypeStrategy('add', 1)

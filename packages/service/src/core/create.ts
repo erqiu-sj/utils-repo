@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 11:37:24
- * @LastEditTime: 2022-08-21 15:52:46
+ * @LastEditTime: 2022-09-10 10:23:43
  * @Description:
  * @FilePath: /repo/packages/service/src/core/create.ts
  */
@@ -71,6 +71,7 @@ export class Service<V extends string[] = string[], T extends unknown = unknown>
 
     const [_, res] = await SynchronizationAwaitError((this.axios as AxiosInstance)({ baseURL: baseURL, ...config } || {}))
 
+    // axios 是否 报错
     const isAxiosError = res && typeof res === 'object' && Reflect.get(res, 'name') === 'AxiosError'
 
     if (isAxiosError) {
@@ -80,7 +81,7 @@ export class Service<V extends string[] = string[], T extends unknown = unknown>
       return (config?.returnOnPromiseError || res) as Promise<Awaited<requestResultType<R>>>
     }
     !!!config?.preventUnexpectedTriggers && this?.unexpectedResultsHandler?.(res)
-    return (res || config?.returnOnPromiseError) as Promise<Awaited<requestResultType<R>>>
+    return (res || config?.returnOnPromiseError) as unknown as Promise<Awaited<requestResultType<R>>>
   }
 
   // 修改版本号占位符

@@ -91,6 +91,6 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": ["./src"],
-  "exclude": ["./__tests__", "./dist", "./lib", "./dist.umd", "./rollup.config.ts"]
-  // "extends": "./tscbuild.json"
+  "exclude": ["./__tests__", "./dist", "./lib", "./dist.umd", "./rollup.config.ts"],
+  "extends": "./tscbuild.json"
 }
