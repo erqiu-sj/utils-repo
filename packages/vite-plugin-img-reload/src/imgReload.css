@@ -1,0 +1,22 @@
+.mxnet_hidden {
+    opacity: 0 ;
+}
+
+.mxnet_pre {
+    opacity: 1;
+    filter: blur(10px);
+    transition: filter 2s ease-in-out;
+}
+
+.mxnet_pre.loaded {
+    filter: blur(0);
+}
+
+.mxnet_next {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.mxnet_next.loaded {
+    opacity: 1;
+}

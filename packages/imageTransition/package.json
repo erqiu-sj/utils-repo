@@ -1,25 +1,26 @@
 {
-  "name": "vite-plugin-img-reload",
+  "name": "@mxnet/imagetransition",
   "version": "0.0.1",
-  "description": "graphic transition effect",
+  "description": "image,vue,typescript,transition",
   "keywords": [
-    "vite-plugin",
-    "img",
-    "effect",
-    "js",
-    "vue"
+    "image",
+    "vue",
+    "typescript",
+    "transition"
   ],
   "author": "hooks_28 <1r56955415918@qq.com>",
+  "types": "./dts/index.d.ts",
+  "main": "lib/imageTransition.js",
+  "module": "./dist/index.js",
   "homepage": "",
   "license": "MIT",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
   "files": [
-    "dist",
-    "dts",
-    "src"
+    "lib"
   ],
-  "types": "./dts/index.d.ts",
   "publishConfig": {
     "registry": "https://registry.npmmirror.com/"
   },
@@ -30,11 +31,7 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "devDependencies": {
-    "vite": "^3.1.0"
-  },
   "dependencies": {
-    "fs-extra": "^10.1.0",
-    "lqip": "^2.1.0"
+    "@mxnet/types": "^0.1.3"
   }
 }
