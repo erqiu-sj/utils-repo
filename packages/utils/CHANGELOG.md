@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/utils@0.6.4...@mxnet/utils@0.7.0) (2022-09-17)
+
+
+### Features
+
+* **@mxnet/imagetransition vite-plugin-img-reload:** 完善逻辑，并没有什么重大突破 ([c59c929](https://gitee.com/cq_maixun_network/repo/commits/c59c929c7fb6f67946f2a06e6b50aa952ec17ed2))
+
+
+
+
+
 ## [0.6.4](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/utils@0.6.3...@mxnet/utils@0.6.4) (2022-09-04)
 
 **Note:** Version bump only for package @mxnet/utils
