@@ -1,6 +1,7 @@
 {
   "name": "vite-plugin-img-reload",
   "version": "0.0.1",
+  "private": false,
   "description": "graphic transition effect",
   "keywords": [
     "vite-plugin",

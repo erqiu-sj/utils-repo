@@ -1,6 +1,7 @@
 {
   "name": "@mxnet/imagetransition",
   "version": "0.0.1",
+  "private": false,
   "description": "image,vue,typescript,transition",
   "keywords": [
     "image",
@@ -29,7 +30,8 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "dependencies": {
+  "devDependencies": {
+    "vue": "^3.2.33",
     "@mxnet/types": "^0.1.3"
   }
 }
