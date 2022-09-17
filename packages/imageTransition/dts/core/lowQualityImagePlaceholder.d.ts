@@ -1,16 +1,22 @@
-import { NextImage } from '../types';
-import { mergeFnWithPromiseFn } from '@mxnet/types/dts';
 /**
- * @desc 创建过渡后元素
+ *
+ *
+ * @file 低质量占位图
+ *
+ *
  */
-export declare class CreateRealisticPostTransitionElements implements NextImage {
-    prevImage: null | HTMLImageElement;
-    img: HTMLImageElement;
-    transitionedCallback: mergeFnWithPromiseFn | null;
-    constructor(el: HTMLImageElement);
-    createImg(): this;
-    setSrc(src: string): this;
-    getImage(): HTMLImageElement;
+import { mergeFnWithPromiseFn } from '@mxnet/types/dts';
+import { PlaceholderPicture } from '../types';
+export declare class CreatePlaceholderPicture implements PlaceholderPicture {
+    private el;
+    constructor(el?: HTMLImageElement);
+    getEl(): HTMLImageElement;
+    setAttr(attr: Attr[]): this;
+    setClassName(iter: string[]): this;
+    setSrc(url: string): this;
+    hidden(): this;
+    removeLoaded(): this;
+    removeHidden(): this;
     loaded(): this;
-    onTransitioned(cb?: mergeFnWithPromiseFn): this;
+    onTransitioned(fn: mergeFnWithPromiseFn): this;
 }

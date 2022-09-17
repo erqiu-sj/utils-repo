@@ -1,3 +1,11 @@
+/*
+ * @Author: 邱狮杰
+ * @Date: 2022-09-12 22:09:41
+ * @LastEditTime: 2022-09-17 13:44:43
+ * @Description:
+ * @FilePath: /repo/packages/imageTransition/src/core/lowQualityImagePlaceholder.ts
+ */
+
 /**
  *
  *
@@ -5,60 +13,66 @@
  *
  *
  */
-import {returnClass, attribute} from '../utils'
-import {NextImage} from '../types'
-import {mergeFnWithPromiseFn} from '@mxnet/types/dts'
+import { mergeFnWithPromiseFn } from '@mxnet/types/dts'
+import { PlaceholderPicture } from '../types'
+import { returnClass } from '../utils'
 
+export class CreatePlaceholderPicture implements PlaceholderPicture {
+  private el: HTMLImageElement
 
-/**
- * @desc 创建过渡后元素
- */
-export class CreateRealisticPostTransitionElements implements NextImage {
-    prevImage: null | HTMLImageElement = null
-    img = document.createElement("img")
-    transitionedCallback: mergeFnWithPromiseFn | null = null
+  constructor(el?: HTMLImageElement) {
+    this.el = el || document.createElement('img')
+  }
 
-    constructor(el: HTMLImageElement) {
-        this.prevImage = el
-    }
+  getEl() {
+    return this.el
+  }
 
-    createImg(): this {
-        const isReturn = this.prevImage?.classList.entries()
-        while (true) {
-            const next = isReturn?.next()
-            if (next?.done) break
-            next?.value?.[1] && this.img.classList.add(next?.value?.[1])
-        }
-        if (this.prevImage?.attributes) {
-            Array.from(this.prevImage?.attributes).forEach(n => {
-                if (/^data/.test(n.name)) this.img.setAttribute(n.name, n.value)
-            })
-        }
-        this.img.classList.add(returnClass('next'))
-        const that = this
-        this.img.addEventListener("transitionend", function ani() {
-            that.transitionedCallback?.()
-            that.img.removeEventListener("transitionend", ani)
-        })
-        return this
-    }
-    
-    setSrc(src: string) {
-        this.img.src = src
-        return this
-    }
+  setAttr(attr: Attr[]): this {
+    attr.forEach(n => {
+      if (/^data/.test(n.name)) this.el.setAttribute(n.name, n.value)
+    })
+    return this
+  }
 
-    getImage() {
-        return this.img
-    }
+  setClassName(iter: string[]): this {
+    iter.forEach(n => {
+      if (!/^mxnet_/g.test(n)) {
+        this.el.classList.add(n)
+      }
+    })
+    return this
+  }
 
-    loaded() {
-        this.img.classList.add("loaded")
-        return this
-    }
+  setSrc(url: string): this {
+    this.el.src = url
+    return this
+  }
 
-    onTransitioned(cb?: mergeFnWithPromiseFn): this {
-        this.transitionedCallback = cb || null
-        return this
-    }
+  hidden(): this {
+    this.el.classList.add(returnClass('hidden'))
+    return this
+  }
+
+  removeLoaded(): this {
+    return this
+  }
+  removeHidden(): this {
+    this.el.classList.remove(returnClass('hidden'))
+    return this
+  }
+
+  loaded(): this {
+    this.el.classList.add(returnClass('pre'))
+    return this
+  }
+
+  onTransitioned(fn: mergeFnWithPromiseFn): this {
+    const that = this
+    this.el.addEventListener('transitionend', function ani() {
+      fn()
+      that.el.removeEventListener('transitionend', ani)
+    })
+    return this
+  }
 }

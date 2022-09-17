@@ -1,87 +1,86 @@
-import {Directive, DirectiveBinding} from 'vue'
-import {ImageTransitionAnimationOptions, NextImage} from './types'
-import {mergeFnWithPromiseFn} from "@mxnet/types/dts"
-import {CreateRealisticPostTransitionElements} from './core/lowQualityImagePlaceholder'
-import {attribute, returnClass} from './utils'
-
+/*
+ * @Author: 邱狮杰
+ * @Date: 2022-09-12 22:09:41
+ * @LastEditTime: 2022-09-17 14:17:22
+ * @Description:
+ * @FilePath: /repo/packages/imageTransition/src/index.ts
+ */
+import { mergeFnWithPromiseFn } from '@mxnet/types/dts'
+import { Directive, DirectiveBinding, Plugin } from 'vue'
+import { ImageReload } from './core/imageReload'
+import { CreatePlaceholderPicture } from './core/lowQualityImagePlaceholder'
+import { ProcessCurrentTransitionElement } from './core/processCurrentTransitionElement'
+import ImgWrapper from './ImgWrapper.vue'
+import { ImageTransitionAnimationOptions, PlaceholderPicture, processCurrentTransitionElement } from './types'
 
 function transitionPrerequisites(el: HTMLImageElement, bind: DirectiveBinding<ImageTransitionAnimationOptions>, cb?: mergeFnWithPromiseFn) {
-    if (el.tagName !== 'IMG') return
-    if (!el.src) return
-    if (!bind.value.def) return
-    cb?.()
+  if (el.tagName !== 'IMG') return
+  if (!el.src) return
+  if (!bind.value.def) return
+  cb?.()
 }
 
+class DispatchRun {
+  private dispatchProcessCurrent: processCurrentTransitionElement
+  private dispatchProcessPreElement: PlaceholderPicture
+  private mount: boolean
+  private bind: DirectiveBinding<ImageTransitionAnimationOptions>
 
-/**
- * @desc 处理当前元素 过渡效果
- */
-class ProcessCurrentElementTransitionEffect {
-    private el: HTMLElement | null
+  constructor(cur: processCurrentTransitionElement, pl: PlaceholderPicture, bind: DirectiveBinding<ImageTransitionAnimationOptions>, mount?: boolean) {
+    this.dispatchProcessCurrent = cur
+    this.dispatchProcessPreElement = pl
+    this.bind = bind
+    this.mount = mount || true
+  }
 
-    constructor(el: HTMLElement) {
-        this.el = el
+  init() {
+    if (this.mount) {
+      this.dispatchProcessCurrent.setSrc('')
+      this.dispatchProcessCurrent.hidden()
+      this.dispatchProcessPreElement.setAttr(this.dispatchProcessCurrent.getOriginalAttributes())
+      this.dispatchProcessPreElement.setClassName(this.dispatchProcessCurrent.getOriginalClassName())
+      this.dispatchProcessPreElement.loaded()
+      this.dispatchProcessPreElement.setSrc(this.bind.value.def)
+      this.dispatchProcessCurrent.onTransitioned(() => {
+        this.dispatchProcessPreElement.hidden()
+        this.dispatchProcessPreElement.getEl().remove()
+      })
     }
+    return this
+  }
 
-    vague(): this {
-        this.el?.classList.add(returnClass("pre"))
-        return this
+  inserDom() {
+    if (this.mount) {
+      this.dispatchProcessCurrent.getEl().parentNode?.insertBefore(this.dispatchProcessPreElement.getEl(), this.dispatchProcessCurrent.getEl().nextElementSibling)
     }
+    return this
+  }
 
-    changeResourcePath(src: string): this {
-        this.el?.setAttribute("src", src)
-        return this
+  imageReload() {
+    if (this.mount) {
+      new ImageReload(this.dispatchProcessCurrent.getOriginalPicture()).onLoad(() => {
+        this.dispatchProcessCurrent.setSrc(this.dispatchProcessCurrent.getOriginalPicture())
+        this.dispatchProcessCurrent.loaded()
+        this.dispatchProcessCurrent.getEl().style.zIndex = '10'
+      })
     }
-
-    loaded() {
-        this.el?.classList.add("loaded")
-        return this
-    }
-
-    hidden() {
-        this.el?.classList.add(returnClass("hidden"))
-        return this
-    }
+    return this
+  }
 }
-
-
-class ImageReload {
-    private img = new Image()
-    private callback: mergeFnWithPromiseFn<void, [Event]> | null = null
-
-    constructor(src: string) {
-        this.img.src = src
-        this.img.onload = (event) => {
-            this.callback?.(event)
-        }
-    }
-
-    onLoad(cb: mergeFnWithPromiseFn<void, [Event]>) {
-        this.callback = cb
-    }
-}
-
 
 const ImageTransitionAnimation: Directive = {
-    mounted(el: HTMLImageElement, bind: DirectiveBinding<ImageTransitionAnimationOptions>) {
-        transitionPrerequisites(el, bind, () => {
-            const realSrc = el.src
-            const realClassName = el.classList.entries()
-            const curImage = new ProcessCurrentElementTransitionEffect(el)
-            const nextImage = new CreateRealisticPostTransitionElements(el).onTransitioned(() => {
-                curImage.hidden()
-            })
-            curImage.vague().changeResourcePath(bind.value.def)
-            el?.parentNode?.insertBefore(nextImage.createImg().getImage(), el.nextElementSibling)
-            new ImageReload(realSrc).onLoad(() => {
-                nextImage.setSrc(realSrc)
-                curImage.loaded()
-                nextImage.loaded()
-            })
-        })
-    },
+  mounted(el: HTMLImageElement, bind: DirectiveBinding<ImageTransitionAnimationOptions>) {
+    transitionPrerequisites(el, bind, () => {
+      new DispatchRun(new ProcessCurrentTransitionElement(el), new CreatePlaceholderPicture(), bind, true).init().inserDom().imageReload()
+    })
+  },
 }
 
-export {
-    ImageTransitionAnimation
+const ImageTransitionAnimationPlugin: Plugin = {
+  install(app, ...options) {
+    app.directive('imgTs', ImageTransitionAnimation)
+    app.component(ImgWrapper.name, ImgWrapper)
+  },
 }
+
+export { ImageTransitionAnimation, ImgWrapper, ImageTransitionAnimationPlugin }

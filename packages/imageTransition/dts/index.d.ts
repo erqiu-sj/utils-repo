@@ -1,3 +1,5 @@
-import { Directive } from 'vue';
+import { Directive, Plugin } from 'vue';
+import ImgWrapper from './ImgWrapper.vue';
 declare const ImageTransitionAnimation: Directive;
-export { ImageTransitionAnimation };
+declare const ImageTransitionAnimationPlugin: Plugin;
+export { ImageTransitionAnimation, ImgWrapper, ImageTransitionAnimationPlugin };

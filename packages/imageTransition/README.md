@@ -1,20 +1,34 @@
-# `@mxnet/imageTransition(不可用)`
+<!--
+ * @Author: 邱狮杰
+ * @Date: 2022-09-12 22:09:41
+ * @LastEditTime: 2022-09-17 14:34:39
+ * @Description:
+ * @FilePath: /repo/packages/imageTransition/README.md
+-->
 
-> 图片过渡动画，启发来自 [你的图片加载，一点都不酷炫！不信You Look Look...](https://juejin.cn/post/7122256732940107813)
+# `@mxnet/imageTransition`
+
+> 图片过渡动画，启发来自 [你的图片加载，一点都不酷炫！不信 You Look Look...](https://juejin.cn/post/7122256732940107813)
 
 ## Usage
 
 ```ts
-import {ImageTransitionAnimation} from '@mxnet/imagetransition'
-import {createApp} from 'vue'
+import { ImageTransitionAnimationPlugin } from "@mxnet/imagetransition";
 
-const app = createApp(App)
+import { createApp } from "vue";
 
-app.directive("imgAni", ImageTransitionAnimation)
+const app = createApp(App);
+// 注册全局组件 ImgWrapper 和 imgTs 指令
+app.use(ImageTransitionAnimationPlugin);
 ```
 
 ```html
-<img src="" v-imgAni="{def: src}"/>
+<img src="" v-imgTs="{def: src}" />
+```
+
+```html
+<!-- src 预加载图片 classNames 注意s  def 占位图 -->
+<ImgWrapper src="" classNames="" def="" />
 ```
 
 ## Principle
@@ -33,7 +47,6 @@ app.directive("imgAni", ImageTransitionAnimation)
 
 来完成这个过渡动画
 
-
 ## Precautions
 
 - 被指令标记的 `img` 元素必须是一个脱离文档流的元素
@@ -46,7 +59,7 @@ app.directive("imgAni", ImageTransitionAnimation)
 
 ```ts
 interface ImageTransitionAnimationOptions {
-    // 默认占位图片
-    def: string
+  // 默认占位图片
+  def: string;
 }
 ```

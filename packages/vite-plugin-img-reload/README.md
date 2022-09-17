@@ -1,40 +1,41 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-09-08 08:56:24
- * @LastEditTime: 2022-09-12 22:05:20
- * @Description: 
+ * @LastEditTime: 2022-09-17 14:40:21
+ * @Description:
  * @FilePath: /repo/packages/vite-plugin-img-reload/README.md
 -->
-# `vite-plugin-img-reload(不可用)`
+
+# `vite-plugin-img-reload`
 
 > 配合 `@mxnet/imagetransition` 指令发挥最大功效
 
 ## Usage
 
 ```ts
-import {resolve} from 'path'
-import vitePluginImgReload from 'vite-plugin-img-reload'
+import { resolve } from "path";
+import vitePluginImgReload from "vite-plugin-img-reload";
 
 // 插件所有选项
 export interface vitePluginImgReloadOption {
-    // 资源路径
-    resourcePathDir?: string
-    // 输出路径
-    outputDir?: string
+  // 资源路径
+  resourcePathDir?: string;
+  // 输出路径
+  outputDir?: string;
 }
 
 const config = new ViteConfiguration()
-    .setScenes('mobile')
-    .setTechnologyStack('vue', {})
-    .addAutoImport({})
-    .getConfig({
-        plugins: [
-            inspect(),
-            ImgReload({
-                resourcePathDir: resolve("./src/assets/")
-            })
-        ],
-    }) as UserConfig
+  .setScenes("mobile")
+  .setTechnologyStack("vue", {})
+  .addAutoImport({})
+  .getConfig({
+    plugins: [
+      inspect(),
+      ImgReload({
+        resourcePathDir: resolve("./src/assets/"),
+      }),
+    ],
+  }) as UserConfig;
 ```
 
 ## Principle
@@ -47,14 +48,13 @@ const config = new ViteConfiguration()
 
 我们渴望看见一个轮廓后 慢慢等到图片加载 ，这时候我们需要一个占位图，但我们又不希望占位图消耗太多资源
 
-当 插件中的 `resourcePathDir`  参数不为空时候，插件会去查找该路径下的所有图片并且转为极小的`base64`
+当 插件中的 `resourcePathDir` 参数不为空时候，插件会去查找该路径下的所有图片并且转为极小的`base64`
 
 生成一个 `base64` 集合文件 , 生成于 `vite.root` 参数路径 或指定的 `outputDir` 参数路径
 
 你可以尽情的引用这个极小的资源文件
- 
-后配合 `@mxnet/imagetransition` 指令 当原图加载完成后 丝滑的从缩略图切换至原图
 
+后配合 `@mxnet/imagetransition` 指令 当原图加载完成后 丝滑的从缩略图切换至原图
 
 ### 原图
 
