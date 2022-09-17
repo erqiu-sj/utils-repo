@@ -21,7 +21,7 @@
   ],
   "types": "./dts/index.d.ts",
   "publishConfig": {
-    "registry": "https://registry.npmmirror.com/"
+    "registry": "https://registry.npmjs.com/"
   },
   "repository": {
     "type": "git",
@@ -36,5 +36,6 @@
   "dependencies": {
     "fs-extra": "^10.1.0",
     "lqip": "^2.1.0"
-  }
+  },
+  "gitHead": "7db8d7ea243f6cade9757169517c0379e8b873a8"
 }
