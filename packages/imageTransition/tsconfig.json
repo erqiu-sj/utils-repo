@@ -99,6 +99,7 @@
     "skipLibCheck": true
     /* Skip type checking all .d.ts files. */
   },
+  "include": ["./src", "./src/ImgWrapper.vue"],
   "vueCompilerOptions": {
     "jsx": "preserve",
     "experimentalDisableTemplateSupport": true
