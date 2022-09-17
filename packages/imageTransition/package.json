@@ -21,7 +21,8 @@
     "dist"
   ],
   "publishConfig": {
-    "registry": "https://registry.npmjs.com/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -34,5 +35,5 @@
     "@mxnet/types": "^0.1.3",
     "vue": "^3.2.33"
   },
-  "gitHead": "7db8d7ea243f6cade9757169517c0379e8b873a8"
+  "gitHead": "b39aa152e313f48fe6a357c25e2b116dd614431d"
 }
