@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.3](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/utils@0.7.2...@mxnet/utils@0.7.3) (2022-09-25)
+
+
+### Bug Fixes
+
+* **all:** update all bug add build all shell file ([5c8b47a](https://gitee.com/cq_maixun_network/repo/commits/5c8b47ac882566e72ae623db4c37a10fb19d400a))
+
+
+
+
+
 ## [0.7.2](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/utils@0.7.1...@mxnet/utils@0.7.2) (2022-09-17)
 
 **Note:** Version bump only for package @mxnet/utils

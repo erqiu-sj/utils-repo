@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.5](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/wechatpublicaccounthelper@0.2.4...@mxnet/wechatpublicaccounthelper@0.2.5) (2022-09-25)
+
+
+### Bug Fixes
+
+* **all:** update all bug add build all shell file ([5c8b47a](https://gitee.com/cq_maixun_network/repo/commits/5c8b47ac882566e72ae623db4c37a10fb19d400a))
+
+
+
+
+
 ## [0.2.4](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/wechatpublicaccounthelper@0.2.3...@mxnet/wechatpublicaccounthelper@0.2.4) (2022-09-02)
 
 **Note:** Version bump only for package @mxnet/wechatpublicaccounthelper

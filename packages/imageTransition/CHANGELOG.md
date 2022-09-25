@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/imagetransition@0.1.3...@mxnet/imagetransition@0.1.4) (2022-09-25)
+
+
+### Bug Fixes
+
+* **all:** update all bug add build all shell file ([5c8b47a](https://gitee.com/cq_maixun_network/repo/commits/5c8b47ac882566e72ae623db4c37a10fb19d400a))
+
+
+
+
+
 ## [0.1.3](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/imagetransition@0.1.2...@mxnet/imagetransition@0.1.3) (2022-09-17)
 
 
