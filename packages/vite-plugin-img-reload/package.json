@@ -13,7 +13,7 @@
   "author": "hooks_28 <1r56955415918@qq.com>",
   "homepage": "",
   "license": "MIT",
-  "main": "./dist/index.js",
+  "main": "./lib/index.js",
   "module": "./dist/index.js",
   "files": [
     "dist",
@@ -29,7 +29,9 @@
     "url": "https://gitee.com/cq_maixun_network/repo.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build:es": "tsc --module ESNext --outDir ./dist --moduleResolution node",
+    "build:cj": "tsc --module CommonJS --outDir ./lib",
+    "build": "yarn run build:es & yarn run  build:cj"
   },
   "devDependencies": {
     "vite": "^3.1.0"

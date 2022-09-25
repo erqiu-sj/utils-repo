@@ -2,9 +2,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-07-02 20:35:19
- * @LastEditTime: 2022-07-02 22:37:32
+ * @LastEditTime: 2022-09-18 10:08:49
  * @Description: 终止网络请求
- * @FilePath: /repo/packages/service/src/utils/terminationResult.ts
+ * @FilePath: /marketings/Users/devops/Desktop/maixun/repo/packages/service/src/utils/terminationResult.ts
  */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -22,7 +22,7 @@ class TerminationResult {
             },
             terminateTrigger() {
                 cancel.cancel();
-            }
+            },
         };
     }
 }

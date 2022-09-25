@@ -1,4 +1,4 @@
-import { PluginOption, UserConfigExport } from 'vite';
+import { PluginOption } from 'vite';
 import { injectionConfigurationWithPostcssPxToViewport } from '../plugin/postcssPxToViewport';
 import { scenesTypes, technologyStackTypes } from './base';
 /**
@@ -7,7 +7,7 @@ import { scenesTypes, technologyStackTypes } from './base';
  */
 export interface ScenarioExpectations {
     scenes: scenesTypes;
-    defaultNotConfigurable(): UserConfigExport;
+    defaultNotConfigurable(): PluginOption;
     setScene(type: scenesTypes): this;
     getConfig(): PluginOption;
 }

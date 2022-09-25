@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 11:37:24
- * @LastEditTime: 2022-09-10 10:23:43
+ * @LastEditTime: 2022-09-18 09:56:37
  * @Description:
- * @FilePath: /repo/packages/service/src/core/create.ts
+ * @FilePath: /marketings/Users/devops/Desktop/maixun/repo/packages/service/src/core/create.ts
  */
 
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
@@ -103,7 +103,7 @@ export class Service<V extends string[] = string[], T extends unknown = unknown>
   addAppletAdapter(): this {
     if (this.axios)
       // @ts-ignore
-      this.axios?.defaults?.adapter = axiosMiniprogramAdapter
+      this!.axios!.defaults!.adapter = axiosMiniprogramAdapter
     return this
   }
 

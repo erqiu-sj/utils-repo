@@ -5,6 +5,7 @@
  * @Description:
  * @FilePath: /repo/packages/build/src/common/scenes.ts
  */
+
 import { ScenarioExpectationsForReact } from '../react/base'
 import { determineConfigurationAccordingTechnologyStack, ScenarioExpectations, scenesTypes, technologyStackTypes } from '../types'
 import { ScenarioExpectationsForVue } from '../vue/base'

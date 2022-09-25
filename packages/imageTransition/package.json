@@ -29,7 +29,7 @@
     "url": "https://gitee.com/cq_maixun_network/repo.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "tsc"
   },
   "devDependencies": {
     "@mxnet/types": "^0.1.3",

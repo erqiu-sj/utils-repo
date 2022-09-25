@@ -2,9 +2,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 18:02:55
- * @LastEditTime: 2022-05-28 18:02:55
+ * @LastEditTime: 2022-09-18 10:07:23
  * @Description:
- * @FilePath: /repo/packages/service/src/utils/cancel.ts
+ * @FilePath: /marketings/Users/devops/Desktop/maixun/repo/packages/service/src/utils/cancel.ts
  */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };

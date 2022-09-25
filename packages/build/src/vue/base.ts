@@ -1,14 +1,13 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-10 23:13:23
- * @LastEditTime: 2022-09-04 16:17:50
+ * @LastEditTime: 2022-09-25 12:22:21
  * @Description:
  * @FilePath: /repo/packages/build/src/vue/base.ts
  */
+
 import vue from '@vitejs/plugin-vue'
-import defaultsDeep from 'lodash.defaultsdeep'
-import { PluginOption, UserConfig, UserConfigExport } from 'vite'
-import { getGenPluginConfig } from '../common/genConfig'
+import { PluginOption } from 'vite'
 import { PostcssPxToViewport } from '../plugin/postcssPxToViewport'
 import { scenesTypes } from '../types/base'
 import { ScenarioExpectations, ScenarioExpectationsForVueDefaultOptionTypes } from '../types/scenes'
@@ -22,37 +21,30 @@ export class ScenarioExpectationsForVue implements ScenarioExpectations {
   constructor(defaultOptions?: ScenarioExpectationsForVueDefaultOptionTypes<'pc'>) {
     this.defaultConfig = defaultOptions
   }
-  defaultNotConfigurable(): UserConfigExport {
-    return {
-      plugins: [vue()],
-    }
+
+  defaultNotConfigurable(): PluginOption {
+    return [vue()]
   }
   setScene(type: scenesTypes): this {
     this.scenes = type
     return this
   }
 
-  private getPcConfig(): UserConfig {
-    const config: UserConfigExport = {}
-    defaultsDeep(config, this.defaultNotConfigurable())
-    return config
+  private getPcConfig(): PluginOption {
+    return this.defaultNotConfigurable()
   }
 
-  private getMobileConfig(): UserConfig {
-    const config: UserConfigExport = {}
-    defaultsDeep(config, this.schedulingDefaultMobileConfiguration(), this.defaultNotConfigurable())
-    return config
+  private getMobileConfig(): PluginOption {
+    return [this.defaultNotConfigurable(), this.schedulingDefaultMobileConfiguration()]
   }
 
   private schedulingDefaultMobileConfiguration() {
-    let config: UserConfigExport = {}
     const mobileConfig = this.defaultConfig as ScenarioExpectationsForVueDefaultOptionTypes<'mobile'>
-    this.postcssPxToViewport.injectionConfiguration(config, mobileConfig?.postcssPxToViewport ?? mobileConfig?.default)
-    return config
+    return this.postcssPxToViewport.injectionConfiguration(mobileConfig?.postcssPxToViewport ?? mobileConfig?.default)
   }
 
   getConfig(): PluginOption {
     const options = this.scenes === 'mobile' ? this.getMobileConfig() : this.getPcConfig()
-    return options.plugins
+    return options
   }
 }

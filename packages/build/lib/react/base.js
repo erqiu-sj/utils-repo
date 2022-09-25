@@ -7,13 +7,11 @@ exports.ScenarioExpectationsForReact = void 0;
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-12 21:58:41
- * @LastEditTime: 2022-09-04 16:12:45
+ * @LastEditTime: 2022-09-24 22:52:27
  * @Description:
  * @FilePath: /repo/packages/build/src/react/base.ts
  */
 const plugin_react_1 = __importDefault(require("@vitejs/plugin-react"));
-const lodash_defaultsdeep_1 = __importDefault(require("lodash.defaultsdeep"));
-const genConfig_1 = require("../common/genConfig");
 const postcssPxToViewport_1 = require("../plugin/postcssPxToViewport");
 class ScenarioExpectationsForReact {
     constructor(defaultOptions) {
@@ -22,9 +20,7 @@ class ScenarioExpectationsForReact {
         this.defaultConfig = defaultOptions;
     }
     defaultNotConfigurable() {
-        return {
-            plugins: [(0, plugin_react_1.default)()],
-        };
+        return [(0, plugin_react_1.default)()];
     }
     getPcConfig() {
         return {
@@ -32,28 +28,20 @@ class ScenarioExpectationsForReact {
         };
     }
     getMobileConfig() {
-        return this.schedulingDefaultMobileConfiguration();
+        return [this.defaultNotConfigurable(), this.schedulingDefaultMobileConfiguration()];
     }
     schedulingDefaultMobileConfiguration() {
         var _a;
-        let config = {};
         const mobileConfig = this.defaultConfig;
-        this.postcssPxToViewport.injectionConfiguration(config, (_a = mobileConfig === null || mobileConfig === void 0 ? void 0 : mobileConfig.postcssPxToViewport) !== null && _a !== void 0 ? _a : mobileConfig === null || mobileConfig === void 0 ? void 0 : mobileConfig.default);
-        return (0, lodash_defaultsdeep_1.default)(config, this.defaultNotConfigurable());
+        return this.postcssPxToViewport.injectionConfiguration((_a = mobileConfig === null || mobileConfig === void 0 ? void 0 : mobileConfig.postcssPxToViewport) !== null && _a !== void 0 ? _a : mobileConfig === null || mobileConfig === void 0 ? void 0 : mobileConfig.default);
     }
     setScene(type) {
         this.scenes = type;
         return this;
     }
     getConfig() {
-        const result = this.scenes === 'mobile' ? this.getMobileConfig() : this.getPcConfig();
-        return (0, genConfig_1.getGenPluginConfig)({
-            name: 'scenesReact',
-            enforce: 'pre',
-            config: () => {
-                return result;
-            },
-        });
+        const result = this.scenes === 'mobile' ? this.getMobileConfig() : this.getPcConfig().plugins;
+        return [result];
     }
 }
 exports.ScenarioExpectationsForReact = ScenarioExpectationsForReact;

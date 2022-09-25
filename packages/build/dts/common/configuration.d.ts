@@ -3,7 +3,7 @@ import { VitePWAOptions } from 'vite-plugin-pwa';
 import { viteVConsoleOptions } from 'vite-plugin-vconsole';
 import { autoImportOptions } from '../plugin/autoImport';
 import { determineConfigurationAccordingTechnologyStack, eliminatePropertiesBasedTechnologyStack, scenesTypes, technologyStackTypes } from '../types';
-export declare class ViteConfiguration<T extends technologyStackTypes> {
+export declare class ViteConfiguration {
     protected config: UserConfigExport;
     private scenes;
     private alias;

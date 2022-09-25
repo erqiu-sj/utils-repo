@@ -1,22 +1,26 @@
+"use strict";
 /*
  * @Author: 邱狮杰
  * @Date: 2022-09-06 23:46:43
- * @LastEditTime: 2022-09-07 09:14:36
+ * @LastEditTime: 2022-09-25 10:43:10
  * @Description:
  * @FilePath: /repo/packages/vite-plugin-img-reload/src/plugin.ts
  */
-import { ImgReloadContext } from './utils';
+Object.defineProperty(exports, "__esModule", { value: true });
+const path_1 = require("path");
+const context_1 = require("./context");
+const loadFile_1 = require("./loadFile");
 const vitePluginImgReload = {
     name: 'vite-plugin-img-reload',
 };
-// - 图片 更新 逻辑通过指令完成 指令需要一个 超模糊 base64 路径
-// - vite - plugin 取到 src 并且转为 模糊的 base64 后 放入 指令参数中, 又指令处理各种 image 操作
-export default (ops) => {
-    const ctx = new ImgReloadContext(ops);
+exports.default = (ops) => {
     return {
         name: vitePluginImgReload.name,
         enforce: 'pre',
-        configResolved() {
+        configResolved(config) {
+            const ctx = new context_1.ImgReloadContext(Object.assign(Object.assign({}, ops), { outputDir: (ops === null || ops === void 0 ? void 0 : ops.outputDir) || config.root }));
+            // 初始化css文件
+            new loadFile_1.LoadFile().loadCssFile((0, path_1.resolve)(config.root, 'imgReload.css'), (0, path_1.resolve)(__dirname, './imgReload.css'));
             ctx.genOutputDir();
             ctx.genResourcePathDir();
         },

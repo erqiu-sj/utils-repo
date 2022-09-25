@@ -1,4 +1,4 @@
-import { PluginOption, UserConfig } from 'vite';
+import { PluginOption } from 'vite';
 import { PostcssPxToViewport } from '../plugin/postcssPxToViewport';
 import { ScenarioExpectations, ScenarioExpectationsForReactDefaultOptionTypes, scenesTypes } from '../types';
 export declare class ScenarioExpectationsForReact implements ScenarioExpectations {
@@ -6,7 +6,7 @@ export declare class ScenarioExpectationsForReact implements ScenarioExpectation
     postcssPxToViewport: PostcssPxToViewport;
     private defaultConfig?;
     constructor(defaultOptions?: ScenarioExpectationsForReactDefaultOptionTypes<'pc'>);
-    defaultNotConfigurable(): UserConfig;
+    defaultNotConfigurable(): PluginOption;
     private getPcConfig;
     private getMobileConfig;
     private schedulingDefaultMobileConfiguration;

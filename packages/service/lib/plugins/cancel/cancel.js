@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 17:56:58
- * @LastEditTime: 2022-08-21 13:31:58
+ * @LastEditTime: 2022-09-18 10:13:51
  * @Description:
  * @FilePath: /repo/packages/service/src/plugins/cancel/cancel.ts
  */
@@ -23,8 +23,9 @@ class Cancel {
     requestSuccessInterceptor(config) {
         var _a;
         const rule = ((_a = config.cancellationRules) === null || _a === void 0 ? void 0 : _a.call(config, config)) || (0, config_1.defaultRules)(config);
-        if (rule && config_1.requestContainer.has(rule))
+        if (rule && config_1.requestContainer.has(rule)) {
             (0, cancel_1.requestCancellationHepler)(config);
+        }
         else if (rule)
             config_1.requestContainer.set(rule, true);
     }
@@ -37,7 +38,9 @@ class Cancel {
     }
 }
 __decorate([
-    (0, decorator_1.allowExecution)(config => Reflect.get(config.headers || {}, 'cancelHeader') === config_1.cancelHeader)
+    (0, decorator_1.allowExecution)(config => {
+        return Reflect.get(config.headers || {}, 'cancelHeader') === config_1.cancelHeader;
+    })
 ], Cancel.prototype, "requestSuccessInterceptor", null);
 __decorate([
     (0, decorator_1.allowExecution)(config => {

@@ -29,6 +29,8 @@
     "build": "yarn run build:es & yarn run  build:cj"
   },
   "devDependencies": {
+    "@mxnet/taro": "^0.8.4",
+    "@mxnet/types": "^0.1.3",
     "axios": "^0.27.2"
   },
   "dependencies": {

@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-09-06 23:48:36
- * @LastEditTime: 2022-09-17 10:56:24
+ * @LastEditTime: 2022-09-25 10:32:23
  * @Description:
  * @FilePath: /repo/packages/vite-plugin-img-reload/src/context.ts
  */
@@ -38,7 +38,7 @@ export class ImgReloadContext {
 
   // 文件名转变量名
   filenameConversionVariable(fileName: string) {
-    return fileName.replace(/\./g, '_')
+    return fileName.replace(/(\.|-)/g, '_')
   }
 
   processingResourcePathDir() {
@@ -52,16 +52,21 @@ export class ImgReloadContext {
           }
         })
         for (const key in soureceList) {
-          const base64Source = await base64(soureceList[key].joinSourcePath)
-          const outPutFilePath = resolve(this.ops.outputDir as string, constant.constantCollectionFilename)
-          soureceList[key] = {
-            ...soureceList[key],
-            base64Source,
-            outPutFilePath,
-          }
+          try {
+            const base64Source = await base64(soureceList[key].joinSourcePath)
+            const outPutFilePath = resolve(this.ops.outputDir as string, constant.constantCollectionFilename)
+            soureceList[key] = {
+              ...soureceList[key],
+              base64Source,
+              outPutFilePath,
+            }
+          } catch {}
         }
+
         const outPutFilePath = resolve(this.ops.outputDir as string, constant.constantCollectionFilename)
-        const content = soureceList.map(n => `export const ${this.filenameConversionVariable(n.fileName)} = '${n.base64Source}'`).join('\r\n')
+
+        const content = soureceList.map(n => `export const ${this.filenameConversionVariable(n.fileName)} = '${n.base64Source}';`).join('\r\n')
+
         pathExists(outPutFilePath).then(hasFile => {
           if (hasFile) return
           createFile(outPutFilePath).then(() => {

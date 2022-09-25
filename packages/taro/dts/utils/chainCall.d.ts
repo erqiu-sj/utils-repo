@@ -1,10 +1,10 @@
-import * as taro from "@tarojs/taro";
-export declare type getAllParameterTypesOfFunction<T extends allTaroApi> = (typeof taro)[T] extends (...args: any) => any ? NonNullable<Parameters<(typeof taro)[T]>[0]> : never;
+import * as taro from '@tarojs/taro';
+export declare type getAllParameterTypesOfFunction<T extends allTaroApi> = typeof taro[T] extends (...args: any) => any ? NonNullable<Parameters<typeof taro[T]>[0]> : never;
 export declare type allTaroApi = keyof typeof taro;
 export interface CallbackOptions {
-    success?: ((...args: unknown[]) => unknown);
-    fail?: ((...args: unknown[]) => unknown);
-    complete?: ((...args: unknown[]) => unknown);
+    success?: (...args: unknown[]) => unknown;
+    fail?: (...args: unknown[]) => unknown;
+    complete?: (...args: unknown[]) => unknown;
 }
 export declare class Callback<P extends CallbackOptions> {
     private callbackCollector;

@@ -1,6 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Scenes = void 0;
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-12 21:51:08
@@ -8,6 +6,8 @@ exports.Scenes = void 0;
  * @Description:
  * @FilePath: /repo/packages/build/src/common/scenes.ts
  */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Scenes = void 0;
 const base_1 = require("../react/base");
 const base_2 = require("../vue/base");
 class Scenes {

@@ -1,12 +1,11 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-12 17:58:13
- * @LastEditTime: 2022-09-04 16:18:16
+ * @LastEditTime: 2022-09-25 10:43:51
  * @Description:
  * @FilePath: /repo/packages/build/src/common/configuration.ts
  */
 
-import defaultsdeep from 'lodash.defaultsdeep'
 import { PluginOption, UserConfig, UserConfigExport } from 'vite'
 import { VitePWAOptions } from 'vite-plugin-pwa'
 import { viteVConsoleOptions } from 'vite-plugin-vconsole'
@@ -18,7 +17,7 @@ import { Vconsole } from '../plugin/vconsole'
 import { determineConfigurationAccordingTechnologyStack, eliminatePropertiesBasedTechnologyStack, scenesTypes, technologyStackTypes } from '../types'
 import { Scenes } from './scenes'
 
-export class ViteConfiguration<T extends technologyStackTypes> {
+export class ViteConfiguration {
   protected config: UserConfigExport = {}
 
   private scenes = new Scenes()
@@ -38,6 +37,7 @@ export class ViteConfiguration<T extends technologyStackTypes> {
     this.scenes.setScenes(type)
     return this
   }
+
   // 设置技术栈
   setTechnologyStack<Ty extends technologyStackTypes, S extends scenesTypes>(type: Ty, ops?: determineConfigurationAccordingTechnologyStack<Ty, S>): eliminatePropertiesBasedTechnologyStack<Ty, this> {
     this.scenes.setTechnologyStack(type, ops)

@@ -1,4 +1,4 @@
-import { PluginOption, UserConfigExport } from 'vite';
+import { PluginOption } from 'vite';
 import { PostcssPxToViewport } from '../plugin/postcssPxToViewport';
 import { scenesTypes } from '../types/base';
 import { ScenarioExpectations, ScenarioExpectationsForVueDefaultOptionTypes } from '../types/scenes';
@@ -7,7 +7,7 @@ export declare class ScenarioExpectationsForVue implements ScenarioExpectations 
     postcssPxToViewport: PostcssPxToViewport;
     private defaultConfig?;
     constructor(defaultOptions?: ScenarioExpectationsForVueDefaultOptionTypes<'pc'>);
-    defaultNotConfigurable(): UserConfigExport;
+    defaultNotConfigurable(): PluginOption;
     setScene(type: scenesTypes): this;
     private getPcConfig;
     private getMobileConfig;

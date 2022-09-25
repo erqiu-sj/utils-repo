@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-07-17 22:07:33
- * @LastEditTime: 2022-07-23 13:23:59
+ * @LastEditTime: 2022-09-25 11:27:32
  * @Description:
  * @FilePath: /repo/packages/weChatPublicAccountHelper/src/common/weChatApiHelper.ts
  */
@@ -44,6 +44,7 @@ export class CallbackCollector {
   }
 
   protected getCallbacks<T extends keyof CallbackCollectorMapper>(key: T): CallbackCollectorMapper[T] {
+    // @ts-ignore
     return Reflect.get(this.callbackMapper, key)
   }
 
@@ -62,5 +63,4 @@ export abstract class ProcessingConfiguration<T = unknown> {
   abstract readConfiguration(conf: T): this
   // 获取配置
   abstract getConfiguration(): T | undefined
-
 }

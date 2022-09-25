@@ -1,6 +1,17 @@
-import { describe, it, expect } from 'vitest'
+/*
+ * @Author: 邱狮杰
+ * @Date: 2022-05-13 12:56:23
+ * @LastEditTime: 2022-09-25 12:34:29
+ * @Description:
+ * @FilePath: /repo/packages/build/__test__/default.test.ts
+ */
 import { UserConfig } from 'vite'
+import { describe, expect, it } from 'vitest'
 import { ViteConfiguration } from '../src/index'
+
+function havePostCssPxToViewPort(config?: UserConfig) {
+  return config?.plugins?.flat(2).find(n => n?.['name'] === '@mxnet/postcssPxToViewport')
+}
 
 describe('vue default config', () => {
   describe('mobile mode', () => {
@@ -8,7 +19,7 @@ describe('vue default config', () => {
       const config = new ViteConfiguration().setScenes('mobile').setTechnologyStack<'vue', 'mobile'>('vue', { default: false })
       // 返回值不为空
       expect(config.getConfig()).toBeDefined()
-      expect((config.getConfig() as UserConfig).plugins).toHaveLength(1)
+      expect(havePostCssPxToViewPort(config.getConfig() as UserConfig)).toBeUndefined()
     })
 
     it('default configuration is injected into postcss plugins -- postcss px to viewport', () => {
@@ -16,7 +27,7 @@ describe('vue default config', () => {
       // 返回值不为空
       expect(config.getConfig()).toBeDefined()
       // in mobile 默认注入postcss配置
-      expect(((config.getConfig() as UserConfig)?.css?.postcss as { plugins: unknown[] })?.plugins).toHaveLength(1)
+      expect(havePostCssPxToViewPort(config.getConfig() as UserConfig)).toBeDefined()
     })
   })
 })
@@ -28,7 +39,7 @@ describe('react default config', () => {
       const getConfig = config.getConfig() as UserConfig
       // 返回值不为空
       expect(getConfig).toBeDefined()
-      expect(getConfig.plugins).toHaveLength(1)
+      expect(havePostCssPxToViewPort(getConfig)).not.toBeDefined()
     })
 
     it('default configuration is injected into postcss plugins -- postcss px to viewport', () => {
@@ -37,7 +48,7 @@ describe('react default config', () => {
       // 返回值不为空
       expect(getConfig).toBeDefined()
       // in mobile 默认注入postcss配置
-      expect(((config.getConfig() as UserConfig)?.css?.postcss as { plugins: unknown[] })?.plugins).toHaveLength(1)
+      expect(havePostCssPxToViewPort(getConfig)).toBeDefined()
     })
   })
 })

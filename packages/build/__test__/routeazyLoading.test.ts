@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-20 21:09:31
- * @LastEditTime: 2022-08-20 21:22:20
+ * @LastEditTime: 2022-09-25 11:50:33
  * @Description:
  * @FilePath: /repo/packages/build/__test__/routeazyLoading.test.ts
  */
@@ -25,7 +25,11 @@ it('add router lazy loading', () => {
       },
     }) as UserConfig
 
-  const result = Object.keys(Reflect.get(config.build?.rollupOptions?.output as object, 'manualChunks'))
+  expect(config.plugins).toHaveLength(2)
 
-  expect(result).toHaveLength(1)
+  // const result = Object.keys(Reflect.get(config.build?.rollupOptions?.output as object, 'manualChunks'))
+
+  // console.log(result, 'result')
+
+  // expect(result).toHaveLength(1)
 })

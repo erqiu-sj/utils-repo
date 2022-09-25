@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 18:04:23
- * @LastEditTime: 2022-08-21 13:25:53
+ * @LastEditTime: 2022-09-18 10:06:30
  * @Description:
- * @FilePath: /repo/packages/service/src/plugins/cancel/config.ts
+ * @FilePath: /marketings/Users/devops/Desktop/maixun/repo/packages/service/src/plugins/cancel/config.ts
  */
 
 import { AxiosRequestConfig } from 'axios'
@@ -18,7 +18,8 @@ export const cancelHeader = 'cancelVerification'
 export const requestContainer = new Map<requestRule, boolean>()
 
 export function defaultRules(config: AxiosRequestConfig): requestRule {
-  return `${config.url || config.baseURL}&${config.method}`
+  const params = (config.params && JSON.stringify(config.params)) || ''
+  return `${config.url || config.baseURL}&${config.method}&${params}`
 }
 
 // 请求配置

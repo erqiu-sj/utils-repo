@@ -1,5 +1,4 @@
-import { UserConfigExport } from 'vite';
-import { defaultInjectionPlugins } from '../types';
+import { PluginOption } from 'vite';
 export interface postcssPxToViewportOptions {
     unitToConvert: string;
     viewportWidth: number;
@@ -12,6 +11,7 @@ export interface postcssPxToViewportOptions {
     minPixelValue: number;
     mediaQuery: boolean;
     replace: boolean;
+    exclude: string[];
     landscape: boolean;
     landscapeUnit: string;
     landscapeWidth: string;
@@ -20,7 +20,8 @@ export declare type injectionConfigurationWithPostcssPxToViewport = boolean | Pa
 /**
  * @description 适用于mobile的px转vw的postcss插件
  */
-export declare class PostcssPxToViewport implements defaultInjectionPlugins {
+export declare class PostcssPxToViewport {
+    private ops;
     getPlugin(ops: Partial<postcssPxToViewportOptions>): any;
-    injectionConfiguration(viteConfig: UserConfigExport, config?: injectionConfigurationWithPostcssPxToViewport): UserConfigExport;
+    injectionConfiguration(config?: injectionConfigurationWithPostcssPxToViewport): PluginOption;
 }

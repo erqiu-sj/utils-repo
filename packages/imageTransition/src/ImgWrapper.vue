@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-09-17 13:49:30
- * @LastEditTime: 2022-09-17 14:28:16
+ * @LastEditTime: 2022-09-25 11:02:31
  * @Description: 
  * @FilePath: /repo/packages/imageTransition/src/ImgWrapper.vue
 -->
@@ -13,7 +13,7 @@ export default {
 
 <script lang="ts" setup>
 import { ImageTransitionAnimationOptions } from './types'
-import { useAttrs, defineProps } from 'vue'
+import { useAttrs } from 'vue'
 const props = useAttrs() as unknown as ImageTransitionAnimationOptions & HTMLElement & HTMLImageElement
 </script>
 
@@ -28,7 +28,7 @@ const props = useAttrs() as unknown as ImageTransitionAnimationOptions & HTMLEle
   position: relative;
   .mxnet_img_wrapper_child {
     position: absolute;
-    height: 100%;
+    // height: 100%;
     width: 100%;
   }
 }

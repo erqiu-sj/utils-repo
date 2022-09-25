@@ -1,0 +1,19 @@
+.mxnet_hidden {
+  opacity: 0 !important;
+}
+
+.mxnet_pre {
+  opacity: 1;
+  filter: blur(10px);
+  transition: all 2s ease-in-out;
+}
+
+.mxnet_loaded {
+  filter: blur(0);
+  opacity: 1 !important;
+}
+
+.mxnet_next {
+  opacity: 0;
+  transition: all 2s ease-in-out;
+}

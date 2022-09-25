@@ -85,7 +85,7 @@ declare type getCallParameters<T extends downloadFileOptions['downloadLocation']
 export declare class DownloadFile<C = downloadFileCallback, K extends downloadFileOptions['downloadLocation'] = downloadFileOptions['downloadLocation']> extends Callback<C> {
     private ops?;
     constructor();
-    setDownloadLocation<T extends downloadFileOptions['downloadLocation'] = downloadFileOptions['downloadLocation']>(type: T): Omit<DownloadFile<withDownloadLocationTypeCallBack<T>, T>, 'setCallback'>;
+    setDownloadLocation<T extends downloadFileOptions['downloadLocation'] = downloadFileOptions['downloadLocation']>(type: T): Omit<DownloadFile<withDownloadLocationTypeCallBack<T>, T>, 'setCallback' | 'callTrigger' | 'setDownloadLocation'>;
     private cacheDownload;
     private writeFile;
     down(params: getCallParameters<K>): void;
