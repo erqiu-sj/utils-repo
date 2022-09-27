@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.9](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/service@0.6.8...@mxnet/service@0.6.9) (2022-09-27)
+
+
+### Bug Fixes
+
+* **@mxnet/service:** fix types ([34b01f7](https://gitee.com/cq_maixun_network/repo/commits/34b01f73cf0f92129e74ced2eaf205627f5e64b7))
+
+
+
+
+
 ## [0.6.8](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/service@0.6.7...@mxnet/service@0.6.8) (2022-09-25)
 
 
