@@ -2,9 +2,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 11:37:24
- * @LastEditTime: 2022-09-18 09:56:37
+ * @LastEditTime: 2022-09-27 23:30:52
  * @Description:
- * @FilePath: /marketings/Users/devops/Desktop/maixun/repo/packages/service/src/core/create.ts
+ * @FilePath: /repo/packages/service/src/core/create.ts
  */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }

@@ -1,9 +1,9 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 11:37:24
- * @LastEditTime: 2022-09-18 09:56:37
+ * @LastEditTime: 2022-09-27 23:30:52
  * @Description:
- * @FilePath: /marketings/Users/devops/Desktop/maixun/repo/packages/service/src/core/create.ts
+ * @FilePath: /repo/packages/service/src/core/create.ts
  */
 
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
@@ -108,7 +108,7 @@ export class Service<V extends string[] = string[], T extends unknown = unknown>
   }
 
   getAxios() {
-    return async <R>(config?: ServiceRequestConfig<V> & T): Promise<Awaited<requestResultType<R>>> => {
+    return async <R>(config?: Partial<ServiceRequestConfig<V> & T>): Promise<Awaited<requestResultType<R>>> => {
       // 缓存先决条件判断
       const cachePrerequisiteJudgment = new CachePrerequisites(config || {})
       if (cachePrerequisiteJudgment.areThereCachePrerequisites()) {
