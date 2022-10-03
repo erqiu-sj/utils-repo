@@ -1,6 +1,6 @@
 {
   "name": "@mxnet/service",
-  "version": "0.6.10",
+  "version": "0.6.11",
   "private": false,
   "description": "service",
   "keywords": [
@@ -29,7 +29,7 @@
     "build": "yarn run build:es & yarn run  build:cj"
   },
   "devDependencies": {
-    "@mxnet/taro": "^0.8.6",
+    "@mxnet/taro": "^0.9.0",
     "@mxnet/types": "^0.1.4",
     "axios": "^0.27.2"
   },
