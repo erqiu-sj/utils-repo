@@ -41,7 +41,7 @@ export default defineConfig({
         pure_getters: true,
         unsafe: true,
         unsafe_comps: true,
-        drop_console: true,
+        drop_console: false,
         drop_debugger: true,
       },
     }),

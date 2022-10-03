@@ -18,7 +18,8 @@
     "test": "__tests__"
   },
   "files": [
-    "dts"
+    "dts",
+    "src"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",

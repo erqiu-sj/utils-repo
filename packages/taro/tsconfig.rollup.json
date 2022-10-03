@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "es6",
+    "module": "ESNext",
     "downlevelIteration": true,
     "baseUrl": ".",
     "declaration": true,
     "types": ["node"],
     "declarationDir": "./dts"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "./index.d.ts"]
 }

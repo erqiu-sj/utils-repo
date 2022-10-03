@@ -32,5 +32,8 @@
     "react": "^18.2.0",
     "rollup-plugin-typescript2": "^0.32.1"
   },
-  "gitHead": "fb2e27f15ac5c912126a86d9267716a52cfb6075"
+  "gitHead": "fb2e27f15ac5c912126a86d9267716a52cfb6075",
+  "dependencies": {
+    "@mxnet/types": "^0.1.3"
+  }
 }
