@@ -1,12 +1,12 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-01 17:15:33
- * @LastEditTime: 2022-10-03 11:44:39
+ * @LastEditTime: 2022-10-03 12:25:08
  * @Description:
  * @FilePath: /repo/packages/taro/src/hooks/useAudio.ts
  */
 
-import { getReactApi, getTaroApi, ReactInstance, TaroInstance } from '../utils/importTaro'
+import { ReactInstance, TaroInstance } from '../utils/importTaro'
 
 interface onErrorDetail extends TaroGeneral.CallbackResult {
   /** 错误码 */
@@ -194,9 +194,6 @@ interface InnerAudioContext {
    */
   offSeeked(callback?: () => void): void
 }
-
-getTaroApi()
-getReactApi()
 
 export function useAudio() {
   // 每次更新保存 audio 实例

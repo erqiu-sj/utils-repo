@@ -5,6 +5,9 @@
  * @Description:
  * @FilePath: /repo/packages/taro/src/index.ts
  */
+import { getTaroApi, getReactApi } from './utils/importTaro'
+getTaroApi()
+getReactApi()
 export { useAudio } from './hooks/useAudio'
 export { ChainCall } from './utils/chainCall'
 export { DownloadFile } from './utils/download'
