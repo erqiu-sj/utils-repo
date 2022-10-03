@@ -1,6 +1,6 @@
 {
   "name": "@mxnet/taro",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "description": "taro utils",
   "keywords": [
     "taro",
@@ -34,6 +34,6 @@
   },
   "gitHead": "fb2e27f15ac5c912126a86d9267716a52cfb6075",
   "dependencies": {
-    "@mxnet/types": "^0.1.3"
+    "@mxnet/types": "^0.1.4"
   }
 }
