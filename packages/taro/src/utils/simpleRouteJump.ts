@@ -1,12 +1,15 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-22 17:13:37
- * @LastEditTime: 2022-08-07 12:41:59
+ * @LastEditTime: 2022-10-03 11:09:45
  * @Description: 简单的路由跳转
  * @FilePath: /repo/packages/taro/src/utils/simpleRouteJump.ts
  */
 
-import { navigateBack, navigateTo, redirectTo, reLaunch } from '@tarojs/taro'
+// import { navigateBack, navigateTo, redirectTo, reLaunch } from '@tarojs/taro'
+import { getTaroApi, getTaroApiTypes, TaroInstance } from './importTaro'
+
+getTaroApi()
 
 export interface callbackCollectionTypes {
   complete?: (res: TaroGeneral.CallbackResult) => void
@@ -31,25 +34,33 @@ export class DefineJumpCallback {
   }
 }
 
-export type jumpMethod = typeof navigateBack | typeof navigateTo | typeof reLaunch | typeof redirectTo
+type navigateBackTypes = getTaroApiTypes<'navigateBack'>
+
+type navigateToTypes = getTaroApiTypes<'navigateTo'>
+
+type reLaunchTypes = getTaroApiTypes<'reLaunch'>
+
+type redirectTo = getTaroApiTypes<'redirectTo'>
+
+export type jumpMethod = navigateBackTypes | navigateToTypes | reLaunchTypes | redirectTo | undefined
 
 export type jumpMethodName = 'navigateBack' | 'navigateTo' | 'reLaunch' | 'redirectTo'
 
 export type getJumpParametersAccordingToJumpMethod<T extends jumpMethodName> = T extends 'navigateBack'
-  ? typeof navigateBack
+  ? navigateBackTypes
   : T extends 'navigateTo'
-  ? typeof navigateTo
+  ? navigateToTypes
   : T extends 'reLaunch'
-  ? typeof reLaunch
+  ? reLaunchTypes
   : T extends 'redirectTo'
-  ? typeof redirectTo
+  ? redirectTo
   : never
 
 const jumpMethodContainer: { [key in jumpMethodName]: jumpMethod } = {
-  navigateBack: navigateBack,
-  navigateTo: navigateTo,
-  reLaunch: reLaunch,
-  redirectTo: redirectTo,
+  navigateBack: TaroInstance?.navigateBack,
+  navigateTo: TaroInstance?.navigateTo,
+  reLaunch: TaroInstance?.reLaunch,
+  redirectTo: TaroInstance?.redirectTo,
 }
 
 export type simpleRouteJumpConfig<T = unknown> = {

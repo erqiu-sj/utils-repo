@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-06-22 16:14:04
- * @LastEditTime: 2022-08-05 22:04:16
+ * @LastEditTime: 2022-10-03 11:51:17
  * @Description:
  * @FilePath: /repo/packages/taro/README.md
 -->
@@ -12,8 +12,9 @@
 
 ## Usage
 
-```
+- 该 `package` 在浏览器内不会执行也不会报错
 
+```
 import {} from '@mxnet/taro'
 
 ```

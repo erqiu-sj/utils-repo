@@ -1,4 +1,3 @@
-import { downloadFile } from '@tarojs/taro';
 import { Callback, getAllParameterTypesOfFunction } from './chainCall';
 export interface downloadFileOptions {
     /**
@@ -78,7 +77,7 @@ export interface WriteFileCallback extends Omit<WriteFileOption, 'data' | 'encod
 }
 interface downloadFileCallback extends Pick<getAllParameterTypesOfFunction<'downloadFile'>, 'success' | 'fail' | 'complete'> {
 }
-declare type downloadFileOptionsTypes = Parameters<typeof downloadFile>[0];
+declare type downloadFileOptionsTypes = Parameters<typeof import('@tarojs/taro')['downloadFile']>[0];
 declare type writeFileOptionType = Pick<WriteFileOption, 'data' | 'encoding' | 'filePath'>;
 declare type withDownloadLocationTypeCallBack<T extends downloadFileOptions['downloadLocation'] = undefined> = T extends undefined | null ? downloadFileCallback : T extends 'cache' ? SaveFileOptionCallback : WriteFileCallback;
 declare type getCallParameters<T extends downloadFileOptions['downloadLocation'] = undefined> = T extends undefined | null ? downloadFileOptionsTypes : T extends 'userFile' ? writeFileOptionType : downloadFileOptionsTypes;
