@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.12](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/service@0.6.11...@mxnet/service@0.6.12) (2022-10-09)
+
+
+### Bug Fixes
+
+* **@mxnet/taro @mxnet/service:** 剔除多余依赖 ([17e3c8e](https://gitee.com/cq_maixun_network/repo/commits/17e3c8eb8860a543ba6fb344c8a8a6ad9d34da23))
+
+
+
+
+
 ## [0.6.11](https://gitee.com/cq_maixun_network/repo/compare/@mxnet/service@0.6.10...@mxnet/service@0.6.11) (2022-10-03)
 
 **Note:** Version bump only for package @mxnet/service
