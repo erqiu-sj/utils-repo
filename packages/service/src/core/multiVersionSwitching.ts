@@ -7,34 +7,33 @@
  */
 
 export class MultiVersionSwitching {
+  private versionPlaceholder: string = ''
 
-    private versionPlaceholder: string = ''
+  private baseURL: string = ''
 
-    private baseURL: string = ''
+  private originalBaseURL: string = ''
 
-    private originalBaseURL: string = ''
+  // 修改版本号占位符
+  setVersionPlaceholder(pl: string) {
+    this.versionPlaceholder = pl
+    return this
+  }
 
-    // 修改版本号占位符
-    setVersionPlaceholder(pl: string) {
-        this.versionPlaceholder = pl
-        return this
-    }
+  setBaseURL(URL: string) {
+    this.baseURL = URL
+    this.originalBaseURL = URL
+  }
 
-    setBaseURL(URL: string) {
-        this.baseURL = URL
-        this.originalBaseURL = URL
-    }
+  replaceVersionPlaceholder(baseURL: string, repl: string) {
+    return baseURL.replace(new RegExp(this.versionPlaceholder, 'g'), repl)
+  }
 
-    replaceVersionPlaceholder(baseURL: string, repl: string) {
-        return baseURL.replace(new RegExp(this.versionPlaceholder, 'g'), repl)
-    }
+  getOriginalBaseURL() {
+    return this.originalBaseURL
+  }
 
-    getOriginalBaseURL() {
-        return this.originalBaseURL
-    }
-
-    switchVersion(item: string): string {
-        this.baseURL = this.replaceVersionPlaceholder(this.baseURL, item)
-        return this.baseURL
-    }
+  switchVersion(item: string): string {
+    this.baseURL = this.replaceVersionPlaceholder(this.baseURL, item)
+    return this.baseURL
+  }
 }

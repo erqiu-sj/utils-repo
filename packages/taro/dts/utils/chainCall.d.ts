@@ -1,5 +1,6 @@
-export declare type getAllParameterTypesOfFunction<T extends allTaroApi> = typeof import('@tarojs/taro')[T] extends (...args: any) => any ? NonNullable<Parameters<typeof import('@tarojs/taro')[T]>[0]> : never;
-export declare type allTaroApi = keyof typeof import('@tarojs/taro');
+import * as taro from '@tarojs/taro';
+export declare type allTaroApi = keyof typeof taro;
+export declare type getAllParameterTypesOfFunction<T extends allTaroApi> = typeof taro[T] extends (...args: any) => any ? NonNullable<Parameters<typeof taro[T]>[0]> : never;
 export interface CallbackOptions {
     success?: (...args: unknown[]) => unknown;
     fail?: (...args: unknown[]) => unknown;

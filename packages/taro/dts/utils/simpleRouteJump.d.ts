@@ -1,4 +1,4 @@
-import { getTaroApiTypes } from './importTaro';
+import { navigateBack, navigateTo, redirectTo, reLaunch } from '@tarojs/taro';
 export interface callbackCollectionTypes {
     complete?: (res: TaroGeneral.CallbackResult) => void;
     fail?: (res: TaroGeneral.CallbackResult) => void;
@@ -10,10 +10,10 @@ export declare class DefineJumpCallback {
     fail(cb?: (res: TaroGeneral.CallbackResult) => void): this;
     complete(cb?: (res: TaroGeneral.CallbackResult) => void): this;
 }
-declare type navigateBackTypes = getTaroApiTypes<'navigateBack'>;
-declare type navigateToTypes = getTaroApiTypes<'navigateTo'>;
-declare type reLaunchTypes = getTaroApiTypes<'reLaunch'>;
-declare type redirectTo = getTaroApiTypes<'redirectTo'>;
+declare type navigateBackTypes = typeof navigateBack;
+declare type navigateToTypes = typeof navigateTo;
+declare type reLaunchTypes = typeof reLaunch;
+declare type redirectTo = typeof redirectTo;
 export declare type jumpMethod = navigateBackTypes | navigateToTypes | reLaunchTypes | redirectTo | undefined;
 export declare type jumpMethodName = 'navigateBack' | 'navigateTo' | 'reLaunch' | 'redirectTo';
 export declare type getJumpParametersAccordingToJumpMethod<T extends jumpMethodName> = T extends 'navigateBack' ? navigateBackTypes : T extends 'navigateTo' ? navigateToTypes : T extends 'reLaunch' ? reLaunchTypes : T extends 'redirectTo' ? redirectTo : never;

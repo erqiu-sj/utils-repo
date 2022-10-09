@@ -1,13 +1,12 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-01 18:30:24
- * @LastEditTime: 2022-10-03 10:53:27
+ * @LastEditTime: 2022-10-09 09:18:36
  * @Description:
  * @FilePath: /repo/packages/taro/src/utils/download.ts
  */
-// import { downloadFile, getFileSystemManager } from '@tarojs/taro'
+import { getFileSystemManager } from '@tarojs/taro'
 import { Callback, ChainCall, getAllParameterTypesOfFunction } from './chainCall'
-import { getTaroApi } from './importTaro'
 
 export interface downloadFileOptions {
   // cache  |  userFile
@@ -102,22 +101,18 @@ interface WriteFileOption {
 export interface WriteFileCallback extends Omit<WriteFileOption, 'data' | 'encoding' | 'filePath'> {}
 class WriteFile extends Callback<WriteFileCallback> {
   done(ops: WriteFileOption) {
-    getTaroApi(res => {
-      res.getFileSystemManager().writeFile({
-        ...this.getCallbackAll(),
-        ...ops,
-      })
+    getFileSystemManager().writeFile({
+      ...this.getCallbackAll(),
+      ...ops,
     })
   }
 }
 
 class CacheFile extends Callback<SaveFileOptionCallback> {
   done(params: FileSuccessCallbackResult) {
-    getTaroApi(res => {
-      res.getFileSystemManager().saveFile({
-        tempFilePath: params.tempFilePath,
-        ...this.getCallbackAll(),
-      })
+    getFileSystemManager().saveFile({
+      tempFilePath: params.tempFilePath,
+      ...this.getCallbackAll(),
     })
   }
 }

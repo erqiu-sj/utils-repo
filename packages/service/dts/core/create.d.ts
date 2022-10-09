@@ -1,10 +1,3 @@
-/*
- * @Author: 邱狮杰
- * @Date: 2022-09-08 08:56:24
- * @LastEditTime: 2022-09-27 23:31:55
- * @Description: 
- * @FilePath: /repo/packages/service/dts/core/create.d.ts
- */
 import { AxiosRequestConfig } from 'axios';
 import { interceptor } from './injectInterceptor';
 import { handlingUnexpectedResultsCaller } from './unexpectedResults';
@@ -38,5 +31,4 @@ export declare class Service<V extends string[] = string[], T extends unknown = 
     addAppletAdapter(): this;
     getAxios(): <R>(config?: Partial<ServiceRequestConfig<V> & T> | undefined) => Promise<Awaited<R>>;
 }
-export { };
-
+export {};

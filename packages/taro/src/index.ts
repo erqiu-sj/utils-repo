@@ -1,13 +1,11 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-22 16:15:41
- * @LastEditTime: 2022-09-18 10:22:38
+ * @LastEditTime: 2022-10-09 09:28:18
  * @Description:
  * @FilePath: /repo/packages/taro/src/index.ts
  */
-import { getTaroApi, getReactApi } from './utils/importTaro'
-getTaroApi()
-getReactApi()
+
 export { useAudio } from './hooks/useAudio'
 export { ChainCall } from './utils/chainCall'
 export { DownloadFile } from './utils/download'
