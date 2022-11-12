@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-07-17 22:02:27
- * @LastEditTime: 2022-08-03 17:29:45
+ * @LastEditTime: 2022-10-25 15:04:56
  * @Description:
  * @FilePath: /repo/packages/weChatPublicAccountHelper/window.d.ts
  */
@@ -31,18 +31,17 @@ declare interface updateAppMessageShareDataConfig {
 }
 // 自定义“分享到朋友圈”及“分享到 QQ 空间”按钮的分享内容
 declare interface updateTimelineShareDataConfig {
-  title: string, // 分享标题
-  link: string, // 分享链接，该链接域名或路径必须与当前页面对应的公众号 JS 安全域名一致
-  imgUrl: string, // 分享图标
+  title: string // 分享标题
+  link: string // 分享链接，该链接域名或路径必须与当前页面对应的公众号 JS 安全域名一致
+  imgUrl: string // 分享图标
 }
 
 namespace chooseImage {
   // 拍照或从手机相册中选图接口
   declare interface chooseImageConfig {
-    count: number, // 默认9
-    sizeType: ('original' | 'compressed')[], // 可以指定是原图还是压缩图，默认二者都有
-    sourceType: ('album' | 'camera')[],
-
+    count: number // 默认9
+    sizeType: ('original' | 'compressed')[] // 可以指定是原图还是压缩图，默认二者都有
+    sourceType: ('album' | 'camera')[]
   }
 
   declare interface success {
@@ -51,7 +50,7 @@ namespace chooseImage {
 }
 
 interface previewImageConfig {
-  current: string, // 当前显示图片的 http 链接
+  current: string // 当前显示图片的 http 链接
   urls: string[]
 }
 
@@ -59,8 +58,8 @@ type config<C = unknown, s = unknown, f = unknown, c = unknown> = Partial<Partia
 
 namespace uploadImage {
   declare interface uploadImageConfig {
-    localId: string, // 需要上传的图片的本地ID，由 chooseImage 接口获得
-    isShowProgressTips: number, // 默认为1，显示进度提示
+    localId: string // 需要上传的图片的本地ID，由 chooseImage 接口获得
+    isShowProgressTips?: number // 默认为1，显示进度提示
   }
   declare interface success {
     serverId: number
@@ -69,13 +68,12 @@ namespace uploadImage {
 
 namespace downloadImage {
   declare interface downloadImageConfig {
-    serverId: string, // 需要下载的图片的服务器端ID，由 uploadImage 接口获得
-    isShowProgressTips: number, // 默认为1，显示进度提示
+    serverId: string // 需要下载的图片的服务器端ID，由 uploadImage 接口获得
+    isShowProgressTips: number // 默认为1，显示进度提示
   }
   declare interface success {
     localId: number // 返回图片下载后的本地ID
   }
-
 }
 
 // 获取本地图片接口
@@ -87,7 +85,12 @@ namespace getLocalImgData {
     // localData是图片的base64数据，可以用 img 标签显示
     localData: string
   }
+}
 
+namespace startSearchBeacons {
+  declare interface startSearchBeaconsConfig {
+    ticket: string
+  }
 
 }
 interface Window {
@@ -100,5 +103,8 @@ interface Window {
     uploadImage(conf: config<uploadImage.uploadImageConfig, uploadImage.success>): noResultsAllowAsynchrony
     downloadImage(conf: config<downloadImage.downloadImageConfig, downloadImage.success>): noResultsAllowAsynchrony
     getLocalImgData(conf: config<getLocalImgData.getLocalImgDataConfig, getLocalImgData.success>): noResultsAllowAsynchrony
+    startSearchBeacons(conf: config<startSearchBeacons.startSearchBeaconsConfig>): noResultsAllowAsynchrony
+    stopSearchBeacons(): noResultsAllowAsynchrony
+    onSearchBeacons(): noResultsAllowAsynchrony
   }
 }

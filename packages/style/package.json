@@ -19,8 +19,6 @@
   "files": [
     "src"
   ],
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
+  "scripts": {},
   "gitHead": "d6fb0b05e84934456fb116973867e5a7d6f18c74"
 }

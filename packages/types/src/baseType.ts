@@ -1,8 +1,8 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-28 11:19:18
- * @LastEditTime: 2022-08-28 15:07:57
- * @Description: 
+ * @LastEditTime: 2022-10-28 14:46:30
+ * @Description:
  * @FilePath: /repo/packages/types/src/baseType.ts
  */
 import { Equal } from './verify'
@@ -30,3 +30,5 @@ export type mergeFnWithPromiseFn<T = unknown, P extends any[] = any, isP extends
  *  @description  need a function generics, verify is it promise function
  */
 export type isPromiseFn<f extends mergeFnWithPromiseFn<any, any, undefined>> = Equal<ReturnType<f>, Promise<any>>
+
+export type stringWithBool = 'false' | 'true'

@@ -15,11 +15,9 @@
   "author": "hooks_28 <1r56955415918@qq.com>",
   "homepage": "",
   "license": "MIT",
-  "main": "lib/weChatPublicAccountHelper.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
+  "main": "./lib/index.js",
+  "module": "./dist/index.js",
+  "types": "./dts/index.d.ts",
   "files": [
     "lib",
     "dts",
@@ -38,6 +36,7 @@
     "build:ts": "tsc",
     "build:umd": "rollup -c -f umd -d dist.umd",
     "build:cjs": "rollup -c -f cjs -d lib",
+    "build:esm": "rollup -c -f esm -d dist",
     "build": "sh ./build.sh"
   },
   "dependencies": {

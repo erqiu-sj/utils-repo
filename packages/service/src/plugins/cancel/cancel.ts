@@ -1,16 +1,17 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 17:56:58
- * @LastEditTime: 2022-09-18 10:13:51
+ * @LastEditTime: 2022-11-08 17:47:39
  * @Description:
  * @FilePath: /repo/packages/service/src/plugins/cancel/cancel.ts
  */
+
+
 
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { interceptor } from '../../core/injectInterceptor'
 import { requestCancellationHepler } from '../../utils/cancel'
 import { allowExecution } from '../../utils/decorator'
-import { TerminationResult } from '../../utils/terminationResult'
 import { cancelHeader, cancelRequestConfiguration, defaultRules, requestContainer } from './config'
 
 type requestConfig = AxiosRequestConfig & cancelRequestConfiguration
@@ -18,9 +19,9 @@ type requestConfig = AxiosRequestConfig & cancelRequestConfiguration
 type responseConfig = AxiosResponse<any, requestConfig>
 
 export class Cancel implements interceptor {
-  requestFailInterceptor(err: unknown): void {}
+  requestFailInterceptor(err: unknown): void { }
 
-  responseFailInterceptor(err: unknown): void {}
+  responseFailInterceptor(err: unknown): void { }
 
   @allowExecution<requestConfig>(config => {
     return Reflect.get(config.headers || {}, 'cancelHeader') === cancelHeader

@@ -1,0 +1,33 @@
+{
+  "name": "@mxnet/rlubuild",
+  "version": "0.0.1",
+  "description": "rollup build utils",
+  "keywords": [
+    "rollup",
+    "build",
+    "mxnet",
+    "typescript",
+    "javascript"
+  ],
+  "author": "hooks_28 <1r56955415918@qq.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/rluBuild.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/cq_maixun_network/repo.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "devDependencies": {
+    "rollup": "^3.3.0"
+  }
+}

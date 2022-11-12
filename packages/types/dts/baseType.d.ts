@@ -15,4 +15,8 @@ export declare type nonNullFnParameter<T extends (...args: any) => any> = NonNul
  * @description merge define normal function and define promise function type
  */
 export declare type mergeFnWithPromiseFn<T = unknown, P extends any[] = any, isP extends boolean | undefined = undefined> = isP extends undefined ? fn<T, P> | promiseFn<T, P> : isP extends true ? promiseFn<T, P> : fn<T, P>;
+/**
+ *  @description  need a function generics, verify is it promise function
+ */
 export declare type isPromiseFn<f extends mergeFnWithPromiseFn<any, any, undefined>> = Equal<ReturnType<f>, Promise<any>>;
+export declare type stringWithBool = 'false' | 'true';

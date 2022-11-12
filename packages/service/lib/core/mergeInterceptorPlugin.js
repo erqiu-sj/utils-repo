@@ -17,7 +17,7 @@ class MergeInterceptorPlugin {
             var _a;
             const config = (yield this.schedulingPluginCallbacks(parsePlugin.requestSuccessInterceptor, request)) || request;
             return (yield ((_a = defaultInterceptor === null || defaultInterceptor === void 0 ? void 0 : defaultInterceptor.requestSuccessInterceptor) === null || _a === void 0 ? void 0 : _a.call(defaultInterceptor, config))) || config;
-        }), (error) => {
+        }), error => {
             var _a;
             const err = this.schedulingPluginCallbacks(parsePlugin === null || parsePlugin === void 0 ? void 0 : parsePlugin.requestFailInterceptorList, error);
             return ((_a = defaultInterceptor === null || defaultInterceptor === void 0 ? void 0 : defaultInterceptor.requestFailInterceptor) === null || _a === void 0 ? void 0 : _a.call(defaultInterceptor, err)) || err;
@@ -48,7 +48,7 @@ class MergeInterceptorPlugin {
             requestFailInterceptorList,
             requestSuccessInterceptor,
             responseFailInterceptor,
-            responseSuccessInterceptor
+            responseSuccessInterceptor,
         };
     }
     schedulingPluginCallbacks(list, params) {

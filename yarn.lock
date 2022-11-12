@@ -7851,6 +7851,13 @@ rollup@^2.73.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
+rollup@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.npmjs.org/rollup/-/rollup-3.3.0.tgz#ae8dc84808a9c75d775d8b2ed8db1adada31a581"
+  integrity sha512-wqOV/vUJCYEbWsXvwCkgGWvgaEnsbn4jxBQWKpN816CqsmCimDmCNJI83c6if7QVD4v/zlyRzxN7U2yDT5rfoA==
+  optionalDependencies:
+    fsevents "~2.3.2"
+
 rollup@~2.78.0:
   version "2.78.1"
   resolved "https://registry.npmmirror.com/rollup/-/rollup-2.78.1.tgz#52fe3934d9c83cb4f7c4cb5fb75d88591be8648f"

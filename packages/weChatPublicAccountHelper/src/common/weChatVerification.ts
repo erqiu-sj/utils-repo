@@ -1,6 +1,6 @@
 /*
  * @Author: 邱狮杰
- * @LastEditTime: 2022-09-25 11:27:25
+ * @LastEditTime: 2022-10-25 10:17:58
  * @Description:
  * @FilePath: /repo/packages/weChatPublicAccountHelper/src/common/weChatVerification.ts
  */
@@ -20,7 +20,9 @@ export class CallWechatSdk {
   async trigger(common: CommonCallback & ProcessingConfiguration & CallbackCollector) {
     if (!checkWhetherToJnjectWechatSDK()) {
       // @ts-ignore
-      await common.getCallbacks('success')(await common.weChatDdkDoesNotInjectTriggerBehavior())
+      await common.getCallbacks('success')?.(await common.weChatDdkDoesNotInjectTriggerBehavior())
+      // @ts-ignore
+      await common.getCallbacks('complete')?.()
       return
     }
     await common.weChatSdkJnjectionTriggerBehavior()

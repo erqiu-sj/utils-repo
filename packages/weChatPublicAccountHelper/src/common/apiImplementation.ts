@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-07-17 23:27:59
- * @LastEditTime: 2022-08-03 17:47:34
+ * @LastEditTime: 2022-10-25 15:25:47
  * @Description:
  * @FilePath: /repo/packages/weChatPublicAccountHelper/src/common/apiImplementation.ts
  */
@@ -31,16 +31,19 @@ export class ApiImplementation<C = unknown, s = unknown, f = unknown, c = unknow
     this.collector('fail', cb)
     return this
   }
+
   success(cb?: ((res?: s | undefined) => noResultsAllowAsynchrony) | undefined): this {
     // @ts-ignore
     this.collector('success', cb)
     return this
   }
+
   complete(cb?: ((res?: c | undefined) => noResultsAllowAsynchrony) | undefined): this {
     // @ts-ignore
     this.collector('complete', cb)
     return this
   }
+
   cancel(cb?: ((res?: unknown) => void) | undefined): this {
     // @ts-ignore
     this.collector('cancel', cb)

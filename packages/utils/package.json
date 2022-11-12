@@ -30,7 +30,7 @@
   "scripts": {
     "build:ts": "tsc",
     "build:canvas": "rollup -c -i src/common/html2canvas/index.js -f umd -d html2canvas",
-    "build": "rollup -c & yarn build:canvas"
+    "builds": "rollup -c & yarn build:canvas"
   },
   "devDependencies": {
     "@mxnet/types": "^0.1.4",
