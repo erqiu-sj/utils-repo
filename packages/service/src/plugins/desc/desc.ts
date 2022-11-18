@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-21 13:25:31
- * @LastEditTime: 2022-08-21 13:46:29
+ * @LastEditTime: 2022-11-18 17:00:14
  * @Description:
  * @FilePath: /repo/packages/service/src/plugins/desc/desc.ts
  */
@@ -11,7 +11,7 @@ import { allowExecution } from '../../utils/decorator'
 import { descConfig } from './config'
 
 export class Desc<Req extends object, Res extends any> implements interceptor {
-  requestFailInterceptor(err: unknown): void {}
+  requestFailInterceptor(err: unknown): void { }
 
   @allowExecution<descConfig<object>>(config => Reflect.has(config, 'reqDesc'))
   requestSuccessInterceptor(config: descConfig<Req>): void | descConfig<Req> | Promise<descConfig<Req>> | Promise<void> {
@@ -24,7 +24,7 @@ export class Desc<Req extends object, Res extends any> implements interceptor {
     return config
   }
 
-  responseFailInterceptor(err: unknown): void {}
+  responseFailInterceptor(err: unknown): void { }
 
   @allowExecution<AxiosResponse<Res>>(config => Reflect.has(config.config, 'resDesc'))
   responseSuccessInterceptor(response: AxiosResponse<any, any>): void | AxiosResponse<any, any> | Promise<AxiosResponse<any, any>> | Promise<void> {

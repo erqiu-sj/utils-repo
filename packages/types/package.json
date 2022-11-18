@@ -3,7 +3,7 @@
   "version": "0.1.4",
   "description": "types",
   "private": false,
-  "types": "./src/index.d.ts",
+  "types": "./dts/index.d.ts",
   "keywords": [
     "type",
     "typescript",
