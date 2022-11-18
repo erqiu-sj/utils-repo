@@ -24,11 +24,6 @@ export declare class Service<V extends string[] = string[], T extends unknown = 
     private requestTrigger;
     setVersionPlaceholder(pl: string): this;
     switchVersion(item: V[number]): this;
-    /**
-     * @description 添加小程序(微信，支付宝，钉钉，百度)适配器
-     * @returns { this }
-     */
-    addAppletAdapter(): this;
     getAxios(): <R>(config?: Partial<ServiceRequestConfig<V> & T> | undefined) => Promise<Awaited<R>>;
 }
 export {};

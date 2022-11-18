@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TerminationResult = exports.SynchronizationAwaitError = exports.Cache = exports.ExpirationTime = exports.Cancel = exports.cancelHeader = exports.requestCancellationHepler = exports.Service = exports.Desc = void 0;
+exports.TerminationResult = exports.SynchronizationAwaitError = exports.Cache = exports.ExpirationTime = exports.Cancel = exports.cancelHeader = exports.requestCancellationHepler = exports.Service = exports.Desc = exports.InjectionAppletAdapter = void 0;
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 10:55:32
- * @LastEditTime: 2022-09-27 23:31:10
+ * @LastEditTime: 2022-11-18 17:13:48
  * @Description:
  * @FilePath: /repo/packages/service/src/index.ts
  */
@@ -20,6 +20,8 @@ const config_1 = require("./plugins/cancel/config");
 Object.defineProperty(exports, "cancelHeader", { enumerable: true, get: function () { return config_1.cancelHeader; } });
 const desc_1 = require("./plugins/desc/desc");
 Object.defineProperty(exports, "Desc", { enumerable: true, get: function () { return desc_1.Desc; } });
+const injectionAppletAdapter_1 = require("./plugins/injectionAppletAdapter");
+Object.defineProperty(exports, "InjectionAppletAdapter", { enumerable: true, get: function () { return injectionAppletAdapter_1.InjectionAppletAdapter; } });
 const cancel_2 = require("./utils/cancel");
 Object.defineProperty(exports, "requestCancellationHepler", { enumerable: true, get: function () { return cancel_2.requestCancellationHepler; } });
 const error_1 = require("./utils/error");

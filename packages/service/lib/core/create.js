@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 11:37:24
- * @LastEditTime: 2022-09-27 23:30:52
+ * @LastEditTime: 2022-11-18 17:12:34
  * @Description:
  * @FilePath: /repo/packages/service/src/core/create.ts
  */
@@ -21,7 +21,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Service = void 0;
 const axios_1 = __importDefault(require("axios"));
-const axios_miniprogram_adapter_1 = __importDefault(require("axios-miniprogram-adapter"));
+// import axiosMiniprogramAdapter from 'axios-miniprogram-adapter'
 const cache_1 = require("../plugins/cache/cache");
 const error_1 = require("../utils/error");
 const mergeInterceptorPlugin_1 = require("./mergeInterceptorPlugin");
@@ -90,16 +90,16 @@ class Service {
         this.axios.defaults.baseURL = (_a = this.multiVersionSwitching) === null || _a === void 0 ? void 0 : _a.switchVersion(item);
         return this;
     }
-    /**
-     * @description 添加小程序(微信，支付宝，钉钉，百度)适配器
-     * @returns { this }
-     */
-    addAppletAdapter() {
-        if (this.axios)
-            // @ts-ignore
-            this.axios.defaults.adapter = axios_miniprogram_adapter_1.default;
-        return this;
-    }
+    // /**
+    //  * @description 添加小程序(微信，支付宝，钉钉，百度)适配器
+    //  * @returns { this }
+    //  */
+    // addAppletAdapter(): this {
+    //   if (this.axios)
+    //     // @ts-ignore
+    //     this!.axios!.defaults!.adapter = axiosMiniprogramAdapter
+    //   return this
+    // }
     getAxios() {
         return (config) => __awaiter(this, void 0, void 0, function* () {
             // 缓存先决条件判断
