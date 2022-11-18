@@ -1,13 +1,13 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-28 11:37:24
- * @LastEditTime: 2022-09-27 23:30:52
+ * @LastEditTime: 2022-11-18 17:12:34
  * @Description:
  * @FilePath: /repo/packages/service/src/core/create.ts
  */
 
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
-import axiosMiniprogramAdapter from 'axios-miniprogram-adapter'
+// import axiosMiniprogramAdapter from 'axios-miniprogram-adapter'
 import { CachePrerequisites } from '../plugins/cache/cache'
 import { SynchronizationAwaitError } from '../utils/error'
 import { interceptor } from './injectInterceptor'
@@ -96,16 +96,16 @@ export class Service<V extends string[] = string[], T extends unknown = unknown>
     return this
   }
 
-  /**
-   * @description 添加小程序(微信，支付宝，钉钉，百度)适配器
-   * @returns { this }
-   */
-  addAppletAdapter(): this {
-    if (this.axios)
-      // @ts-ignore
-      this!.axios!.defaults!.adapter = axiosMiniprogramAdapter
-    return this
-  }
+  // /**
+  //  * @description 添加小程序(微信，支付宝，钉钉，百度)适配器
+  //  * @returns { this }
+  //  */
+  // addAppletAdapter(): this {
+  //   if (this.axios)
+  //     // @ts-ignore
+  //     this!.axios!.defaults!.adapter = axiosMiniprogramAdapter
+  //   return this
+  // }
 
   getAxios() {
     return async <R>(config?: Partial<ServiceRequestConfig<V> & T>): Promise<Awaited<requestResultType<R>>> => {
