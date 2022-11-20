@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "ESNext",
+    "downlevelIteration": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "types": ["node"],
+    "declarationDir": "./dts"
+  }
+}

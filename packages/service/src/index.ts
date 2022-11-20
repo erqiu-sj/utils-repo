@@ -22,4 +22,3 @@ import { TerminationResult } from './utils/terminationResult'
 
 export { InjectionAppletAdapter, Desc, Service, requestCancellationHepler, cancelHeader, Cancel, ExpirationTime, Cache, SynchronizationAwaitError, TerminationResult }
 export type { interceptor, CacheConfig, cancelRequestConfiguration, descConfig }
-

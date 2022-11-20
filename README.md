@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-11 22:37:08
- * @LastEditTime: 2022-09-12 22:07:40
+ * @LastEditTime: 2022-11-20 15:45:32
  * @Description:
  * @FilePath: /repo/README.md
 -->
@@ -57,6 +57,8 @@ sh ./script/install.sh
 [vite-plugin-img-reload](/packages/vite-plugin-img-reload/README.md) 适用 `vite`, 自动生成缩略图, 样式
 
 [@mxnet/imagetransition](/packages/imageTransition/README.md) 适用于 `vue`, 将缩略图过渡到原图
+
+[@mxnet/rluBuild](/packages/rluBuild/README.md) 封装的常用 `rollup` 插件集合
 
 ## TODO
 

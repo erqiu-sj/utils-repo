@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-01 16:35:52
- * @LastEditTime: 2022-11-13 00:19:11
+ * @LastEditTime: 2022-11-18 22:10:51
  * @Description:
  * @FilePath: /repo/packages/taro/rollup.config.ts
  */
@@ -12,7 +12,7 @@ import terser from 'rollup-plugin-terser'
 import rollupTs from 'rollup-plugin-typescript2'
 
 const externalPackages = ['react', '@tarojs/taro', '@tarojs/runtime', '@tarojs/react']
-
+// @ts-ignore
 export default defineConfig({
   input: './src/index.ts',
   output: [

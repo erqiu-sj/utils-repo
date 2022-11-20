@@ -1,16 +1,26 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-07-23 10:50:11
- * @LastEditTime: 2022-10-25 15:22:35
+ * @LastEditTime: 2022-11-20 15:37:34
  * @Description: 
  * @FilePath: /repo/packages/weChatPublicAccountHelper/rollup.config.ts
  */
-import resolve from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
-import { defineConfig } from 'rollup';
-import terser from 'rollup-plugin-terser';
+import { RluBuild } from '@mxnet/rlubuild';
 
-export default defineConfig({
+const h = new RluBuild().addPlugin(pl => {
+    pl.addTypescript({
+        tsconfig: './tsconfig.json', module: 'es2015'
+    })
+    pl.addRollupPluginTerser({
+        compress: {
+            pure_getters: true,
+            unsafe: true,
+            unsafe_comps: true,
+            drop_console: true,
+            drop_debugger: true
+        }
+    })
+}).build({
     input: "./src/index.ts",
     output:
         [
@@ -21,18 +31,6 @@ export default defineConfig({
             },
         ]
     ,
-    plugins: [
-        resolve(),
-        typescript({ tsconfig: './tsconfig.json', module: 'es2015' }),
-        terser.terser({
-            compress: {
-                pure_getters: true,
-                unsafe: true,
-                unsafe_comps: true,
-                drop_console: true,
-                drop_debugger: true
-            }
-        })
-    ],
 })
 
+export default h

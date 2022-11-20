@@ -37,12 +37,13 @@
     "build:umd": "rollup -c -f umd -d dist.umd",
     "build:cjs": "rollup -c -f cjs -d lib",
     "build:esm": "rollup -c -f esm -d dist",
-    "build": "sh ./build.sh"
+    "build": "sh ./build.sh",
+    "up:rollup": "yarn upgrade rollup@latest"
   },
   "dependencies": {
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.2",
-    "rollup": "^2.73.0",
+    "rollup": "^3.3.0",
     "rollup-plugin-terser": "^7.0.2"
   },
   "gitHead": "fb2e27f15ac5c912126a86d9267716a52cfb6075"

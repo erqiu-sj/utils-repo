@@ -8,7 +8,8 @@
     "utils"
   ],
   "scripts": {
-    "build": "sh ./build.sh"
+    "build": "sh ./build.sh",
+    "up:rollup": "yarn upgrade rollup@latest"
   },
   "files": [
     "lib",
