@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-11-12 23:49:53
- * @LastEditTime: 2022-11-20 15:44:48
+ * @LastEditTime: 2022-11-26 17:03:42
  * @Description
  * @FilePath: /repo/packages/rluBuild/README.md
 -->
@@ -51,3 +51,7 @@ const h = new RluBuild()
 ## Which packages are in use?
 
 - `@mxnet/wechatpublicaccounthelper`
+
+- `@mxnet/service`
+
+- `@mxnet/utils`

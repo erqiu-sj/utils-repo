@@ -3,6 +3,8 @@ import { RollupNodeResolveOptions } from '@rollup/plugin-node-resolve';
 import { Plugin } from "rollup";
 import { Options } from 'rollup-plugin-terser';
 import { ExternalPackages } from '../plugin/externalPackages';
+import { RollupPluginJson } from '../plugin/rollupPluginJson';
+import { RollupPluginPolyfillNode } from '../plugin/rollupPluginPolyfillNode';
 import { RollupTs } from '../plugin/rollupTs';
 export declare class PlugHelper {
     private pluginList;
@@ -11,6 +13,16 @@ export declare class PlugHelper {
     private rollupCommonjs;
     private rollupPluginNodeResolve;
     private rollupPluginTerser;
+    private rollupPluginJson;
+    private rollupPluginPolyfillNode;
+    /**
+     * @description  node 垫片
+     */
+    addRollupPluginPolyfillNode(conf?: Parameters<RollupPluginPolyfillNode['readPlugInConfiguration']>[0]): this;
+    /**
+     * @description  json 转为 es6 module
+     */
+    addRollupPluginJson(conf?: Parameters<RollupPluginJson['readPlugInConfiguration']>[0]): this;
     /**
      * @description 汇总插件以缩小生成的es捆绑包
      * @returns

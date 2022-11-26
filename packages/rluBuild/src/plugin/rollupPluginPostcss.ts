@@ -1,13 +1,13 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-11-18 22:15:23
- * @LastEditTime: 2022-11-20 14:30:26
+ * @LastEditTime: 2022-11-20 15:50:20
  * @Description: 
  * @FilePath: /repo/packages/rluBuild/src/plugin/rollupPluginPostcss.ts
  */
 
-import postcss, { PostCSSPluginConf } from 'rollup-plugin-postcss'
 import { Plugin } from 'rollup'
+import postcss, { PostCSSPluginConf } from 'rollup-plugin-postcss'
 import { ConfigImpl } from '../types/config'
 import { PluginHelper } from '../utils/pluginHelper'
 
@@ -24,14 +24,7 @@ export class RollupPluginPostcss extends PluginHelper implements ConfigImpl<Post
         const that = this
 
         return {
-            name: this.plugInNamePrefix('rollupPluginPostcss'),
-            options(options) {
-                return {
-                    ...options,
-                    // @ts-ignore
-                    plugins: [postcss(that.config) as Plugin]
-                }
-            },
+            ...postcss(that.config) as Plugin,
         }
 
     }

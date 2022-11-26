@@ -13,6 +13,7 @@
   "homepage": "",
   "types": "./dts/index.d.ts",
   "license": "MIT",
+  "type": "module",
   "main": "./lib/index.js",
   "module": "./dist/index.js",
   "files": [
@@ -28,9 +29,8 @@
     "access": "public"
   },
   "scripts": {
-    "build:ts": "tsc",
-    "build:canvas": "rollup -c -i src/common/html2canvas/index.js -f umd -d html2canvas",
-    "builds": "rollup -c & yarn build:canvas",
+    "build:ts": "tsc --outDir ./dist --rootDir ./src --declarationDir ./dts -d true && rm -rf ./dist",
+    "build": "yarn build:ts && rollup -c",
     "up:rollup": "yarn upgrade rollup@latest"
   },
   "devDependencies": {
@@ -43,6 +43,7 @@
   },
   "gitHead": "b39aa152e313f48fe6a357c25e2b116dd614431d",
   "dependencies": {
+    "@mxnet/rlubuild": "^0.0.1",
     "rollup": "^3.3.0"
   }
 }

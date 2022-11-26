@@ -14,6 +14,7 @@
   "module": "./dist/index.js",
   "main": "./dist/index.js",
   "types": "./dts/index.d.ts",
+  "type": "module",
   "files": [
     "dist",
     "dts"
@@ -25,12 +26,14 @@
   "repository": {},
   "scripts": {
     "build:es": "tsc --module ESNext --outDir ./dist --moduleResolution node",
-    "build:cj": "tsc --module CommonJS --outDir ./lib",
-    "build": "yarn run build:es & yarn run  build:cj"
+    "build:cj": "tsc --module CommonJS --outDir ./lib -d true --declarationDir ./dts",
+    "build": "yarn build:es & yarn build:cj && yarn roll",
+    "roll": "rollup -c rollup.config.js"
   },
   "devDependencies": {
     "@mxnet/types": "^0.1.4",
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "@mxnet/rlubuild": "^0.0.1"
   },
   "dependencies": {
     "axios-miniprogram-adapter": "^0.3.2"

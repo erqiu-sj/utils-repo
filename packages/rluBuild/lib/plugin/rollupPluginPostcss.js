@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-11-18 22:15:23
- * @LastEditTime: 2022-11-20 14:30:26
+ * @LastEditTime: 2022-11-20 15:50:20
  * @Description:
  * @FilePath: /repo/packages/rluBuild/src/plugin/rollupPluginPostcss.ts
  */
@@ -18,13 +18,6 @@ export class RollupPluginPostcss extends PluginHelper {
     }
     getConfig() {
         const that = this;
-        return {
-            name: this.plugInNamePrefix('rollupPluginPostcss'),
-            options(options) {
-                return Object.assign(Object.assign({}, options), { 
-                    // @ts-ignore
-                    plugins: [postcss(that.config)] });
-            },
-        };
+        return Object.assign({}, postcss(that.config));
     }
 }

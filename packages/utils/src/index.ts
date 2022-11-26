@@ -6,8 +6,6 @@
  * @FilePath: /repo/packages/utils/src/index.ts
  */
 
-/// <reference path="./common/html2canvas/index.d.ts" />
-
 export * from './businessLogic/controlTiming/controlTiming'
 export * from './baseType'
 export * from './businessLogic/bigTurntable/index'

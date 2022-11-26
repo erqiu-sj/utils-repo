@@ -1,18 +1,61 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-01 16:35:52
- * @LastEditTime: 2022-11-18 22:10:51
+ * @LastEditTime: 2022-11-20 15:59:08
  * @Description:
  * @FilePath: /repo/packages/taro/rollup.config.ts
  */
+// import { RluBuild } from '@mxnet/rlubuild';
+
+
+// const h = new RluBuild().addPlugin(pl => {
+//   pl.externalPackagesHelper({})
+//   pl.addRollupPluginNodeResolve()
+//   pl.addTypescript({
+//     tsconfig: "./tsconfig.rollup.json"
+//   })
+//   pl.addRollupCommonjs({
+//     include: /\/node_modules\//
+//   })
+//   pl.addRollupPluginTerser({
+//     compress: {
+//       pure_getters: true,
+//       unsafe: true,
+//       unsafe_comps: true,
+//       drop_console: false,
+//       drop_debugger: true,
+//     }
+//   })
+// }).build(
+//   {
+//     input: './src/index.ts',
+//     output: [
+//       {
+//         file: './lib/index.js',
+//         format: 'cjs',
+//         sourcemap: true,
+//       },
+//       {
+//         file: './dist/index.js',
+//         format: 'es',
+//         sourcemap: true,
+//       },
+//     ],
+//   }
+// )
+
+// export default h
+
+// @ts-ignore
 import rollupCommonjs from '@rollup/plugin-commonjs'
 import rollupNodeResolve from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'rollup'
 import terser from 'rollup-plugin-terser'
 import rollupTs from 'rollup-plugin-typescript2'
 
+
 const externalPackages = ['react', '@tarojs/taro', '@tarojs/runtime', '@tarojs/react']
-// @ts-ignore
+
 export default defineConfig({
   input: './src/index.ts',
   output: [
@@ -47,3 +90,4 @@ export default defineConfig({
     }),
   ],
 })
+
