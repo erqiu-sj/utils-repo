@@ -7,13 +7,14 @@ exports.Alias = void 0;
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-14 21:56:23
- * @LastEditTime: 2022-09-04 16:04:00
+ * @LastEditTime: 2022-11-27 17:05:23
  * @Description:
  * @FilePath: /repo/packages/build/src/plugin/alias.ts
  */
 const lodash_defaultsdeep_1 = __importDefault(require("lodash.defaultsdeep"));
 const path_1 = require("path");
 const genConfig_1 = require("../common/genConfig");
+// import { MergeConfiguration } from '../types/index'
 class Alias {
     constructor() {
         this.config = {};

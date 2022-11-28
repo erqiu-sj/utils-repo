@@ -25,7 +25,8 @@
     "url": "https://gitee.com/cq_maixun_network/repo.git"
   },
   "scripts": {
-    "up:rollup": "yarn upgrade rollup@latest"
+    "up:rollup": "yarn upgrade rollup@latest",
+    "build": "sh build.sh"
   },
   "devDependencies": {
     "rollup": "^3.3.0"

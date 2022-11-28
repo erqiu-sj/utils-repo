@@ -1,0 +1,21 @@
+{
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build"],
+        "accessToken": "OTQ1MzU4MDMtZmJlYi00MjllLTg1ZGMtZTMxYjExMzllMTlkfHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["{projectRoot}/dist,lib,dts,dist.umd"]
+    },
+    "up:rollup": {
+      "dependsOn": ["^up:rollup"]
+    }
+  },
+  "defaultBase": "main"
+}

@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-12 21:13:02
- * @LastEditTime: 2022-09-04 16:18:33
+ * @LastEditTime: 2022-11-27 17:05:06
  * @Description:  自动导入api
  * @FilePath: /repo/packages/build/src/plugin/autoImport.ts
  */
@@ -13,16 +13,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AutoImportApi = void 0;
 // @ts-ignore
 const unplugin_auto_import_1 = __importDefault(require("unplugin-auto-import"));
-const types_1 = require("../types");
 const include = [
     /\.[tj]sx?$/,
     /\.vue$/,
     /\.vue\?vue/,
     /\.md$/, // .md
 ];
-class AutoImportApi extends types_1.MergeConfiguration {
+class AutoImportApi {
     constructor() {
-        super(...arguments);
         this.defaultImports = [];
     }
     // 根据技术栈配置预设

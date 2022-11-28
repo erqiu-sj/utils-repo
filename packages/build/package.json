@@ -39,9 +39,12 @@
     "@vitejs/plugin-vue": "^2.3.3",
     "lodash.defaultsdeep": "^4.6.1",
     "postcss-px-to-viewport": "^1.1.1",
+    "rollup-plugin-visualizer": "^5.8.3",
     "typescript": "^4.5.4",
+    "unocss": "^0.46.5",
     "unplugin-auto-import": "^0.8.7",
     "vconsole": "^3.14.6",
+    "vite-plugin-inspect": "^0.7.9",
     "vite-plugin-pwa": "^0.12.3",
     "vite-plugin-vconsole": "^1.2.2",
     "vue-tsc": "^0.34.7"

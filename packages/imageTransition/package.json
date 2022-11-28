@@ -29,7 +29,7 @@
     "url": "https://gitee.com/cq_maixun_network/repo.git"
   },
   "scripts": {
-    "build": "tsc"
+    "builds": "tsc"
   },
   "devDependencies": {
     "@mxnet/types": "^0.1.4",

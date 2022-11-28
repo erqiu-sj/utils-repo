@@ -18,6 +18,7 @@
   "main": "./lib/index.js",
   "module": "./dist/index.js",
   "types": "./dts/index.d.ts",
+  "type": "module",
   "files": [
     "lib",
     "dts",
@@ -37,7 +38,7 @@
     "build:umd": "rollup -c -f umd -d dist.umd",
     "build:cjs": "rollup -c -f cjs -d lib",
     "build:esm": "rollup -c -f esm -d dist",
-    "build": "sh ./build.sh",
+    "build": "sh build.sh",
     "up:rollup": "yarn upgrade rollup@latest"
   },
   "dependencies": {

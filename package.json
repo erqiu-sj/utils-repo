@@ -7,14 +7,22 @@
     "cr": "sh ./script/create.sh",
     "lint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
     "clear": "lerna clean",
-    "i": "lerna bootstrap"
+    "i": "lerna bootstrap",
+    "build": "nx run-many --target=build",
+    "clearNx": "nx clear-cache",
+    "graph": "nx graph",
+    "ls": "lerna ls --long -a && lerna ls --graph",
+    "change": "lerna changed --long --all && lerna changed --graph",
+    "publish:force": "lerna publish --force-publish $(ls packages/)"
   },
   "devDependencies": {
     "commitizen": "^4.2.4",
     "cz-customizable": "^6.3.0",
     "lerna": "^4.0.0",
     "prettier": "2.6.2",
-    "vitest": "^0.12.3"
+    "vitest": "^0.12.3",
+    "nx": "15.2.1",
+    "@nrwl/nx-cloud": "latest"
   },
   "workspaces": [
     "packages/*",

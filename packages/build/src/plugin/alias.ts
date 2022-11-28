@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-14 21:56:23
- * @LastEditTime: 2022-09-04 16:04:00
+ * @LastEditTime: 2022-11-27 17:05:23
  * @Description:
  * @FilePath: /repo/packages/build/src/plugin/alias.ts
  */
@@ -9,9 +9,9 @@ import defaultsDeep from 'lodash.defaultsdeep'
 import { resolve } from 'path'
 import { PluginOption, UserConfigExport } from 'vite'
 import { getGenPluginConfig } from '../common/genConfig'
-import { MergeConfiguration } from '../types/index'
+// import { MergeConfiguration } from '../types/index'
 
-export class Alias implements MergeConfiguration {
+export class Alias {
   private config: UserConfigExport = {}
 
   plugin: PluginOption = null

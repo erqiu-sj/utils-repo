@@ -26,7 +26,7 @@
   "repository": {},
   "scripts": {
     "build:es": "tsc --module ESNext --outDir ./dist --moduleResolution node",
-    "build:cj": "tsc --module CommonJS --outDir ./lib -d true --declarationDir ./dts",
+    "build:cj": "rm -rf ./dts && tsc --module CommonJS --outDir ./lib -d true --declarationDir ./dts",
     "build": "yarn build:es & yarn build:cj && yarn roll",
     "roll": "rollup -c rollup.config.js"
   },

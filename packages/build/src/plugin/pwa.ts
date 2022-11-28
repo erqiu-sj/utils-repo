@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-04 15:18:03
- * @LastEditTime: 2022-09-04 16:18:50
+ * @LastEditTime: 2022-11-27 17:04:50
  * @Description:
  * @FilePath: /repo/packages/build/src/plugin/pwa.ts
  */
@@ -10,7 +10,7 @@ import { Plugin } from 'vite'
 import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa'
 import { MergeConfiguration } from '../types'
 
-export class Pwa implements MergeConfiguration {
+export class Pwa implements MergeConfiguration<VitePWAOptions> {
   private defaultConfigure: Partial<VitePWAOptions> = {
     injectRegister: 'auto',
     registerType: 'autoUpdate',

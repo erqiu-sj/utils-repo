@@ -1,17 +1,13 @@
 "use strict";
-/*
- * @Author: 邱狮杰
- * @Date: 2022-05-12 17:58:13
- * @LastEditTime: 2022-09-25 10:43:51
- * @Description:
- * @FilePath: /repo/packages/build/src/common/configuration.ts
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ViteConfiguration = void 0;
 const routeazyLoading_1 = require("../plugin//routeazyLoading");
 const alias_1 = require("../plugin/alias");
 const autoImport_1 = require("../plugin/autoImport");
+const inspect_1 = require("../plugin/inspect");
 const pwa_1 = require("../plugin/pwa");
+const rollupPluginVisualizer_1 = require("../plugin/rollupPluginVisualizer");
+const unocssPlugin_1 = require("../plugin/unocssPlugin");
 const vconsole_1 = require("../plugin/vconsole");
 const scenes_1 = require("./scenes");
 class ViteConfiguration {
@@ -61,6 +57,30 @@ class ViteConfiguration {
     addRouteLazyLoading(obj) {
         const r = new routeazyLoading_1.RouteLazyLoading();
         this.plugins.push(r.addRouterConfig(obj).getPlugin());
+        return this;
+    }
+    /**
+     * @description Bundle 分析
+     */
+    addRollupPluginVisualizer(conf) {
+        const s = new rollupPluginVisualizer_1.RollupPluginVisualizer();
+        this.plugins.push(s.createBasicConfiguration(conf).getPlugin());
+        return this;
+    }
+    /**
+     * @description 测试插件
+     */
+    addInspect(conf) {
+        const s = new inspect_1.Inspect();
+        this.plugins.push(s.createBasicConfiguration(conf).getPlugin());
+        return this;
+    }
+    /**
+     * @description add unocssPlugin
+     */
+    addUnocssPlugin(conf) {
+        const u = new unocssPlugin_1.UnocssPlugin();
+        this.plugins.push(u.createBasicConfiguration(conf).getPlugin());
         return this;
     }
     // 返回配置

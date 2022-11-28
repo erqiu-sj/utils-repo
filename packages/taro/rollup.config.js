@@ -1,12 +1,11 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-08-01 16:35:52
- * @LastEditTime: 2022-11-20 15:59:08
+ * @LastEditTime: 2022-11-29 00:19:56
  * @Description:
- * @FilePath: /repo/packages/taro/rollup.config.ts
+ * @FilePath: /repo/packages/taro/rollup.config.js
  */
 // import { RluBuild } from '@mxnet/rlubuild';
-
 
 // const h = new RluBuild().addPlugin(pl => {
 //   pl.externalPackagesHelper({})
@@ -50,9 +49,8 @@
 import rollupCommonjs from '@rollup/plugin-commonjs'
 import rollupNodeResolve from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'rollup'
-import terser from 'rollup-plugin-terser'
+import { terser } from 'rollup-plugin-terser'
 import rollupTs from 'rollup-plugin-typescript2'
-
 
 const externalPackages = ['react', '@tarojs/taro', '@tarojs/runtime', '@tarojs/react']
 
@@ -79,7 +77,7 @@ export default defineConfig({
     rollupTs({
       tsconfig: './tsconfig.rollup.json',
     }),
-    terser.terser({
+    terser({
       compress: {
         pure_getters: true,
         unsafe: true,
@@ -90,4 +88,3 @@ export default defineConfig({
     }),
   ],
 })
-

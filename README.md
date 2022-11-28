@@ -1,12 +1,20 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-11 22:37:08
- * @LastEditTime: 2022-11-20 15:45:32
+ * @LastEditTime: 2022-11-29 02:07:32
  * @Description:
  * @FilePath: /repo/README.md
 -->
 
 # utils repo
+
+[`monorepo 管理工具 lerna 官网`](https://lerna.js.org)
+
+[`monorepo 加强器 nx 官网`](https://nx.dev)
+
+## 用到了哪些 `lerna/nx` 特性
+
+[`README`](/docs/characteristic.md)
 
 ## 构建环境
 

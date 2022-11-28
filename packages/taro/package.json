@@ -22,6 +22,7 @@
   "module": "./dist/index.js",
   "main": "./dist/index.js",
   "types": "./dts/index.d.ts",
+  "type": "module",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"

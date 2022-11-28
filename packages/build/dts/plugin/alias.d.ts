@@ -1,6 +1,5 @@
 import { PluginOption, UserConfigExport } from 'vite';
-import { MergeConfiguration } from '../types/index';
-export declare class Alias implements MergeConfiguration {
+export declare class Alias {
     private config;
     plugin: PluginOption;
     private pwd;

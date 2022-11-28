@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-12 21:13:02
- * @LastEditTime: 2022-09-04 16:18:33
+ * @LastEditTime: 2022-11-27 17:05:06
  * @Description:  自动导入api
  * @FilePath: /repo/packages/build/src/plugin/autoImport.ts
  */
@@ -21,7 +21,7 @@ const include = [
   /\.md$/, // .md
 ]
 
-export class AutoImportApi extends MergeConfiguration {
+export class AutoImportApi {
   private userConfig?: Plugin
 
   private defaultImports: string[] = []

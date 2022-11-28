@@ -1,18 +1,23 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-12 17:58:13
- * @LastEditTime: 2022-09-25 10:43:51
+ * @LastEditTime: 2022-11-27 17:13:25
  * @Description:
  * @FilePath: /repo/packages/build/src/common/configuration.ts
  */
-
 import { PluginOption, UserConfig, UserConfigExport } from 'vite'
 import { VitePWAOptions } from 'vite-plugin-pwa'
 import { viteVConsoleOptions } from 'vite-plugin-vconsole'
 import { RouteLazyLoading } from '../plugin//routeazyLoading'
 import { Alias } from '../plugin/alias'
 import { AutoImportApi, autoImportOptions } from '../plugin/autoImport'
+import type { Options } from '../plugin/inspect'
+import { Inspect } from '../plugin/inspect'
 import { Pwa } from '../plugin/pwa'
+import type { PluginVisualizerOptions } from '../plugin/rollupPluginVisualizer'
+import { RollupPluginVisualizer } from '../plugin/rollupPluginVisualizer'
+import type { VitePluginConfig } from '../plugin/unocssPlugin'
+import { UnocssPlugin } from '../plugin/unocssPlugin'
 import { Vconsole } from '../plugin/vconsole'
 import { determineConfigurationAccordingTechnologyStack, eliminatePropertiesBasedTechnologyStack, scenesTypes, technologyStackTypes } from '../types'
 import { Scenes } from './scenes'
@@ -75,6 +80,33 @@ export class ViteConfiguration {
   addRouteLazyLoading(obj: object): this {
     const r = new RouteLazyLoading()
     this.plugins.push(r.addRouterConfig(obj).getPlugin())
+    return this
+  }
+
+  /**
+   * @description Bundle 分析
+   */
+  addRollupPluginVisualizer(conf?: PluginVisualizerOptions) {
+    const s = new RollupPluginVisualizer()
+    this.plugins.push(s.createBasicConfiguration(conf).getPlugin())
+    return this
+  }
+
+  /**
+   * @description 测试插件
+   */
+  addInspect(conf?: Options) {
+    const s = new Inspect()
+    this.plugins.push(s.createBasicConfiguration(conf).getPlugin())
+    return this
+  }
+
+  /**
+   * @description add unocssPlugin
+   */
+  addUnocssPlugin(conf?: VitePluginConfig) {
+    const u = new UnocssPlugin()
+    this.plugins.push(u.createBasicConfiguration(conf).getPlugin())
     return this
   }
 

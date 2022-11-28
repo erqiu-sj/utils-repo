@@ -1,7 +1,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-07-23 10:50:11
- * @LastEditTime: 2022-11-20 15:37:34
+ * @LastEditTime: 2022-11-27 17:17:50
  * @Description: 
  * @FilePath: /repo/packages/weChatPublicAccountHelper/rollup.config.ts
  */
@@ -29,6 +29,16 @@ const h = new RluBuild().addPlugin(pl => {
                 name: 'weChatPublicAccountHelper',
                 format: 'umd',
             },
+            {
+                dir: "./dist",
+                format: "esm",
+                sourcemap: true
+            },
+            {
+                dir: "./lib",
+                format: "cjs",
+                sourcemap: true
+            }
         ]
     ,
 })
