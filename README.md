@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-11 22:37:08
- * @LastEditTime: 2022-11-29 02:07:32
+ * @LastEditTime: 2022-12-01 14:23:20
  * @Description:
  * @FilePath: /repo/README.md
 -->
@@ -70,20 +70,10 @@ sh ./script/install.sh
 
 ## TODO
 
-- 完善文档
-
-- `eslint config`
-
-- `stylelint config`
-
 - `packages` 包完善
-
-- `统一 tsconfig`
 
 - `h5`
 
-  - 预加载
-  - `loading`
   - ~~开发部署阶段的页面提示~~
   - ~~`快门css`~~
 
