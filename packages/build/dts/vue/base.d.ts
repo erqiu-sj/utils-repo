@@ -12,5 +12,6 @@ export declare class ScenarioExpectationsForVue implements ScenarioExpectations 
     private getPcConfig;
     private getMobileConfig;
     private schedulingDefaultMobileConfiguration;
+    private dispatchingVueMacros;
     getConfig(): PluginOption;
 }

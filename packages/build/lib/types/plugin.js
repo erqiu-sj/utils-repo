@@ -2,7 +2,7 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-12 19:42:50
- * @LastEditTime: 2022-11-27 16:48:10
+ * @LastEditTime: 2022-12-14 17:36:38
  * @Description:
  * @FilePath: /repo/packages/build/src/types/plugin.ts
  */

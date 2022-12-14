@@ -13,7 +13,8 @@
     "graph": "nx graph",
     "ls": "lerna ls --long -a && lerna ls --graph",
     "change": "lerna changed --long --all && lerna changed --graph",
-    "publish:force": "lerna publish --force-publish $(ls packages/)"
+    "publish:force": "lerna publish --force-publish $(ls packages/)",
+    "build:nx": "nx run @mxnet/build:build"
   },
   "devDependencies": {
     "commitizen": "^4.2.4",

@@ -1,7 +1,7 @@
 <!--
  * @Author: 邱狮杰
  * @Date: 2022-05-10 23:05:45
- * @LastEditTime: 2022-08-20 22:05:16
+ * @LastEditTime: 2022-12-13 10:44:17
  * @Description:
  * @FilePath: /repo/packages/build/README.md
 -->
@@ -123,4 +123,61 @@ const config = new ViteConfiguration()
 new ViteConfiguration().setTechnologyStack("vue").addRouteLazyLoading({});
 ```
 
+### vueMacros
+
+- [vue-macros](https://vue-macros.sxzz.moe/)
+
+```ts
+new ViteConfiguration()
+  .setScenes("mobile")
+  .setTechnologyStack("vue", {
+    vueMacros: {},
+  })
+  .getConfig();
+```
+
+### inspect
+
+- [Inspect](https://github.com/antfu/vite-plugin-inspect.git)
+
+> 测试插件
+
+```ts
+new ViteConfiguration()
+  .setScenes("mobile")
+  .setTechnologyStack("vue")
+  .addInspect()
+  .getConfig();
+```
+
+### addRollupPluginVisualizer
+
+> `bundle` 分析
+
+- [rollup Plugin Visualizer](https://github.com/btd/rollup-plugin-visualizer)
+
+```ts
+new ViteConfiguration()
+  .setScenes("mobile")
+  .setTechnologyStack("vue")
+  .addRollupPluginVisualizer()
+  .getConfig();
+```
+
+### RouteLazyLoading
+
+> `vue` 路由懒加载
+
+```ts
+new ViteConfiguration()
+  .setScenes("mobile")
+  .setTechnologyStack("vue")
+  .addRouteLazyLoading()
+  .getConfig();
+```
+
 ## Plugin
+
+```
+
+```

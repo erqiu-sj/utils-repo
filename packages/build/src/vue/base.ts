@@ -1,14 +1,17 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-05-10 23:13:23
- * @LastEditTime: 2022-09-25 12:22:21
+ * @LastEditTime: 2022-12-14 16:39:21
  * @Description:
  * @FilePath: /repo/packages/build/src/vue/base.ts
  */
 
 import vue from '@vitejs/plugin-vue'
+import { Options } from 'unplugin-vue-macros'
 import { PluginOption } from 'vite'
 import { PostcssPxToViewport } from '../plugin/postcssPxToViewport'
+import { VueJSX } from '../plugin/vuejsx'
+import { VueMacro } from '../plugin/vueMacro'
 import { scenesTypes } from '../types/base'
 import { ScenarioExpectations, ScenarioExpectationsForVueDefaultOptionTypes } from '../types/scenes'
 
@@ -23,8 +26,19 @@ export class ScenarioExpectationsForVue implements ScenarioExpectations {
   }
 
   defaultNotConfigurable(): PluginOption {
-    return [vue()]
+    const def: Options = {
+      plugins: {
+        vue: vue(this.defaultConfig?.default ? {} : this.defaultConfig?.vuePlugin),
+      },
+    }
+
+    const result = [
+      ...(new VueMacro().createBasicConfiguration(this.defaultConfig?.default ? def : Object.assign({}, this.defaultConfig?.vueMacros, def)).getPlugin() || []),
+      new VueJSX().createBasicConfiguration(this.defaultConfig?.default ? {} : this.defaultConfig?.vueJsxPlugin).getPlugin(),
+    ]
+    return result
   }
+
   setScene(type: scenesTypes): this {
     this.scenes = type
     return this
@@ -40,7 +54,11 @@ export class ScenarioExpectationsForVue implements ScenarioExpectations {
 
   private schedulingDefaultMobileConfiguration() {
     const mobileConfig = this.defaultConfig as ScenarioExpectationsForVueDefaultOptionTypes<'mobile'>
-    return this.postcssPxToViewport.injectionConfiguration(mobileConfig?.postcssPxToViewport ?? mobileConfig?.default)
+    return [this.postcssPxToViewport.injectionConfiguration(mobileConfig?.postcssPxToViewport ?? mobileConfig?.default)]
+  }
+
+  private dispatchingVueMacros() {
+    return
   }
 
   getConfig(): PluginOption {

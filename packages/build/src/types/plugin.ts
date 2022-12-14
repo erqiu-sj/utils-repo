@@ -1,12 +1,13 @@
 /*
  * @Author: 邱狮杰
  * @Date: 2022-06-12 19:42:50
- * @LastEditTime: 2022-11-27 16:48:10
+ * @LastEditTime: 2022-12-14 17:36:38
  * @Description:
  * @FilePath: /repo/packages/build/src/types/plugin.ts
  */
 
-import { Plugin, UserConfigExport } from 'vite';
+import { Plugin } from 'vite'
+import { VitePluginProgress } from '../plugin/vitePluginProgress'
 
 /**
  * @description 合并配置基础继承抽象类
@@ -14,4 +15,8 @@ import { Plugin, UserConfigExport } from 'vite';
 export abstract class MergeConfiguration<T = unknown> {
   abstract getPlugin(): Plugin | null | Plugin[]
   abstract createBasicConfiguration(conf?: T): this
+}
+
+export interface CommonPluginsConfig {
+  vitePluginProgress: Parameters<VitePluginProgress['createBasicConfiguration']>[0]
 }
